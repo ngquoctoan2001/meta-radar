@@ -5,16 +5,12 @@
 //   node scripts/render.mjs 7.3a --scale=1        → bản chuẩn 1920×1080
 //
 // Ảnh lưu vào patches/<patch>/out/. Nếu server chưa chạy, script tự bật tạm rồi tắt.
-import { spawn } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { DEFAULT_SCALE, isScale, fileName } from '../src/js/lib/output.js';
+import { ROOT } from './lib/patches.mjs';
 import { removeStale } from './lib/outdir.mjs';
-
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PORT = Number(process.env.PORT ?? 5173);
-const ORIGIN = `http://localhost:${PORT}`;
+import { ensureServer } from './lib/ensure-server.mjs';
 
 const args = process.argv.slice(2);
 const scale = Number(args.find((a) => a.startsWith('--scale='))?.split('=')[1] ?? DEFAULT_SCALE);
@@ -24,20 +20,13 @@ if (!patchId || !isScale(scale)) {
   process.exit(1);
 }
 
-const isUp = () => fetch(`${ORIGIN}/api/health`).then((r) => r.ok, () => false);
-
-let child;
-if (!(await isUp())) {
-  child = spawn(process.execPath, [path.join(ROOT, 'scripts', 'server.mjs')], { stdio: 'ignore', env: { ...process.env, PORT: String(PORT) } });
-  for (let i = 0; i < 50 && !(await isUp()); i++) await new Promise((r) => setTimeout(r, 200));
-}
-
+const { origin, stop } = await ensureServer();
 try {
   const patch = JSON.parse(await readFile(path.join(ROOT, 'patches', patchId, 'patch.json'), 'utf8'));
   const slides = patch.slides.filter((s) => !only.length || only.includes(s.id));
   for (const s of slides) {
     const t = Date.now();
-    const res = await fetch(`${ORIGIN}/api/render?${new URLSearchParams({ patch: patchId, slide: s.id, scale })}`);
+    const res = await fetch(`${origin}/api/render?${new URLSearchParams({ patch: patchId, slide: s.id, scale })}`);
     if (!res.ok) {
       console.error(`✘ ${s.id}: ${(await res.json().catch(() => ({}))).error ?? res.status}`);
       process.exitCode = 1;
@@ -53,5 +42,5 @@ try {
   }
   console.log(`\nẢnh đã lưu ở patches/${patchId}/out/ (${scale}x)`);
 } finally {
-  child?.kill();
+  stop();
 }

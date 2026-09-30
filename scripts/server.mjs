@@ -18,6 +18,7 @@ import { renderSlide, closeBrowser } from './lib/renderer.mjs';
 import { createZip } from './lib/zip.mjs';
 import { readJSON, listPatches } from './lib/patches.mjs';
 import { outDir, removeStale } from './lib/outdir.mjs';
+import { API_VERSION } from './lib/ensure-server.mjs';
 import { SCALES, DEFAULT_SCALE, isScale, fileName } from '../src/js/lib/output.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -60,7 +61,7 @@ async function handleApi(url, res) {
 
   switch (url.pathname) {
     case '/api/health':
-      return sendJSON(res, 200, { ok: true });
+      return sendJSON(res, 200, { ok: true, api: API_VERSION });
     case '/api/patches':
       return sendJSON(res, 200, await listPatches());
     case '/api/render': {
@@ -88,7 +89,7 @@ async function handleApi(url, res) {
       const dir = outDir(patchId);
       await mkdir(dir, { recursive: true });
       exec(`explorer "${dir}"`);
-      return sendJSON(res, 200, { ok: true });
+      return sendJSON(res, 200, { ok: true, api: API_VERSION });
     }
     default:
       return sendJSON(res, 404, { error: 'API không tồn tại' });

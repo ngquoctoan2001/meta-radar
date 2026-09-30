@@ -29,7 +29,7 @@ function balanceMeter(entry) {
   return `<section class="balance">
     <div class="balance-head">
       <span class="balance-kicker">CÁN CÂN THAY ĐỔI</span>
-      <span class="balance-result is-${k}">${STATUS[k].icon}THIÊN VỀ ${STATUS[k].label}</span>
+      <span class="balance-result is-${k}">${STATUS[k].icon}${k === 'mixed' ? 'VỪA TĂNG VỪA GIẢM' : `THIÊN VỀ ${STATUS[k].label}`}</span>
     </div>
     <div class="balance-bar">
       <span class="balance-part is-buff" style="flex:${buff}"><b>${buff}</b> TĂNG</span>

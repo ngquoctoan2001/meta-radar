@@ -62,3 +62,8 @@
 .sys-lines .ln-delta { grid-column: 4; }
 .sys-lines .ln-delta b { font-size: 22px; }
 .slide--system .verdict { margin-top: 0; }
+/* chỉ 1–2 thay đổi hệ thống: thẻ không kéo hết chiều ngang, canh giữa */
+.slide--system[data-count="1"] .sys-cards,
+.slide--system[data-count="2"] .sys-cards { justify-content: center; }
+.slide--system[data-count="1"] .sys-card,
+.slide--system[data-count="2"] .sys-card { flex: 0 1 640px; }

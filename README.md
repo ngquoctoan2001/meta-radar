@@ -66,13 +66,31 @@ Màu sắc và BUFF/NERF của **từng dòng số liệu được tính tự đ
 
 ## Thêm patch mới
 
-1. Bạn gửi file `.md` bản dịch patch.
-2. Claude chuyển thành `patches/<bản>/patch.json`. Định dạng xem ở [07-dinh-dang-patch-json.md](docs/07-dinh-dang-patch-json.md).
-3. Tướng nào chưa có ảnh thì tải về:
-   ```bash
-   node scripts/fetch-champion.mjs <tên-tướng>
-   ```
-4. Bấm **Làm mới** trên trang quản lý, duyệt, rồi tải ảnh.
+Gửi file `.md` bản dịch patch cho Claude (vd *"bản cập nhật mới nè, file patch-7-3-b.md"*). Skill **tao-anh-patch** sẽ lo trọn quy trình:
+1. Đọc `.md` → tạo `patches/<bản>/patch.json` (định dạng: [07-dinh-dang-patch-json.md](docs/07-dinh-dang-patch-json.md)).
+2. Tải dữ liệu + ảnh tướng/trang bị còn thiếu, đo vị trí khuôn mặt tướng.
+3. Viết câu chốt (bản nháp — bạn sửa được trong `patch.json`).
+4. Kiểm tra tự động, xuất ảnh vào `patches/<bản>/out/`, gửi ảnh tổng hợp để duyệt.
+
+Sau đó bấm **Làm mới** trên trang quản lý để xem và tải ảnh.
+
+### Skill cho Claude (`.claude/skills/`)
+
+| Skill | Dùng khi |
+|---|---|
+| `tao-anh-patch` | Gửi file `.md` patch mới → tạo trọn bộ ảnh |
+| `them-tuong-trang-bi` | Thêm/làm mới tướng hoặc trang bị, ảnh tướng bị lệch, icon sai |
+| `kiem-tra-anh-patch` | Sửa câu chốt / trạng thái / số liệu rồi xuất lại, kiểm tra lỗi trước khi đăng |
+
+### Script
+
+| Lệnh | Việc |
+|---|---|
+| `node scripts/fetch-champion.mjs <slug…>` | Tải dữ liệu + splash + icon kỹ năng (tự chọn bản nét nhất) |
+| `node scripts/splash-grid.mjs <slug…>` | Ảnh splash kẻ lưới → đo `layout.focusX` (vị trí khuôn mặt) |
+| `node scripts/fetch-item.mjs "<tên EN/VN>"` | Tải icon, giá, chỉ số Tốc Chiến, tên VN của trang bị · `--list` để tra tay |
+| `node scripts/audit.mjs <bản> --sheet` | Kiểm tra dữ liệu + từng ảnh, tạo `review/<bản>-tong-hop.png` |
+| `node scripts/render.mjs <bản>` | Xuất ảnh (mặc định nét 2x, `--scale=1` cho bản chuẩn) |
 
 ## Cấu trúc thư mục
 
@@ -88,7 +106,9 @@ data/champions/<tướng>.json      tải tự động + vị trí khuôn mặt 
 data/items/<trang-bị>.json       tên EN/VN, giá, chỉ số, màu nhấn
 patches/<bản>/                   source.md (bản dịch) · patch.json (dữ liệu ảnh) · out/ (PNG đã xuất)
 assets/                          logo, ảnh tướng, icon skill/trang bị, font (chạy offline)
-scripts/                         server.mjs · render.mjs · fetch-champion.mjs
+scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs
+.claude/skills/                  skill cho Claude: tao-anh-patch · them-tuong-trang-bi · kiem-tra-anh-patch
+review/                          ảnh kiểm tra tạm (không commit)
 tests/                           kiểm thử bộ phân tích số liệu:  npm test
 ```
 
