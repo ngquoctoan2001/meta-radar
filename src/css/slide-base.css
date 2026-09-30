@@ -243,18 +243,18 @@ svg { display: block; }
 .changes.is-densest .ln { padding: 4px 0; }
 
 /* Thẻ có số liệu dài (vd theo cấp 50/90/130/170%): nhãn lên 1 dòng riêng phía trên số liệu.
-   fit.js tự bật .is-stacked khi cột nhãn bị ép quá hẹp; thẻ trong 2 cột (khổ 1:1) luôn dùng kiểu này. */
-.chg.is-stacked .chg-lines, .changes--cols .chg-lines { grid-template-columns: auto 34px auto 1fr; column-gap: 14px; }
-.chg.is-stacked .ln, .changes--cols .ln { row-gap: 6px; }
-.chg.is-stacked .ln-label, .changes--cols .ln-label { grid-column: 1 / -1; }
-.chg.is-stacked .ln-old, .changes--cols .ln-old { grid-column: 1; justify-self: start; }
-.chg.is-stacked .ln-arrow, .changes--cols .ln-arrow { grid-column: 2; }
-.chg.is-stacked .ln-new, .changes--cols .ln-new { grid-column: 3; }
-.chg.is-stacked .ln-delta, .changes--cols .ln-delta { grid-column: 4; }
-/* dòng mô tả chữ ở kiểu này: nhãn + dấu trạng thái ở hàng 1, câu mô tả chạy hết chiều ngang ở hàng 2 */
-.chg.is-stacked .ln--text .ln-label, .changes--cols .ln--text .ln-label { grid-column: 1 / 4; grid-row: 1; }
-.chg.is-stacked .ln--text .ln-delta, .changes--cols .ln--text .ln-delta { grid-column: 4; grid-row: 1; }
-.chg.is-stacked .ln--text .ln-text, .changes--cols .ln--text .ln-text { grid-column: 1 / -1; grid-row: 2; }
+   fit.js tự bật .is-stacked khi cột nhãn bị ép quá hẹp. */
+.chg.is-stacked .chg-lines { grid-template-columns: auto 34px auto 1fr; column-gap: 14px; }
+.chg.is-stacked .ln { row-gap: 6px; }
+.chg.is-stacked .ln-label { grid-column: 1 / -1; }
+.chg.is-stacked .ln-old { grid-column: 1; justify-self: start; }
+.chg.is-stacked .ln-arrow { grid-column: 2; }
+.chg.is-stacked .ln-new { grid-column: 3; }
+.chg.is-stacked .ln-delta { grid-column: 4; }
+/* dòng mô tả chữ: nhãn + dấu trạng thái ở hàng 1, câu mô tả chạy hết chiều ngang ở hàng 2 */
+.chg.is-stacked .ln--text .ln-label { grid-column: 1 / 4; grid-row: 1; }
+.chg.is-stacked .ln--text .ln-delta { grid-column: 4; grid-row: 1; }
+.chg.is-stacked .ln--text .ln-text { grid-column: 1 / -1; grid-row: 2; }
 
 .slide-error { padding: 80px; color: #fff; font: 500 28px/1.4 var(--f-body); background: #3a0a16; width: 1920px; height: 1080px; }
 .slide-error pre { white-space: pre-wrap; color: #ffb3c4; }

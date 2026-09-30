@@ -13,47 +13,56 @@
   },
   "portrait": "assets/champions/viego/portrait.jpg",
   "splash": "assets/champions/viego/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
   "splashName": "VIEGO, HẮC DIỆT ĐẾ VƯƠNG",
   "skills": [
     {
       "key": "p",
       "slot": "NỘI TẠI",
       "name": "THỐNG TRỊ TỐI CAO",
-      "icon": "assets/champions/viego/skill-p.jpg",
+      "icon": "assets/champions/viego/skill-p.png",
+      "iconSize": 128,
       "description": "Kẻ địch gục ngã dưới chân Viego sẽ trở thành những hồn ma. Khi tấn công một hồn ma, Viego sẽ tạm thời chiếm hữu thể xác của kẻ địch bị hạ gục, hồi máu bằng một phần máu tối đa của mục tiêu đó, được sử dụng các kỹ năng cơ bản cũng như sở hữu trang bị của chúng. Chiêu cuối của kẻ địch sẽ được thay thế bằng một lần sử dụng miễn phí chiêu cuối của Viego."
     },
     {
       "key": "q",
       "slot": "Q",
       "name": "LƯỠI GƯƠM SUY VONG",
-      "icon": "assets/champions/viego/skill-q.jpg",
+      "icon": "assets/champions/viego/skill-q.png",
+      "iconSize": 128,
       "description": "Lưỡi gươm ma quái của Viego gây sát thương cộng thêm theo phần trăm máu hiện tại của kẻ địch Trên Đòn Đánh, và tấn công hai lần đối với những kẻ địch vừa trúng Kỹ Năng của gã, đồng thời Hút Máu. Viego có thể kích hoạt Kỹ Năng này để đâm thanh cự kiếm của mình, gây sát thương lên kẻ địch phía trước mặt."
     },
     {
       "key": "w",
       "slot": "W",
       "name": "MÓNG VUỐT HẮC ÁM",
-      "icon": "assets/champions/viego/skill-w.jpg",
+      "icon": "assets/champions/viego/skill-w.png",
+      "iconSize": 128,
       "description": "Viego vận sức trước khi lướt về phía trước, phóng thích một Màn Sương Đen dày đặc làm choáng kẻ địch đầu tiên trúng chiêu."
     },
     {
       "key": "e",
       "slot": "E",
       "name": "LÃNH THỔ SƯƠNG ĐEN",
-      "icon": "assets/champions/viego/skill-e.jpg",
+      "icon": "assets/champions/viego/skill-e.png",
+      "iconSize": 128,
       "description": "Viego hạ lệnh cho Màn Sương Đen ám ảnh và bao bọc một mảng địa hình. Viego có thể ẩn nấp trong Màn Sương như một bóng ma, nhận được Ngụy Trang, tốc độ di chuyển và tốc độ đánh."
     },
     {
       "key": "r",
       "slot": "R",
       "name": "TUYỆT MỆNH",
-      "icon": "assets/champions/viego/skill-r.jpg",
+      "icon": "assets/champions/viego/skill-r.png",
+      "iconSize": 128,
       "description": "Viego dịch chuyển đến một vị trí gần đó và gây sát thương kết liễu một tướng địch ở điểm đến, giải phóng một đợt sóng năng lượng hủy diệt đồng thời hất văng các đồng minh của chúng đang ở gần ra xung quanh."
     }
   ],
   "layout": {
-    "splashPosition": "100% 20%",
-    "splashSize": "cover"
+    "focusX": 0.79
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/viego/",
   "syncedAt": "2026-09-30"

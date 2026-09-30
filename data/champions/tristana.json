@@ -13,47 +13,56 @@
   },
   "portrait": "assets/champions/tristana/portrait.jpg",
   "splash": "assets/champions/tristana/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
   "splashName": "TRISTANA, TAY SÚNG YORDLE",
   "skills": [
     {
       "key": "p",
       "slot": "NỘI TẠI",
       "name": "NGẮM BẮN",
-      "icon": "assets/champions/tristana/skill-p.jpg",
+      "icon": "assets/champions/tristana/skill-p.png",
+      "iconSize": 128,
       "description": "Tầm đánh, tầm sử dụng Bọc Thuốc Súng và Đại Bác Đẩy Lùi sẽ tăng theo cấp độ của Tristana."
     },
     {
       "key": "q",
       "slot": "Q",
       "name": "SÚNG LIÊN THANH",
-      "icon": "assets/champions/tristana/skill-q.jpg",
+      "icon": "assets/champions/tristana/skill-q.png",
+      "iconSize": 128,
       "description": "Tristana được tăng Tốc Độ Đánh trong một khoảng thời gian ngắn."
     },
     {
       "key": "w",
       "slot": "W",
       "name": "PHÓNG NHẢY TÊN LỬA",
-      "icon": "assets/champions/tristana/skill-w.jpg",
+      "icon": "assets/champions/tristana/skill-w.png",
+      "iconSize": 128,
       "description": "Tristana nhảy đến vị trí chỉ định, gây sát thương và làm chậm các đơn vị xung quanh nơi tiếp đất trong thoáng chốc. Hạ gục, hỗ trợ hoặc kích nổ Bọc Thuốc Súng trên tướng với điểm cộng dồn tối đa sẽ hoàn lại hồi chiêu của Phóng Nhảy Tên Lửa."
     },
     {
       "key": "e",
       "slot": "E",
       "name": "BỌC THUỐC SÚNG",
-      "icon": "assets/champions/tristana/skill-e.jpg",
+      "icon": "assets/champions/tristana/skill-e.png",
+      "iconSize": 128,
       "description": "Khi Tristana tiêu diệt một mục tiêu, phát đạn của cô bắn tung ra thành những mảnh nhỏ, gây sát thương lên kẻ địch xung quanh. Có thể kích hoạt để đặt một quả bom lên 1 kẻ địch hoặc trụ chỉ định, quả bom này sẽ phát nổ sau một thời gian ngắn và gây sát thương lên những đơn vị xung quanh."
     },
     {
       "key": "r",
       "slot": "R",
       "name": "ĐẠI BÁC ĐẨY LÙI",
-      "icon": "assets/champions/tristana/skill-r.jpg",
+      "icon": "assets/champions/tristana/skill-r.png",
+      "iconSize": 128,
       "description": "Tristana nạp một viên đạn cỡ bự vào vũ khí rồi bắn vào kẻ địch. Gây Sát thương Phép và đẩy lùi mục tiêu."
     }
   ],
   "layout": {
-    "splashPosition": "87% 20%",
-    "splashSize": "cover"
+    "focusX": 0.63
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/tristana/",
   "syncedAt": "2026-09-30"

@@ -6,7 +6,7 @@ Mỗi bản cập nhật là một thư mục `patches/<bản>/`:
 patches/7.3a/
 ├─ source.md     bản dịch gốc (bạn cung cấp)
 ├─ patch.json    dữ liệu để vẽ ảnh
-└─ out/          PNG đã xuất (tự tạo), chia theo khổ: 16x9/ · 9x16/ · 1x1/
+└─ out/          PNG đã xuất (tự tạo): 7.3a-02-samira.png (1920×1080) · 7.3a-02-samira@2x.png (3840×2160)
 ```
 
 Trang quản lý tự quét thư mục `patches/`. Có `patch.json` hợp lệ là patch hiện lên danh mục.
@@ -115,34 +115,16 @@ Nếu dòng `stats` trùng nhãn với `stats` trong `data/items/<slug>.json` (v
 Trong `data/champions/<slug>.json`:
 
 ```json
-"layout": { "splashPosition": "72% 20%", "splashSize": "cover" }
+"layout": { "focusX": 0.62 }
 ```
 
-- Tăng % đầu tiên để kéo nhân vật sang trái.
-- Đổi `splashSize` thành `"auto 115%"` để phóng to.
+- `focusX` là **vị trí ngang của khuôn mặt tướng trong ảnh splash**: 0 là mép trái, 1 là mép phải.
+- Máy tự tính khung sao cho khuôn mặt nằm ở cùng một chỗ trên mọi ảnh tướng. Cách này đúng với mọi nguồn ảnh và tỉ lệ ảnh (1280×720 hay 2436×1124).
+- Tướng đứng sát mép phải ảnh gốc (vd Caitlyn) thì khung dừng ở mép, khuôn mặt lệch phải một chút.
 - Chạy lại `fetch-champion.mjs` **không xoá** phần `layout`.
 
-Muốn căn riêng cho từng khổ thì thêm khối theo tên khổ. Khổ nào không ghi thì dùng giá trị chung:
+## Lưu ý khi ảnh chật
 
-```json
-"layout": {
-  "splashPosition": "72% 20%", "splashSize": "cover",
-  "9x16": { "splashPosition": "60% 10%" },
-  "1x1": { "splashPosition": "70% 25%" }
-}
-```
-
-## Ba khổ ảnh
-
-Cùng một `patch.json` vẽ ra cả 3 khổ. Không cần nhập lại dữ liệu:
-
-| Khổ | Khung vẽ (CSS) | Ảnh xuất | File CSS |
-|---|---|---|---|
-| 16:9 | 1920×1080 | 1920×1080 | `slide-*.css` (bản gốc) |
-| 9:16 | 1080×1920 | 1080×1920 | `slide-9x16.css` |
-| 1:1 | 1440×1440 | 1080×1080 (thu 0,75) | `slide-1x1.css` |
-
-- Thẻ thay đổi, nhãn BUFF/NERF và câu chốt giữ **cùng cỡ chữ** ở mọi khổ. Khổ dọc và vuông chỉ sắp xếp lại vị trí, nên chữ trên điện thoại còn to hơn bản 16:9.
 - Tướng có quá nhiều thay đổi thì ảnh tự chuyển sang chế độ gọn. Nếu vẫn không đủ chỗ, trang quản lý sẽ hiện cảnh báo, khi đó nên tách thành 2 ảnh.
 - Số liệu dài (theo cấp, nhiều mốc như `40/60/80/100/120`) → thẻ tự đưa nhãn lên 1 dòng riêng, rồi co cỡ số nếu vẫn chật.
 - Câu chốt nên gọn trong **2–3 dòng**. Nếu chạm chân ảnh, ảnh tự thu nhỏ biểu tượng/tên. Vẫn không vừa thì trang quản lý báo "Câu chốt quá dài".

@@ -5,7 +5,8 @@
       "name": "studio",
       "runtimeExecutable": "node",
       "runtimeArgs": ["scripts/server.mjs"],
-      "port": 5173
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }

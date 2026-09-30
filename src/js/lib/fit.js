@@ -32,7 +32,7 @@ function fitCard(card) {
   if (!lines) return;
   const overflows = () => lines.scrollWidth > lines.clientWidth + 1;
   const label = card.querySelector('.ln:not(.ln--text) .ln-label');
-  if (!card.closest('.changes--cols') && ((label && label.clientWidth < MIN_LABEL) || overflows())) {
+  if ((label && label.clientWidth < MIN_LABEL) || overflows()) {
     card.classList.add('is-stacked');
   }
   const els = [...card.querySelectorAll('.ln-old, .ln-new, .ln-delta b')].map((el) => [el, px(el)]);
@@ -45,9 +45,8 @@ function fitCard(card) {
 }
 
 // [data-fit-stack]: cột thẻ thay đổi — tràn thì chuyển dần sang chế độ gọn.
-// (khổ 1:1 xếp thẻ thành 2 cột, tràn sẽ sinh thêm cột sang ngang nên kiểm tra cả chiều rộng)
 function fitStack(el) {
-  const overflows = () => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
+  const overflows = () => el.scrollHeight > el.clientHeight + 1;
   const levels = ['is-dense', 'is-denser', 'is-densest'];
   for (const cls of levels) {
     if (!overflows()) return;

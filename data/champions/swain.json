@@ -14,47 +14,56 @@
   },
   "portrait": "assets/champions/swain/portrait.jpg",
   "splash": "assets/champions/swain/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
   "splashName": "SWAIN, NGUYÊN SOÁI NOXUS",
   "skills": [
     {
       "key": "p",
       "slot": "NỘI TẠI",
       "name": "Bầy Quạ Tham Lam",
-      "icon": "assets/champions/swain/skill-p.jpg",
+      "icon": "assets/champions/swain/skill-p.png",
+      "iconSize": 128,
       "description": "Quạ của Swain thu thập Mảnh Hồn, giúp hồi máu và vĩnh viễn tăng máu tối cho hắn và được tỉ lệ với Sức Mạnh Phép Thuật."
     },
     {
       "key": "q",
       "slot": "Q",
       "name": "Bàn Tay Tử Thần",
-      "icon": "assets/champions/swain/skill-q.jpg",
+      "icon": "assets/champions/swain/skill-q.png",
+      "iconSize": 128,
       "description": "Swain bắn ra các luồng năng lượng xuyên qua kẻ địch.  Kẻ địch sẽ chịu thêm sát thương với mỗi luồng năng lượng trúng phải."
     },
     {
       "key": "w",
       "slot": "W",
       "name": "Tầm Nhìn Bá Chủ",
-      "icon": "assets/champions/swain/skill-w.jpg",
+      "icon": "assets/champions/swain/skill-w.png",
+      "iconSize": 128,
       "description": "Swain mở ra một con mắt quỷ, tạo nên một vùng nổ sau một thời gian. Vùng nổ gây sát thương và làm chậm kẻ địch. Tướng chịu thêm sát thương, bị lộ diện và cho Swain một Mảnh Hồn."
     },
     {
       "key": "e",
       "slot": "E",
       "name": "Trói Buộc",
-      "icon": "assets/champions/swain/skill-e.jpg",
+      "icon": "assets/champions/swain/skill-e.png",
+      "iconSize": 128,
       "description": "Swain phóng ra một luồng ma thuật của quỷ. Luồng ma thuật sau đó sẽ trở ngược về phía Swain, và trói chân kẻ địch trúng chiêu. Swain có thể chọn kéo tất cả kẻ địch trúng chiêu lại gần mình."
     },
     {
       "key": "r",
       "slot": "R",
       "name": "Hóa Quỷ",
-      "icon": "assets/champions/swain/skill-r.jpg",
+      "icon": "assets/champions/swain/skill-r.png",
+      "iconSize": 128,
       "description": "Swain biến hình thành một ác quỷ và hút máu của kẻ địch xung quanh. Swain có thể sử dụng Lửa Quỷ để phóng thích một đợt sóng lửa nhiều lần để gây sát thương lên kẻ địch và làm chậm chúng. Dạng quỷ có thể kéo dài mãi mãi miễn là Swain có thể tiếp tục hút máu từ tướng địch."
     }
   ],
   "layout": {
-    "splashPosition": "84% 20%",
-    "splashSize": "cover"
+    "focusX": 0.62
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/swain/",
   "syncedAt": "2026-09-30"

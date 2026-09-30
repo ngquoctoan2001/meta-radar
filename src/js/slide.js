@@ -1,8 +1,7 @@
-// Vẽ 1 ảnh theo URL:  /slide.html?patch=7.3a&slide=samira&format=9x16
+// Vẽ 1 ảnh theo URL:  /slide.html?patch=7.3a&slide=samira
 import { loadPatchBundle } from './lib/data.js';
 import { fitAll } from './lib/fit.js';
 import { esc } from './lib/ui.js';
-import { DEFAULT_FORMAT, isFormat } from './lib/formats.js';
 import { renderOverview } from './slides/overview.js';
 import { renderChampion } from './slides/champion.js';
 import { renderItem } from './slides/item.js';
@@ -28,10 +27,7 @@ async function main() {
   const q = new URLSearchParams(location.search);
   const patchId = q.get('patch');
   const slideId = q.get('slide');
-  const format = q.get('format') ?? DEFAULT_FORMAT;
   if (!patchId || !slideId) throw new Error('Thiếu tham số ?patch=...&slide=...');
-  if (!isFormat(format)) throw new Error(`Khổ ảnh "${format}" không hợp lệ`);
-  document.body.dataset.format = format;
 
   const bundle = await loadPatchBundle(patchId);
   const slides = bundle.patch.slides;
@@ -45,10 +41,8 @@ async function main() {
   // font của nội dung vừa chèn có thể chưa kịp tải → thỉnh thoảng vẽ bằng font dự phòng.
   await Promise.all([...document.fonts].map((f) => f.load().catch(() => {})));
 
-  document.title = `${patchId} · ${slideId} · ${format}`;
-  root.innerHTML = render({ ...bundle, index, total: slides.length, format }, slide);
-  // mỗi khổ có file CSS riêng (slide-9x16.css, slide-1x1.css) bám theo class này
-  root.querySelector('.slide')?.classList.add(`fmt-${format}`);
+  document.title = `${patchId} · ${slideId}`;
+  root.innerHTML = render({ ...bundle, index, total: slides.length }, slide);
 
   await document.fonts.ready;
   await waitImages();

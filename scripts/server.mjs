@@ -3,21 +3,22 @@
 //   node scripts/server.mjs          → http://localhost:5173
 //   node scripts/server.mjs --open   → tự mở trình duyệt
 //
-// API (format = 16x9 | 9x16 | 1x1, mặc định 16x9):
-//   GET /api/patches                                    danh sách patch + danh sách ảnh
-//   GET /api/render?patch=7.3a&slide=samira&format=9x16 ảnh PNG (thêm &download=1 để tải về)
-//   GET /api/render-all?patch=7.3a&format=9x16          toàn bộ ảnh của patch trong 1 file .zip
-// Ảnh xuất ra cũng được lưu vào patches/<patch>/out/<format>/.
+// API (scale = 1 → 1920×1080 | 2 → 3840×2160, mặc định 2):
+//   GET /api/patches                                 danh sách patch + danh sách ảnh
+//   GET /api/render?patch=7.3a&slide=samira&scale=2  ảnh PNG (thêm &download=1 để tải về)
+//   GET /api/render-all?patch=7.3a&scale=2           toàn bộ ảnh của patch trong 1 file .zip
+// Ảnh xuất ra cũng được lưu vào patches/<patch>/out/ (bản 2x có đuôi @2x).
 
 import http from 'node:http';
-import { readFile, readdir, writeFile, mkdir, stat, unlink } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { exec } from 'node:child_process';
 import { renderSlide, closeBrowser } from './lib/renderer.mjs';
 import { createZip } from './lib/zip.mjs';
 import { readJSON, listPatches } from './lib/patches.mjs';
-import { FORMATS, DEFAULT_FORMAT, isFormat, fileName } from '../src/js/lib/formats.js';
+import { outDir, removeStale } from './lib/outdir.mjs';
+import { SCALES, DEFAULT_SCALE, isScale, fileName } from '../src/js/lib/output.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT ?? 5173);
@@ -30,25 +31,17 @@ const MIME = {
   '.woff2': 'font/woff2', '.ico': 'image/x-icon',
 };
 
-async function renderAndSave(patchId, slideId, format) {
+async function renderAndSave(patchId, slideId, scale) {
   const patch = await readJSON(`patches/${patchId}/patch.json`);
   const index = patch.slides.findIndex((s) => s.id === slideId);
   if (index < 0) throw Object.assign(new Error(`Không có ảnh "${slideId}"`), { status: 404 });
-  const { png, warnings } = await renderSlide(ORIGIN, patchId, slideId, format);
-  const name = fileName(patchId, index, slideId, format);
-  const outDir = path.join(ROOT, 'patches', patchId, 'out', format);
-  await mkdir(outDir, { recursive: true });
-  await writeFile(path.join(outDir, name), png);
+  const { png, warnings } = await renderSlide(ORIGIN, patchId, slideId, scale);
+  const name = fileName(patchId, index, slideId, scale);
+  const dir = outDir(patchId);
+  await mkdir(dir, { recursive: true });
+  await writeFile(path.join(dir, name), png);
   if (warnings.length) console.warn(`  ⚠ ${name}:\n    ${warnings.join('\n    ')}`);
   return { name, png, warnings };
-}
-
-// Xoá ảnh PNG cũ trong out/<khổ>/ không còn thuộc danh sách hiện tại (vd sau khi đổi thứ tự ảnh).
-async function removeStale(patchId, format, keep) {
-  const dir = path.join(ROOT, 'patches', patchId, 'out', format);
-  for (const f of await readdir(dir).catch(() => [])) {
-    if (f.endsWith('.png') && !keep.includes(f)) await unlink(path.join(dir, f));
-  }
 }
 
 function send(res, status, body, headers = {}) {
@@ -62,8 +55,8 @@ async function handleApi(url, res) {
   const q = url.searchParams;
   const patchId = q.get('patch') ?? '';
   if (patchId && !/^[\w.-]+$/.test(patchId)) return sendJSON(res, 400, { error: 'Tên patch không hợp lệ' });
-  const format = q.get('format') ?? DEFAULT_FORMAT;
-  if (!isFormat(format)) return sendJSON(res, 400, { error: `Khổ ảnh không hợp lệ (${Object.keys(FORMATS).join(', ')})` });
+  const scale = Number(q.get('scale') ?? DEFAULT_SCALE);
+  if (!isScale(scale)) return sendJSON(res, 400, { error: `Độ nét không hợp lệ (${Object.keys(SCALES).join(', ')})` });
 
   switch (url.pathname) {
     case '/api/health':
@@ -72,7 +65,7 @@ async function handleApi(url, res) {
       return sendJSON(res, 200, await listPatches());
     case '/api/render': {
       const t = Date.now();
-      const { name, png, warnings } = await renderAndSave(patchId, q.get('slide') ?? '', format);
+      const { name, png, warnings } = await renderAndSave(patchId, q.get('slide') ?? '', scale);
       console.log(`✔ ${name} (${Date.now() - t}ms)`);
       const headers = { 'Content-Type': 'image/png', 'X-Warnings': encodeURIComponent(warnings.join(' | ')) };
       if (q.get('download')) headers['Content-Disposition'] = attachment(name);
@@ -82,16 +75,17 @@ async function handleApi(url, res) {
       const patch = await readJSON(`patches/${patchId}/patch.json`);
       const files = [];
       for (const s of patch.slides) {
-        const { name, png } = await renderAndSave(patchId, s.id, format);
+        const { name, png } = await renderAndSave(patchId, s.id, scale);
         console.log(`✔ ${name}`);
         files.push({ name, data: png });
       }
-      await removeStale(patchId, format, files.map((f) => f.name));
-      return send(res, 200, createZip(files), { 'Content-Type': 'application/zip', 'Content-Disposition': attachment(`toc-chien-${patchId}-${format}.zip`) });
+      await removeStale(patchId, scale, files.map((f) => f.name));
+      const zipName = `toc-chien-${patchId}${scale === 2 ? '@2x' : ''}.zip`;
+      return send(res, 200, createZip(files), { 'Content-Type': 'application/zip', 'Content-Disposition': attachment(zipName) });
     }
     case '/api/open-folder': {
       // mở thư mục ảnh đã xuất bằng File Explorer (chỉ dùng trên máy local)
-      const dir = path.join(ROOT, 'patches', patchId, 'out', format);
+      const dir = outDir(patchId);
       await mkdir(dir, { recursive: true });
       exec(`explorer "${dir}"`);
       return sendJSON(res, 200, { ok: true });

@@ -1,97 +1,179 @@
-// Tải dữ liệu + ảnh tướng từ trang chính thức Tốc Chiến (vi-vn).
+// Tải dữ liệu + ảnh tướng.
 //
 //   node scripts/fetch-champion.mjs samira tristana draven
-//   node scripts/fetch-champion.mjs samira --force      (tải lại dù đã có)
+//
+// Nguồn:
+//   - Trang chính thức Tốc Chiến vi-vn: tên, danh hiệu, vai trò, tên kỹ năng tiếng Việt, ảnh chân dung,
+//     splash 1280×720, icon kỹ năng 96px.
+//   - Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn): cùng tranh vẽ nhưng thường nét hơn —
+//     splash tới 2436×1124, icon kỹ năng 128px PNG.
+//   Với splash và từng icon, script tự chọn bản có độ phân giải cao hơn.
 //
 // Kết quả:
 //   data/champions/<slug>.json
-//   assets/champions/<slug>/portrait.jpg | splash.jpg | skill-p.jpg | skill-q.jpg | skill-w.jpg | skill-e.jpg | skill-r.jpg
+//   assets/champions/<slug>/portrait.jpg | splash.jpg | skill-p|q|w|e|r.(png|jpg)
 
-import { mkdir, writeFile, readFile, access } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = 'https://wildrift.leagueoflegends.com';
+const CN = 'https://game.gtimg.cn/images/lgamem/act/lrlib';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) meta-wildrift/1.0';
 
 // Tốc Chiến ghi ô kỹ năng là NỘI TẠI / 1 / 2 / 3 / CHIÊU CUỐI → đổi sang P/Q/W/E/R cho quen tay.
 const SLOT_KEY = { 'NỘI TẠI': 'p', '1': 'q', '2': 'w', '3': 'e', 'CHIÊU CUỐI': 'r' };
 const SLOT_LABEL = { p: 'NỘI TẠI', q: 'Q', w: 'W', e: 'E', r: 'R' };
+// Tên trên máy chủ CN khác slug vi-vn.
+const CN_ALIAS = { wukong: 'monkeyking', 'nunu-and-willump': 'nunu' };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const exists = (p) => access(p).then(() => true, () => false);
+const key = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 
-async function getNextData(url) {
+async function get(url) {
   const res = await fetch(url, { headers: { 'User-Agent': UA } });
   if (!res.ok) throw new Error(`${res.status} ${url}`);
-  const html = await res.text();
+  await sleep(200);
+  return res;
+}
+const getBuffer = async (url) => Buffer.from(await (await get(url)).arrayBuffer());
+
+async function getNextData(url) {
+  const html = await (await get(url)).text();
   const m = html.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
   if (!m) throw new Error(`Không thấy __NEXT_DATA__ ở ${url}`);
   return JSON.parse(m[1]).props.pageProps.page;
 }
 
-async function download(url, dest, { force }) {
-  if (!force && (await exists(dest))) return 'skip';
-  const res = await fetch(url, { headers: { 'User-Agent': UA } });
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  await writeFile(dest, Buffer.from(await res.arrayBuffer()));
-  await sleep(300);
-  return 'ok';
+// Kích thước ảnh PNG / JPEG đọc từ phần đầu file (không cần thư viện).
+function imageSize(buf) {
+  if (buf.readUInt32BE(0) === 0x89504e47) return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20), ext: 'png' };
+  for (let i = 2; i + 9 < buf.length; ) {
+    if (buf[i] !== 0xff) { i++; continue; }
+    const m = buf[i + 1];
+    if (m >= 0xc0 && m <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(m)) {
+      return { width: buf.readUInt16BE(i + 7), height: buf.readUInt16BE(i + 5), ext: 'jpg' };
+    }
+    i += 2 + buf.readUInt16BE(i + 2);
+  }
+  return { width: 0, height: 0, ext: 'jpg' };
 }
 
-// Sanity CDN hỗ trợ tham số resize/định dạng.
-const sanity = (url, params = '') => url.split('?')[0] + '?accountingTag=WR' + params;
+// Tải các ứng viên, giữ bản rộng nhất (null/lỗi bị bỏ qua).
+async function pickLargest(candidates) {
+  let best = null;
+  for (const c of candidates.filter(Boolean)) {
+    try {
+      const buf = await getBuffer(c.url);
+      const size = imageSize(buf);
+      if (!best || size.width > best.width) best = { ...c, buf, ...size };
+    } catch (err) {
+      console.warn(`  ⚠ bỏ qua ${c.url}: ${err.message}`);
+    }
+  }
+  return best;
+}
 
-let indexCache;
-async function championIndex() {
-  if (!indexCache) {
+// Sanity CDN (trang vi-vn): bỏ tham số resize để lấy ảnh gốc.
+const sanity = (url) => url.split('?')[0] + '?accountingTag=WR';
+
+let wrIndex;
+async function wildRiftIndex() {
+  if (!wrIndex) {
     const page = await getNextData(`${BASE}/vi-vn/champions/`);
     const grid = page.blades.find((b) => b.type === 'characterCardGrid');
-    indexCache = new Map(
+    wrIndex = new Map(
       grid.items.map((it) => {
         const slug = it.action.payload.url.split('/').filter(Boolean).pop();
         return [slug, { name: it.title, portrait: it.media.url, colors: it.media.colors }];
       }),
     );
   }
-  return indexCache;
+  return wrIndex;
 }
 
-async function fetchChampion(slug, opts) {
-  const idx = await championIndex();
-  const card = idx.get(slug);
+// Danh sách tướng máy chủ CN, tra theo tên tiếng Anh lấy từ tên file poster (vd Posters/Samira_0.jpg).
+let cnIndex;
+async function chinaIndex() {
+  if (!cnIndex) {
+    const { heroList } = await (await get(`${CN}/js/heroList/hero_list.js`)).json();
+    cnIndex = new Map(
+      Object.values(heroList)
+        .filter((h) => h.poster)
+        .map((h) => [key(h.poster.split('/').pop().replace(/_\d+\.\w+$/, '')), h]),
+    );
+  }
+  return cnIndex;
+}
+
+async function chinaHero(slug) {
+  try {
+    const hero = (await chinaIndex()).get(CN_ALIAS[slug] ?? key(slug));
+    if (!hero) return null;
+    const { spells } = await (await get(`${CN}/js/hero/${hero.heroId}.js`)).json();
+    // Tên file icon không đồng nhất (_P, _passive, _Icon_Q, _Q_new…) nhưng thứ tự luôn là:
+    // nội tại (spellKey "passive") rồi 4 kỹ năng Q, W, E, R. Tướng có nhiều hơn 4 kỹ năng (vd Hwei) → bỏ qua.
+    const passive = spells.find((s) => s.spellKey === 'passive');
+    const actives = spells.filter((s) => s.spellKey !== 'passive');
+    const icons = {};
+    if (passive) icons.p = passive.abilityIconPath;
+    if (actives.length === 4) ['q', 'w', 'e', 'r'].forEach((k, i) => (icons[k] = actives[i].abilityIconPath));
+    return { poster: hero.poster, icons };
+  } catch (err) {
+    console.warn(`  ⚠ không lấy được dữ liệu CN cho ${slug}: ${err.message}`);
+    return null;
+  }
+}
+
+async function save(dir, base, img) {
+  // xoá bản cũ khác đuôi (vd skill-p.jpg khi bản mới là skill-p.png)
+  for (const ext of ['jpg', 'png']) if (ext !== img.ext) await unlink(path.join(dir, `${base}.${ext}`)).catch(() => {});
+  await writeFile(path.join(dir, `${base}.${img.ext}`), img.buf);
+  return `${base}.${img.ext}`;
+}
+
+async function fetchChampion(slug) {
+  const card = (await wildRiftIndex()).get(slug);
   if (!card) throw new Error(`Không có tướng "${slug}" trên trang Tốc Chiến`);
 
   const page = await getNextData(`${BASE}/vi-vn/champions/${slug}/`);
   const head = page.blades.find((b) => b.type === 'characterMasthead');
   const tab = page.blades.find((b) => b.type === 'iconTab');
-  const skins = page.blades.find((b) => b.type === 'landingMediaCarousel');
+  const skin = page.blades.find((b) => b.type === 'landingMediaCarousel')?.groups?.[0];
+  const cn = await chinaHero(slug);
 
   const dir = path.join(ROOT, 'assets', 'champions', slug);
   await mkdir(dir, { recursive: true });
   const rel = (f) => `assets/champions/${slug}/${f}`;
 
-  await download(sanity(card.portrait), path.join(dir, 'portrait.jpg'), opts);
+  await writeFile(path.join(dir, 'portrait.jpg'), await getBuffer(sanity(card.portrait)));
 
-  const skin = skins?.groups?.[0];
-  if (skin) await download(sanity(skin.thumbnail.url), path.join(dir, 'splash.jpg'), opts);
+  const splash = await pickLargest([
+    skin && { url: sanity(skin.thumbnail.url), source: 'wildrift.leagueoflegends.com' },
+    cn && { url: cn.poster, source: 'game.gtimg.cn' },
+  ]);
+  if (splash) splash.ext = 'jpg';
+  const splashFile = splash ? await save(dir, 'splash', splash) : null;
 
   const skills = [];
   for (const g of tab?.groups ?? []) {
-    const key = SLOT_KEY[g.content.subtitle?.trim().toUpperCase()] ?? g.content.subtitle;
-    const file = `skill-${key}.jpg`;
-    await download(sanity(g.thumbnail.url), path.join(dir, file), opts);
+    const k = SLOT_KEY[g.content.subtitle?.trim().toUpperCase()] ?? g.content.subtitle;
+    const icon = await pickLargest([
+      { url: sanity(g.thumbnail.url), source: 'wildrift.leagueoflegends.com' },
+      cn?.icons[k] && { url: cn.icons[k], source: 'game.gtimg.cn' },
+    ]);
     skills.push({
-      key,
-      slot: SLOT_LABEL[key] ?? key,
+      key: k,
+      slot: SLOT_LABEL[k] ?? k,
       name: g.content.title,
-      icon: rel(file),
+      icon: icon ? rel(await save(dir, `skill-${k}`, icon)) : '',
+      iconSize: icon?.width ?? null,
       description: g.content.description?.body?.replace(/<[^>]+>/g, '').trim() ?? '',
     });
   }
 
-  // Giữ lại phần chỉnh tay (vị trí cắt splash...) nếu file đã tồn tại.
+  // Giữ lại phần chỉnh tay (layout.focusX) nếu file đã tồn tại.
   const jsonPath = path.join(ROOT, 'data', 'champions', `${slug}.json`);
   const old = await readFile(jsonPath, 'utf8').then(JSON.parse, () => ({}));
 
@@ -103,11 +185,13 @@ async function fetchChampion(slug, opts) {
     difficulty: head?.difficulty?.value ?? null,
     colors: skin?.thumbnail?.colors ?? card.colors,
     portrait: rel('portrait.jpg'),
-    splash: skin ? rel('splash.jpg') : rel('portrait.jpg'),
+    splash: splashFile ? rel(splashFile) : rel('portrait.jpg'),
+    splashDims: splash ? { width: splash.width, height: splash.height } : null,
+    splashSource: splash?.source ?? null,
     splashName: skin?.label ?? '',
     skills,
-    // layout.splashPosition / layout.splashSize: căn khung splash trên ảnh chi tiết (sửa tay).
-    layout: old.layout ?? { splashPosition: '50% 20%', splashSize: 'auto 100%' },
+    // layout.focusX: vị trí ngang khuôn mặt tướng trong splash (0 = trái, 1 = phải) — sửa tay, dùng để căn khung.
+    layout: old.layout ?? { focusX: 0.5 },
     source: `${BASE}/vi-vn/champions/${slug}/`,
     syncedAt: new Date().toISOString().slice(0, 10),
   };
@@ -115,18 +199,17 @@ async function fetchChampion(slug, opts) {
   return data;
 }
 
-const args = process.argv.slice(2);
-const opts = { force: args.includes('--force') };
-const slugs = args.filter((a) => !a.startsWith('--'));
+const slugs = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 if (!slugs.length) {
-  console.log('Cách dùng: node scripts/fetch-champion.mjs <slug> [slug...] [--force]');
+  console.log('Cách dùng: node scripts/fetch-champion.mjs <slug> [slug...]');
   process.exit(1);
 }
 await mkdir(path.join(ROOT, 'data', 'champions'), { recursive: true });
 for (const slug of slugs) {
   try {
-    const c = await fetchChampion(slug, opts);
-    console.log(`✔ ${c.name.padEnd(14)} ${c.title} · ${c.skills.map((s) => `${s.slot}:${s.name}`).join(' | ')}`);
+    const c = await fetchChampion(slug);
+    const icons = [...new Set(c.skills.map((s) => s.iconSize))].join('/');
+    console.log(`✔ ${c.name.padEnd(9)} splash ${c.splashDims?.width}×${c.splashDims?.height} (${c.splashSource}) · icon ${icons}px`);
   } catch (err) {
     console.error(`✘ ${slug}: ${err.message}`);
     process.exitCode = 1;

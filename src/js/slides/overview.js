@@ -3,30 +3,6 @@ import { analyzeLine } from '../lib/values.js';
 
 const ORDER = ['buff', 'nerf', 'mixed', 'rework', 'new', 'neutral'];
 
-// Khổ dọc / vuông: vùng dành cho các hàng tướng (khớp với slide-9x16.css, slide-1x1.css).
-// width = khung − 2 lề − cột nhãn − khe; height = chiều cao vùng .ov-rows
-const GRID = {
-  '9x16': { width: 846, height: 1060, maxPerRow: 4 },
-  '1x1': { width: 1206, height: 774, maxPerRow: 6 },
-};
-const CARD_GAP = 14;
-const GROUP_GAP = 20;
-
-// Chọn số thẻ mỗi hàng sao cho thẻ gần vuông nhất (ảnh chân dung cắt đẹp, tên không bị ép).
-function gridLayout(format, groups) {
-  const g = GRID[format];
-  const most = Math.max(...groups.map((x) => x.list.length));
-  let best;
-  for (let per = 1; per <= Math.min(g.maxPerRow, most); per++) {
-    const rows = groups.reduce((n, x) => n + Math.ceil(x.list.length / per), 0);
-    const w = Math.floor((g.width - (per - 1) * CARD_GAP) / per);
-    const h = Math.floor((g.height - (rows - groups.length) * CARD_GAP - (groups.length - 1) * GROUP_GAP) / rows);
-    const score = Math.abs(Math.log(w / h)) + (w > 340 ? 1 : 0);
-    if (!best || score < best.score) best = { per, w: Math.min(w, 340), h: Math.min(h, Math.round(w * 1.2)), score };
-  }
-  return best;
-}
-
 function miniSkills(entry, champ) {
   return entry.changes
     .map((g) => {
@@ -98,17 +74,10 @@ export function renderOverview(ctx) {
   const nSys = patch.systems?.length ?? 0;
   const maxCards = Math.max(...groups.map((g) => g.list.length));
 
-  let cardStyle;
-  if (ctx.format === '16x9' || !GRID[ctx.format]) {
-    // 1792 = 1920 - 2×64 lề; 122 = cột nhãn + khoảng cách; 16 = khe giữa các thẻ
-    const cardW = Math.min(300, Math.floor((1792 - 122 - (maxCards - 1) * 16) / maxCards));
-    cardStyle = `--card-w:${cardW}px`;
-  } else {
-    const g = gridLayout(ctx.format, groups);
-    cardStyle = `--card-w:${g.w}px;--card-h:${g.h}px`;
-  }
+  // 1792 = 1920 - 2×64 lề; 122 = cột nhãn + khoảng cách; 16 = khe giữa các thẻ
+  const cardW = Math.min(300, Math.floor((1792 - 122 - (maxCards - 1) * 16) / maxCards));
 
-  return `<div class="slide slide--overview" data-rows="${groups.length}" data-max="${maxCards}" style="${cardStyle}">
+  return `<div class="slide slide--overview" data-rows="${groups.length}" data-max="${maxCards}" style="--card-w:${cardW}px">
     ${background('<div class="ov-aura ov-aura--buff"></div><div class="ov-aura ov-aura--nerf"></div><div class="watermark ov-watermark">' + esc(patch.id) + '</div>')}
     ${topBar(ctx, 'TỔNG QUAN')}
     <section class="ov-hero">

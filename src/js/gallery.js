@@ -1,5 +1,5 @@
-// Trang quản lý: danh mục bản cập nhật → chọn khổ ảnh → xem trước → tải PNG / ZIP.
-import { FORMATS, DEFAULT_FORMAT, isFormat, outputSize, fileName } from './lib/formats.js';
+// Trang quản lý: danh mục bản cập nhật → xem trước → tải PNG / ZIP (chọn độ nét 1x / 2x).
+import { CANVAS, SCALES, DEFAULT_SCALE, isScale, fileName } from './lib/output.js';
 
 const $ = (sel) => document.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -23,17 +23,15 @@ const ICON = {
   folder: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
 };
 
-const state = { patches: [], live: false, current: null, filter: 'all', format: DEFAULT_FORMAT, lbIndex: -1 };
+const state = { patches: [], live: false, current: null, filter: 'all', scale: DEFAULT_SCALE, lbIndex: -1 };
 try {
   state.filter = localStorage.getItem('gallery.filter') ?? 'all';
-  const f = localStorage.getItem('gallery.format');
-  if (isFormat(f)) state.format = f;
+  const s = Number(localStorage.getItem('gallery.scale'));
+  if (isScale(s)) state.scale = s;
 } catch { /* trình duyệt chặn storage */ }
 
-const fmt = () => FORMATS[state.format];
-const slideUrl = (patchId, slideId) =>
-  `/slide.html?${new URLSearchParams({ patch: patchId, slide: slideId, format: state.format })}`;
-const apiQuery = (extra) => new URLSearchParams({ patch: state.current.id, format: state.format, ...extra });
+const slideUrl = (patchId, slideId) => `/slide.html?${new URLSearchParams({ patch: patchId, slide: slideId })}`;
+const apiQuery = (extra) => new URLSearchParams({ patch: state.current.id, scale: state.scale, ...extra });
 const visibleSlides = () => state.current.slides.filter((s) => state.filter === 'all' || s.type === state.filter);
 
 // ---------- thông báo ----------
@@ -63,7 +61,7 @@ async function downloadFrom(url, fallbackName, button) {
     const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: name });
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở patches/${esc(state.current.id)}/out/${state.format}/</small>`);
+    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở patches/${esc(state.current.id)}/out/</small>`);
     if (warnings) toast(`Cảnh báo khi vẽ ảnh: ${esc(warnings)}`, 'warn', 7000);
   } catch (err) {
     toast(`Không xuất được ảnh: ${esc(err.message)}`, 'err', 7000);
@@ -77,7 +75,7 @@ async function downloadFrom(url, fallbackName, button) {
 }
 
 const downloadSlide = (slide, button) =>
-  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1 })}`, fileName(state.current.id, slide.index, slide.id, state.format), button);
+  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1 })}`, fileName(state.current.id, slide.index, slide.id, state.scale), button);
 
 // ---------- sidebar ----------
 function renderSidebar() {
@@ -115,12 +113,12 @@ function renderHead() {
       </div>
     </div>
     <div class="head-actions">
-      ${state.live ? `<button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả ${fmt().label} (.zip)</button>
+      ${state.live ? `<button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả (.zip)</button>
       <button class="btn btn-ghost" id="btnFolder" type="button">${ICON.folder}Mở thư mục ảnh</button>` : ''}
       ${p.sourceFile ? `<a class="btn btn-ghost" href="/${esc(p.sourceFile)}" target="_blank" rel="noopener">${ICON.doc}Bản dịch (.md)</a>` : ''}
     </div>`;
   if (!state.live) return;
-  $('#btnZip').onclick = (e) => downloadFrom(`/api/render-all?${apiQuery()}`, `toc-chien-${p.id}-${state.format}.zip`, e.currentTarget);
+  $('#btnZip').onclick = (e) => downloadFrom(`/api/render-all?${apiQuery()}`, `toc-chien-${p.id}.zip`, e.currentTarget);
   $('#btnFolder').onclick = async () => {
     const res = await fetch(`/api/open-folder?${apiQuery()}`).catch(() => null);
     if (!res?.ok) toast('Không mở được thư mục.', 'err');
@@ -146,44 +144,36 @@ function renderTabs() {
   });
 }
 
-// ---------- chọn khổ ảnh ----------
-function renderFormats() {
-  $('#formats').innerHTML = Object.entries(FORMATS)
-    .map(([key, f]) => {
-      const out = outputSize(key);
-      return `<button class="fmt ${key === state.format ? 'is-active' : ''}" type="button" data-format="${key}"
-        aria-pressed="${key === state.format}" title="${f.hint} · xuất ${out.width}×${out.height}">
-        <i class="fmt-shape" style="aspect-ratio:${f.width} / ${f.height}"></i>
-        <span><b>${f.label}</b><small>${f.hint}</small></span>
-      </button>`;
-    })
+// ---------- độ nét khi tải (chỉ khi chạy local có server) ----------
+function renderQuality() {
+  const box = $('#quality');
+  box.hidden = !state.live;
+  if (!state.live) return;
+  box.innerHTML = `<span class="quality-label">Độ nét khi tải</span>` + Object.entries(SCALES)
+    .map(([key, q]) => `<button class="qbtn ${Number(key) === state.scale ? 'is-active' : ''}" type="button" data-scale="${key}"
+        aria-pressed="${Number(key) === state.scale}">
+        <b>${q.label}</b><small>${q.size}</small>
+      </button>`)
     .join('');
-  $('#formats').querySelectorAll('.fmt').forEach((b) => {
+  box.querySelectorAll('.qbtn').forEach((b) => {
     b.onclick = () => {
-      if (b.dataset.format === state.format) return;
-      state.format = b.dataset.format;
-      try { localStorage.setItem('gallery.format', state.format); } catch { /* bỏ qua */ }
-      renderFormats();
-      renderHead();
-      renderGrid();
+      state.scale = Number(b.dataset.scale);
+      try { localStorage.setItem('gallery.scale', state.scale); } catch { /* bỏ qua */ }
+      renderQuality();
     };
   });
 }
 
 // ---------- lưới ảnh ----------
 const scaleObserver = new ResizeObserver((entries) => {
-  for (const e of entries) e.target.style.setProperty('--s', e.contentRect.width / fmt().width);
+  for (const e of entries) e.target.style.setProperty('--s', e.contentRect.width / CANVAS.width);
 });
 
 function renderGrid() {
   const p = state.current;
   const slides = visibleSlides();
-  const grid = $('#grid');
-  grid.dataset.format = state.format;
-  grid.style.setProperty('--fw', fmt().width);
-  grid.style.setProperty('--fh', fmt().height);
   scaleObserver.disconnect();
-  grid.innerHTML = slides
+  $('#grid').innerHTML = slides
     .map((s) => `<article class="card" data-id="${esc(s.id)}">
       <button class="card-preview" type="button" aria-label="Xem lớn ${esc(s.label)}">
         <iframe src="${slideUrl(p.id, s.id)}" loading="lazy" tabindex="-1" title="${esc(s.label)}"></iframe>
@@ -220,11 +210,9 @@ function renderGrid() {
 // ---------- xem lớn ----------
 function fitLightbox() {
   const stage = $('#lbStage');
-  const { width, height } = fmt();
+  const { width, height } = CANVAS;
   const s = Math.min(stage.clientWidth / width, stage.clientHeight / height);
   const frame = $('#lbFrame');
-  frame.style.width = `${width}px`;
-  frame.style.height = `${height}px`;
   frame.style.transform = `scale(${s})`;
   frame.style.left = `${(stage.clientWidth - width * s) / 2}px`;
   frame.style.top = `${(stage.clientHeight - height * s) / 2}px`;
@@ -236,7 +224,7 @@ function openLightbox(i) {
   state.lbIndex = i;
   const s = slides[i];
   $('#lbFrame').src = slideUrl(state.current.id, s.id);
-  $('#lbTitle').innerHTML = `<span>${String(s.index + 1).padStart(2, '0')} / ${String(state.current.slides.length).padStart(2, '0')}</span><b>${esc(s.label)}</b><em>${fmt().label}</em>`;
+  $('#lbTitle').innerHTML = `<span>${String(s.index + 1).padStart(2, '0')} / ${String(state.current.slides.length).padStart(2, '0')}</span><b>${esc(s.label)}</b>`;
   $('#lbPrev').disabled = i === 0;
   $('#lbNext').disabled = i === slides.length - 1;
   $('#lightbox').hidden = false;
@@ -295,7 +283,7 @@ function selectFromHash() {
   }
   if (!state.current.slides.some((s) => state.filter === 'all' || s.type === state.filter)) state.filter = 'all';
   document.title = `${state.current.id} · Meta Studio`;
-  renderFormats();
+  renderQuality();
   renderHead();
   renderTabs();
   renderGrid();

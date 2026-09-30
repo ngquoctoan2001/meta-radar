@@ -2,7 +2,7 @@
   "name": "meta-wildrift",
   "version": "0.1.0",
   "private": true,
-  "description": "Tạo bộ ảnh cập nhật cân bằng Tốc Chiến (16:9 · 9:16 · 1:1) bằng HTML/CSS/JS thuần",
+  "description": "Tạo bộ ảnh cập nhật cân bằng Tốc Chiến (16:9, xuất 1920×1080 hoặc 3840×2160) bằng HTML/CSS/JS thuần",
   "type": "module",
   "scripts": {
     "start": "node scripts/server.mjs --open",

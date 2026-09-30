@@ -2,16 +2,19 @@ import {
   esc, topBar, footBar, background, statusBadge, changeCard, verdictBox, findSkill, SKILL_KICKER, ICON, STATUS, statusKey,
 } from '../lib/ui.js';
 
-// Khổ 1:1: chia thẻ vào 2 cột sao cho 2 cột cao gần bằng nhau (ước lượng theo số dòng).
-function twoColumns(cards, changes) {
-  // chỉ 1 thẻ → 1 cột rộng hết khung
-  const cols = cards.length === 1 ? [{ w: 0, html: [] }] : [{ w: 0, html: [] }, { w: 0, html: [] }];
-  cards.forEach((html, i) => {
-    const col = cols.reduce((a, b) => (b.w < a.w ? b : a));
-    col.w += 1.3 + changes[i].lines.length;
-    col.html.push(html);
-  });
-  return `<div class="changes changes--cols" data-fit-stack>${cols.map((c) => `<div class="chg-col">${c.html.join('')}</div>`).join('')}</div>`;
+// Khung splash bên trái (khớp .ch-splash trong slide-champion.css) và vị trí ngang đặt khuôn mặt tướng.
+const SPLASH_BOX = { width: 1240, height: 1080 };
+const FACE_X = 660;
+
+// layout.focusX = vị trí ngang của khuôn mặt trong ảnh splash (0 = mép trái, 1 = mép phải).
+// Tính background-position để khuôn mặt rơi đúng FACE_X — đúng với mọi nguồn ảnh, mọi tỉ lệ ảnh.
+function splashPosition(champ) {
+  const { width = 1280, height = 720 } = champ.splashDims ?? {};
+  const focus = champ.layout?.focusX ?? 0.5;
+  const shown = width * Math.max(SPLASH_BOX.width / width, SPLASH_BOX.height / height); // background-size: cover
+  const spare = shown - SPLASH_BOX.width;
+  const x = spare > 0 ? Math.min(Math.max((focus * shown - FACE_X) / spare, 0), 1) : 0.5;
+  return `${(x * 100).toFixed(1)}% 20%`;
 }
 
 export function renderChampion(ctx, slide) {
@@ -19,8 +22,6 @@ export function renderChampion(ctx, slide) {
   const champ = ctx.champions[slide.ref];
   if (!entry || !champ) throw new Error(`Thiếu dữ liệu tướng "${slide.ref}"`);
   const k = statusKey(entry.status);
-  // layout chung + ghi đè riêng theo khổ, vd "layout": { "splashPosition": "72% 20%", "9x16": { "splashPosition": "60% 0%" } }
-  const layout = { ...(champ.layout ?? {}), ...(champ.layout?.[ctx.format] ?? {}) };
 
   const cards = entry.changes.map((g) => {
     if (g.key === 'stats') {
@@ -38,11 +39,7 @@ export function renderChampion(ctx, slide) {
   });
   const lineCount = entry.changes.reduce((n, g) => n + g.lines.length, 0);
 
-  const style = [
-    `--splash:url('/${champ.splash}')`,
-    `--splash-pos:${layout.splashPosition ?? '50% 20%'}`,
-    `--splash-size:${layout.splashSize ?? 'cover'}`,
-  ].join(';');
+  const style = `--splash:url('/${champ.splash}');--splash-pos:${splashPosition(champ)}`;
 
   return `<div class="slide slide--champion is-${k}" style="${esc(style)}">
     ${background(`<div class="ch-splash"></div><div class="ch-shade"></div><div class="slash"></div><div class="watermark">${STATUS[k].label}</div>`)}
@@ -57,7 +54,7 @@ export function renderChampion(ctx, slide) {
         </div>
         ${verdictBox(entry.verdict, entry.status)}
       </div>
-      ${ctx.format === '1x1' ? twoColumns(cards, entry.changes) : `<div class="changes" data-fit-stack data-groups="${cards.length}" data-lines="${lineCount}">${cards.join('')}</div>`}
+      <div class="changes" data-fit-stack data-groups="${cards.length}" data-lines="${lineCount}">${cards.join('')}</div>
     </main>
     ${footBar(ctx)}
   </div>`;

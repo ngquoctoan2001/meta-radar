@@ -1,16 +1,15 @@
 # Meta Tốc Chiến — Bộ ảnh cập nhật phiên bản
 
-Dự án tạo bộ ảnh tóm tắt mỗi bản cập nhật (patch) của Liên Minh Huyền Thoại: Tốc Chiến để đăng lên **TikTok** và **Facebook**, với **3 khổ ảnh**:
+Dự án tạo bộ ảnh **16:9** tóm tắt mỗi bản cập nhật (patch) của Liên Minh Huyền Thoại: Tốc Chiến để đăng lên **TikTok** và **Facebook**.
 
-| Khổ | Ảnh xuất ra | Dùng cho | Bố cục |
-|---|---|---|---|
-| **16:9** | 1920×1080 | Facebook · YouTube | Bản gốc (đã chốt) |
-| **9:16** | 1080×1920 | TikTok · Reels · Story | Xếp dọc: ảnh tướng/biểu tượng ở trên, câu chốt, rồi các thẻ thay đổi |
-| **1:1** | 1080×1080 | Facebook · Instagram | Tướng: dải splash + thẻ kỹ năng 2 cột · Trang bị: 2 cột như 16:9 |
+| Độ nét khi tải | Ảnh xuất ra | Khi nào dùng |
+|---|---|---|
+| **Nét 2x** (mặc định) | 3840×2160 | Đăng Facebook: chữ, số, icon sắc nét nhất sau khi Facebook nén ảnh |
+| **Chuẩn** | 1920×1080 | Cần file nhẹ, đăng nhanh |
 
 Ảnh được dựng bằng **HTML + CSS + JS thuần**, rồi chụp thành PNG bằng trình duyệt Edge có sẵn trên máy.
 
-> Trạng thái: patch 7.3a hoàn chỉnh — 17 ảnh × 3 khổ = 51 ảnh: tổng quan, 11 tướng, 4 trang bị, hệ thống & bản đồ.
+> Trạng thái: patch 7.3a hoàn chỉnh — 17 ảnh: tổng quan, 11 tướng, 4 trang bị, hệ thống & bản đồ.
 
 ## Chạy
 
@@ -24,18 +23,18 @@ npm start
 
 Trang quản lý có:
 - Danh mục các bản cập nhật ở cột trái.
-- **3 nút chọn khổ: 16:9 · 9:16 · 1:1** — xem trước, xem lớn, tải PNG/ZIP đều theo khổ đang chọn.
+- **Độ nét khi tải: Chuẩn 1920×1080 · Nét 2x 3840×2160** — áp dụng cho Tải PNG và Tải tất cả (.zip).
 - Xem trước tất cả ảnh của patch, lọc theo Tổng quan / Tướng / Trang bị / Khác.
 - **Xem lớn**: dùng ← → để chuyển ảnh, Esc để đóng.
 - **Tải PNG** từng ảnh, **Tải tất cả (.zip)**, **Mở thư mục ảnh**, xem **bản dịch (.md)** gốc.
-- Ảnh xuất ra được lưu cả vào `patches/<bản>/out/<khổ>/`, tên dạng `7.3a-02-samira-9x16.png`.
+- Ảnh xuất ra được lưu cả vào `patches/<bản>/out/`, tên dạng `7.3a-02-samira.png` (Chuẩn) và `7.3a-02-samira@2x.png` (Nét 2x).
 
 Xuất ảnh không cần mở trang (server chưa chạy thì script tự bật tạm):
 
 ```bash
 node scripts/render.mjs 7.3a
 ```
-Lệnh trên xuất cả 3 khổ. Chỉ muốn 1 khổ thì thêm `--format=9x16` (hoặc `16x9`, `1x1`).
+Mặc định xuất bản Nét 2x. Muốn bản chuẩn 1920×1080 thì thêm `--scale=1`.
 
 ## Deploy lên web (Cloudflare Pages)
 
@@ -78,17 +77,16 @@ Màu sắc và BUFF/NERF của **từng dòng số liệu được tính tự đ
 ## Cấu trúc thư mục
 
 ```
-index.html · slide.html          trang quản lý · khung vẽ 1 ảnh (?patch=7.3a&slide=samira&format=9x16)
+index.html · slide.html          trang quản lý · khung vẽ 1 ảnh 1920×1080 (?patch=7.3a&slide=samira)
 start.bat                        nhấp đúp để chạy
-src/css/                         tokens.css (màu, font) · slide-*.css (từng loại ảnh, khổ 16:9)
-                                 slide-9x16.css · slide-1x1.css (chỉ ghi đè bố cục cho khổ dọc/vuông) · gallery.css
-src/js/lib/formats.js            định nghĩa 3 khổ ảnh (kích thước khung vẽ, kích thước xuất)
+src/css/                         tokens.css (màu, font) · slide-*.css (từng loại ảnh) · gallery.css
+src/js/lib/output.js             khung vẽ 1920×1080, độ nét 1x/2x, tên file ảnh xuất
 src/js/slides/                   overview.js · champion.js · item.js · system.js
 src/js/lib/                      values.js (phân tích số liệu) · ui.js (thành phần chung) · fit.js (tự co chữ)
 data/brand.json                  tên kênh, handle, bật/tắt logo game
-data/champions/<tướng>.json      tải tự động từ trang Tốc Chiến + vị trí cắt splash (layout)
+data/champions/<tướng>.json      tải tự động + vị trí khuôn mặt trong splash (layout.focusX)
 data/items/<trang-bị>.json       tên EN/VN, giá, chỉ số, màu nhấn
-patches/<bản>/                   source.md (bản dịch) · patch.json (dữ liệu ảnh) · out/<khổ>/ (PNG đã xuất)
+patches/<bản>/                   source.md (bản dịch) · patch.json (dữ liệu ảnh) · out/ (PNG đã xuất)
 assets/                          logo, ảnh tướng, icon skill/trang bị, font (chạy offline)
 scripts/                         server.mjs · render.mjs · fetch-champion.mjs
 tests/                           kiểm thử bộ phân tích số liệu:  npm test
@@ -98,7 +96,8 @@ tests/                           kiểm thử bộ phân tích số liệu:  npm
 
 | Loại | Nguồn |
 |---|---|
-| Logo, ảnh tướng, splash, icon + tên skill | Trang chính thức Tốc Chiến vi-vn (`wildrift.leagueoflegends.com`) |
+| Logo, ảnh chân dung, tên skill tiếng Việt | Trang chính thức Tốc Chiến vi-vn (`wildrift.leagueoflegends.com`) |
+| Splash, icon skill | Tự chọn bản **nét hơn** giữa trang vi-vn (splash 1280×720, icon 96px) và máy chủ Tốc Chiến Trung Quốc (splash tới 2436×1124, icon 128–650px) |
 | Icon trang bị (bản Tốc Chiến 128px) + chỉ số gốc | Dữ liệu Tốc Chiến máy chủ Trung Quốc (`game.gtimg.cn`) |
 | Tên tiếng Việt của trang bị | Riot Data Dragon `vi_VN` |
 | Icon Trừng Phạt | Riot Data Dragon |
