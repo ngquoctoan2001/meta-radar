@@ -1,0 +1,61 @@
+{
+  "slug": "samira",
+  "name": "SAMIRA",
+  "title": "Hoa Hồng Sa Mạc",
+  "roles": [
+    "XẠ THỦ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#1E0F12",
+    "secondary": "#F9E5DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/samira/portrait.jpg",
+  "splash": "assets/champions/samira/splash.jpg",
+  "splashName": "SAMIRA, HOA HỒNG SA MẠC",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "THÍCH THỂ HIỆN",
+      "icon": "assets/champions/samira/skill-p.jpg",
+      "description": "Samira xây dựng combo bằng cách sử dụng đòn đánh thường hoặc kỹ năng không trùng lặp. Đòn đánh cận chiến của Samira sẽ gây thêm sát thương phép. Đòn đánh lên kẻ địch chịu hiệu ứng Bất Động sẽ giúp cô lướt tới rìa tầm đánh của mình. Nếu kẻ địch bị Hất Tung, cô sẽ tiếp tục giữ chúng ở trạng thái Hất Tung trong giây lát."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ỨNG BIẾN",
+      "icon": "assets/champions/samira/skill-q.jpg",
+      "description": "Samira bắn một phát đạn hoặc chém kiếm để gây sát thương. Nếu được thi triển trong khi dùng Đánh Liều, tấn công tất cả kẻ địch trên đường lướt."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "LỐC KIẾM",
+      "icon": "assets/champions/samira/skill-w.jpg",
+      "description": "Samira xoay tròn lưỡi kiếm, gây sát thương lên kẻ địch và phá hủy đường đạn của địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "ĐÁNH LIỀU",
+      "icon": "assets/champions/samira/skill-e.jpg",
+      "description": "Samira lướt qua 1 kẻ địch (bao gồm cả công trình), chém những kẻ địch cô lướt qua gây và tăng Tốc Độ Đánh. Nếu hạ gục một tướng địch, Đánh Liều sẽ lập tức hồi chiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HOẢ NGỤC LIÊN XẠ",
+      "icon": "assets/champions/samira/skill-r.jpg",
+      "description": "Samira giải phóng bão đạn từ vũ khí, điên cuồng tấn công tất cả kẻ địch xung quanh."
+    }
+  ],
+  "layout": {
+    "splashPosition": "72% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/samira/",
+  "syncedAt": "2026-09-30"
+}

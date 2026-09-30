@@ -1,0 +1,299 @@
+{
+  "id": "7.3a",
+  "title": "Bản cập nhật 7.3a",
+  "date": "",
+  "sourceFile": "patches/7.3a/source.md",
+  "headline": "Xạ thủ trỗi dậy · Rừng chậm lại · Nexus mỏng hơn",
+  "systemsVerdict": "Rừng chậm lại, trụ và Nhà Chính mỏng hơn: trận đấu sẽ ngắn hơn, đội nào đẩy nhanh đội đó thắng.",
+
+  "champions": [
+    {
+      "slug": "samira",
+      "status": "buff",
+      "reason": "Samira đang yếu ở nhiều mức kỹ năng, cả sát thương dồn lẫn khả năng sống sót, nên được tăng cả độ cứng cáp và sát thương.",
+      "verdict": "Trâu hơn, đau hơn: một pha lướt vào kèm chiêu cuối giờ đủ quét sạch cả giao tranh.",
+      "changes": [
+        { "key": "stats", "name": "Chỉ số cơ bản", "lines": [
+          { "label": "Máu mỗi cấp", "old": "128", "new": "136" },
+          { "label": "Giáp mỗi cấp", "old": "5", "new": "5,5" },
+          { "label": "Kháng phép mỗi cấp", "old": "1,4", "new": "2" }
+        ]},
+        { "key": "p", "note": "Sát thương cận chiến", "lines": [
+          { "label": "Tỷ lệ AD tối thiểu", "old": "3,5%–10,5%", "new": "5,8%–17%" },
+          { "label": "Tỷ lệ AD tối đa", "old": "7%–21%", "new": "11,6%–34%" }
+        ]},
+        { "key": "q", "lines": [
+          { "label": "Tỷ lệ AD", "old": "110%", "new": "125%" }
+        ]},
+        { "key": "r", "lines": [
+          { "label": "Tỷ lệ AD mỗi phát bắn", "old": "40%", "new": "50%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "tristana",
+      "status": "buff",
+      "reason": "Tristana đang hụt hơi so với các xạ thủ chí mạng khác, nên được tăng cả khả năng dồn sát thương lẫn DPS.",
+      "verdict": "Nhảy liên tục hơn, bom E nổ to hơn — Tristana lên đồ chí mạng sẽ đè đường cực gắt.",
+      "changes": [
+        { "key": "q", "lines": [
+          { "label": "Tốc độ đánh", "old": "50/75/100/125%", "new": "60/80/100/120%" }
+        ]},
+        { "key": "w", "lines": [
+          { "label": "Hồi chiêu", "old": "22/20/18/16 giây", "new": "20/18/16/14 giây" }
+        ]},
+        { "key": "e", "lines": [
+          { "label": "Sát thương nổ cơ bản", "old": "80/100/120/140", "new": "80/110/140/170" },
+          { "label": "Tỷ lệ AD cộng thêm", "old": "100%", "new": "120%" },
+          { "label": "Khuếch đại theo tỷ lệ chí mạng", "old": "40%", "new": "50%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "draven",
+      "status": "buff",
+      "reason": "Đưa khả năng dồn sát thương của Draven trở lại cạnh tranh với các xạ thủ khác.",
+      "verdict": "Rìu đau hơn, đánh nhanh hơn, chiêu cuối gắt hơn — Draven lại thành ác mộng đường Rồng.",
+      "changes": [
+        { "key": "q", "lines": [
+          { "label": "Tỷ lệ AD cộng thêm", "old": "80/90/100/110%", "new": "90/100/110/120%" }
+        ]},
+        { "key": "w", "lines": [
+          { "label": "Tốc độ đánh", "old": "20/25/30/35%", "new": "25/30/35/40%" }
+        ]},
+        { "key": "r", "lines": [
+          { "label": "Tỷ lệ AD cộng thêm", "old": "130%", "new": "150%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "swain",
+      "status": "buff",
+      "reason": "Swain được tăng khả năng hồi phục và sát thương để tồn tại tốt hơn trong meta nhiều sát thương dồn.",
+      "verdict": "Hồi máu trâu hơn, E lên AP đau hẳn — Swain đứng giữa giao tranh càng lâu càng khó giết.",
+      "changes": [
+        { "key": "p", "note": "Hồi máu", "lines": [
+          { "label": "Hồi máu theo % máu", "old": "3%–4,5%", "new": "4,5%–6%" },
+          { "label": "Tỷ lệ AP", "old": "0,5%", "new": "0,2%" }
+        ]},
+        { "key": "e", "lines": [
+          { "label": "Tỷ lệ AP (sát thương lặp lại)", "old": "25%", "new": "40%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "viego",
+      "status": "buff",
+      "reason": "Viego chưa hưởng lợi nhiều từ thay đổi hệ thống chí mạng, nên được tăng khả năng scale theo chí mạng.",
+      "verdict": "Viego đồ chí mạng lên hương: mỗi nhát Q và chiêu cuối giờ cắt máu đau hơn hẳn.",
+      "changes": [
+        { "key": "q", "lines": [
+          { "label": "Sát thương nội tại", "old": "2/3/4/5%", "new": "3/4/5/6%" },
+          { "label": "Tỷ lệ sát thương chí mạng", "old": "80%", "new": "85%" }
+        ]},
+        { "key": "r", "lines": [
+          { "label": "Tỷ lệ theo chỉ số chí mạng", "old": "50%", "new": "70%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "hwei",
+      "status": "nerf",
+      "reason": "Hwei bị giảm sát thương tổng thể do sức mạnh tăng lên khi người chơi ngày càng thành thạo bộ kỹ năng.",
+      "verdict": "Đầu game vẫn ổn nhưng về cuối hụt sát thương — Hwei khó gánh một mình như trước.",
+      "changes": [
+        { "key": "p", "lines": [
+          { "label": "Sát thương theo cấp", "old": "33–333", "new": "40–285" },
+          { "label": "Tỷ lệ AP", "old": "33%", "new": "30%" }
+        ]},
+        { "key": "q", "badge": "QQ", "name": "Tai Ương – Lửa Tàn Phá", "lines": [
+          { "label": "Sát thương cơ bản", "old": "50/90/130/170", "new": "50/85/120/155" },
+          { "label": "Tỷ lệ AP", "old": "75%", "new": "70%" }
+        ]},
+        { "key": "q", "badge": "QW", "name": "Tai Ương – Tia Cắt Xé", "lines": [
+          { "label": "Hệ số theo máu đã mất", "old": "150/200/250/300%", "new": "100/150/200/250%" }
+        ]},
+        { "key": "r", "lines": [
+          { "label": "Sát thương vụ nổ", "old": "250/350/450", "new": "200/300/400" },
+          { "label": "Tỷ lệ AP", "old": "75%", "new": "70%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "rammus",
+      "status": "nerf",
+      "reason": "Rammus đang dọn rừng quá nhanh trong hệ thống rừng mới, nên bị giảm sức mạnh đầu trận.",
+      "verdict": "Đầu trận mỏng hơn, dọn rừng chậm hơn; W cấp tối đa giữ nguyên nên về sau vẫn cứng.",
+      "changes": [
+        { "key": "stats", "name": "Chỉ số cơ bản", "lines": [
+          { "label": "Giáp", "old": "45", "new": "40" }
+        ]},
+        { "key": "w", "lines": [
+          { "label": "Tỷ lệ giáp", "old": "45/50/55/60%", "new": "30/40/50/60%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "malphite",
+      "status": "nerf",
+      "reason": "Malphite đang mạnh ở nhiều vị trí nên bị giảm sát thương và khả năng tạo đột biến.",
+      "verdict": "Ít đau hơn, chiêu cuối hồi lâu thêm 10 giây — Malphite khó mở giao tranh liên tục như trước.",
+      "changes": [
+        { "key": "w", "lines": [
+          { "label": "Tỷ lệ sát thương theo giáp", "old": "20%", "new": "15%" }
+        ]},
+        { "key": "e", "lines": [
+          { "label": "Tỷ lệ sát thương theo giáp", "old": "45%", "new": "40%" }
+        ]},
+        { "key": "r", "lines": [
+          { "label": "Hồi chiêu", "old": "75/70/65 giây", "new": "85/80/75 giây" }
+        ]}
+      ]
+    },
+    {
+      "slug": "caitlyn",
+      "status": "nerf",
+      "reason": "Caitlyn đang có hiệu suất quá cao mà không cần đầu tư nhiều vào tốc độ đánh.",
+      "verdict": "Tốc đánh theo cấp giảm, Thiện Xạ cuối game yếu đi — Caitlyn phải mua tốc đánh mới giữ sức ép.",
+      "changes": [
+        { "key": "stats", "name": "Chỉ số cơ bản", "lines": [
+          { "label": "Tốc độ đánh mỗi cấp", "old": "0,04", "new": "0,025" }
+        ]},
+        { "key": "p", "lines": [
+          { "label": "Hệ số theo cấp", "old": "60%–100%", "new": "60%–90%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "senna",
+      "status": "nerf",
+      "reason": "Senna hưởng lợi quá mạnh sau khi giới hạn tốc độ đánh được gỡ bỏ, nên khả năng scale theo tốc đánh bị điều chỉnh lại.",
+      "verdict": "Đừng nhìn con số 1,1: tốc đánh tổng thể giảm, Senna mạnh lên cuối trận chậm hẳn.",
+      "changes": [
+        { "key": "stats", "name": "Chỉ số cơ bản", "lines": [
+          { "label": "Tỷ lệ tốc đánh", "old": "0,4", "new": "0,3" },
+          { "label": "Tốc đánh cơ bản", "old": "0,4", "new": "0,3" },
+          { "label": "Tốc đánh cộng thêm cơ bản", "old": "0,6", "new": "1,1" },
+          { "label": "Tốc đánh mỗi cấp", "old": "0,05", "new": "0,025" },
+          { "label": "Thời gian ra đòn", "text": "Tốc đánh cộng thêm giảm thời gian ra đòn kém hiệu quả hơn", "effect": "nerf" }
+        ]}
+      ]
+    },
+    {
+      "slug": "syndra",
+      "status": "nerf",
+      "reason": "Syndra đang tăng tiến sức mạnh quá nhanh sau những đợt buff sát thương gần đây.",
+      "verdict": "Phải gom nhiều cầu hơn mới nâng cấp, W yếu đi — Syndra lên sức mạnh chậm hơn hẳn.",
+      "changes": [
+        { "key": "p", "lines": [
+          { "label": "Ngưỡng nâng cấp", "old": "40/60/80/100/120", "new": "50/75/100/125/150" }
+        ]},
+        { "key": "w", "lines": [
+          { "label": "Tỷ lệ AP", "old": "60%", "new": "50%" },
+          { "label": "Làm chậm", "old": "20/25/30/35%", "new": "25%" }
+        ]}
+      ]
+    }
+  ],
+
+  "items": [
+    {
+      "slug": "yun-tal-wildarrows",
+      "status": "buff",
+      "verdict": "Bắn nhanh hơn hẳn mỗi lần kích hoạt, chỉ phải chờ lâu hơn chút — xạ thủ chí mạng vẫn lời to.",
+      "changes": [
+        { "key": "stats", "name": "Chỉ số cơ bản", "lines": [
+          { "label": "Tốc độ đánh", "old": "25%", "new": "35%" }
+        ]},
+        { "key": "passive", "name": "Chuyển Động Liên Hoàn", "nameEn": "Flurry", "lines": [
+          { "label": "Tốc độ đánh cộng thêm", "old": "25%", "new": "35%" },
+          { "label": "Hồi chiêu", "old": "20 giây", "new": "25 giây" }
+        ]}
+      ]
+    },
+    {
+      "slug": "whispering-circlet",
+      "status": "nerf",
+      "verdict": "Hiệu quả hồi máu & lá chắn bị cắt một nửa — hỗ trợ hồi máu nên cân nhắc món khác.",
+      "changes": [
+        { "key": "passive", "name": "Hòa Điệu", "lines": [
+          { "label": "Sức mạnh hồi máu & lá chắn (theo năng lượng tối đa)", "old": "0,5%", "new": "0,25%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "diadem-of-songs",
+      "status": "nerf",
+      "verdict": "Chung số phận với Vòng Thì Thầm: lượng hồi máu & lá chắn chỉ còn một nửa.",
+      "changes": [
+        { "key": "passive", "name": "Hòa Điệu", "lines": [
+          { "label": "Sức mạnh hồi máu & lá chắn (theo năng lượng tối đa)", "old": "0,5%", "new": "0,25%" }
+        ]}
+      ]
+    },
+    {
+      "slug": "deaths-dance",
+      "status": "nerf",
+      "verdict": "Chỉ đắt thêm 100 vàng — Vũ Điệu Tử Thần vẫn là món trâu đáng mua cho đấu sĩ.",
+      "changes": [
+        { "key": "stats", "name": "Giá", "lines": [
+          { "label": "Giá", "old": "3.200", "new": "3.300" }
+        ]}
+      ]
+    }
+  ],
+
+  "systems": [
+    {
+      "slug": "smite",
+      "name": "Trừng Phạt",
+      "icon": "assets/icons/smite.png",
+      "status": "nerf",
+      "summary": "Dọn rừng chậm hơn",
+      "lines": [
+        { "label": "Sát thương đốt lên quái / giây", "old": "30–198", "new": "22–162" }
+      ]
+    },
+    {
+      "slug": "nexus",
+      "name": "Nhà Chính",
+      "iconSvg": "nexus",
+      "status": "adjust",
+      "summary": "Trận đấu kết thúc nhanh hơn",
+      "lines": [
+        { "label": "Máu tối đa", "old": "5.500", "new": "4.000", "effect": "neutral" }
+      ]
+    },
+    {
+      "slug": "turret-plating",
+      "name": "Giáp Trụ",
+      "iconSvg": "tower",
+      "status": "adjust",
+      "summary": "Đẩy trụ dễ thở hơn",
+      "lines": [
+        { "label": "Giáp + kháng phép sau khi mất 1 lớp giáp", "old": "30", "new": "20", "effect": "neutral" },
+        { "label": "Thời gian tồn tại", "old": "20 giây", "new": "10 giây", "effect": "neutral" }
+      ]
+    }
+  ],
+
+  "slides": [
+    { "id": "overview", "type": "overview", "title": "Tổng quan" },
+    { "id": "samira", "type": "champion", "ref": "samira" },
+    { "id": "tristana", "type": "champion", "ref": "tristana" },
+    { "id": "draven", "type": "champion", "ref": "draven" },
+    { "id": "swain", "type": "champion", "ref": "swain" },
+    { "id": "viego", "type": "champion", "ref": "viego" },
+    { "id": "hwei", "type": "champion", "ref": "hwei" },
+    { "id": "rammus", "type": "champion", "ref": "rammus" },
+    { "id": "malphite", "type": "champion", "ref": "malphite" },
+    { "id": "caitlyn", "type": "champion", "ref": "caitlyn" },
+    { "id": "senna", "type": "champion", "ref": "senna" },
+    { "id": "syndra", "type": "champion", "ref": "syndra" },
+    { "id": "yun-tal-wildarrows", "type": "item", "ref": "yun-tal-wildarrows" },
+    { "id": "whispering-circlet", "type": "item", "ref": "whispering-circlet" },
+    { "id": "diadem-of-songs", "type": "item", "ref": "diadem-of-songs" },
+    { "id": "deaths-dance", "type": "item", "ref": "deaths-dance" },
+    { "id": "systems", "type": "system", "title": "Hệ thống & bản đồ" }
+  ]
+}

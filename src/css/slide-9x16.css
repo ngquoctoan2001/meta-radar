@@ -1,0 +1,88 @@
+/* ===================================================================
+   KHỔ DỌC 9:16 — 1080×1920 (TikTok · Reels · Story)
+   Chỉ ghi đè bố cục của 16:9 khi .slide có class .fmt-9x16.
+   Các thành phần (thẻ thay đổi, nhãn BUFF/NERF, câu chốt) giữ nguyên cỡ.
+   =================================================================== */
+body.slide-page[data-format="9x16"] { width: 1080px; height: 1920px; }
+.slide.fmt-9x16 { --pad: 56px; width: 1080px; height: 1920px; }
+
+.fmt-9x16 .topbar { top: 48px; }
+.fmt-9x16 .brand-icon { height: 52px; }
+.fmt-9x16 .brand-logo { height: 60px; }
+.fmt-9x16 .footbar { bottom: 34px; }
+.fmt-9x16 .watermark { right: -40px; bottom: -100px; font-size: 440px; }
+.fmt-9x16 .slash {
+  left: -220px; top: 1000px; width: 1520px; height: 5px;
+  background: linear-gradient(90deg, transparent 5%, var(--c) 45%, transparent 90%);
+  transform: rotate(-9deg);
+}
+
+/* ---------- TƯỚNG: splash phía trên, tên + chốt ở giữa, thẻ kỹ năng phía dưới ---------- */
+.fmt-9x16.slide--champion .ch-splash {
+  width: 1080px; height: 1010px;
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 55%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+}
+.fmt-9x16.slide--champion .ch-splash::after {
+  background:
+    linear-gradient(180deg, rgba(8, 6, 20, 0.88) 0%, rgba(8, 6, 20, 0.45) 11%, transparent 20%),
+    linear-gradient(0deg, rgba(8, 6, 20, 0.96) 6%, rgba(8, 6, 20, 0.5) 34%, transparent 58%),
+    radial-gradient(ellipse 80% 40% at 12% 96%, rgb(var(--c-rgb) / 0.32), transparent 70%);
+}
+.fmt-9x16.slide--champion .ch-shade { background: none; }
+.fmt-9x16 .ch-main { top: 470px; bottom: 88px; display: flex; flex-direction: column; gap: 30px; }
+.fmt-9x16 .ch-hero { flex: none; justify-content: flex-start; }
+.fmt-9x16 .ch-name { font-size: 200px; }
+.fmt-9x16 .ch-hero .verdict { margin-top: 34px; }
+.fmt-9x16 .ch-main > .changes { flex: 1; }
+
+/* ---------- TRANG BỊ: biểu tượng + tên ở trên, thẻ thay đổi ở dưới ---------- */
+.fmt-9x16.slide--item .it-bgicon { left: -300px; top: -220px; width: 1680px; height: 1680px; }
+.fmt-9x16.slide--item .it-shade { background: linear-gradient(180deg, transparent 36%, rgba(9, 7, 22, 0.8) 56%); }
+.fmt-9x16 .it-main { top: 150px; bottom: 88px; display: flex; flex-direction: column; gap: 30px; }
+.fmt-9x16 .it-hero { flex: none; justify-content: flex-start; }
+.fmt-9x16 .it-emblem { width: 340px; height: 340px; margin-bottom: 14px; }
+.fmt-9x16 .it-frame { width: 240px; height: 240px; }
+.fmt-9x16 .it-name { font-size: 124px; }
+.fmt-9x16 .it-hero .verdict { margin-top: 32px; }
+.fmt-9x16 .it-changes { flex: 1; }
+
+/* ---------- TỔNG QUAN ---------- */
+.fmt-9x16 .ov-hero { top: 158px; height: auto; gap: 30px; }
+.fmt-9x16 .ov-title h1 { font-size: 150px; }
+.fmt-9x16 .ov-headline { padding-left: 30px; }
+.fmt-9x16 .ov-headline p { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 31px; white-space: normal; }
+.fmt-9x16 .ov-headline p i { display: none; }
+.fmt-9x16 .ov-headline p span::before {
+  content: ''; display: inline-block; width: 8px; height: 8px; margin: 0 14px 0 2px;
+  transform: rotate(45deg) translateY(-4px); background: var(--accent);
+}
+.fmt-9x16 .ov-rows { top: 372px; gap: 20px; }
+.fmt-9x16 .ov-row { height: auto; }
+.fmt-9x16 .ov-cards { flex: 1; flex-wrap: wrap; align-content: flex-start; gap: 14px; }
+.fmt-9x16 .ov-card-info h4 { font-size: 50px; }
+
+.fmt-9x16 .ov-bottom { top: 1452px; height: auto; flex-direction: column; gap: 18px; }
+.fmt-9x16 .ov-group { flex: none; height: 180px; }
+.fmt-9x16 .ov-group--sys { height: 136px; }
+.fmt-9x16 .ov-group--sys .ov-side span { font-size: 26px; }
+/* hệ thống: icon bên trái, chữ bên phải (đủ rộng ở khổ dọc) */
+.fmt-9x16 .ov-tile--sys { flex-direction: row; align-items: center; gap: 14px; }
+.fmt-9x16 .ov-tile--sys .ov-tile-text { width: auto; }
+
+/* ---------- KHÁC (hệ thống & bản đồ): thẻ xếp dọc ---------- */
+.fmt-9x16 .sys-main { top: 150px; bottom: 88px; }
+.fmt-9x16 .sys-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 14px; }
+.fmt-9x16 .sys-head h1 { font-size: 118px; }
+.fmt-9x16 .sys-cards { flex-direction: column; justify-content: center; gap: 22px; margin: 30px 0 40px; }
+.fmt-9x16 .sys-card {
+  display: grid; grid-template-columns: 104px minmax(0, 1fr); column-gap: 28px;
+  grid-template-areas: "icon status" "icon name" "icon summary" "lines lines";
+  grid-template-rows: auto auto 1fr auto; align-items: start;
+  flex: none; padding: 28px 30px 16px;
+}
+.fmt-9x16 .sys-icon { grid-area: icon; }
+.fmt-9x16 .sys-status { grid-area: status; margin-top: 2px; }
+.fmt-9x16 .sys-name { grid-area: name; }
+.fmt-9x16 .sys-summary { grid-area: summary; }
+.fmt-9x16 .sys-lines { grid-area: lines; margin-top: 18px; }

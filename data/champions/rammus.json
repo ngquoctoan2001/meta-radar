@@ -1,0 +1,60 @@
+{
+  "slug": "rammus",
+  "name": "RAMMUS",
+  "title": "Tê Tê Gai",
+  "roles": [
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#3B301E",
+    "secondary": "#F9F3DC",
+    "label": "#0E0A03"
+  },
+  "portrait": "assets/champions/rammus/portrait.jpg",
+  "splash": "assets/champions/rammus/splash.jpg",
+  "splashName": "RAMMUS - TÊ TÊ GAI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "TÊ TÊ GAI",
+      "icon": "assets/champions/rammus/skill-p.jpg",
+      "description": "Khi ở ngoài giao tranh, Rammus lăn nhanh, tăng tốc độ di chuyển. Hiệu ứng này bị vô hiệu hóa tạm thời khi Rammus tham chiến."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "QUẢ CẦU TỐC ĐỘ",
+      "icon": "assets/champions/rammus/skill-q.jpg",
+      "description": "Rammus hóa thành quả bóng, tăng tốc lăn đến kẻ địch, tông vào chúng gây sát thương và làm chậm."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "THẾ THỦ",
+      "icon": "assets/champions/rammus/skill-w.jpg",
+      "description": "Rammus tiến vào thế thủ, tăng mạnh Giáp và Kháng Phép, cường hóa sát thương của Vỏ Gai. Kẻ địch tung đòn đánh thường vào Rammus sẽ bị phản sát thương, nhưng Rammus cũng bị làm chậm trong thời gian tác dụng."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "KHIÊU KHÍCH ĐIÊN CUỒNG",
+      "icon": "assets/champions/rammus/skill-e.jpg",
+      "description": "Rammus khiêu khích một tướng địch hoặc quái để chúng xông lên tấn công bất chấp tất cả. Ngoài ra, Rammus được tăng Tốc Độ Đánh trong chốc lát."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "TRỜI GIÁNG",
+      "icon": "assets/champions/rammus/skill-r.jpg",
+      "description": "Rammus nhảy lên không trung và giáng mạnh xuống, gây sát thương và tạo dư chấn. Dư chấn làm chậm kẻ địch. Khoảng cách nhảy tăng theo tốc độ hiện tại của Quả Cầu Tốc Độ."
+    }
+  ],
+  "layout": {
+    "splashPosition": "64% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/rammus/",
+  "syncedAt": "2026-09-30"
+}

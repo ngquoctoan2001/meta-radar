@@ -1,0 +1,60 @@
+{
+  "slug": "malphite",
+  "name": "MALPHITE",
+  "title": "Mảnh Vỡ Thiên Thạch",
+  "roles": [
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#1B0D10",
+    "secondary": "#FFE8D6",
+    "label": "#020202"
+  },
+  "portrait": "assets/champions/malphite/portrait.jpg",
+  "splash": "assets/champions/malphite/splash.jpg",
+  "splashName": "MALPHITE, MẢNH VỠ THIÊN THẠCH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Giáp Hoa Cương",
+      "icon": "assets/champions/malphite/skill-p.jpg",
+      "description": "Malphite được bảo hộ bởi một lớp đá có thể hấp thụ sát thương bằng 10% máu tối đa của hắn. Nếu Malphite không bị tấn công trong vòng 8 giây, hiệu ứng tự động lặp lại."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Mảnh Vỡ Địa Chấn",
+      "icon": "assets/champions/malphite/skill-q.jpg",
+      "description": "Sử dụng ma thuật nguyên thủy, Malphite ném một mảnh vỡ địa chấn vào kẻ địch, gây sát thương khi trúng phải và đánh cắp Tốc Độ Di Chuyển trong 3 giây."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Nắm Đấm Chấn Động",
+      "icon": "assets/champions/malphite/skill-w.jpg",
+      "description": "Malphite nhận thêm giáp từ hiệu ứng nội tại. Khi kích hoạt Nắm Đấm Chấn Động, Malphite dậm mạnh đến nỗi tạo ra một vụ nổ sóng âm. Trong vài giây tới, đòn đánh gây ra dư chấn trước mặt."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Dậm Đất",
+      "icon": "assets/champions/malphite/skill-e.jpg",
+      "description": "Malphite đập mạnh xuống mặt đất tạo một vụ chấn động gây một lượng sát thương phép dựa trên chỉ số Giáp của hắn, và làm giảm Tốc Độ Đánh của kẻ địch trong thoáng chốc."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Không Thể Cản Phá",
+      "icon": "assets/champions/malphite/skill-r.jpg",
+      "description": "Malphite lao đến một vị trí mục tiêu, sát thương những kẻ địch trong vùng ảnh hưởng và hất văng chúng lên không."
+    }
+  ],
+  "layout": {
+    "splashPosition": "84% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/malphite/",
+  "syncedAt": "2026-09-30"
+}

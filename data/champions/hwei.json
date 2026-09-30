@@ -1,0 +1,61 @@
+{
+  "slug": "hwei",
+  "name": "HWEI",
+  "title": "Họa Sĩ Vạn Cảnh",
+  "roles": [
+    "PHÁP SƯ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#0D0B17",
+    "secondary": "#D6F8FF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/hwei/portrait.jpg",
+  "splash": "assets/champions/hwei/splash.jpg",
+  "splashName": "HWEI, HỌA SĨ VẠN CẢNH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "CHỮ KÝ CỦA HỌA SĨ",
+      "icon": "assets/champions/hwei/skill-p.jpg",
+      "description": "Hwei gây sát thương lên tướng địch, chuẩn bị cho đòn kết liễu đặc trưng của mình. Đòn đánh thứ hai hoàn tất chữ ký của hắn, phát nổ sau một khoảng trễ, gây sát thương phép lên kẻ địch trong phạm vi."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TRƯỜNG PHÁI: THẢM HỌA",
+      "icon": "assets/champions/hwei/skill-q.jpg",
+      "description": "Hwei thay thế các kỹ năng của mình bằng những sức mạnh gây sát thương:\n\nLửa Tàn Phá – bắn ra một đường đạn lửa.\nSấm Sét Hủy Diệt – tung ra một cú sét đánh tầm xa.\nVết Nứt Bỏng Cháy – bắn ra một vệt lửa liên tục phun trào."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "TRƯỜNG PHÁI: BÌNH YÊN",
+      "icon": "assets/champions/hwei/skill-w.jpg",
+      "description": "Hwei thay thế các kỹ năng bằng bùa lợi đa dụng:\n\nNước Chảy Thoáng Qua – tăng tốc độ di chuyển.\nÁnh Nước Phản Chiếu – tạo khiên nước.\nTia Sáng Khuấy Động – hồi lại năng lượng và gây sát thương cộng thêm."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TRƯỜNG PHÁI: THỐNG KHỔ",
+      "icon": "assets/champions/hwei/skill-e.jpg",
+      "description": "Hwei thay thế các kỹ năng bằng sức mạnh khống chế:\n\nKhuôn Mặt U Ám – gây hoảng sợ và làm chậm.\nĐịa Ngục Nhãn – phóng ra con mắt tự lao tới mục tiêu với Tầm Nhìn Chuẩn.\nHàm Nhai Kinh Hãi – kéo kẻ địch lại gần để gây sát thương và làm chậm."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "VÒNG XOÁY TUYỆT VỌNG",
+      "icon": "assets/champions/hwei/skill-r.jpg",
+      "description": "Hwei giam giữ tướng địch trong một vùng ảnh hưởng mở rộng, làm chậm và gây sát thương, phát nổ khi đạt kích thước tối đa hoặc khi tướng đó bị hạ gục."
+    }
+  ],
+  "layout": {
+    "splashPosition": "56% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/hwei/",
+  "syncedAt": "2026-09-30"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "yun-tal-wildarrows",
+  "name": "Yun Tal Wildarrows",
+  "nameVi": "Mũi Tên Yun Tal",
+  "icon": "assets/items/yun-tal-wildarrows.png",
+  "price": 3100,
+  "tier": "Trang bị cao cấp",
+  "tags": ["Xạ thủ", "Chí mạng", "Tốc đánh"],
+  "color": "#FFB547",
+  "stats": [
+    { "label": "Sức mạnh công kích", "value": "+50" },
+    { "label": "Tốc độ đánh", "value": "+25%" }
+  ],
+  "passives": [
+    { "name": "Chí Mạng Tay Quen", "desc": "Đánh thường tích vĩnh viễn tỉ lệ chí mạng, tối đa 25%." },
+    { "name": "Chuyển Động Liên Hoàn", "nameEn": "Flurry", "desc": "Đánh trúng tướng địch: +25% tốc đánh trong 6 giây (hồi 20 giây). Mỗi đòn đánh giảm 1 giây hồi chiêu, 2 giây nếu chí mạng." }
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2238) · tên VN theo Riot vi_VN"
+}

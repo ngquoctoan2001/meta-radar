@@ -1,0 +1,39 @@
+/* Ảnh chi tiết TƯỚNG: splash bên trái, thẻ thay đổi bên phải */
+.slide--champion .ch-splash {
+  position: absolute; left: 0; top: 0; width: 1240px; height: 1080px;
+  background-image: var(--splash);
+  background-repeat: no-repeat;
+  background-position: var(--splash-pos);
+  background-size: var(--splash-size);
+  -webkit-mask-image: linear-gradient(90deg, #000 50%, rgba(0, 0, 0, 0.55) 72%, transparent 97%);
+          mask-image: linear-gradient(90deg, #000 50%, rgba(0, 0, 0, 0.55) 72%, transparent 97%);
+}
+/* phủ tối phía dưới + ánh màu trạng thái để chữ nổi */
+.slide--champion .ch-splash::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 6, 20, 0.75) 0%, transparent 18%),
+    linear-gradient(0deg, rgba(8, 6, 20, 0.97) 6%, rgba(8, 6, 20, 0.72) 36%, transparent 66%),
+    radial-gradient(ellipse 70% 50% at 8% 100%, rgb(var(--c-rgb) / 0.32), transparent 70%);
+}
+.slide--champion .ch-shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 36%, rgba(9, 7, 22, 0.6) 50%, rgba(9, 7, 22, 0.9) 62%);
+}
+
+.ch-main {
+  position: absolute; left: var(--pad); right: var(--pad); top: 138px; bottom: 72px;
+  display: grid; grid-template-columns: 790px minmax(0, 1fr); gap: 70px;
+}
+.ch-hero { display: flex; flex-direction: column; justify-content: flex-end; min-width: 0; }
+.ch-name {
+  margin: -10px 0 -26px; padding: 0.12em 20px 0.04em 0;
+  font: 900 230px/0.86 var(--f-display);
+  letter-spacing: 0.005em; text-transform: uppercase; white-space: nowrap;
+  background: linear-gradient(180deg, #ffffff 35%, color-mix(in srgb, var(--c) 30%, #d8d2ff) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.7));
+}
+.ch-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.ch-title { font: 600 30px/1 var(--f-hud); color: var(--text); margin-right: 8px; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); }
+.ch-hero .verdict { margin-top: 44px; }

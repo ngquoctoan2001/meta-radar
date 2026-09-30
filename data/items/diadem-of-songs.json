@@ -1,0 +1,28 @@
+{
+  "slug": "diadem-of-songs",
+  "name": "Diadem of Songs",
+  "nameVi": "Vương Miện Khúc Ca",
+  "icon": "assets/items/diadem-of-songs.png",
+  "price": 2400,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Hỗ trợ",
+    "Hồi máu"
+  ],
+  "color": "#9DEBFF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+200"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+1200"
+    },
+    {
+      "label": "Hồi năng lượng cơ bản",
+      "value": "+50%"
+    }
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2119)"
+}

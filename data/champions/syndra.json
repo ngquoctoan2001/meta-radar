@@ -1,0 +1,60 @@
+{
+  "slug": "syndra",
+  "name": "SYNDRA",
+  "title": "Nữ Chúa Bóng Tối",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#251E3B",
+    "secondary": "#F0DCF9",
+    "label": "#06030E"
+  },
+  "portrait": "assets/champions/syndra/portrait.jpg",
+  "splash": "assets/champions/syndra/splash.jpg",
+  "splashName": "SYNDRA, NỮ CHÚA BÓNG TỐI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "TỐI THƯỢNG",
+      "icon": "assets/champions/syndra/skill-p.jpg",
+      "description": "Syndra thu thập Mảnh Vụn Quyền Năng bằng cách gây sát thương kỹ năng lên kẻ địch và mỗi khi tăng cấp một kỹ năng. Mảnh Vụn Quyền Năng có thể được sử dụng để nâng cấp các kỹ năng và tăng sức mạnh phép thuật."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "QUẢ CẦU BÓNG TỐI",
+      "icon": "assets/champions/syndra/skill-q.jpg",
+      "description": "Syndra tạo ra một Quả Cầu Bóng Tối gây sát thương phép khi xuất hiện. Quả cầu nằm yên và có thể được điều khiển bởi những sức mạnh khác của cô. Nâng Cấp: Syndra nhận thêm 1 tích trữ Quả Cầu Bóng Tối."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Ý LỰC",
+      "icon": "assets/champions/syndra/skill-w.jpg",
+      "description": "Syndra tung Quả Cầu Bóng Tối gần nhất vào vị trí chỉ định, gây sát thương phép và làm chậm Tốc Độ Di Chuyển của kẻ địch trong phạm vi ảnh hưởng. Nâng Cấp: Syndra gây thêm sát thương chuẩn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "QUÉT TAN KẺ YẾU",
+      "icon": "assets/champions/syndra/skill-e.jpg",
+      "description": "Syndra phóng ra một sóng năng lượng, gây sát thương phép, đồng thời đẩy lùi kẻ địch và những Quả Cầu Bóng Tối. Các kẻ địch bị Quả Cầu Bóng Tối va phải bị làm choáng và nhận thêm sát thương. Nâng Cấp: Syndra tăng tầm ảnh hưởng của sóng năng lượng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BÙNG NỔ SỨC MẠNH",
+      "icon": "assets/champions/syndra/skill-r.jpg",
+      "description": "Syndra phóng các Quả Cầu Bóng Tối xoay quanh cô và bất kỳ quả cầu khác gần bên vào một tướng địch, gây sát thương phép với mỗi quả Cầu. Nâng Cấp: Quả Cầu Bóng Tối sẽ kết liễu với những kẻ địch còn thấp Máu. Khi kết liễu kẻ địch, những Quả Cầu sẽ phát nổ ngay tại chỗ và gây sát thương lên những tướng địch ở gần."
+    }
+  ],
+  "layout": {
+    "splashPosition": "30% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/syndra/",
+  "syncedAt": "2026-09-30"
+}

@@ -1,0 +1,60 @@
+{
+  "slug": "draven",
+  "name": "DRAVEN",
+  "title": "Đao Phủ Kiêu Hùng",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#100C19",
+    "secondary": "#FFD6E5",
+    "label": "#010101"
+  },
+  "portrait": "assets/champions/draven/portrait.jpg",
+  "splash": "assets/champions/draven/splash.jpg",
+  "splashName": "DRAVEN, ĐAO PHỦ KIÊU HÙNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "LIÊN MINH DRAVEN",
+      "icon": "assets/champions/draven/skill-p.jpg",
+      "description": "Draven nhận điểm Ngưỡng Mộ khi bắt được Rìu Xoay, tiêu diệt lính, quái rừng hoặc trụ. Hạ gục tướng địch sẽ cho Draven thêm vàng dựa trên số điểm Ngưỡng Mộ hiện có."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "RÌU XOAY",
+      "icon": "assets/champions/draven/skill-q.jpg",
+      "description": "Đòn đánh kế tiếp của Draven gây thêm sát thương vật lý. Chiếc rìu sẽ nảy ra khỏi mục tiêu và bay lên không trung. Nếu bắt được rìu, Draven sẽ có thêm 1 lượt dùng Rìu Xoay nữa. Draven có thể sở hữu tối đa 2 lượt dùng Rìu Xoay."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "XUNG HUYẾT",
+      "icon": "assets/champions/draven/skill-w.jpg",
+      "description": "Draven được tăng Tốc Độ Di Chuyển và Tốc Độ Đánh. Tốc Độ Di Chuyển cộng thêm sẽ giảm dần theo thời gian. Bắt được Rìu Xoay sẽ hoàn lại hồi chiêu của Xung Huyết."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "DẠT RA",
+      "icon": "assets/champions/draven/skill-e.jpg",
+      "description": "Draven quăng chiếc rìu, gây sát thương vật lý lên những mục tiêu trúng phải và hất chúng sang một bên. Nạn nhân trúng chiêu sẽ bị làm chậm."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "LỐC XOÁY TỬ VONG",
+      "icon": "assets/champions/draven/skill-r.jpg",
+      "description": "Draven ném 2 chiếc rìu, gây sát thương vật lý lên những kẻ trúng chiêu. Lốc Xoáy Tử Vong sẽ đổi hướng quay ngược lại về phía Draven sau khi trúng tướng địch. Draven có thể kích hoạt kĩ năng này khi chiếc rìu đang trên đường bay để đổi hướng cho rìu quay lại sớm hơn. Sát thương sẽ giảm xuống với mỗi mục tiêu trúng phải và quay trở lại mức sát thương ban đầu sau khi đảo hướng."
+    }
+  ],
+  "layout": {
+    "splashPosition": "98% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/draven/",
+  "syncedAt": "2026-09-30"
+}

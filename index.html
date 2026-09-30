@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meta Studio · Tốc Chiến</title>
+  <link rel="icon" href="/assets/brand/wild-rift-icon.png">
+  <link rel="stylesheet" href="/src/css/fonts.css">
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/gallery.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="side">
+      <div class="side-brand">
+        <img src="/assets/brand/wild-rift-icon.png" alt="">
+        <div>
+          <b>META STUDIO</b>
+          <span>Ảnh cập nhật Tốc Chiến</span>
+        </div>
+      </div>
+      <div class="side-title">
+        <span>BẢN CẬP NHẬT</span>
+        <span class="side-count" id="patchCount">0</span>
+      </div>
+      <nav class="patch-list" id="patchList" aria-label="Danh sách bản cập nhật"></nav>
+      <div class="side-foot">
+        <p>Thêm patch mới: tạo thư mục <code>patches/&lt;bản&gt;/</code> có <code>patch.json</code>, rồi bấm <b>Làm mới</b>.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="offline" id="offline" hidden>
+        <b>Chưa kết nối được server.</b>
+        Hãy mở trang bằng file <code>start.bat</code> (hoặc chạy <code>npm start</code>) rồi tải lại trang này.
+      </div>
+
+      <header class="head" id="head"></header>
+
+      <div class="toolbar">
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <div class="toolbar-right">
+          <div class="formats" id="formats" role="group" aria-label="Khổ ảnh"></div>
+          <button class="btn btn-ghost" id="btnReload" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>
+            Làm mới
+          </button>
+        </div>
+      </div>
+
+      <section class="grid" id="grid" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <!-- xem lớn -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
+    <div class="lb-top">
+      <div class="lb-title" id="lbTitle"></div>
+      <div class="lb-actions">
+        <button class="btn btn-primary" id="lbDownload" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+          Tải PNG
+        </button>
+        <button class="btn btn-icon" id="lbClose" type="button" aria-label="Đóng (Esc)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Ảnh trước (←)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="lb-stage" id="lbStage"><iframe id="lbFrame" title="Xem ảnh lớn" tabindex="-1"></iframe></div>
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Ảnh sau (→)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script type="module" src="/src/js/gallery.js"></script>
+</body>
+</html>

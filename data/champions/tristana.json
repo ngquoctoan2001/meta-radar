@@ -1,0 +1,60 @@
+{
+  "slug": "tristana",
+  "name": "TRISTANA",
+  "title": "Tay Súng Yordle",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#160B0E",
+    "secondary": "#FFEFD6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/tristana/portrait.jpg",
+  "splash": "assets/champions/tristana/splash.jpg",
+  "splashName": "TRISTANA, TAY SÚNG YORDLE",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "NGẮM BẮN",
+      "icon": "assets/champions/tristana/skill-p.jpg",
+      "description": "Tầm đánh, tầm sử dụng Bọc Thuốc Súng và Đại Bác Đẩy Lùi sẽ tăng theo cấp độ của Tristana."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "SÚNG LIÊN THANH",
+      "icon": "assets/champions/tristana/skill-q.jpg",
+      "description": "Tristana được tăng Tốc Độ Đánh trong một khoảng thời gian ngắn."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "PHÓNG NHẢY TÊN LỬA",
+      "icon": "assets/champions/tristana/skill-w.jpg",
+      "description": "Tristana nhảy đến vị trí chỉ định, gây sát thương và làm chậm các đơn vị xung quanh nơi tiếp đất trong thoáng chốc. Hạ gục, hỗ trợ hoặc kích nổ Bọc Thuốc Súng trên tướng với điểm cộng dồn tối đa sẽ hoàn lại hồi chiêu của Phóng Nhảy Tên Lửa."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "BỌC THUỐC SÚNG",
+      "icon": "assets/champions/tristana/skill-e.jpg",
+      "description": "Khi Tristana tiêu diệt một mục tiêu, phát đạn của cô bắn tung ra thành những mảnh nhỏ, gây sát thương lên kẻ địch xung quanh. Có thể kích hoạt để đặt một quả bom lên 1 kẻ địch hoặc trụ chỉ định, quả bom này sẽ phát nổ sau một thời gian ngắn và gây sát thương lên những đơn vị xung quanh."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "ĐẠI BÁC ĐẨY LÙI",
+      "icon": "assets/champions/tristana/skill-r.jpg",
+      "description": "Tristana nạp một viên đạn cỡ bự vào vũ khí rồi bắn vào kẻ địch. Gây Sát thương Phép và đẩy lùi mục tiêu."
+    }
+  ],
+  "layout": {
+    "splashPosition": "87% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/tristana/",
+  "syncedAt": "2026-09-30"
+}

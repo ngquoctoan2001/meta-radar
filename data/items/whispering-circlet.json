@@ -1,0 +1,28 @@
+{
+  "slug": "whispering-circlet",
+  "name": "Whispering Circlet",
+  "nameVi": "Vòng Thì Thầm",
+  "icon": "assets/items/whispering-circlet.png",
+  "price": 2400,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Hỗ trợ",
+    "Năng lượng"
+  ],
+  "color": "#7FD8FF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+200"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+500"
+    },
+    {
+      "label": "Hồi năng lượng cơ bản",
+      "value": "+50%"
+    }
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2118)"
+}

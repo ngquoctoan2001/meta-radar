@@ -1,0 +1,28 @@
+{
+  "slug": "deaths-dance",
+  "name": "Death's Dance",
+  "nameVi": "Vũ Điệu Tử Thần",
+  "icon": "assets/items/deaths-dance.png",
+  "price": 3200,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đấu sĩ",
+    "Giáp"
+  ],
+  "color": "#FF5A5A",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+50"
+    },
+    {
+      "label": "Giáp",
+      "value": "+45"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2257)"
+}

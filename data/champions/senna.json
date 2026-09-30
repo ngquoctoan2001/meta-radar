@@ -1,0 +1,61 @@
+{
+  "slug": "senna",
+  "name": "SENNA",
+  "title": "Người Cứu Chuộc",
+  "roles": [
+    "XẠ THỦ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#0A1214",
+    "secondary": "#D6FFEB",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/senna/portrait.jpg",
+  "splash": "assets/champions/senna/splash.jpg",
+  "splashName": "SENNA, NGƯỜI CỨU CHUỘC",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "GIẢI THOÁT",
+      "icon": "assets/champions/senna/skill-p.jpg",
+      "description": "Khi kẻ địch bị hạ gục ở gần Senna, linh hồn của chúng sẽ bị giam cầm trong Màn Sương Đen. Senna có thể tấn công những linh hồn này để giải phóng chúng và hấp thụ Màn Sương giam cầm đó. Màn Sương sẽ tăng cường sức mạnh cho Súng Thần Tích của cô, giúp tăng Sức Mạnh Công Kích, Tầm Đánh, và Tỉ Lệ Chí Mạng. Đòn đánh thường từ Súng Thần Tích của Sena có tốc độ bắn chậm nhưng sẽ gây thêm sát thương, và cướp một phần Tốc Độ Di Chuyển của mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "BÓNG TỐI XUYÊN THẤU",
+      "icon": "assets/champions/senna/skill-q.jpg",
+      "description": "Phạm vi sử dụng Bóng Tối Xuyên Thấu bằng với phạm vi tấn công của Senna và thời gian thi triển được cải thiện bằng Tốc Độ Đánh. Kỹ năng này có thể chọn bất cứ thứ gì làm mục tiêu và sẽ đặt hiệu ứng trên đòn đánh lên tướng địch."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "RÀNG BUỘC",
+      "icon": "assets/champions/senna/skill-w.jpg",
+      "description": "Senna tung ra làn sóng Sương Đen. Nếu trúng một kẻ địch, nó sẽ bám vào và trói chân kẻ đó cùng mọi thứ xung quanh sau chốc lát."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "LỜI NGUYỀN SƯƠNG ĐEN",
+      "icon": "assets/champions/senna/skill-e.jpg",
+      "description": "Senna biến Sương Đen tích bên trong vũ khí thành cơn bão quanh mình, đón nhận bóng tối và trở thành một bóng ma. Đồng minh bước vào vùng bão được ngụy trang và xuất hiện dưới dạng bóng ma do được Màn Sương bao bọc. Bóng ma được tăng Tốc Độ Di Chuyển, không thể bị chọn làm mục tiêu và được che giấu danh tính."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HẮC ÁM SOI RỌI",
+      "icon": "assets/champions/senna/skill-r.jpg",
+      "description": "Senna triệu tập đá thần tích của các Vệ Binh đã ngã xuống, biến khẩu súng của cô thành vầng hào quang của ánh sáng và bóng tối. Cô sẽ bắn một tia sáng đi khắp nơi, bảo vệ đồng minh và gây sát thương lên kẻ địch đứng ở trung tâm."
+    }
+  ],
+  "layout": {
+    "splashPosition": "41% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/senna/",
+  "syncedAt": "2026-09-30"
+}

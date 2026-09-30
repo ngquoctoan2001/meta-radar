@@ -1,0 +1,43 @@
+/* Hệ màu, font, khoảng cách — sửa ở đây để đổi nhận diện toàn bộ ảnh. */
+:root {
+  /* nền */
+  --bg-0: #06050d;
+  --bg-1: #0b0a1b;
+  --bg-2: #141130;
+  --panel: rgba(22, 18, 48, 0.82);
+  --panel-2: rgba(14, 11, 32, 0.86);
+  --stroke: rgba(255, 255, 255, 0.09);
+  --stroke-2: rgba(255, 255, 255, 0.18);
+
+  /* chữ */
+  --text: #f6f4ff;
+  --text-2: #cbc6e8;
+  --text-3: #8d87b3;
+
+  /* nhấn thương hiệu */
+  --accent: #38e1ff;        /* xanh logo Tốc Chiến */
+  --accent-rgb: 56 225 255;
+  --accent-2: #8b5cff;      /* tím hextech */
+  --gold: #ffcf6b;
+
+  /* trạng thái */
+  --buff: #2cf5a0;   --buff-rgb: 44 245 160;
+  --nerf: #ff3d6e;   --nerf-rgb: 255 61 110;
+  --mixed: #ffc53d;  --mixed-rgb: 255 197 61;
+  --neutral: #8fb0ff; --neutral-rgb: 143 176 255;
+  --rework: #c07cff; --rework-rgb: 192 124 255;
+
+  /* font (đều hỗ trợ tiếng Việt, tải sẵn trong assets/fonts) */
+  --f-display: 'Saira Extra Condensed', 'Arial Narrow', sans-serif;
+  --f-hud: 'Chakra Petch', 'Segoe UI', sans-serif;
+  --f-body: 'Be Vietnam Pro', 'Segoe UI', sans-serif;
+
+  --pad: 64px;
+}
+
+/* Mỗi phần tử gắn is-* sẽ tự có --c (màu) và --c-rgb (để pha độ trong) */
+.is-buff    { --c: var(--buff);    --c-rgb: var(--buff-rgb); }
+.is-nerf    { --c: var(--nerf);    --c-rgb: var(--nerf-rgb); }
+.is-mixed   { --c: var(--mixed);   --c-rgb: var(--mixed-rgb); }
+.is-neutral { --c: var(--neutral); --c-rgb: var(--neutral-rgb); }
+.is-rework, .is-new { --c: var(--rework); --c-rgb: var(--rework-rgb); }

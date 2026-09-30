@@ -1,0 +1,60 @@
+{
+  "slug": "caitlyn",
+  "name": "CAITLYN",
+  "title": "Cảnh Sát Trưởng Piltover",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#0F1C1F",
+    "secondary": "#D6FBFF",
+    "label": "#050505"
+  },
+  "portrait": "assets/champions/caitlyn/portrait.jpg",
+  "splash": "assets/champions/caitlyn/splash.jpg",
+  "splashName": "CAITLYN, CẢNH SÁT TRƯỞNG PILTOVER",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "THIỆN XẠ",
+      "icon": "assets/champions/caitlyn/skill-p.jpg",
+      "description": "Sau một vài đòn đánh thường, hoặc đối với mục tiêu đạp phải bẫy, Caitlyn sẽ bắn một cú cực mạnh gây thêm sát thương dựa vào tỉ lệ chí mạng. Thiện Xạ của Caitlyn sẽ có tầm đánh tăng gấp đôi đối với mục tiêu bị mắc bẫy của cô."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "BẮN XUYÊN TÁO",
+      "icon": "assets/champions/caitlyn/skill-q.jpg",
+      "description": "Caitlyn nâng khẩu súng trường của mình lên trong 1 giây rồi bắn ra một phát đạn xuyên phá gây sát thương vật lý (sát thương giảm dần lên các mục tiêu trúng đòn tiếp theo)."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BẪY YORDLE",
+      "icon": "assets/champions/caitlyn/skill-w.jpg",
+      "description": "Caitlyn đặt bẫy để tìm đám Yordle lén lút. Khi sập bẫy, tướng địch bị lộ diện và bất động trong thoáng chốc, Thiện Xạ của Caitlyn sẽ được cường hóa."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "LƯỚI 90",
+      "icon": "assets/champions/caitlyn/skill-e.jpg",
+      "description": "Caitlyn bắn ra một tấm lưới làm chậm mục tiêu. Còn Caitlyn sẽ bay ngược về phía sau."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BÁCH PHÁT BÁCH TRÚNG",
+      "icon": "assets/champions/caitlyn/skill-r.jpg",
+      "description": "Caitlyn ngắm cẩn thận cho một cú bắn chuẩn xác, gây sát thương khủng khiếp lên một mục tiêu ở cự ly xa. Tướng đối phương có thể hứng đạn thế cho đồng đội của chúng."
+    }
+  ],
+  "layout": {
+    "splashPosition": "100% 20%",
+    "splashSize": "cover"
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/caitlyn/",
+  "syncedAt": "2026-09-30"
+}
