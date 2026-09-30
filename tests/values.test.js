@@ -50,6 +50,8 @@ test('khoảng tối thiểu–tối đa', () => {
   assert.equal(r.effect, 'buff');
   assert.equal(r.delta, '×1,6');
   assert.equal(a('Hệ số theo cấp', '60%–100%', '60%–90%').effect, 'nerf');
+  assert.equal(a('Hệ số theo cấp', '60%–100%', '60%–90%').delta, ''); // không ghi "×1"
+  assert.equal(a('Sát thương đốt lên quái / giây', '30–198', '22–162').delta, '×0,8');
   assert.equal(a('Sát thương theo cấp', '33–333', '40–285').effect, 'mixed');
 });
 

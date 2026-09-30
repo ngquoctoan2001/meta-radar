@@ -56,9 +56,20 @@ function fitStack(el) {
   if (overflows()) console.warn('[fit] Quá nhiều thay đổi cho 1 ảnh — nên tách thành 2 ảnh.');
 }
 
+// Cột trái (tên + câu chốt): nếu khung chốt chạm chân ảnh thì thu gọn biểu tượng/tên cho vừa.
+function fitHero(hero) {
+  const verdict = hero.querySelector('.verdict');
+  const foot = hero.closest('.slide')?.querySelector('.footbar');
+  if (!verdict || !foot) return;
+  const hits = () => verdict.getBoundingClientRect().bottom > foot.getBoundingClientRect().top - 4;
+  if (hits()) hero.classList.add('is-compact');
+  if (hits()) console.warn('[fit] Câu chốt quá dài, đè lên chân ảnh — nên rút gọn.');
+}
+
 export function fitAll(root = document) {
   root.querySelectorAll('.chg').forEach(fitCard);
   root.querySelectorAll('[data-fit-stack]').forEach(fitStack);
   root.querySelectorAll('[data-fit]').forEach((el) => fitLine(el));
   root.querySelectorAll('[data-fit-block]').forEach((el) => fitBlock(el));
+  root.querySelectorAll('.it-hero, .ch-hero').forEach(fitHero);
 }

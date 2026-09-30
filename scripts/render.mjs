@@ -6,10 +6,10 @@
 //
 // Ảnh lưu vào patches/<patch>/out/<khổ>/. Nếu server chưa chạy, script tự bật tạm rồi tắt.
 import { spawn } from 'node:child_process';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { FORMATS, isFormat } from '../src/js/lib/formats.js';
+import { FORMATS, isFormat, fileName } from '../src/js/lib/formats.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT ?? 5173);
@@ -46,6 +46,17 @@ try {
       }
       const warnings = decodeURIComponent(res.headers.get('X-Warnings') ?? '');
       console.log(`✔ ${format.padEnd(4)} ${s.id} (${Date.now() - t}ms)${warnings ? `\n  ⚠ ${warnings}` : ''}`);
+    }
+    if (!only.length) {
+      // xuất toàn bộ → xoá ảnh cũ không còn trong danh sách (vd sau khi đổi thứ tự ảnh)
+      const keep = patch.slides.map((s, i) => fileName(patchId, i, s.id, format));
+      const dir = path.join(ROOT, 'patches', patchId, 'out', format);
+      for (const f of await readdir(dir).catch(() => [])) {
+        if (f.endsWith('.png') && !keep.includes(f)) {
+          await unlink(path.join(dir, f));
+          console.log(`  đã xoá ảnh cũ ${format}/${f}`);
+        }
+      }
     }
   }
   console.log(`\nẢnh đã lưu ở patches/${patchId}/out/<khổ>/`);

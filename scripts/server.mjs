@@ -10,12 +10,13 @@
 // Ảnh xuất ra cũng được lưu vào patches/<patch>/out/<format>/.
 
 import http from 'node:http';
-import { readFile, readdir, writeFile, mkdir, stat } from 'node:fs/promises';
+import { readFile, readdir, writeFile, mkdir, stat, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { exec } from 'node:child_process';
 import { renderSlide, closeBrowser } from './lib/renderer.mjs';
 import { createZip } from './lib/zip.mjs';
+import { readJSON, listPatches } from './lib/patches.mjs';
 import { FORMATS, DEFAULT_FORMAT, isFormat, fileName } from '../src/js/lib/formats.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,47 +30,6 @@ const MIME = {
   '.woff2': 'font/woff2', '.ico': 'image/x-icon',
 };
 
-const readJSON = async (p) => JSON.parse(await readFile(path.join(ROOT, p), 'utf8'));
-const tryJSON = (p) => readJSON(p).catch(() => null);
-
-// So sánh số phiên bản kiểu 7.3a > 7.2b > 7.2
-const verKey = (id) => id.split(/(\d+)/).filter(Boolean).map((p) => (/^\d+$/.test(p) ? p.padStart(4, '0') : p)).join('');
-
-async function listPatches() {
-  const dirs = await readdir(path.join(ROOT, 'patches'), { withFileTypes: true });
-  const patches = [];
-  for (const d of dirs.filter((x) => x.isDirectory())) {
-    const patch = await tryJSON(`patches/${d.name}/patch.json`);
-    if (!patch) continue;
-    const slides = [];
-    for (const [i, s] of patch.slides.entries()) {
-      let label = s.title ?? s.id;
-      let status = null;
-      if (s.type === 'champion') {
-        const c = await tryJSON(`data/champions/${s.ref}.json`);
-        label = c?.name ?? s.ref;
-        status = patch.champions.find((x) => x.slug === s.ref)?.status ?? null;
-      } else if (s.type === 'item') {
-        const it = await tryJSON(`data/items/${s.ref}.json`);
-        label = it?.name ?? s.ref;
-        status = patch.items.find((x) => x.slug === s.ref)?.status ?? null;
-      }
-      slides.push({ ...s, label, status, index: i });
-    }
-    const count = (st) => patch.champions.filter((c) => c.status === st).length;
-    patches.push({
-      id: patch.id,
-      title: patch.title,
-      date: patch.date,
-      headline: patch.headline,
-      sourceFile: patch.sourceFile,
-      counts: { buff: count('buff'), nerf: count('nerf'), mixed: count('adjust') + count('mixed'), items: patch.items?.length ?? 0, systems: patch.systems?.length ?? 0 },
-      slides,
-    });
-  }
-  return patches.sort((a, b) => verKey(b.id).localeCompare(verKey(a.id)));
-}
-
 async function renderAndSave(patchId, slideId, format) {
   const patch = await readJSON(`patches/${patchId}/patch.json`);
   const index = patch.slides.findIndex((s) => s.id === slideId);
@@ -81,6 +41,14 @@ async function renderAndSave(patchId, slideId, format) {
   await writeFile(path.join(outDir, name), png);
   if (warnings.length) console.warn(`  ⚠ ${name}:\n    ${warnings.join('\n    ')}`);
   return { name, png, warnings };
+}
+
+// Xoá ảnh PNG cũ trong out/<khổ>/ không còn thuộc danh sách hiện tại (vd sau khi đổi thứ tự ảnh).
+async function removeStale(patchId, format, keep) {
+  const dir = path.join(ROOT, 'patches', patchId, 'out', format);
+  for (const f of await readdir(dir).catch(() => [])) {
+    if (f.endsWith('.png') && !keep.includes(f)) await unlink(path.join(dir, f));
+  }
 }
 
 function send(res, status, body, headers = {}) {
@@ -118,6 +86,7 @@ async function handleApi(url, res) {
         console.log(`✔ ${name}`);
         files.push({ name, data: png });
       }
+      await removeStale(patchId, format, files.map((f) => f.name));
       return send(res, 200, createZip(files), { 'Content-Type': 'application/zip', 'Content-Disposition': attachment(`toc-chien-${patchId}-${format}.zip`) });
     }
     case '/api/open-folder': {

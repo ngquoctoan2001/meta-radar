@@ -23,25 +23,24 @@ export const ICON = {
 };
 
 export const STATUS = {
-  buff: { label: 'BUFF', sub: 'Tăng sức mạnh', icon: ICON.up },
-  nerf: { label: 'NERF', sub: 'Giảm sức mạnh', icon: ICON.down },
-  mixed: { label: 'ĐIỀU CHỈNH', sub: 'Vừa tăng vừa giảm', icon: ICON.swap },
-  neutral: { label: 'THAY ĐỔI', sub: 'Điều chỉnh hệ thống', icon: ICON.dot },
-  rework: { label: 'LÀM LẠI', sub: 'Thiết kế lại', icon: ICON.spark },
-  new: { label: 'MỚI', sub: 'Vừa ra mắt', icon: ICON.spark },
+  buff: { label: 'BUFF', icon: ICON.up },
+  nerf: { label: 'NERF', icon: ICON.down },
+  mixed: { label: 'ĐIỀU CHỈNH', icon: ICON.swap },
+  neutral: { label: 'THAY ĐỔI', icon: ICON.dot },
+  rework: { label: 'LÀM LẠI', icon: ICON.spark },
+  new: { label: 'MỚI', icon: ICON.spark },
 };
 // "adjust" trong patch.json dùng chung giao diện với "mixed".
 export const statusKey = (s) => (s === 'adjust' ? 'mixed' : STATUS[s] ? s : 'neutral');
 
 export const SKILL_KICKER = { p: 'NỘI TẠI', q: 'CHIÊU Q', w: 'CHIÊU W', e: 'CHIÊU E', r: 'CHIÊU CUỐI', stats: 'THÔNG SỐ' };
 
-export function statusBadge(status, { size = 'lg', showSub = true } = {}) {
+export function statusBadge(status, { size = 'lg' } = {}) {
   const k = statusKey(status);
   const s = STATUS[k];
   return `<div class="status status--${size} is-${k}">
     <span class="status-ico">${s.icon}</span>
     <span class="status-txt">${s.label}</span>
-    ${showSub ? `<span class="status-sub">${s.sub}</span>` : ''}
   </div>`;
 }
 

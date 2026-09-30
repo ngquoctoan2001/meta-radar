@@ -185,7 +185,7 @@ a { color: inherit; }
   gap: 12px; padding: 16px 20px 24px;
   background: rgba(4, 3, 10, 0.92); backdrop-filter: blur(10px);
 }
-.lightbox[hidden] { display: none; }
+.lightbox[hidden], .btn[hidden] { display: none; }
 .lb-top { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .lb-title { display: flex; align-items: baseline; gap: 12px; }
 .lb-title span { font: 700 14px/1 var(--f-hud); letter-spacing: 0.14em; color: var(--text-3); }

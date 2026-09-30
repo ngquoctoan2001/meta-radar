@@ -144,3 +144,6 @@ Cùng một `patch.json` vẽ ra cả 3 khổ. Không cần nhập lại dữ li
 
 - Thẻ thay đổi, nhãn BUFF/NERF và câu chốt giữ **cùng cỡ chữ** ở mọi khổ. Khổ dọc và vuông chỉ sắp xếp lại vị trí, nên chữ trên điện thoại còn to hơn bản 16:9.
 - Tướng có quá nhiều thay đổi thì ảnh tự chuyển sang chế độ gọn. Nếu vẫn không đủ chỗ, trang quản lý sẽ hiện cảnh báo, khi đó nên tách thành 2 ảnh.
+- Số liệu dài (theo cấp, nhiều mốc như `40/60/80/100/120`) → thẻ tự đưa nhãn lên 1 dòng riêng, rồi co cỡ số nếu vẫn chật.
+- Câu chốt nên gọn trong **2–3 dòng**. Nếu chạm chân ảnh, ảnh tự thu nhỏ biểu tượng/tên. Vẫn không vừa thì trang quản lý báo "Câu chốt quá dài".
+- Đổi thứ tự ảnh trong `slides` rồi xuất toàn bộ → ảnh mang số thứ tự cũ trong `out/` được tự xoá.

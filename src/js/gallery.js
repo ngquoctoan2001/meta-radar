@@ -23,7 +23,7 @@ const ICON = {
   folder: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
 };
 
-const state = { patches: [], current: null, filter: 'all', format: DEFAULT_FORMAT, lbIndex: -1 };
+const state = { patches: [], live: false, current: null, filter: 'all', format: DEFAULT_FORMAT, lbIndex: -1 };
 try {
   state.filter = localStorage.getItem('gallery.filter') ?? 'all';
   const f = localStorage.getItem('gallery.format');
@@ -115,10 +115,11 @@ function renderHead() {
       </div>
     </div>
     <div class="head-actions">
-      <button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả ${fmt().label} (.zip)</button>
-      <button class="btn btn-ghost" id="btnFolder" type="button">${ICON.folder}Mở thư mục ảnh</button>
+      ${state.live ? `<button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả ${fmt().label} (.zip)</button>
+      <button class="btn btn-ghost" id="btnFolder" type="button">${ICON.folder}Mở thư mục ảnh</button>` : ''}
       ${p.sourceFile ? `<a class="btn btn-ghost" href="/${esc(p.sourceFile)}" target="_blank" rel="noopener">${ICON.doc}Bản dịch (.md)</a>` : ''}
     </div>`;
+  if (!state.live) return;
   $('#btnZip').onclick = (e) => downloadFrom(`/api/render-all?${apiQuery()}`, `toc-chien-${p.id}-${state.format}.zip`, e.currentTarget);
   $('#btnFolder').onclick = async () => {
     const res = await fetch(`/api/open-folder?${apiQuery()}`).catch(() => null);
@@ -201,7 +202,7 @@ function renderGrid() {
         </div>
         <div class="card-actions">
           <a class="btn btn-icon" href="${slideUrl(p.id, s.id)}" target="_blank" rel="noopener" aria-label="Mở ${esc(s.label)} ở tab mới" title="Mở tab mới">${ICON.external}</a>
-          <button class="btn btn-primary btn-sm" type="button" data-download>${ICON.download}Tải PNG</button>
+          ${state.live ? `<button class="btn btn-primary btn-sm" type="button" data-download>${ICON.download}Tải PNG</button>` : ''}
         </div>
       </div>
     </article>`)
@@ -211,7 +212,8 @@ function renderGrid() {
     const slide = p.slides.find((s) => s.id === card.dataset.id);
     scaleObserver.observe(card.querySelector('.card-preview'));
     card.querySelector('.card-preview').onclick = () => openLightbox(visibleSlides().indexOf(slide));
-    card.querySelector('[data-download]').onclick = (e) => downloadSlide(slide, e.currentTarget);
+    const download = card.querySelector('[data-download]');
+    if (download) download.onclick = (e) => downloadSlide(slide, e.currentTarget);
   });
 }
 
@@ -264,16 +266,21 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---------- tải dữ liệu ----------
+// Host tĩnh (Cloudflare Pages) trả index.html cho đường dẫn lạ nên phải kiểm tra đúng là JSON.
+async function fetchJSON(url) {
+  const res = await fetch(url, { cache: 'no-store' }).catch(() => null);
+  return res?.ok && res.headers.get('Content-Type')?.includes('json') ? res.json() : null;
+}
+
+// Chạy local: lấy từ server, xuất được ảnh. Bản web tĩnh (npm run build): đọc patches/index.json, chỉ xem.
 async function load() {
-  try {
-    const res = await fetch('/api/patches', { cache: 'no-store' });
-    if (!res.ok) throw new Error();
-    state.patches = await res.json();
-    $('#offline').hidden = true;
-  } catch {
-    $('#offline').hidden = false;
-    return;
-  }
+  const live = await fetchJSON('/api/patches');
+  const patches = live ?? (await fetchJSON('/patches/index.json'));
+  $('#offline').hidden = !!patches;
+  if (!patches) return;
+  state.patches = patches;
+  state.live = !!live;
+  $('#lbDownload').hidden = !state.live;
   selectFromHash();
 }
 

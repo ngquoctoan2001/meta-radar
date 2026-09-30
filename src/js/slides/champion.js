@@ -4,9 +4,10 @@ import {
 
 // Khổ 1:1: chia thẻ vào 2 cột sao cho 2 cột cao gần bằng nhau (ước lượng theo số dòng).
 function twoColumns(cards, changes) {
-  const cols = [{ w: 0, html: [] }, { w: 0, html: [] }];
+  // chỉ 1 thẻ → 1 cột rộng hết khung
+  const cols = cards.length === 1 ? [{ w: 0, html: [] }] : [{ w: 0, html: [] }, { w: 0, html: [] }];
   cards.forEach((html, i) => {
-    const col = cols[0].w <= cols[1].w ? cols[0] : cols[1];
+    const col = cols.reduce((a, b) => (b.w < a.w ? b : a));
     col.w += 1.3 + changes[i].lines.length;
     col.html.push(html);
   });

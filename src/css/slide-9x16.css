@@ -60,7 +60,6 @@ body.slide-page[data-format="9x16"] { width: 1080px; height: 1920px; }
 .fmt-9x16 .ov-rows { top: 372px; gap: 20px; }
 .fmt-9x16 .ov-row { height: auto; }
 .fmt-9x16 .ov-cards { flex: 1; flex-wrap: wrap; align-content: flex-start; gap: 14px; }
-.fmt-9x16 .ov-card-info h4 { font-size: 50px; }
 
 .fmt-9x16 .ov-bottom { top: 1452px; height: auto; flex-direction: column; gap: 18px; }
 .fmt-9x16 .ov-group { flex: none; height: 180px; }

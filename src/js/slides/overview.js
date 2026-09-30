@@ -41,10 +41,9 @@ function miniSkills(entry, champ) {
 function champCard(entry, champ) {
   const k = statusKey(entry.status);
   return `<article class="ov-card is-${k}">
-    <img class="ov-portrait" src="/${esc(champ.portrait)}" alt="">
+    <img class="ov-portrait" src="/${esc(champ.portrait)}" alt="${esc(champ.name)}">
     <span class="ov-card-ico">${STATUS[k].icon}</span>
     <div class="ov-card-info">
-      <h4 data-fit>${esc(champ.name)}</h4>
       <div class="ov-minis">${miniSkills(entry, champ)}</div>
     </div>
   </article>`;

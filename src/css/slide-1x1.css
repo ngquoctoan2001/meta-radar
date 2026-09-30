@@ -47,14 +47,13 @@ body.slide-page[data-format="1x1"] { width: 1440px; height: 1440px; }
 .fmt-1x1.slide--item .it-bgicon { left: -320px; top: -160px; width: 1500px; height: 1500px; }
 .fmt-1x1.slide--item .it-shade { background: linear-gradient(90deg, transparent 38%, rgba(9, 7, 22, 0.75) 58%); }
 .fmt-1x1 .it-main { top: 150px; bottom: 80px; grid-template-columns: 600px minmax(0, 1fr); gap: 48px; }
-.fmt-1x1 .it-name { font-size: 118px; }
+.fmt-1x1 .it-name { font-size: 84px; }
 
 /* ---------- TỔNG QUAN ---------- */
 .fmt-1x1 .ov-hero { top: 140px; }
 .fmt-1x1 .ov-rows { top: 256px; }
 .fmt-1x1 .ov-row { height: auto; }
 .fmt-1x1 .ov-cards { flex: 1; flex-wrap: wrap; align-content: flex-start; gap: 14px; }
-.fmt-1x1 .ov-card-info h4 { font-size: 46px; }
 .fmt-1x1 .ov-bottom { top: 1050px; height: auto; flex-direction: column; gap: 16px; }
 .fmt-1x1 .ov-group { flex: none; height: 162px; }
 .fmt-1x1 .ov-group--sys { height: 130px; }

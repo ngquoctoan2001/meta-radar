@@ -10,7 +10,7 @@ Dự án tạo bộ ảnh tóm tắt mỗi bản cập nhật (patch) của Liê
 
 Ảnh được dựng bằng **HTML + CSS + JS thuần**, rồi chụp thành PNG bằng trình duyệt Edge có sẵn trên máy.
 
-> Trạng thái: patch 7.3a có 4 ảnh × 3 khổ: tổng quan, Samira, Yun Tal Wildarrows, hệ thống & bản đồ.
+> Trạng thái: patch 7.3a hoàn chỉnh — 17 ảnh × 3 khổ = 51 ảnh: tổng quan, 11 tướng, 4 trang bị, hệ thống & bản đồ.
 
 ## Chạy
 
@@ -36,6 +36,21 @@ Xuất ảnh không cần mở trang (server chưa chạy thì script tự bật
 node scripts/render.mjs 7.3a
 ```
 Lệnh trên xuất cả 3 khổ. Chỉ muốn 1 khổ thì thêm `--format=9x16` (hoặc `16x9`, `1x1`).
+
+## Deploy lên web (Cloudflare Pages)
+
+`npm run build` tạo bản web tĩnh trong `dist/`. Bản này **chỉ để xem ảnh**: không có server nên không có nút tải PNG / ZIP (xuất ảnh vẫn chạy trên máy bằng `start.bat`).
+
+Cài đặt trên Cloudflare Pages:
+
+| Ô | Giá trị |
+|---|---|
+| Framework preset | `None` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Root directory | `/` |
+
+Mỗi lần push lên GitHub, Cloudflare tự build lại, nên patch mới sẽ tự xuất hiện trên web.
 
 ## Các loại ảnh (component)
 

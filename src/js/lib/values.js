@@ -99,7 +99,7 @@ export function deltaText(oldV, newV, ds) {
   const kind = newV.kind === 'single' && oldV.kind !== 'single' ? oldV.kind : newV.kind;
   if (kind === 'single') return ds[0].d === 0 ? '' : signed(ds[0].d) + unit;
   if (kind === 'range') {
-    if (ds.some(({ from }) => from === 0)) return '';
+    if (ds.some(({ from, d }) => from === 0 || d === 0)) return ''; // 1 đầu không đổi → không có hệ số chung
     const ratios = ds.map(({ from, to }) => to / from);
     const spread = Math.max(...ratios) - Math.min(...ratios);
     if (spread > 0.1) return '';

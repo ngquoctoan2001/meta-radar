@@ -44,9 +44,13 @@
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
 .it-hero .status { align-self: center; }
+/* fit.js bật khi câu chốt chạm chân ảnh: thu gọn tên + khoảng cách, KHÔNG thu nhỏ biểu tượng (giữ cỡ chuẩn) */
+.it-hero.is-compact .it-name { font-size: 92px; }
+.it-hero.is-compact .it-sub { margin-top: 10px; }
+.it-hero.is-compact .verdict { margin-top: 26px; }
 .it-name {
   width: 100%; margin: 6px 0 -10px; padding-top: 0.14em;
-  font: 900 132px/0.9 var(--f-display); letter-spacing: 0.01em; text-transform: uppercase;
+  font: 900 110px/0.9 var(--f-display); letter-spacing: 0.01em; text-transform: uppercase;
   white-space: nowrap;
   background: linear-gradient(180deg, #fff 40%, color-mix(in srgb, var(--item) 55%, #fff) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;

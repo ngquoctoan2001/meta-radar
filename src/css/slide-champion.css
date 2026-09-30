@@ -37,3 +37,5 @@
 .ch-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
 .ch-title { font: 600 30px/1 var(--f-hud); color: var(--text); margin-right: 8px; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); }
 .ch-hero .verdict { margin-top: 44px; }
+.ch-hero.is-compact .ch-name { font-size: 190px; }
+.ch-hero.is-compact .verdict { margin-top: 30px; }
