@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>META RADAR — ảnh bìa Facebook</title>
+<!--
+  Ảnh bìa fanpage 1640×924 (tỉ lệ Facebook khuyên dùng).
+  - Máy tính chỉ hiện dải giữa ~1640×624 (y 150–774) → chữ và khuôn mặt tướng nằm trong dải này.
+  - Điện thoại hiện cả ảnh; avatar đè lên góc dưới bên trái (khoảng y > 600, x < 700) → để trống góc đó.
+-->
+<link rel="stylesheet" href="../src/css/fonts.css">
+<link rel="stylesheet" href="../src/css/tokens.css">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .cover { width: 1640px; height: 924px; }
+  .cover .grid {
+    -webkit-mask-image: radial-gradient(ellipse 50% 60% at 25% 50%, #000 15%, transparent 75%);
+            mask-image: radial-gradient(ellipse 50% 60% at 25% 50%, #000 15%, transparent 75%);
+  }
+
+  /* Tướng: các tấm nghiêng 13° giống vệt sáng trên ảnh patch */
+  .panels { position: absolute; inset: 0; z-index: 1; }
+  .panel {
+    position: absolute; top: 0; height: 924px;
+    background-repeat: no-repeat;
+    clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 12%, #000 28%, #000 82%, transparent 98%);
+            mask-image: linear-gradient(180deg, transparent 12%, #000 28%, #000 82%, transparent 98%);
+  }
+  .panel::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgb(6 5 13 / 0.1) 40%, rgb(6 5 13 / 0.75) 100%);
+  }
+  .edge {
+    position: absolute; top: -25px; height: 949px; width: 4px; z-index: 2;
+    transform-origin: 0 100%;
+    background: linear-gradient(transparent 6%, var(--accent) 45%, transparent 94%);
+    box-shadow: 0 0 26px 3px rgb(var(--accent-rgb) / 0.5);
+  }
+  /* làm tối dần vùng giao giữa chữ và tấm tướng đầu tiên */
+  .fade {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(90deg, var(--bg-1) 0%, rgb(11 10 27 / 0.0) 40%),
+                linear-gradient(0deg, rgb(6 5 13 / 0.55), transparent 30%);
+  }
+
+  .intro {
+    position: absolute; left: 118px; top: 392px; z-index: 3;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .kicker {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 6px; margin-bottom: 14px;
+    font: 600 25px/1.2 var(--f-hud); letter-spacing: 0.22em; color: var(--accent);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  }
+  .kicker i {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 14px 3px rgb(var(--accent-rgb) / 0.7);
+  }
+  .intro .wordmark { font-size: 300px; margin-left: -16px; }
+
+  .credit {
+    position: absolute; right: 64px; bottom: 170px; z-index: 3;
+    font: 500 17px/1 var(--f-hud); letter-spacing: 0.08em; color: rgb(255 255 255 / 0.55);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  }
+</style>
+</head>
+<body>
+<div class="canvas cover">
+  <div class="grid"></div>
+  <div class="radar" id="radar"></div>
+  <div class="panels" id="panels"></div>
+  <div class="fade"></div>
+
+  <div class="intro">
+    <div class="kicker"><i></i>CẬP NHẬT META TỐC CHIẾN</div>
+    <div class="wordmark wordmark--left">
+      <h1 class="wordmark-meta">META</h1>
+      <div class="wordmark-radar"><span>RADAR</span></div>
+    </div>
+  </div>
+
+  <div class="credit">Hình ảnh © Riot Games</div>
+  <div class="noise"></div>
+</div>
+<script type="module">
+  import { drawRadar, markReady } from './radar.js';
+
+  const H = 924;
+  const SLANT = Math.round(Math.tan((13 * Math.PI) / 180) * H); // 213
+  const W = 1640;
+  const GAP = 14;
+  const IMG_TOP = 110; // mép trên ảnh gốc → khuôn mặt (~13–18% chiều cao ảnh) rơi vào dải máy tính hiện được
+  const IMG_H = 1040;  // chiều cao ảnh gốc sau khi phóng
+  const FACE_Y = 270;  // độ cao khuôn mặt, dùng để căn giữa theo chiều ngang
+  // bề ngang từng tấm (tấm cuối kéo tới mép phải ảnh); faceX = vị trí ngang khuôn mặt trong splash (0–1).
+  // Không dùng layout.focusX của ảnh patch vì giá trị đó đã tính cả cách ảnh patch cắt khung.
+  const PANELS = [
+    { slug: 'samira', width: 262, faceX: 0.582 },
+    { slug: 'viego', width: 262, faceX: 0.763 },
+    { slug: 'syndra', faceX: 0.484 },
+  ];
+  const LEFT = W - (262 * 2 + GAP * 2 + 262 + SLANT); // mép dưới-trái của tấm đầu tiên
+
+  drawRadar(document.getElementById('radar'), {
+    cx: 400, cy: 462, r: 430, sweep: 58, alpha: 0.7,
+    blips: [
+      { deg: -58, r: 330, color: '#ff3d6e', size: 9 },
+      { deg: 212, r: 380, color: '#2cf5a0', size: 9 },
+      { deg: 128, r: 250, color: '#ffc53d', size: 6 },
+    ],
+  });
+
+  async function panels() {
+    const root = document.getElementById('panels');
+    const cover = document.querySelector('.cover');
+    const loads = [];
+    let box = LEFT;
+    for (const [i, { slug, width: w = W - box, faceX }] of PANELS.entries()) {
+      const champ = await (await fetch(`../data/champions/${slug}.json`)).json();
+      const { width = 1280, height = 720 } = champ.splashDims ?? {};
+      const shownW = (width * IMG_H) / height;
+      // tâm ngang phần tấm nhìn thấy được ở độ cao khuôn mặt
+      const from = SLANT * (1 - FACE_Y / H);
+      const centre = (from + Math.min(from + w, W - box)) / 2;
+      const x = centre - (faceX ?? champ.layout?.focusX ?? 0.5) * shownW;
+
+      const el = document.createElement('div');
+      el.className = 'panel';
+      el.style.cssText = `left:${box}px;width:${w + SLANT}px;--slant:${SLANT}px;` +
+        `background-image:url(../${champ.splash});background-size:${shownW.toFixed(0)}px ${IMG_H}px;` +
+        `background-position:${x.toFixed(0)}px ${IMG_TOP}px`;
+      root.append(el);
+
+      const edge = document.createElement('div');
+      edge.className = 'edge';
+      edge.style.cssText = `left:${box}px;transform:rotate(13deg);opacity:${i === 0 ? 0.9 : 0.35}`;
+      cover.append(edge);
+
+      const img = new Image();
+      img.src = `../${champ.splash}`;
+      loads.push(img.decode());
+      box += w + GAP;
+    }
+    await Promise.all(loads);
+  }
+
+  markReady(panels());
+</script>
+</body>
+</html>

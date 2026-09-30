@@ -1,0 +1,52 @@
+/* Nhận diện kênh dùng chung cho avatar.html và cover.html (màu + font lấy từ src/css/tokens.css). */
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #000; }
+
+.canvas {
+  position: relative; overflow: hidden; isolation: isolate;
+  color: var(--text);
+  font-family: var(--f-body);
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 100%, rgb(139 92 255 / 0.22), transparent 70%),
+    linear-gradient(160deg, var(--bg-2) 0%, var(--bg-1) 50%, var(--bg-0) 100%);
+  -webkit-font-smoothing: antialiased;
+}
+.radar { position: absolute; inset: 0; }
+.grid {
+  position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px; background-position: 30px 30px;
+}
+.noise {
+  position: absolute; inset: 0; z-index: 9; opacity: 0.5; mix-blend-mode: overlay; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Chữ "META" + thanh "RADAR". Đổi cỡ bằng font-size của .wordmark (= cỡ chữ META). */
+.wordmark { display: flex; flex-direction: column; align-items: center; }
+.wordmark--left { align-items: flex-start; }
+.wordmark-meta {
+  margin: 0; padding: 0.1em 0.06em 0;
+  font: 900 1em/0.8 var(--f-display);
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, #ffffff 42%, #bdefff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0.024em 0.08em rgba(0, 0, 0, 0.75)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+}
+.wordmark-radar {
+  position: relative; isolation: isolate;
+  margin-top: 0.03em; padding: 0 0.358em 0 0.433em; height: 0.955em;
+  display: flex; align-items: center;
+  font: 900 0.316em/1 var(--f-display); letter-spacing: 0.2em;
+  color: #07061a;
+  filter: drop-shadow(0 0 0.254em rgb(var(--accent-rgb) / 0.55));
+}
+.wordmark--left .wordmark-radar { margin-left: 0.06em; }
+.wordmark-radar::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(100deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 55%, #fff) 55%, #b9a3ff 100%);
+  clip-path: polygon(0.194em 0, 100% 0, calc(100% - 0.194em) 100%, 0 100%);
+}
+.wordmark-radar span { display: block; transform: skewX(-8deg); margin-top: 0.045em; }

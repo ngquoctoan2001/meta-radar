@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>META RADAR — avatar</title>
+<!-- Ảnh đại diện kênh 1080×1080. TikTok / Facebook cắt thành hình tròn: mọi thứ quan trọng nằm trong vòng r ≈ 480. -->
+<link rel="stylesheet" href="../src/css/fonts.css">
+<link rel="stylesheet" href="../src/css/tokens.css">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .avatar {
+    width: 1080px; height: 1080px;
+    background:
+      radial-gradient(circle at 50% 50%, rgb(var(--accent-rgb) / 0.13), transparent 46%),
+      radial-gradient(ellipse 70% 60% at 30% 100%, rgb(139 92 255 / 0.22), transparent 70%),
+      linear-gradient(160deg, var(--bg-2) 0%, var(--bg-1) 50%, var(--bg-0) 100%);
+  }
+  .avatar .grid {
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 62%);
+            mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 62%);
+  }
+  .avatar .wordmark {
+    position: absolute; left: 0; right: 0; top: 50%; z-index: 2;
+    transform: translateY(-50%);
+    font-size: 424px;
+  }
+</style>
+</head>
+<body>
+<div class="canvas avatar">
+  <div class="grid"></div>
+  <div class="radar" id="radar"></div>
+  <div class="wordmark">
+    <h1 class="wordmark-meta">META</h1>
+    <div class="wordmark-radar"><span>RADAR</span></div>
+  </div>
+  <div class="noise"></div>
+</div>
+<script type="module">
+  import { drawRadar, markReady } from './radar.js';
+
+  drawRadar(document.getElementById('radar'), {
+    cx: 540, cy: 540, r: 468, sweep: 58,
+    blips: [
+      { deg: 31, r: 344, color: '#2cf5a0', size: 12, label: '▲ BUFF', anchor: 'start' },
+      { deg: -31, r: 344, color: '#ff3d6e', size: 11, label: 'NERF ▼', anchor: 'end' },
+      { deg: 214, r: 392, color: '#ffc53d', size: 9 },
+      { deg: 146, r: 400, color: '#2cf5a0', size: 7 },
+    ],
+  });
+  markReady();
+</script>
+</body>
+</html>

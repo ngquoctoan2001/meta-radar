@@ -91,6 +91,7 @@ Sau đó bấm **Làm mới** trên trang quản lý để xem và tải ảnh.
 | `node scripts/fetch-item.mjs "<tên EN/VN>"` | Tải icon, giá, chỉ số Tốc Chiến, tên VN của trang bị · `--list` để tra tay |
 | `node scripts/audit.mjs <bản> --sheet` | Kiểm tra dữ liệu + từng ảnh, tạo `review/<bản>-tong-hop.png` |
 | `node scripts/render.mjs <bản>` | Xuất ảnh (mặc định nét 2x, `--scale=1` cho bản chuẩn) |
+| `node scripts/render-brand.mjs [avatar\|cover]` | Xuất avatar 1080×1080 và ảnh bìa Facebook 1640×924 (+ `@2x`) từ `brand/*.html` → `brand/`; xem thử khi lên TikTok/Facebook ở `review/avatar-preview.png`, `review/cover-preview.png` |
 
 ## Cấu trúc thư mục
 
@@ -102,11 +103,12 @@ src/js/lib/output.js             khung vẽ 1920×1080, độ nét 1x/2x, tên f
 src/js/slides/                   overview.js · champion.js · item.js · system.js
 src/js/lib/                      values.js (phân tích số liệu) · ui.js (thành phần chung) · fit.js (tự co chữ)
 data/brand.json                  tên kênh, handle, bật/tắt logo game
+brand/                           avatar.html · cover.html (ảnh bìa Facebook) · radar.js · brand.css · PNG đã xuất
 data/champions/<tướng>.json      tải tự động + vị trí khuôn mặt trong splash (layout.focusX)
 data/items/<trang-bị>.json       tên EN/VN, giá, chỉ số, màu nhấn
 patches/<bản>/                   source.md (bản dịch) · patch.json (dữ liệu ảnh) · out/ (PNG đã xuất)
 assets/                          logo, ảnh tướng, icon skill/trang bị, font (chạy offline)
-scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs
+scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs · render-brand.mjs
 .claude/skills/                  skill cho Claude: tao-anh-patch · them-tuong-trang-bi · kiem-tra-anh-patch
 review/                          ảnh kiểm tra tạm (không commit)
 tests/                           kiểm thử bộ phân tích số liệu:  npm test
