@@ -15,7 +15,7 @@ import { ensureServer } from './lib/ensure-server.mjs';
 import { getBrowser, closeBrowser } from './lib/renderer.mjs';
 import { CANVAS } from '../src/js/lib/output.js';
 import { analyzeLine } from '../src/js/lib/values.js';
-import { isTierlist, collectionFile } from '../src/js/lib/collections.js';
+import { collectionKind, collectionFile } from '../src/js/lib/collections.js';
 
 const args = process.argv.slice(2);
 const patchId = args.find((a) => !a.startsWith('--'));
@@ -141,6 +141,65 @@ async function validateTierlist(t, folder) {
   return { errors, notes };
 }
 
+// Kiểm tra build.json.
+async function validateBuild(b, folder) {
+  const errors = [];
+  const notes = [];
+  if (b.id !== folder) errors.push(`"id" là "${b.id}" nhưng thư mục là "${folder}"`);
+  const champ = await loadJSON(`data/champions/${b.champion}.json`);
+  if (!champ) errors.push(`chưa có data/champions/${b.champion}.json → fetch-champion.mjs`);
+  else if (!champ.layout?.face) notes.push(`${b.champion}: chưa đo khuôn mặt → splash-grid.mjs ${b.champion} --face=x,y`);
+  if (b.tierlist && !(await exists(`tierlists/${b.tierlist}/tierlist.json`))) errors.push(`"tierlist": không có tierlists/${b.tierlist}`);
+  if (b.patch && !(await exists(`patches/${b.patch}/patch.json`))) notes.push(`"patch": không có patches/${b.patch} (chỉ dùng làm nhãn phiên bản)`);
+  const runes = await loadJSON('data/runes.json');
+  if (!runes) errors.push('chưa có data/runes.json → node scripts/fetch-runes.mjs');
+  if (!b.builds?.length || b.builds.length > 3) errors.push(`cần 1–3 build (đang có ${b.builds?.length ?? 0})`);
+  for (const [i, x] of (b.builds ?? []).entries()) {
+    const w = `build ${i + 1}`;
+    for (const k of ['title', 'team', 'enemy']) if (!x[k]) errors.push(`${w}: thiếu "${k}"`);
+    if (x.items?.length !== 6) errors.push(`${w}: cần đúng 6 trang bị (đang có ${x.items?.length ?? 0})`);
+    const boots = [];
+    for (const s of x.items ?? []) {
+      const it = await loadJSON(`data/items/${s}.json`);
+      if (it && (it.tags?.includes('Giày') || /greaves|boots|treads|shoes/i.test(it.name ?? ''))) boots.push(s);
+    }
+    if (boots.length > 1) notes.push(`${w}: có ${boots.length} đôi giày (${boots.join(', ')})`);
+    if (boots.length === 1 && x.items.at(-1) !== boots[0]) notes.push(`${w}: giày (${boots[0]}) không ở vị trí 6 — ảnh tự xếp giày xuống cuối, nên sửa thứ tự trong build.json cho khớp`);
+    for (const s of x.items ?? []) {
+      const it = await loadJSON(`data/items/${s}.json`);
+      if (!it) errors.push(`${w}: chưa có data/items/${s}.json → fetch-item.mjs`);
+      else if (!it.nameVi) notes.push(`${w}: ${s} chưa có tên tiếng Việt (nameVi)`);
+    }
+    if (x.runes?.length !== 5) errors.push(`${w}: cần đúng 5 ngọc (1 ngọc chính + 4) — đang có ${x.runes?.length ?? 0}`);
+    for (const r of x.runes ?? []) {
+      const rune = runes?.runes.find((y) => y.id === r);
+      if (!rune) errors.push(`${w}: không có ngọc mã "${r}" trong data/runes.json`);
+      else if (!rune.vi) notes.push(`${w}: ngọc ${rune.cn} (${rune.en}) chưa có tên tiếng Việt`);
+    }
+    if (runes && x.runes?.[0] && runes.runes.find((y) => y.id === x.runes[0])?.type !== 'keystone') errors.push(`${w}: ngọc đầu tiên phải là ngọc chính`);
+    if (x.spells?.length !== 2) errors.push(`${w}: cần đúng 2 phép bổ trợ`);
+    for (const k of x.spells ?? []) if (runes && !runes.spells.some((y) => y.key === k)) errors.push(`${w}: không có phép bổ trợ "${k}"`);
+  }
+  const m = b.matchups ?? {};
+  for (const [k, label] of [['strong', 'mạnh khi gặp'], ['weak', 'yếu khi gặp'], ['synergy', 'hỗ trợ hợp']]) {
+    if (!m[k]?.length) { notes.push(`matchups.${k} (${label}): chưa có`); continue; }
+    if (m[k].length !== 3) notes.push(`matchups.${k} (${label}): nên đúng 3 tướng (đang có ${m[k].length})`);
+    for (const slug of m[k]) {
+      const c = await loadJSON(`data/champions/${slug}.json`);
+      if (!c) errors.push(`matchups.${k}: chưa có data/champions/${slug}.json → fetch-champion.mjs`);
+      else if (!(await exists(c.portrait))) errors.push(`matchups.${k}: thiếu ảnh ${c.portrait}`);
+    }
+  }
+  const noSummary = [];
+  for (const it of new Set((b.builds ?? []).flatMap((x) => x.items ?? []))) {
+    const d = await loadJSON(`data/items/${it}.json`);
+    if (d && !d.summary) noSummary.push(it);
+  }
+  if (noSummary.length) notes.push(`chưa có giải thích ("summary") cho: ${noSummary.join(', ')} — không bắt buộc, để dành`);
+  for (const s of b.slides ?? []) if (!['build', 'build-items'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build, build-items)`);
+  return { errors, notes };
+}
+
 // Chạy trong trang slide: trả về danh sách lỗi bố cục.
 function checkLayout() {
   const issues = [];
@@ -148,7 +207,7 @@ function checkLayout() {
   const name = (el) => `.${el.classList[0]}${el.querySelector('.chg-title, h1, h3') ? ` "${el.querySelector('.chg-title, h1, h3').textContent.trim()}"` : ''}`;
   const foot = document.querySelector('.footbar');
   const top = document.querySelector('.topbar');
-  for (const el of document.querySelectorAll('.verdict, .chg, .balance, .after, .ov-group, .ov-row, .sys-card, .status, .tl-row, .tov-col, .tt')) {
+  for (const el of document.querySelectorAll('.verdict, .chg, .balance, .after, .ov-group, .ov-row, .sys-card, .status, .tl-row, .tov-col, .tt, .bd-card, .bd-hero, .bi-grid')) {
     const b = r(el);
     if (!b.height) continue;
     if (foot && b.bottom > r(foot).top - 4) issues.push(`${name(el)} đè chân ảnh (đáy ${Math.round(b.bottom)} > ${Math.round(r(foot).top)})`);
@@ -157,6 +216,14 @@ function checkLayout() {
   for (const box of document.querySelectorAll('.changes')) {
     for (const card of box.children) if (r(card).bottom > r(box).bottom + 1) issues.push(`${name(card)} bị cắt mất phần dưới`);
   }
+  for (const gear of document.querySelectorAll('.bd-gear')) {
+    if (gear.scrollWidth > gear.clientWidth + 1) issues.push(`hàng trang bị + ngọc của ${name(gear.closest('.bd-card'))} tràn ngang (bị cắt)`);
+  }
+  for (const card of document.querySelectorAll('.bd-card, .bi-card')) {
+    if (card.scrollHeight > card.clientHeight + 1) issues.push(`${name(card)} chật — nội dung tràn khỏi thẻ`);
+  }
+  const hero = document.querySelector('.bd-hero');
+  if (hero && hero.scrollHeight > hero.clientHeight + 1) issues.push('cột trái (tên, ngọc, câu chốt) tràn lên thanh trên — rút câu chốt');
   for (const side of document.querySelectorAll('.tl-side')) {
     if (side.scrollHeight > side.clientHeight + 1) issues.push('câu chốt của đường quá dài, đè khung số liệu — rút còn 2 dòng (≤ ~90 ký tự)');
   }
@@ -175,7 +242,8 @@ try {
   const patch = JSON.parse(await readFile(path.join(ROOT, collectionFile(patchId)), 'utf8'));
 
   console.log(`— Dữ liệu ${collectionFile(patchId).split('/').pop()} —`);
-  const { errors, notes } = isTierlist(patchId) ? await validateTierlist(patch, patchId) : await validateData(patch, patchId);
+  const validate = { patch: validateData, tierlist: validateTierlist, build: validateBuild }[collectionKind(patchId)];
+  const { errors, notes } = await validate(patch, patchId);
   for (const e of errors) console.log(`✘ ${e}`);
   for (const n of notes) console.log(`⚠ ${n}`);
   if (!errors.length && !notes.length) console.log('✔ hợp lệ');

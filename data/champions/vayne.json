@@ -1,0 +1,70 @@
+{
+  "slug": "vayne",
+  "name": "VAYNE",
+  "title": "Thợ Săn Bóng Đêm",
+  "roles": [
+    "XẠ THỦ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#1A2035",
+    "secondary": "#DCEAF9",
+    "label": "#020306"
+  },
+  "portrait": "assets/champions/vayne/portrait.jpg",
+  "splash": "assets/champions/vayne/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "VAYNE, THỢ SĂN BÓNG ĐÊM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Thợ Săn Bóng Đêm",
+      "icon": "assets/champions/vayne/skill-p.jpg",
+      "iconSize": 96,
+      "description": "Vayne săn lùng những lũ tội phạm không ngừng nghỉ, cô được tăng 30 Tốc Độ Di Chuyển khi di chuyển về phía các tướng địch gần đó."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Nhào Lộn",
+      "icon": "assets/champions/vayne/skill-q.jpg",
+      "iconSize": 96,
+      "description": "Vayne lộn một quãng ngắn, chuẩn bị ngắm bắn phát tiếp theo. Đòn đánh kế tiếp của cô gây thêm sát thương."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Mũi Tên Bạc",
+      "icon": "assets/champions/vayne/skill-w.jpg",
+      "iconSize": 96,
+      "description": "Đầu mũi tên của Vayne được bọc trong một thứ kim loại hiếm có thể khắc chế những thứ xấu xa. 3 đòn đánh hoặc kỹ năng liên tiếp lên cùng một mục tiêu gây thêm sát thương chuẩn theo phần trăm máu tối đa của mục tiêu. Khi kích hoạt kỹ năng này, Vayne nhận thêm Tốc Độ Đánh và cô sẽ hồi máu tương đương với một phần sát thương gây ra từ Mũi Tên Bạc."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Kết Án",
+      "icon": "assets/champions/vayne/skill-e.jpg",
+      "iconSize": 96,
+      "description": "Vayne rút ra chiếc nỏ to bản từ sau lưng, bắn một mũi tên cực đại vào mục tiêu, gây sát thương và đẩy lùi nạn nhân. Nếu mục tiêu bị va phải địa hình, nạn nhân sẽ bị choáng và chịu thêm sát thương."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Giờ Khắc Cuối Cùng",
+      "icon": "assets/champions/vayne/skill-r.jpg",
+      "iconSize": 96,
+      "description": "Chuẩn bị sẵn sàng cho cuộc đối đầu ác liệt, Vayne được tăng Sức Mạnh Công Kích, có thể Vô Hình khi Nhào Lộn và thêm Tốc Độ Di Chuyển từ Thợ Săn Bóng Đêm. Khi một tướng địch bị hạ gục trong vòng vài giây sau khi nhận sát thương từ Vayne, thời gian hiệu lực của Giờ Khắc Cuối Cùng sẽ được kéo dài thêm."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/vayne/",
+  "syncedAt": "2026-10-01"
+}

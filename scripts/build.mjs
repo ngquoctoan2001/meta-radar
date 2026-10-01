@@ -10,7 +10,7 @@ import path from 'node:path';
 import { ROOT, listCollections } from './lib/patches.mjs';
 
 const DIST = path.join(ROOT, 'dist');
-const COPY = ['index.html', 'slide.html', 'src', 'assets', 'data', 'patches', 'tierlists'];
+const COPY = ['index.html', 'slide.html', 'src', 'assets', 'data', 'patches', 'tierlists', 'builds'];
 
 await rm(DIST, { recursive: true, force: true });
 for (const p of COPY) {

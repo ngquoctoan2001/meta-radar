@@ -76,6 +76,12 @@ Tab **Tier List** trên trang quản lý: tướng mạnh nhất từng đườn
 - Tướng có trong bản cập nhật gần nhất tự gắn nhãn **BUFF/NERF 7.3a**; có tier list kỳ trước thì tự gắn **MỚI / LÊN T0 / XUỐNG T1**.
 - Làm mới: gửi ảnh chụp bảng xếp hạng (đủ T0, T1 của cả 5 đường; ngày lấy ở dòng 刷新时间) cho Claude — skill **tao-tier-list**. Mỗi đường chứa 0–3 tướng T0 và tối đa 7 tướng T1. Dữ liệu ở `tierlists/tier-<ngày>/tierlist.json`, ảnh chụp gốc ở `source/`, ảnh xuất ở `out/`.
 
+## Build cao thủ
+
+Mục **Build** trên trang quản lý: 1 ảnh / tướng gồm 3 build của cao thủ (bảng xếp hạng Tốc Chiến Trung Quốc) — mỗi build 6 trang bị theo thứ tự + ngọc (1 ngọc chính + 4), kèm tình huống dùng (hợp đội hình nào, khắc chế đối thủ nào) — và avatar 3 tướng **mạnh khi gặp**, 3 tướng **yếu khi gặp**, 3 **hỗ trợ hợp**.
+- Giải thích trang bị (chỉ số + nội tại theo tooltip trong game) lưu ở trường `summary` của `data/items/<món>.json` để dùng lại; mẫu ảnh `build-items` có sẵn nhưng không đưa vào bộ ảnh.
+- Dữ liệu: `builds/build-<tướng>-<ngày>/build.json`, ảnh chụp gốc trong `source/`. Ngọc + phép bổ trợ: `node scripts/fetch-runes.mjs` → `data/runes.json`, `assets/runes/`, `assets/spells/`.
+
 ### Skill cho Claude (`.claude/skills/`)
 
 | Skill | Dùng khi |
@@ -92,6 +98,7 @@ Tab **Tier List** trên trang quản lý: tướng mạnh nhất từng đườn
 | `node scripts/fetch-champion.mjs <slug…>` | Tải dữ liệu + splash + icon kỹ năng (tự chọn bản nét nhất) |
 | `node scripts/splash-grid.mjs <slug…>` | Ảnh splash kẻ lưới dọc + ngang → đo `layout.focusX` (ảnh patch) và `--face=x,y` (thẻ tier list) |
 | `node scripts/tierlist.mjs new <yyyy-mm-dd> baron=<ảnh> …` · `lane <id> <đường> "<tên> <T0\|T1> <thắng> <chọn> <cấm>; …"` · `compare <id>` | Tạo tier list theo ngày (báo ảnh trùng bộ đã làm, tự chọn bản cập nhật + kỳ trước), ghi số liệu từng đường bằng tên tiếng Trung, so sánh để viết câu chốt |
+| `node scripts/fetch-runes.mjs` | Tải 55 ngọc (icon 256px) + phép bổ trợ (128px) của Tốc Chiến, tên Việt đối chiếu Riot → `data/runes.json` |
 | `node scripts/cn-hero.mjs <tên tiếng Trung…>` | Tra tên tướng trong ảnh bảng xếp hạng CN ra slug, báo đã có dữ liệu / khuôn mặt chưa |
 | `node scripts/fetch-item.mjs "<tên EN/VN>"` | Tải icon, giá, chỉ số Tốc Chiến, tên VN của trang bị · `--list` để tra tay |
 | `node scripts/audit.mjs <bản> --sheet` | Kiểm tra dữ liệu + từng ảnh, tạo `review/<bản>-tong-hop.png` (tier list: `tier-<ngày>`) |
@@ -105,7 +112,7 @@ index.html · slide.html          trang quản lý · khung vẽ 1 ảnh 1920×1
 start.bat                        nhấp đúp để chạy
 src/css/                         tokens.css (màu, font) · slide-*.css (từng loại ảnh) · gallery.css
 src/js/lib/output.js             khung vẽ 1920×1080 · chụp tỉ lệ 2 → ảnh 3840×2160 · tên file ảnh xuất
-src/js/slides/                   overview.js · champion.js · item.js · system.js · tier.js (tier list)
+src/js/slides/                   overview.js · champion.js · item.js · system.js · tier.js (tier list) · build.js (build)
 src/js/lib/                      values.js (phân tích số liệu) · ui.js (thành phần chung) · fit.js (tự co chữ)
 data/brand.json                  tên kênh, logo kênh, handle TikTok (@meta.radar), bật/tắt logo game
 brand/                           avatar.html · cover.html (ảnh bìa Facebook) · radar.js · brand.css · PNG đã xuất
@@ -113,8 +120,9 @@ data/champions/<tướng>.json      tải tự động + vị trí khuôn mặt 
 data/items/<trang-bị>.json       tên EN/VN, giá, chỉ số, màu nhấn
 patches/<bản>/                   source.md (bản dịch) · patch.json (dữ liệu ảnh) · out/ (PNG đã xuất)
 tierlists/tier-<ngày>/           source/ (ảnh chụp bảng xếp hạng) · tierlist.json · out/
+builds/build-<tướng>-<ngày>/     source/ (ảnh build + tooltip trang bị) · build.json · out/
 assets/                          logo, ảnh tướng, icon skill/trang bị, font (chạy offline)
-scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs · render-brand.mjs · cn-hero.mjs · tierlist.mjs
+scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs · render-brand.mjs · cn-hero.mjs · tierlist.mjs · fetch-runes.mjs
 .claude/skills/                  skill cho Claude: tao-anh-patch · them-tuong-trang-bi · kiem-tra-anh-patch
 review/                          ảnh kiểm tra tạm (không commit)
 tests/                           kiểm thử bộ phân tích số liệu:  npm test

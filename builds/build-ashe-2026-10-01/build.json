@@ -1,0 +1,112 @@
+{
+  "id": "build-ashe-2026-10-01",
+  "title": "Build Ashe",
+  "date": "01/10/2026",
+  "patch": "7.3a",
+  "champion": "ashe",
+  "lane": "dragon",
+  "tierlist": "tier-2026-09-30",
+  "source": "Build của cao thủ Ashe · Bảng xếp hạng Tốc Chiến Trung Quốc",
+  "matchups": {
+    "note": "Tạm theo hiểu biết bộ kỹ năng — chưa có số liệu đối đầu",
+    "strong": [
+      "vayne",
+      "kogmaw",
+      "jinx"
+    ],
+    "weak": [
+      "draven",
+      "samira",
+      "caitlyn"
+    ],
+    "synergy": [
+      "leona",
+      "thresh",
+      "nautilus"
+    ]
+  },
+  "builds": [
+    {
+      "rank": 1,
+      "title": "Thả diều tầm xa",
+      "team": "Đội có tướng chắn trước bảo kê",
+      "enemy": "Đối thủ nhiều tướng lao vào",
+      "runes": [
+        "572120001",
+        "572211001",
+        "572212001",
+        "572223001",
+        "572312001"
+      ],
+      "items": [
+        "kraken-slayer",
+        "phantom-dancer",
+        "hextech-scope-c44",
+        "lord-dominiks-regards",
+        "infinity-edge",
+        "gunmetal-greaves"
+      ],
+      "spells": [
+        "ghost",
+        "flash"
+      ]
+    },
+    {
+      "rank": 4,
+      "title": "Giao tranh tổng",
+      "team": "Đội nhiều khống chế, thích đánh tổng",
+      "enemy": "Đối thủ đông đỡ đòn, đứng cụm",
+      "runes": [
+        "572120001",
+        "572211001",
+        "572212001",
+        "572223001",
+        "572312001"
+      ],
+      "items": [
+        "stormrazor",
+        "runaans-hurricane",
+        "infinity-edge",
+        "lord-dominiks-regards",
+        "blade-of-the-ruined-king",
+        "gunmetal-greaves"
+      ],
+      "spells": [
+        "ghost",
+        "flash"
+      ]
+    },
+    {
+      "rank": 9,
+      "title": "Hút máu, đánh lâu",
+      "team": "Đội thiếu hỗ trợ hồi máu",
+      "enemy": "Đối thủ máu dày, chọc máu",
+      "runes": [
+        "572120001",
+        "572211001",
+        "572212001",
+        "572223001",
+        "572425001"
+      ],
+      "items": [
+        "yun-tal-wildarrows",
+        "stormrazor",
+        "infinity-edge",
+        "lord-dominiks-regards",
+        "blade-of-the-ruined-king",
+        "gunmetal-greaves"
+      ],
+      "spells": [
+        "ghost",
+        "flash"
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "id": "builds",
+      "type": "build",
+      "title": "3 build"
+    }
+  ]
+}

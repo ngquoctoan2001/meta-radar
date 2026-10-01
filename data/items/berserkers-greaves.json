@@ -1,0 +1,25 @@
+{
+  "slug": "berserkers-greaves",
+  "name": "Berserker's Greaves",
+  "nameVi": "Giày Cuồng Nộ",
+  "icon": "assets/items/berserkers-greaves.png",
+  "price": 1200,
+  "tier": "Trang bị trung cấp",
+  "tags": [
+    "Giày",
+    "Tốc đánh"
+  ],
+  "color": "#E8C46A",
+  "stats": [
+    {
+      "label": "Tốc độ đánh",
+      "value": "+35%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+45"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2403) · tên VN theo Riot vi_VN"
+}

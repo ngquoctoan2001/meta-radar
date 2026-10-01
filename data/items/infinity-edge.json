@@ -1,0 +1,35 @@
+{
+  "slug": "infinity-edge",
+  "name": "Infinity Edge",
+  "nameVi": "Vô Cực Kiếm",
+  "icon": "assets/items/infinity-edge.png",
+  "price": 3400,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Chí mạng"
+  ],
+  "color": "#FFC940",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+75"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2245) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+75 SMCK",
+      "+25% chí mạng"
+    ],
+    "text": "Sát thương chí mạng tăng từ 200% lên 230% — món bắt buộc của xạ thủ chí mạng.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

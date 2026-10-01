@@ -1,0 +1,42 @@
+{
+  "slug": "kraken-slayer",
+  "name": "Kraken Slayer",
+  "nameVi": "Móc Diệt Thủy Quái",
+  "icon": "assets/items/kraken-slayer.png",
+  "price": 2900,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Tốc đánh"
+  ],
+  "color": "#4FD1E0",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+45"
+    },
+    {
+      "label": "Tốc độ đánh",
+      "value": "+35%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+4%"
+    }
+  ],
+  "passives": [
+    "Bắn Hạ"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2292) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+45 SMCK",
+      "+35% tốc đánh",
+      "+4% tốc chạy"
+    ],
+    "text": "Mỗi đòn thứ 3 gây thêm 120–168 sát thương vật lý (đánh xa), càng mạnh khi mục tiêu càng ít máu — tối đa +75%.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

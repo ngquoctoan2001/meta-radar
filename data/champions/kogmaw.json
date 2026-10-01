@@ -1,0 +1,70 @@
+{
+  "slug": "kogmaw",
+  "name": "KOG'MAW",
+  "title": "MIỆNG CỦA VỰC THẲM",
+  "roles": [
+    "XẠ THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#020101",
+    "secondary": "#F8FFD6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/kogmaw/portrait.jpg",
+  "splash": "assets/champions/kogmaw/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "KOG'MAW, MIỆNG CỦA VỰC THẲM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BẤT NGỜ TỪ ICATHIA",
+      "icon": "assets/champions/kogmaw/skill-p.png",
+      "iconSize": 800,
+      "description": "Khi bị hạ gục, Kog’Maw tiếp tục di chuyển, nhận Tốc Độ Di Chuyển trong chốc lát. Sau một khoảng thời gian ngắn, Kog’Maw sẽ phát nổ và gây Sát Thương Chuẩn lên kẻ địch xung quanh."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHUN AXÍT",
+      "icon": "assets/champions/kogmaw/skill-q.png",
+      "iconSize": 800,
+      "description": "Kog'Maw phun ra chất dịch ăn mòn gây Sát Thương Phép đồng thời làm giảm Giáp và Kháng Phép của mục tiêu trong thời gian ngắn."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "CAO XẠ MA PHÁP",
+      "icon": "assets/champions/kogmaw/skill-w.png",
+      "iconSize": 800,
+      "description": "Kog'Maw được tăng tầm đánh, và đòn đánh của nó gây Sát Thương Phép tính theo phần trăm Máu tối đa của mục tiêu."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "DUNG DỊCH HƯ KHÔNG",
+      "icon": "assets/champions/kogmaw/skill-e.png",
+      "iconSize": 800,
+      "description": "Kog'Maw phun chất độc theo hướng chỉ định, gây sát thương lên tất cả kẻ địch trúng phải và để lại một vệt dài làm chậm kẻ địch."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "PHÁO SINH HỌC",
+      "icon": "assets/champions/kogmaw/skill-r.png",
+      "iconSize": 800,
+      "description": "Nội tại: Kog'Maw được tăng Tốc Độ Đánh.\\nKog'Maw phóng axit vào một khu vực, gây Sát Thương Phép và làm lộ diện những kẻ địch trúng chiêu. Sát thương tăng thêm khi nhắm vào kẻ địch thấp Máu. Ngoài ra, bắn Pháo Sinh Học liên tục trong khoảng thời gian ngắn sẽ tiêu hao thêm Năng Lượng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/kogmaw/",
+  "syncedAt": "2026-10-01"
+}

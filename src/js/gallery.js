@@ -19,12 +19,17 @@ const TYPES = {
     { key: 'tier-overview', label: 'Tổng quan' },
     { key: 'tier-lane', label: 'Theo đường' },
   ],
+  build: [
+    { key: 'all', label: 'Tất cả' },
+    { key: 'build', label: 'Build' },
+  ],
 };
 const TYPE_LABEL = Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label]));
 // Danh mục bên trái: mỗi loại bộ ảnh là một mục cha, các bộ ảnh là mục con.
 const KIND = {
   patch: { title: 'BẢN CẬP NHẬT', empty: 'Chưa có bản cập nhật nào.' },
   tierlist: { title: 'TIER LIST', empty: 'Chưa có tier list nào.' },
+  build: { title: 'BUILD', empty: 'Chưa có build nào.' },
 };
 const STATUS_LABEL = { buff: 'BUFF', nerf: 'NERF', adjust: 'ĐIỀU CHỈNH', mixed: 'ĐIỀU CHỈNH', rework: 'LÀM LẠI', new: 'MỚI' };
 
@@ -94,11 +99,17 @@ const ofKind = (kind) => state.patches.filter((p) => (p.kind ?? 'patch') === kin
 
 function sideItem(p) {
   const tier = p.kind === 'tierlist';
+  const build = p.kind === 'build';
   const dots = tier
     ? `<i class="dot is-t0"></i>${p.counts.t0}<i class="dot is-t1"></i>${p.counts.t1}`
-    : `${p.counts.buff ? `<i class="dot is-buff"></i>${p.counts.buff}` : ''}${p.counts.nerf ? `<i class="dot is-nerf"></i>${p.counts.nerf}` : ''}`;
+    : build
+      ? `<span>${p.counts.builds} build · ${esc(p.date.slice(0, 5))}</span>`
+      : `${p.counts.buff ? `<i class="dot is-buff"></i>${p.counts.buff}` : ''}${p.counts.nerf ? `<i class="dot is-nerf"></i>${p.counts.nerf}` : ''}`;
+  const badge = build && p.portrait
+    ? `<span class="patch-ver patch-ver--img"><img src="/${esc(p.portrait)}" alt=""></span>`
+    : `<span class="patch-ver ${tier ? 'patch-ver--date' : ''}">${esc(tier ? p.date.slice(0, 5) : p.id)}</span>`;
   return `<a class="patch ${p.id === state.current?.id ? 'is-active' : ''}" href="#${encodeURIComponent(p.id)}">
-      <span class="patch-ver ${tier ? 'patch-ver--date' : ''}">${esc(tier ? p.date.slice(0, 5) : p.id)}</span>
+      ${badge}
       <span class="patch-info">
         <b>${esc(p.title ?? `Bản ${p.id}`)}</b>
         <span class="patch-meta">${dots}<span>· ${p.slides.length} ảnh</span></span>
@@ -121,6 +132,11 @@ function renderSidebar() {
 // ---------- đầu trang ----------
 function headChips(p) {
   const c = p.counts;
+  if (p.kind === 'build') {
+    return `<span class="chip">${c.builds} BUILD</span>
+      ${c.items ? `<span class="chip">${c.items} TRANG BỊ</span>` : ''}
+      ${p.patch ? `<span class="chip">BẢN ${esc(p.patch)}</span>` : ''}`;
+  }
   if (p.kind === 'tierlist') {
     return `<span class="chip is-t0">${c.t0} TƯỚNG T0</span>
       <span class="chip is-t1">${c.t1} TƯỚNG T1</span>
@@ -136,7 +152,9 @@ function headChips(p) {
 
 function renderHead() {
   const p = state.current;
-  const kicker = p.kind === 'tierlist' ? `TIER LIST · ${esc(p.date ?? '')}` : `BẢN CẬP NHẬT ${p.date ? `· ${esc(p.date)}` : ''}`;
+  const kicker = p.kind === 'tierlist' ? `TIER LIST · ${esc(p.date ?? '')}`
+    : p.kind === 'build' ? `BUILD CAO THỦ · ${esc(p.date ?? '')}`
+      : `BẢN CẬP NHẬT ${p.date ? `· ${esc(p.date)}` : ''}`;
   $('#head').innerHTML = `
     <div class="head-text">
       <span class="head-kicker">${kicker}</span>

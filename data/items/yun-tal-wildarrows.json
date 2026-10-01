@@ -5,15 +5,35 @@
   "icon": "assets/items/yun-tal-wildarrows.png",
   "price": 3100,
   "tier": "Trang bị cao cấp",
-  "tags": ["Xạ thủ", "Chí mạng", "Tốc đánh"],
+  "tags": [
+    "Xạ thủ",
+    "Chí mạng",
+    "Tốc đánh"
+  ],
   "color": "#FFB547",
   "stats": [
-    { "label": "Sức mạnh công kích", "value": "+50" },
-    { "label": "Tốc độ đánh", "value": "+25%" }
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+50"
+    },
+    {
+      "label": "Tốc độ đánh",
+      "value": "+25%"
+    }
   ],
   "passives": [
-    { "name": "Chí Mạng Tay Quen", "desc": "Đánh thường tích vĩnh viễn tỉ lệ chí mạng, tối đa 25%." },
-    { "name": "Chuyển Động Liên Hoàn", "nameEn": "Flurry", "desc": "Đánh trúng tướng địch: +25% tốc đánh trong 6 giây (hồi 20 giây). Mỗi đòn đánh giảm 1 giây hồi chiêu, 2 giây nếu chí mạng." }
+    "Chí Mạng Tay Quen",
+    "Chuyển Động Liên Hoàn"
   ],
-  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2238) · tên VN theo Riot vi_VN"
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2238) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+50 SMCK",
+      "+35% tốc đánh"
+    ],
+    "text": "Mỗi đòn đánh vĩnh viễn +0,2% chí mạng (tối đa 25%). Trúng tướng: +35% tốc đánh trong 6 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
 }

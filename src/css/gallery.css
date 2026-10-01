@@ -35,6 +35,8 @@ a { color: inherit; }
 }
 .side-count { padding: 3px 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.07); color: var(--text-2); letter-spacing: 0; }
 .patch-ver--date { font-size: 16px; }
+.patch-ver--img { padding: 0; overflow: hidden; }
+.patch-ver--img img { display: block; width: 58px; height: 44px; object-fit: cover; object-position: 50% 20%; }
 .patch-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; }
 .side-group { display: flex; flex-direction: column; gap: 6px; }
 .side-group .side-title { margin: 4px 8px 4px; }

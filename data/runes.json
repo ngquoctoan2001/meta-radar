@@ -1,0 +1,658 @@
+{
+  "source": "game.gtimg.cn + Data Dragon 16.19.1",
+  "runes": [
+    {
+      "id": "572111001",
+      "type": "keystone",
+      "cn": "不灭之握",
+      "en": "Grasp of the Undying",
+      "vi": "Quyền Năng Bất Diệt",
+      "icon": "assets/runes/572111001.png",
+      "tag": "坦克、治疗",
+      "desc": "战斗中每隔一段时间，对一名英雄发起普攻，将会造成额外的魔法伤害、治疗自己并提升自身最大生命值。"
+    },
+    {
+      "id": "572112001",
+      "type": "keystone",
+      "cn": "征服者",
+      "en": "Conqueror",
+      "vi": "Chinh Phục",
+      "icon": "assets/runes/572112001.png",
+      "tag": "持续作战",
+      "desc": "每次使用独立的普攻或技能命中敌方英雄时，都会获得攻击力或法术强度，最多可叠加6层。满层时，获得额外的全能吸血效果。（自适应）"
+    },
+    {
+      "id": "572113001",
+      "type": "keystone",
+      "cn": "电击",
+      "en": "Electrocute",
+      "vi": "Sốc Điện",
+      "icon": "assets/runes/572113001.png",
+      "tag": "爆发伤害",
+      "desc": "当多次普攻或技能命中同一位英雄时，会对其造成额外的自适应伤害。"
+    },
+    {
+      "id": "572114001",
+      "type": "keystone",
+      "cn": "艾黎",
+      "en": "Aery",
+      "vi": null,
+      "icon": "assets/runes/572114001.png",
+      "tag": "消耗、保护",
+      "desc": "使用普攻和技能时，会派出艾黎，对敌方英雄造成伤害或为我方英雄套上护盾。"
+    },
+    {
+      "id": "572115001",
+      "type": "keystone",
+      "cn": "相位猛冲",
+      "en": "Phase Rush",
+      "vi": null,
+      "icon": "assets/runes/572115001.png",
+      "tag": "机动性、技能急速",
+      "desc": "使用普攻或技能多次命中敌方英雄可获得移速和技能急速加成。"
+    },
+    {
+      "id": "572116001",
+      "type": "keystone",
+      "cn": "迅捷步法",
+      "en": "Fleet Footwork",
+      "vi": "Bước Chân Thần Tốc",
+      "icon": "assets/runes/572116001.png",
+      "tag": "移动速度、回复生命",
+      "desc": "移动、普通攻击和释放技能都会积攒能量层数。满层后的下一次普攻会治疗自身并提供移动速度加成。"
+    },
+    {
+      "id": "572118001",
+      "type": "resolve",
+      "cn": "生命源泉",
+      "en": "Font of Life",
+      "vi": "Suối Nguồn Sinh Mệnh",
+      "icon": "assets/runes/572118001.png",
+      "tag": "提供团队治疗",
+      "desc": "攻击敌方英雄获得治疗。"
+    },
+    {
+      "id": "572120001",
+      "type": "keystone",
+      "cn": "致命节奏",
+      "en": "Lethal Tempo",
+      "vi": "Nhịp Độ Chết Người",
+      "icon": "assets/runes/572120001.png",
+      "tag": "攻击速度",
+      "desc": "连续攻击叠层以提升攻击速度，满层获得额外攻速和普攻造成额外伤害效果。"
+    },
+    {
+      "id": "572122001",
+      "type": "keystone",
+      "cn": "先攻",
+      "en": "First Strike",
+      "vi": "Đòn Phủ Đầu",
+      "icon": "assets/runes/572122001.png",
+      "tag": "先手、增伤、额外金币",
+      "desc": "先手造成伤害能获得金币与额外伤害。"
+    },
+    {
+      "id": "572123001",
+      "type": "keystone",
+      "cn": "强攻",
+      "en": "Press the Attack",
+      "vi": "Sẵn Sàng Tấn Công",
+      "icon": "assets/runes/572123001.png",
+      "tag": "提高对英雄的伤害",
+      "desc": "对敌方进行三次连续的普攻后，获得伤害增幅。"
+    },
+    {
+      "id": "572124001",
+      "type": "keystone",
+      "cn": "奥术彗星",
+      "en": "Arcane Comet",
+      "vi": "Thiên Thạch Bí Ẩn",
+      "icon": "assets/runes/572124001.png",
+      "tag": "消耗、叠层增幅",
+      "desc": "用技能对敌方英雄造成伤害时，在其位置处召唤彗星，每颗彗星命中敌方英雄会使下一颗彗星伤害更高。"
+    },
+    {
+      "id": "572126001",
+      "type": "keystone",
+      "cn": "黑暗收割",
+      "en": "Dark Harvest",
+      "vi": "Thu Thập Hắc Ám",
+      "icon": "assets/runes/572126001.png",
+      "tag": "额外伤害、叠层增幅",
+      "desc": "攻击低生命值英雄时会造成自适应伤害并从该英雄身上收割灵魂。"
+    },
+    {
+      "id": "572127001",
+      "type": "keystone",
+      "cn": "冰霜领主",
+      "en": "Frost Lord",
+      "vi": null,
+      "icon": "assets/runes/572127001.png",
+      "tag": "控制、减速",
+      "desc": "定身一名敌方英雄时，发射射线，减少其移动速度。同时提高自身防御属性，且稍后对周围造成爆发性的魔法伤害。"
+    },
+    {
+      "id": "572129001",
+      "type": "keystone",
+      "cn": "守护者",
+      "en": "Guardian",
+      "vi": "Hộ Vệ",
+      "icon": "assets/runes/572129001.png",
+      "tag": "保护、护盾",
+      "desc": "为自身以及周围的队友提供短暂的护盾。"
+    },
+    {
+      "id": "572211001",
+      "type": "precision",
+      "cn": "残暴",
+      "en": "Brutal",
+      "vi": "Tàn Bạo",
+      "icon": "assets/runes/572211001.png",
+      "tag": "普攻附带伤害",
+      "desc": "普攻对敌方英雄造成额外伤害。",
+      "viManual": true
+    },
+    {
+      "id": "572212001",
+      "type": "precision",
+      "cn": "砍倒",
+      "en": "Cut Down",
+      "vi": "Đốn Hạ",
+      "icon": "assets/runes/572212001.png",
+      "tag": "对高血量敌人增加伤害",
+      "desc": "当敌方英雄剩余较高生命值时，你的攻击对其造成额外伤害。"
+    },
+    {
+      "id": "572213001",
+      "type": "sorcery",
+      "cn": "焦灼",
+      "en": "Scorch",
+      "vi": "Thiêu Rụi",
+      "icon": "assets/runes/572213001.png",
+      "tag": "技能附带额外伤害",
+      "desc": "技能命中英雄时造成额外伤害。"
+    },
+    {
+      "id": "572215001",
+      "type": "sorcery",
+      "cn": "风暴聚集",
+      "en": "Gathering Storm",
+      "vi": "Cuồng Phong Tích Tụ",
+      "icon": "assets/runes/572215001.png",
+      "tag": "随时间增加攻击力或法强",
+      "desc": "时间越久，输出能力越高。"
+    },
+    {
+      "id": "572217001",
+      "type": "domination",
+      "cn": "猛然冲击",
+      "en": "Sudden Impact",
+      "vi": "Tác Động Bất Chợt",
+      "icon": "assets/runes/572217001.png",
+      "tag": "潜行或位移触发",
+      "desc": "位移或结束隐身/潜行后的下一次伤害将附带真实伤害，并在一定等级获得额外效果。"
+    },
+    {
+      "id": "572220001",
+      "type": "precision",
+      "cn": "坚毅不倒",
+      "en": "Last Stand",
+      "vi": "Chốt Chặn Cuối Cùng",
+      "icon": "assets/runes/572220001.png",
+      "tag": "自身残血增加伤害",
+      "desc": "自身生命越低，对敌方英雄造成伤害越高。"
+    },
+    {
+      "id": "572221001",
+      "type": "precision",
+      "cn": "传说：攻速",
+      "en": "Legend: Alacrity",
+      "vi": "Huyền Thoại: Tốc Độ Đánh",
+      "icon": "assets/runes/572221001.png",
+      "tag": "增加额外攻速",
+      "desc": "提供攻速。"
+    },
+    {
+      "id": "572223001",
+      "type": "precision",
+      "cn": "传说：血统",
+      "en": "Legend: Bloodline",
+      "vi": "Huyền Thoại: Hút Máu",
+      "icon": "assets/runes/572223001.png",
+      "tag": "增加全能吸血",
+      "desc": "提供全能吸血。"
+    },
+    {
+      "id": "572224001",
+      "type": "precision",
+      "cn": "致命一击",
+      "en": "Coup de Grace",
+      "vi": "Nhát Chém Ân Huệ",
+      "icon": "assets/runes/572224001.png",
+      "tag": "对残血敌人增加伤害",
+      "desc": "对低生命值敌方英雄的伤害提升。"
+    },
+    {
+      "id": "572225001",
+      "type": "precision",
+      "cn": "战意",
+      "en": "572225001",
+      "vi": null,
+      "icon": "assets/runes/572225001.png",
+      "tag": "作战时提高技能伤害",
+      "desc": "与敌方英雄战斗时，对敌方英雄的基础技能伤害获得增幅。"
+    },
+    {
+      "id": "572226001",
+      "type": "precision",
+      "cn": "传说：急速",
+      "en": "Legend: Haste",
+      "vi": "Huyền Thoại: Gia Tốc",
+      "icon": "assets/runes/572226001.png",
+      "tag": "额外技能急速",
+      "desc": "提供技能急速。"
+    },
+    {
+      "id": "572311001",
+      "type": "resolve",
+      "cn": "适应性外壳",
+      "en": "Backbone",
+      "vi": null,
+      "icon": "assets/runes/572311001.png",
+      "tag": "生命、护甲/魔抗",
+      "desc": "获得额外的最大生命值。当生命值低于50%时，根据最近受到的伤害类型获得护甲或魔抗。"
+    },
+    {
+      "id": "572312001",
+      "type": "resolve",
+      "cn": "骸骨镀层",
+      "en": "Bone Plating",
+      "vi": "Giáp Cốt",
+      "icon": "assets/runes/572312001.png",
+      "tag": "抵抗爆发伤害",
+      "desc": "减少即将受到的伤害。"
+    },
+    {
+      "id": "572315001",
+      "type": "resolve",
+      "cn": "调节",
+      "en": "Conditioning",
+      "vi": "Kiểm Soát Điều Kiện",
+      "icon": "assets/runes/572315001.png",
+      "tag": "延迟生效、双抗",
+      "desc": "定期获得额外护甲和魔抗。"
+    },
+    {
+      "id": "572316001",
+      "type": "resolve",
+      "cn": "坚韧",
+      "en": "tenacity",
+      "vi": null,
+      "icon": "assets/runes/572316001.png",
+      "tag": "受到控制增加坦度",
+      "desc": "获得韧性，被定身时获得护甲与魔抗。"
+    },
+    {
+      "id": "572318001",
+      "type": "resolve",
+      "cn": "复苏之风",
+      "en": "Regeneration",
+      "vi": null,
+      "icon": "assets/runes/572318001.png",
+      "tag": "提高续航能力",
+      "desc": "受到伤害后回复生命值。"
+    },
+    {
+      "id": "572319001",
+      "type": "resolve",
+      "cn": "终极护盾",
+      "en": "Ultimate Shield",
+      "vi": null,
+      "icon": "assets/runes/572319001.png",
+      "tag": "释放终极技能获得护盾",
+      "desc": "施放终极技能时获得护盾。 "
+    },
+    {
+      "id": "572320001",
+      "type": "resolve",
+      "cn": "无效化之法球",
+      "en": "Nullifying Orb",
+      "vi": null,
+      "icon": "assets/runes/572320001.png",
+      "tag": "提供保命护盾",
+      "desc": "生命值较低时获得护盾。"
+    },
+    {
+      "id": "572322001",
+      "type": "resolve",
+      "cn": "复苏",
+      "en": "Revitalize",
+      "vi": "Tiếp Sức",
+      "icon": "assets/runes/572322001.png",
+      "tag": "增加治疗护盾效果",
+      "desc": "强化治疗和护盾效果。"
+    },
+    {
+      "id": "572323001",
+      "type": "resolve",
+      "cn": "巨像勇气",
+      "en": "Courage of the Colossus",
+      "vi": null,
+      "icon": "assets/runes/572323001.png",
+      "tag": "定身敌人获取护盾",
+      "desc": "定身敌方英雄后自己获得护盾。"
+    },
+    {
+      "id": "572324001",
+      "type": "resolve",
+      "cn": "过度生长",
+      "en": "Overgrowth",
+      "vi": "Lan Tràn",
+      "icon": "assets/runes/572324001.png",
+      "tag": "增加最大生命值",
+      "desc": "获得可成长的额外最大生命值。"
+    },
+    {
+      "id": "572326001",
+      "type": "resolve",
+      "cn": "坚定壁垒",
+      "en": "jjbl",
+      "vi": null,
+      "icon": "assets/runes/572326001.png",
+      "tag": "提升双抗、减速抗性",
+      "desc": "自身获得额外护甲和魔抗加成，满层提供减速抗性。"
+    },
+    {
+      "id": "572412001",
+      "type": "sorcery",
+      "cn": "法力流系带",
+      "en": "Manaflow Band",
+      "vi": "Dải Băng Năng Lượng",
+      "icon": "assets/runes/572412001.png",
+      "tag": "增加法力值",
+      "desc": "技能命中敌方英雄，增加最大法力值。"
+    },
+    {
+      "id": "572414001",
+      "type": "precision",
+      "cn": "凯旋",
+      "en": "Triumph",
+      "vi": "Đắc Thắng",
+      "icon": "assets/runes/572414001.png",
+      "tag": "参与击败获得回复",
+      "desc": "参与击败敌方英雄时，回复自身状态并获得短时间的移速加成。"
+    },
+    {
+      "id": "572415001",
+      "type": "resolve",
+      "cn": "爆破",
+      "en": "Demolish",
+      "vi": "Tàn Phá Hủy Diệt",
+      "icon": "assets/runes/572415001.png",
+      "tag": "更快摧毁防御塔",
+      "desc": "你对防御塔的第三次普通攻击造成额外伤害。"
+    },
+    {
+      "id": "572416001",
+      "type": "sorcery",
+      "cn": "植物学家",
+      "en": "572416001",
+      "vi": null,
+      "icon": "assets/runes/572416001.png",
+      "tag": "强化植物效果",
+      "desc": "击毁任意植物获得金币，并强化其功能效果。"
+    },
+    {
+      "id": "572417001",
+      "type": "sorcery",
+      "cn": "灵光披风",
+      "en": "Nimbus Cloak",
+      "vi": "Áo Choàng Mây",
+      "icon": "assets/runes/572417001.png",
+      "tag": "召唤师技能后增加移速",
+      "desc": "施放召唤师技能后获得短暂移速加成，跑得更快。"
+    },
+    {
+      "id": "572418001",
+      "type": "sorcery",
+      "cn": "超然",
+      "en": "Transcendence",
+      "vi": "Thăng Tiến Sức Mạnh",
+      "icon": "assets/runes/572418001.png",
+      "tag": "增加技能急速",
+      "desc": "等级越高，提供越多技能急速，还能返还技能冷却时间。"
+    },
+    {
+      "id": "572421001",
+      "type": "sorcery",
+      "cn": "海克斯闪现",
+      "en": "Hextech Flashtraption",
+      "vi": "Tốc Biến Ma Thuật",
+      "icon": "assets/runes/572421001.png",
+      "tag": "闪现冷却时获得短位移",
+      "desc": "闪现后还可以多次位移。"
+    },
+    {
+      "id": "572424001",
+      "type": "sorcery",
+      "cn": "公理秘术",
+      "en": "Axiom Arcanist",
+      "vi": "Bậc Thầy Nguyên Tố",
+      "icon": "assets/runes/572424001.png",
+      "tag": "提升终极技能效果",
+      "desc": "你的终极技能的伤害、治疗和护盾获得提升。参与击败一名敌方英雄，会使终极技能的当前冷却时间缩短。"
+    },
+    {
+      "id": "572425001",
+      "type": "sorcery",
+      "cn": "迅捷",
+      "en": "Pathfinder",
+      "vi": "Người Tìm Đường",
+      "icon": "assets/runes/572425001.png",
+      "tag": "增加移动速度",
+      "desc": "获得移速加成，且身上所有移速加成的效能提升。",
+      "viManual": true
+    },
+    {
+      "id": "572427001",
+      "type": "sorcery",
+      "cn": "绝对专注",
+      "en": "Absolute Focus",
+      "vi": "Tập Trung Tuyệt Đối",
+      "icon": "assets/runes/572427001.png",
+      "tag": "高血量时获得攻击力或法强",
+      "desc": "自身高于一定生命值时，获得自适应加成。"
+    },
+    {
+      "id": "572514001",
+      "type": "domination",
+      "cn": "强化攻击",
+      "en": "Empowered Attack",
+      "vi": null,
+      "icon": "assets/runes/572514001.png",
+      "tag": "普攻触发",
+      "desc": "强化下一次普攻造成额外伤害。"
+    },
+    {
+      "id": "572515001",
+      "type": "domination",
+      "cn": "恶意中伤",
+      "en": "Cheap Shot",
+      "vi": "Phát Bắn Đơn Giản",
+      "icon": "assets/runes/572515001.png",
+      "tag": "对移动受损敌人",
+      "desc": "使敌方英雄移动受损时附带真实伤害。"
+    },
+    {
+      "id": "572516001",
+      "type": "domination",
+      "cn": "眼球收集器",
+      "en": "Eyeball Collection",
+      "vi": null,
+      "icon": "assets/runes/572516001.png",
+      "tag": "击败增加攻击力或法强",
+      "desc": "参与击败英雄或史诗野怪获得自适应之力。"
+    },
+    {
+      "id": "572518001",
+      "type": "domination",
+      "cn": "僵尸守卫",
+      "en": "Zombie Ward",
+      "vi": null,
+      "icon": "assets/runes/572518001.png",
+      "tag": "视野控制增加攻击力或法强",
+      "desc": "参与清除敌方眼位后生成僵尸守卫获取视野和自适应之力。"
+    },
+    {
+      "id": "572520001",
+      "type": "sorcery",
+      "cn": "以绪塔尔种子罐",
+      "en": "seed Jar_rune",
+      "vi": null,
+      "icon": "assets/runes/572520001.png",
+      "tag": "击碎果实后可以种植果实",
+      "desc": "攻击植物会掉落种子，拾取种子后可栽种植物。"
+    },
+    {
+      "id": "572523001",
+      "type": "domination",
+      "cn": "连破",
+      "en": "lp",
+      "vi": null,
+      "icon": "assets/runes/572523001.png",
+      "tag": "技能命中后普攻触发",
+      "desc": "技能命中英雄后，后续攻击造成额外自适应伤害。"
+    },
+    {
+      "id": "572524001",
+      "type": "domination",
+      "cn": "凌弱",
+      "en": "lr",
+      "vi": null,
+      "icon": "assets/runes/572524001.png",
+      "tag": "对残血敌人造成伤害",
+      "desc": "对低血量敌人造成额外自适应伤害。"
+    },
+    {
+      "id": "572526001",
+      "type": "domination",
+      "cn": "无情猎手",
+      "en": "Ruthless Hunter",
+      "vi": null,
+      "icon": "assets/runes/572526001.png",
+      "tag": "击败增加脱战移速",
+      "desc": "参与击败英雄或史诗野怪获得永久的脱战移速加成。"
+    },
+    {
+      "id": "572527001",
+      "type": "domination",
+      "cn": "狂妄",
+      "en": "Arrogant",
+      "vi": null,
+      "icon": "assets/runes/572527001.png",
+      "tag": "击败获得限时攻击力或法强",
+      "desc": "特定时间内击败英雄获得一定时间的适应之力。"
+    }
+  ],
+  "spells": [
+    {
+      "key": "ghost",
+      "id": "81010101",
+      "cn": "幽灵疾步",
+      "en": "Ghost",
+      "vi": "Tốc Hành",
+      "icon": "assets/spells/ghost.png",
+      "desc": "获得爆发性的移动速度提升，然后再降至25%移动速度加成，持续8秒。每参与一次击败，幽灵疾步的持续时间便会延长6秒，并将效果刷新成初始状态。"
+    },
+    {
+      "key": "mark",
+      "id": "81020101",
+      "cn": "标记",
+      "en": "Mark",
+      "vi": "Đánh Dấu",
+      "icon": "assets/spells/mark.png",
+      "desc": "扔出一颗雪球，造成16 （16-100随等级成长）伤害，短暂显露并标记一名敌人，持续5秒。再次点击施放可快速突进至被标记的目标，接触时造成16（16-100随等级成长）伤害。"
+    },
+    {
+      "key": "heal",
+      "id": "81030101",
+      "cn": "治疗术",
+      "en": "Heal",
+      "vi": "Hồi Máu",
+      "icon": "assets/spells/heal.png",
+      "desc": "为自己和附近受伤最重的我方英雄回复110生命值（110-400随等级成长），并提供30%移动速度加成，持续2秒。  若目标近期受到过治疗术的影响，效果减半。"
+    },
+    {
+      "key": "clarity",
+      "id": "81041011",
+      "cn": "清晰术",
+      "en": "Clarity",
+      "vi": "Minh Mẫn",
+      "icon": "assets/spells/clarity.png",
+      "desc": "为自己回复50%最大法力值，并为附近的队友回复25%最大法力值。"
+    },
+    {
+      "key": "barrier",
+      "id": "81050101",
+      "cn": "屏障",
+      "en": "Barrier",
+      "vi": "Lá Chắn",
+      "icon": "assets/spells/barrier.png",
+      "desc": "获得可吸收120伤害（120-560随等级成长）的护盾，持续2.5秒。"
+    },
+    {
+      "key": "exhaust",
+      "id": "81060101",
+      "cn": "虚弱",
+      "en": "Exhaust",
+      "vi": "Kiệt Sức",
+      "icon": "assets/spells/exhaust.png",
+      "desc": "虚弱目标敌方英雄，降低其35%移动速度，并使其所造成的伤害减少40%，持续2.5秒。移速降低效果在持续期间内不断衰减。"
+    },
+    {
+      "key": "cleanse",
+      "id": "81070101",
+      "cn": "净化",
+      "en": "Cleanse",
+      "vi": "Thanh Tẩy",
+      "icon": "assets/spells/cleanse.png",
+      "desc": "移除身上限制效果(包含召唤师技能的减益效果)，之后0.25秒内不受控制效果影响。"
+    },
+    {
+      "key": "flash",
+      "id": "81090101",
+      "cn": "闪现",
+      "en": "Flash",
+      "vi": "Tốc Biến",
+      "icon": "assets/spells/flash.png",
+      "desc": "朝前方或目标方向传送一小段距离。"
+    },
+    {
+      "key": "ignite",
+      "id": "81100101",
+      "cn": "引燃",
+      "en": "Ignite",
+      "vi": "Thiêu Đốt",
+      "icon": "assets/spells/ignite.png",
+      "desc": "引燃目标敌方英雄，在5秒内造成72真实伤害（72-380随等级成长），对目标施加重伤效果并获得其视野。  重伤效果会使治疗效果降低60%。"
+    },
+    {
+      "key": "smite",
+      "id": "81110101",
+      "cn": "惩戒",
+      "en": "Smite",
+      "vi": "Trừng Phạt",
+      "icon": "assets/spells/smite.png",
+      "desc": "打野专精： 使用惩戒时，对野怪或小兵造成600真实伤害，攻击野怪时每秒在目标野怪位置触发范围伤害30真实伤害（随等级成长），持续2秒。该伤害还会获得10%额外攻击力攻击力、12%法术强度法术强度、25%额外护甲护甲、25%额外魔抗魔法抗性和4%额外生命值加成。 · 对野怪造成额外10%伤害； 狩猎积蓄： · 惩戒积蓄层数随时间增加，清理一组野怪时消耗1层，额外获得40金币； · 攻击野怪期间，每秒回复5-35生命值（随等级成长）（基于已损失生命值）。 · 携带惩戒时，仅承受非史诗野怪造成的50%伤害。 惩"
+    },
+    {
+      "key": "teleport",
+      "id": "81210101",
+      "cn": "传送",
+      "en": "Teleport",
+      "vi": "Dịch Chuyển",
+      "icon": "assets/spells/teleport.png",
+      "desc": "引导3.5秒后，英雄将被传送到我方建筑、英雄、守卫的位置。（若目标位置在敌方高地范围内则无法传送） 开局6分钟前，只能以建筑为目标。"
+    }
+  ]
+}

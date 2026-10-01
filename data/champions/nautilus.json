@@ -1,0 +1,70 @@
+{
+  "slug": "nautilus",
+  "name": "NAUTILUS",
+  "title": "Khổng Lồ Biển Sâu",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#16282C",
+    "secondary": "#DCF9ED",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/nautilus/portrait.jpg",
+  "splash": "assets/champions/nautilus/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "NAUTILUS, KHỔNG LỒ BIỂN SÂU",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "MỎ NEO NGÀN CÂN",
+      "icon": "assets/champions/nautilus/skill-p.png",
+      "iconSize": 256,
+      "description": "Đòn đánh đầu tiên của Nautilus lên mục tiêu sẽ tăng sát thương vật lý và trói chân mục tiêu trong chốc lát."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHÓNG MỎ NEO",
+      "icon": "assets/champions/nautilus/skill-q.png",
+      "iconSize": 256,
+      "description": "Nautilus ném mỏ neo về phía trước. Nếu trúng kẻ địch sẽ kéo cả Nautilus và mục tiêu lại gần nhau, gây sát thương phép. Nếu trúng địa hình thì sẽ kéo Nautilus đến đó."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "CƠN GIẬN CỦA NGƯỜI KHỔNG LỒ",
+      "icon": "assets/champions/nautilus/skill-w.png",
+      "iconSize": 256,
+      "description": "Nautilus nhận một lá chắn tạm thời. Trong khi có lá chắn, đòn đánh của hắn gây sát thương theo thời gian lên mục tiêu và kẻ địch xung quanh."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "THỦY TRIỀU DỮ DỘI",
+      "icon": "assets/champions/nautilus/skill-e.png",
+      "iconSize": 256,
+      "description": "Nautilus tạo ra 3 đợt sóng bùng nổ xung quanh bản thân. Mỗi vụ nổ sẽ gây sát thương và làm chậm kẻ địch."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "THỦY LÔI TẦM NHIỆT",
+      "icon": "assets/champions/nautilus/skill-r.png",
+      "iconSize": 256,
+      "description": "Nautilus bắn ra một cơn sóng chấn động xuống mặt đất đuổi theo kẻ địch. Cơn sóng này sẽ phá nát mặt đất phía trên, hất văng kẻ địch lên trời. Khi đuổi kịp đối phương, cơn sóng bùng nổ, hất mục tiêu lên không và làm choáng chúng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/nautilus/",
+  "syncedAt": "2026-10-01"
+}

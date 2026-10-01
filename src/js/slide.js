@@ -7,10 +7,12 @@ import { renderChampion } from './slides/champion.js';
 import { renderItem } from './slides/item.js';
 import { renderSystem } from './slides/system.js';
 import { renderTierOverview, renderTierLane } from './slides/tier.js';
+import { renderBuild, renderBuildItems } from './slides/build.js';
 
 const RENDERERS = {
   overview: renderOverview, champion: renderChampion, item: renderItem, system: renderSystem,
   'tier-overview': renderTierOverview, 'tier-lane': renderTierLane,
+  build: renderBuild, 'build-items': renderBuildItems,
 };
 const root = document.getElementById('root');
 

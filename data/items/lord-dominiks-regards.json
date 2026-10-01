@@ -1,0 +1,42 @@
+{
+  "slug": "lord-dominiks-regards",
+  "name": "Lord Dominik's Regards",
+  "nameVi": "Nỏ Thần Dominik",
+  "icon": "assets/items/lord-dominiks-regards.png",
+  "price": 3300,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Xuyên giáp"
+  ],
+  "color": "#E8EEF5",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+35"
+    },
+    {
+      "label": "Xuyên giáp",
+      "value": "+35%"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    }
+  ],
+  "passives": [
+    "Diệt Khổng Lồ"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2278) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+35 SMCK",
+      "+35% xuyên giáp",
+      "+25% chí mạng"
+    ],
+    "text": "Thêm sát thương theo máu cộng thêm của địch, tối đa 12% — món khắc chế tướng đỡ đòn.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

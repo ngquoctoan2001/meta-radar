@@ -1,5 +1,5 @@
 // Tải dữ liệu JSON (chạy qua server, đường dẫn tính từ gốc dự án).
-import { isTierlist, collectionFile } from './collections.js';
+import { collectionKind, collectionFile } from './collections.js';
 
 const cache = new Map();
 
@@ -45,4 +45,22 @@ export async function loadTierlistBundle(id) {
   return { brand, tierlist, patch, previous, champions, slides: tierlist.slides };
 }
 
-export const loadBundle = (id) => (isTierlist(id) ? loadTierlistBundle(id) : loadPatchBundle(id));
+// Build: tướng + trang bị trong các build + ngọc/phép bổ trợ + tướng đối đầu / hỗ trợ hợp (avatar)
+// + tier list (bậc, tỉ lệ thắng).
+export async function loadBuildBundle(id) {
+  const [brand, build, runeData] = await Promise.all([loadBrand(), loadPatch(id), getJSON('/data/runes.json')]);
+  const slugs = [...new Set(build.builds.flatMap((b) => b.items))];
+  const m = build.matchups ?? {};
+  const [champion, tierlist, items, champions] = await Promise.all([
+    loadChampion(build.champion),
+    build.tierlist ? loadPatch(build.tierlist) : null,
+    Promise.all(slugs.map(async (s) => [s, await loadItem(s)])).then(Object.fromEntries),
+    loadChampions([...(m.strong ?? []), ...(m.weak ?? []), ...(m.synergy ?? [])]),
+  ]);
+  const runes = Object.fromEntries(runeData.runes.map((r) => [r.id, r]));
+  const spells = Object.fromEntries(runeData.spells.map((s) => [s.key, s]));
+  return { brand, build, champion, tierlist, items, runes, spells, champions, slides: build.slides };
+}
+
+const LOADERS = { patch: loadPatchBundle, tierlist: loadTierlistBundle, build: loadBuildBundle };
+export const loadBundle = (id) => LOADERS[collectionKind(id)](id);

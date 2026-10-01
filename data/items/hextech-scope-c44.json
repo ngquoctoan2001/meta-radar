@@ -1,0 +1,35 @@
+{
+  "slug": "hextech-scope-c44",
+  "name": "Hextech Scope C44",
+  "nameVi": "Thấu Kính Hextech C44",
+  "icon": "assets/items/hextech-scope-c44.png",
+  "price": 2900,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Chí mạng"
+  ],
+  "color": "#4FA8FF",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+55"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2237) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "new",
+    "stats": [
+      "+55 SMCK",
+      "+25% chí mạng"
+    ],
+    "text": "Đứng càng xa càng đau: +0–10% sát thương (tối đa ở 550 tầm). Hạ gục tướng: +100 tầm đánh trong 8 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "jinx",
+  "name": "JINX",
+  "title": "Khẩu Pháo Nổi Loạn",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#0A060C",
+    "secondary": "#FFD6FA",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/jinx/portrait.jpg",
+  "splash": "assets/champions/jinx/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "JINX, KHẨU PHÁO NỔI LOẠN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Hưng Phấn!",
+      "icon": "assets/champions/jinx/skill-p.png",
+      "iconSize": 128,
+      "description": "Jinx được tăng mạnh Tốc Độ Di Chuyển và Tốc Độ Đánh mỗi khi cô hỗ trợ tiêu diệt tướng, quái rừng khủng hoặc công trình."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Tráo Hàng!",
+      "icon": "assets/champions/jinx/skill-q.png",
+      "iconSize": 128,
+      "description": "Jinx chuyển hóa các đòn đánh thường bằng cách hoán đổi giữa Bằng Chíu, khẩu súng nhỏ với Xương Cá, khẩu súng phóng lựu. Các phát bắn bằng Pằng Chíu sẽ tăng Tốc Độ Đánh, còn các phát bắn bằng Xương Cá sẽ gây sát thương trên diện rộng, gia tăng tầm bắn và tiêu tốn Năng Lượng."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Giật Bắn!",
+      "icon": "assets/champions/jinx/skill-w.png",
+      "iconSize": 128,
+      "description": "Jinx sử dụng Giật Bắn, khẩu súng phóng điện, bắn một luồng sáng làm chậm, gây sát thương và làm lộ diện kẻ địch đầu tiên trúng phải."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Lựu Đạn Ma Hỏa!",
+      "icon": "assets/champions/jinx/skill-e.png",
+      "iconSize": 128,
+      "description": "Jinx ném ra một hàng lựu đạn sẽ phát nổ sau 5 giây và đốt cháy những kẻ địch. Lựu Đạn Ma Hỏa sẽ táp vào các tướng địch bước lên chúng và trói chân các nạn nhân đó."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Tên Lửa Đạn Đạo Siêu Khủng Khiếp!",
+      "icon": "assets/champions/jinx/skill-r.png",
+      "iconSize": 128,
+      "description": "Jinx bắn ra một quả siêu tên lửa bay toàn bản đồ, thứ vũ khí sẽ được gia tăng sát thương gây ra dựa trên khoảng cách đã bay. Quả tên lửa sẽ phát nổ khi va chạm với một tướng địch, gây sát thương lên nạn nhân chính cũng như các kẻ địch xung quanh dựa trên lượng Máu đã mất của chúng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/jinx/",
+  "syncedAt": "2026-10-01"
+}

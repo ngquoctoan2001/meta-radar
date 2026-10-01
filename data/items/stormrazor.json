@@ -1,0 +1,43 @@
+{
+  "slug": "stormrazor",
+  "name": "Stormrazor",
+  "nameVi": "Phong Thần Kiếm",
+  "icon": "assets/items/stormrazor.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Chí mạng"
+  ],
+  "color": "#5FE0D8",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+50"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    },
+    {
+      "label": "Tốc độ đánh",
+      "value": "+20%"
+    }
+  ],
+  "passives": [
+    "Tích Điện",
+    "Điện Xẹt"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2288) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "new",
+    "stats": [
+      "+50 SMCK",
+      "+25% chí mạng",
+      "+20% tốc đánh"
+    ],
+    "text": "Di chuyển và đánh thường tích điện: đòn tích đầy gây thêm 120 sát thương phép và +45% tốc chạy trong 1,5 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

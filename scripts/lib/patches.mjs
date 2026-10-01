@@ -73,7 +73,31 @@ async function listTierlists() {
   return lists.sort((a, b) => b.id.localeCompare(a.id));
 }
 
-// Mọi bộ ảnh: bản cập nhật (mới nhất trước) rồi tới tier list (mới nhất trước).
+async function listBuilds() {
+  const dirs = await readdir(path.join(ROOT, 'builds'), { withFileTypes: true }).catch(() => []);
+  const list = [];
+  for (const d of dirs.filter((x) => x.isDirectory())) {
+    const b = await tryJSON(`builds/${d.name}/build.json`);
+    if (!b) continue;
+    const champ = await tryJSON(`data/champions/${b.champion}.json`);
+    list.push({
+      kind: 'build',
+      id: b.id,
+      title: b.title,
+      date: b.date,
+      patch: b.patch,
+      champion: b.champion,
+      portrait: champ?.portrait ?? null,
+      headline: b.verdict,
+      source: b.source,
+      counts: { builds: b.builds.length, items: b.itemNotes?.length ?? 0 },
+      slides: b.slides.map((s, i) => ({ ...s, label: s.title ?? s.id, status: null, index: i })),
+    });
+  }
+  return list.sort((a, b) => b.id.localeCompare(a.id));
+}
+
+// Mọi bộ ảnh: bản cập nhật, tier list, build (mỗi loại mới nhất trước).
 export async function listCollections() {
-  return [...(await listPatches()), ...(await listTierlists())];
+  return [...(await listPatches()), ...(await listTierlists()), ...(await listBuilds())];
 }

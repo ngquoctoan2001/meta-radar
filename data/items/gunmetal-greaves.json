@@ -1,0 +1,25 @@
+{
+  "slug": "gunmetal-greaves",
+  "name": "Gunmetal Greaves",
+  "nameVi": "Giày Hắc Kim",
+  "icon": "assets/items/gunmetal-greaves.png",
+  "price": 2200,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Giày",
+    "Tốc đánh"
+  ],
+  "color": "#FF9A4C",
+  "stats": [
+    {
+      "label": "Tốc độ đánh",
+      "value": "+50%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+45"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2412) · tên VN theo Riot vi_VN"
+}
