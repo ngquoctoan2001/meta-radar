@@ -1,0 +1,74 @@
+{
+  "slug": "jayce",
+  "name": "JAYCE",
+  "title": "Người Bảo Hộ Mai Sau",
+  "roles": [
+    "ĐẤU SĨ",
+    "XẠ THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#301D18",
+    "secondary": "#F9F0DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/jayce/portrait.jpg",
+  "splash": "assets/champions/jayce/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "JAYCE, NGƯỜI BẢO HỘ MAI SAU",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "TỤ ĐIỆN HEXTECH",
+      "icon": "assets/champions/jayce/skill-p.png",
+      "iconSize": 128,
+      "description": "Khi thay đổi vũ khí, Jayce sẽ được tăng tốc độ di chuyển trong thời gian ngắn."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "CHỈ THIÊN! / CẦU SẤM",
+      "icon": "assets/champions/jayce/skill-q.png",
+      "iconSize": 128,
+      "description": "Dạng Búa: Nhảy tới một kẻ địch gây sát thương vật lý và làm chậm chúng. Dạng Pháo: Bắn ra một quả cầu điện tích, thứ sẽ phát nổ khi chạm phải kẻ địch (hoặc hết tầm bay) gây sát thương vật lý lên tất cả những kẻ địch trong vùng ảnh hưởng của vụ nổ."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "SẤM CHỚP RỀN VANG / TÍCH TỤ",
+      "icon": "assets/champions/jayce/skill-w.png",
+      "iconSize": 128,
+      "description": "Dạng Búa: Nội tại: Hồi năng lượng theo mỗi đòn đánh. Kích hoạt: Tạo ra một vùng sấm chớp rền vang gây sát thương lên những kẻ địch xung quanh trong vài giây. Dạng Pháo: Nhận một cú sốc năng lượng giúp tăng Tốc độ Đánh lên mức tối đa trong một vài đòn đánh kế tiếp."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "LÔI PHẠT / CỔNG TĂNG TỐC",
+      "icon": "assets/champions/jayce/skill-e.png",
+      "iconSize": 128,
+      "description": "Dạng Búa: Gây sát thương phép lên một kẻ địch và hất nạn nhân lùi lại một cự li ngắn. Dạng Pháo: Tạo ra một chiếc Cổng Tăng Tốc giúp gia tăng Tốc độ Di chuyển cho những đồng minh bước qua đấy. Nếu Cầu Sấm được bắn xuyên qua cánh cổng này thì tốc độ bay, tầm bay và sát thương nó gây ra đều được gia tăng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "PHÁO THỦY NGÂN / BÚA THỦY NGÂN",
+      "icon": "assets/champions/jayce/skill-r.png",
+      "iconSize": 128,
+      "description": "Dạng Búa: Chuyển sang Búa giúp nhận kĩ năng mới và được tăng tầm đánh. Đòn đánh đầu tiên ở dạng này sẽ giảm Giáp, Kháng Phép của nạn nhân. Dạng Pháo: Chuyển sang Pháo giúp nhận kĩ năng mới và tăng Giáp, Kháng Phép. Đòn đánh đầu tiên ở dạng này sẽ gây thêm sát thương phép."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.76,
+      "y": 0.3
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/jayce/",
+  "syncedAt": "2026-10-01"
+}

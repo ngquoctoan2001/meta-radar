@@ -1,0 +1,74 @@
+{
+  "slug": "nocturne",
+  "name": "NOCTURNE",
+  "title": "ÁC MỘNG VĨNH CỬU",
+  "roles": [
+    "ĐẤU SĨ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#040408",
+    "secondary": "#D6E1FF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/nocturne/portrait.jpg",
+  "splash": "assets/champions/nocturne/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "NOCTURNE, ÁC MỘNG VĨNH CỬU",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "LƯỠI DAO BÓNG TỐI",
+      "icon": "assets/champions/nocturne/skill-p.png",
+      "iconSize": 256,
+      "description": "Mỗi vài giây, đòn đánh kế tiếp của Nocturne gây thêm sát thương vật lý lên các kẻ địch xung quanh và hồi máu cho bản thân. Đòn đánh của Nocturne giảm hồi chiêu kỹ năng này."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "THANH GƯƠM BÓNG TỐI",
+      "icon": "assets/champions/nocturne/skill-q.png",
+      "iconSize": 256,
+      "description": "Nocturne phóng ra một thanh gươm bóng tối gây sát thương và tạo ra một Vệt Bóng Tối. Các tướng địch trúng chiêu cũng để lại một Vệt Bóng Tối. Khi đứng trên Vệt Bóng Tối, Nocturne có thể đi xuyên vật thể, được tăng Tốc Độ Di Chuyển và Sức Mạnh Công Kích."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BÓNG ĐEN BAO PHỦ",
+      "icon": "assets/champions/nocturne/skill-w.png",
+      "iconSize": 256,
+      "description": "Nocturne cường hóa thanh gươm của mình, gia tăng Tốc Độ Đánh nội tại. Kích hoạt Bóng Đen Bao Phủ cho phép Nocturne ẩn mình vào bóng tối, tạo ra một lá chắn chặn một kỹ năng công kích của kẻ địch và tăng gấp đôi Tốc Độ Đánh nội tại nếu chặn thành công."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "NỖI KINH HOÀNG TỘT ĐỘ",
+      "icon": "assets/champions/nocturne/skill-e.png",
+      "iconSize": 256,
+      "description": "Nocturne gieo rắc một cơn ác mộng vào tâm trí mục tiêu, gây sát thương mỗi giây và khiến mục tiêu bị hoảng sợ nếu chúng không thoát ra khỏi tầm hoạt động của kỹ năng khi hết thời gian."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HOANG TƯỞNG",
+      "icon": "assets/champions/nocturne/skill-r.png",
+      "iconSize": 256,
+      "description": "Nocturne giảm tầm nhìn của tất cả tướng địch và ngăn chúng chia sẻ tầm nhìn với đồng minh. Sau đó, hắn có thể phóng tới một tướng địch ở gần."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.58,
+      "y": 0.48
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/nocturne/",
+  "syncedAt": "2026-10-01"
+}

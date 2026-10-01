@@ -1,0 +1,74 @@
+{
+  "slug": "galio",
+  "name": "GALIO",
+  "title": "Vệ Thần Khổng Lồ",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#1E1E3C",
+    "secondary": "#F9F1DC",
+    "label": "#04040F"
+  },
+  "portrait": "assets/champions/galio/portrait.jpg",
+  "splash": "assets/champions/galio/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "GALIO - VỆ THẦN KHỔNG LỒ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "CÚ NỆN KHỔNG LỒ",
+      "icon": "assets/champions/galio/skill-p.png",
+      "iconSize": 128,
+      "description": "Cứ sau vài giây, đòn đánh kế tiếp của Galio gây thêm sát thương phép lên một khu vực. Galio nhận tốc độ đánh khi Cú Nện Khổng Lồ khả dụng. Khi kỹ năng của ông tấn công trúng quái khủng hoặc tướng địch, thời gian hồi của Cú Nện Khổng Lồ sẽ được giảm đi 3 giây. Hiệu ứng chỉ có thể được kích hoạt một lần cho mỗi lần thi triển."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ĐÔI CÁNH CHIẾN TRẬN",
+      "icon": "assets/champions/galio/skill-q.png",
+      "iconSize": 128,
+      "description": "Galio tung ra 2 luồng gió hội tụ lại thành một cơn bão lớn gây sát thương theo thời gian."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "LÁ CHẮN DURAND",
+      "icon": "assets/champions/galio/skill-w.png",
+      "iconSize": 128,
+      "description": "Galio tiến vào trạng thái phòng ngự, di chuyển chậm hơn. Khi thoát khỏi trạng thái đó, Galio sẽ khiêu khích và gây sát thương lên những tướng địch xung quanh."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "CÚ ĐẤM CÔNG LÝ",
+      "icon": "assets/champions/galio/skill-e.png",
+      "iconSize": 128,
+      "description": "Galio tạm lùi lại sau đó lao tới, gây sát thương và hất tung tướng địch đầu tiên đụng phải."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "SIÊU HÙNG GIÁNG THẾ",
+      "icon": "assets/champions/galio/skill-r.png",
+      "iconSize": 128,
+      "description": "Galio chọn một đồng minh làm điểm đáp xuống, trao lá chắn phép thuật cho tất cả đồng minh trong khu vực. Sau chốc lát, Galio đáp xuống vị trí đó, hất tung kẻ địch xung quanh."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.485,
+      "y": 0.09
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/galio/",
+  "syncedAt": "2026-10-01"
+}

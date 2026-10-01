@@ -1,0 +1,73 @@
+{
+  "slug": "yunara",
+  "name": "YUNARA",
+  "title": "Bất Phá Tín Niệm",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#33274F",
+    "secondary": "#F9DCE0",
+    "label": "#120926"
+  },
+  "portrait": "assets/champions/yunara/portrait.jpg",
+  "splash": "assets/champions/yunara/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "YUNARA, BẤT PHÁ TÍN NIỆM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "THỆ ƯỚC KHỞI NGUYÊN",
+      "icon": "assets/champions/yunara/skill-p.png",
+      "iconSize": 512,
+      "description": "Đòn Chí Mạng của Yunara gây thêm sát thương phép."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "KẾT LINH THÀNH CHÂU",
+      "icon": "assets/champions/yunara/skill-q.png",
+      "iconSize": 512,
+      "description": "Yunara nhận Tốc Độ Đánh, sát thương cộng thêm Trên Đòn Đánh và Đòn Đánh sẽ lan sang các kẻ địch ở gần."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "NIỆM CHÂU PHÁN QUYẾT | HỒ QUANG HỦY DIỆT",
+      "icon": "assets/champions/yunara/skill-w.png",
+      "iconSize": 512,
+      "description": "Yunara tung ra một chuỗi hạt nguyện xoay tròn gây sát thương và làm chậm kẻ địch. Khi đang ở trong Trạng Thái Siêu Phàm, thay vào đó cô bắn ra một luồng tia laser gây sát thương và làm chậm kẻ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TỊNH HỒN VŨ ẢNH | CỰC TỐC DI HÌNH",
+      "icon": "assets/champions/yunara/skill-e.png",
+      "iconSize": 512,
+      "description": "Yunara nhận Tốc Độ Di Chuyển và có thể Đi Xuyên Vật Thể. Khi ở trong trạng thái Siêu Phàm, thay vào đó cô sẽ lướt theo hướng chỉ định."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "PHÁ NGÃ ĐĂNG THẦN",
+      "icon": "assets/champions/yunara/skill-r.png",
+      "iconSize": 512,
+      "description": "Yunara tiến vào Trạng Thái Siêu Phàm và các Kỹ Năng cơ bản của cô được nâng cấp."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.635,
+      "y": 0.27
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/yunara/",
+  "syncedAt": "2026-10-01"
+}

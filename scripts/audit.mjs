@@ -1,10 +1,11 @@
-// Kiểm tra bộ ảnh của 1 patch trước khi đăng.
+// Kiểm tra bộ ảnh (bản cập nhật hoặc tier list) trước khi đăng.
 //
-//   node scripts/audit.mjs 7.3a           → báo cáo lỗi từng ảnh (thoát mã 1 nếu có lỗi)
-//   node scripts/audit.mjs 7.3a --sheet   → thêm ảnh tổng hợp cả bộ: review/<patch>-tong-hop.png
+//   node scripts/audit.mjs 7.3a                 → báo cáo lỗi từng ảnh (thoát mã 1 nếu có lỗi)
+//   node scripts/audit.mjs 7.3a --sheet         → thêm ảnh tổng hợp cả bộ: review/<id>-tong-hop.png
+//   node scripts/audit.mjs tier-2026-09-30      → tier list
 //
-// 1. Dữ liệu patch.json: tướng/trang bị có dữ liệu chưa, key kỹ năng, dòng số liệu so sánh được không,
-//    trạng thái, câu chốt, danh sách slides.
+// 1. Dữ liệu: patch.json (tướng/trang bị có dữ liệu chưa, key kỹ năng, dòng số liệu so sánh được không,
+//    trạng thái, câu chốt, danh sách slides) hoặc tierlist.json (đường, bậc, số liệu, khuôn mặt tướng).
 // 2. Ảnh: khối nội dung đè chân ảnh / thanh trên, thẻ bị cắt, chữ tràn, ảnh không tải được,
 //    cảnh báo tự co chữ (câu chốt quá dài, quá nhiều thay đổi…), lỗi vẽ ảnh.
 import { readFile, mkdir } from 'node:fs/promises';
@@ -14,6 +15,7 @@ import { ensureServer } from './lib/ensure-server.mjs';
 import { getBrowser, closeBrowser } from './lib/renderer.mjs';
 import { CANVAS } from '../src/js/lib/output.js';
 import { analyzeLine } from '../src/js/lib/values.js';
+import { isTierlist, collectionFile } from '../src/js/lib/collections.js';
 
 const args = process.argv.slice(2);
 const patchId = args.find((a) => !a.startsWith('--'));
@@ -96,6 +98,49 @@ async function validateData(patch, folder) {
   return { errors, notes };
 }
 
+// Kiểm tra tierlist.json.
+const LANE_KEYS = ['baron', 'jungle', 'mid', 'dragon', 'support'];
+async function validateTierlist(t, folder) {
+  const errors = [];
+  const notes = [];
+  const VERDICT_MAX = 110;
+  if (t.id !== folder) errors.push(`"id" là "${t.id}" nhưng thư mục là "${folder}"`);
+  for (const k of ['date', 'source', 'filter']) if (!t[k]) errors.push(`thiếu "${k}" (in ở chân ảnh)`);
+  if (t.patch && !(await exists(`patches/${t.patch}/patch.json`))) errors.push(`"patch": không có patches/${t.patch}/patch.json`);
+  if (t.previous && !(await exists(`tierlists/${t.previous}/tierlist.json`))) errors.push(`"previous": không có tierlists/${t.previous}/tierlist.json`);
+  for (const l of t.lanes ?? []) {
+    const where = `đường ${l.lane}`;
+    if (!LANE_KEYS.includes(l.lane)) errors.push(`${where}: không hợp lệ (${LANE_KEYS.join(', ')})`);
+    if (!l.verdict) notes.push(`${where}: chưa có câu chốt`);
+    else if (l.verdict.length > VERDICT_MAX) notes.push(`${where}: câu chốt dài ${l.verdict.length} ký tự (nên ≤ ${VERDICT_MAX})`);
+    const t0 = l.champions.filter((c) => c.tier === 'T0').length;
+    if (t0 > 3) errors.push(`${where}: ${t0} tướng T0 — mẫu ảnh chứa tối đa 3, báo người dùng`);
+    if (l.champions.length - t0 > 7) errors.push(`${where}: ${l.champions.length - t0} tướng T1 — mẫu ảnh chứa tối đa 7, báo người dùng`);
+    else if (l.champions.length - t0 > 6) notes.push(`${where}: ${l.champions.length - t0} tướng T1 — thẻ hẹp, soát kỹ tên tướng trong ảnh`);
+    if (!l.champions.length) errors.push(`${where}: chưa có tướng nào → tierlist.mjs lane`);
+    let lastTier = 'T0';
+    for (const c of l.champions) {
+      const w = `${where} · ${c.slug}`;
+      if (!['T0', 'T1'].includes(c.tier)) errors.push(`${w}: "tier" = "${c.tier}" (chỉ T0, T1)`);
+      if (c.tier < lastTier) errors.push(`${w}: T0 phải đứng trước T1 (giữ đúng thứ hạng)`);
+      lastTier = c.tier;
+      for (const k of ['win', 'pick', 'ban']) if (!(typeof c[k] === 'number' && c[k] >= 0 && c[k] <= 100)) errors.push(`${w}: "${k}" phải là số 0–100 (vd 53.15)`);
+      const champ = await loadJSON(`data/champions/${c.slug}.json`);
+      if (!champ) { errors.push(`${w}: chưa có data/champions/${c.slug}.json → chạy fetch-champion.mjs`); continue; }
+      if (!champ.layout?.face) notes.push(`${w}: chưa đo khuôn mặt (layout.face) → splash-grid.mjs ${c.slug} --face=x,y`);
+      if (!(await exists(champ.splash))) errors.push(`${w}: thiếu ảnh splash ${champ.splash}`);
+    }
+  }
+  const ids = new Set();
+  for (const s of t.slides ?? []) {
+    if (ids.has(s.id)) errors.push(`slides: trùng id "${s.id}"`);
+    ids.add(s.id);
+    if (!['tier-overview', 'tier-lane'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (tier-overview, tier-lane)`);
+    if (s.type === 'tier-lane' && !t.lanes?.some((l) => l.lane === s.lane)) errors.push(`slides: đường "${s.lane}" không có trong lanes`);
+  }
+  return { errors, notes };
+}
+
 // Chạy trong trang slide: trả về danh sách lỗi bố cục.
 function checkLayout() {
   const issues = [];
@@ -103,7 +148,7 @@ function checkLayout() {
   const name = (el) => `.${el.classList[0]}${el.querySelector('.chg-title, h1, h3') ? ` "${el.querySelector('.chg-title, h1, h3').textContent.trim()}"` : ''}`;
   const foot = document.querySelector('.footbar');
   const top = document.querySelector('.topbar');
-  for (const el of document.querySelectorAll('.verdict, .chg, .balance, .after, .ov-group, .ov-row, .sys-card, .status')) {
+  for (const el of document.querySelectorAll('.verdict, .chg, .balance, .after, .ov-group, .ov-row, .sys-card, .status, .tl-row, .tov-col, .tt')) {
     const b = r(el);
     if (!b.height) continue;
     if (foot && b.bottom > r(foot).top - 4) issues.push(`${name(el)} đè chân ảnh (đáy ${Math.round(b.bottom)} > ${Math.round(r(foot).top)})`);
@@ -111,6 +156,9 @@ function checkLayout() {
   }
   for (const box of document.querySelectorAll('.changes')) {
     for (const card of box.children) if (r(card).bottom > r(box).bottom + 1) issues.push(`${name(card)} bị cắt mất phần dưới`);
+  }
+  for (const side of document.querySelectorAll('.tl-side')) {
+    if (side.scrollHeight > side.clientHeight + 1) issues.push('câu chốt của đường quá dài, đè khung số liệu — rút còn 2 dòng (≤ ~90 ký tự)');
   }
   for (const el of document.querySelectorAll('[data-fit]')) {
     if (el.scrollWidth > el.clientWidth + 1) issues.push(`chữ tràn: "${el.textContent.trim()}"`);
@@ -124,10 +172,10 @@ function checkLayout() {
 const { origin: ORIGIN, stop } = await ensureServer();
 let failed = 0;
 try {
-  const patch = JSON.parse(await readFile(path.join(ROOT, 'patches', patchId, 'patch.json'), 'utf8'));
+  const patch = JSON.parse(await readFile(path.join(ROOT, collectionFile(patchId)), 'utf8'));
 
-  console.log('— Dữ liệu patch.json —');
-  const { errors, notes } = await validateData(patch, patchId);
+  console.log(`— Dữ liệu ${collectionFile(patchId).split('/').pop()} —`);
+  const { errors, notes } = isTierlist(patchId) ? await validateTierlist(patch, patchId) : await validateData(patch, patchId);
   for (const e of errors) console.log(`✘ ${e}`);
   for (const n of notes) console.log(`⚠ ${n}`);
   if (!errors.length && !notes.length) console.log('✔ hợp lệ');

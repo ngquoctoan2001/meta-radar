@@ -1,0 +1,141 @@
+/* Ảnh TIER LIST: tổng quan (5 đường × top 3) và từng đường (hàng T0, hàng T1).
+   Dùng lại tiêu đề / hàng nhãn của ảnh tổng quan patch (slide-overview.css).
+   Khung dọc: thanh trên 38–114 · tiêu đề 140–232 · nội dung 254–1002 · chân 1028 */
+/* màu .is-t0 / .is-t1 ở tokens.css */
+
+.slide--tier {
+  --label-w: 104px;
+  background:
+    radial-gradient(ellipse 50% 45% at 8% 38%, rgb(197 140 255 / 0.14), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 8% 78%, rgb(255 207 107 / 0.09), transparent 70%),
+    radial-gradient(ellipse 60% 55% at 85% 20%, rgb(var(--accent-rgb) / 0.10), transparent 70%),
+    linear-gradient(160deg, var(--bg-2) 0%, var(--bg-1) 45%, var(--bg-0) 100%);
+}
+.tier-watermark { --c-rgb: var(--accent-rgb); right: -20px; bottom: -150px; font-size: 600px; }
+.footbar-note { color: var(--text-2); }
+/* ghi chú ở ảnh tổng quan, vd "Bản 7.3a mới cập nhật 1 ngày…" */
+.tier-note { --c: var(--mixed); --c-rgb: var(--mixed-rgb); gap: 8px; letter-spacing: 0.06em; white-space: nowrap; }
+.tier-note svg { width: 20px; height: 20px; flex: none; }
+
+/* ---------- tiêu đề ảnh từng đường ---------- */
+.lane-title i { display: block; color: var(--accent); filter: drop-shadow(0 0 18px rgb(var(--accent-rgb) / 0.5)); }
+.lane-title i svg { display: block; width: 82px; height: 82px; }
+.lane-title h1 { padding-top: 0.16em; font-size: 108px; text-transform: uppercase; white-space: nowrap; }
+
+/* ---------- thẻ tướng ---------- */
+.tt {
+  position: relative; flex: none; overflow: hidden;
+  border-radius: 16px; background: #0b0920;
+  border: 2px solid rgb(var(--c-rgb) / 0.8);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 26px rgb(var(--c-rgb) / 0.25);
+}
+.tt-art { position: absolute; inset: 0; background-repeat: no-repeat; }
+.tt::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(0deg, rgba(7, 6, 20, 0.97) 6%, rgba(7, 6, 20, 0.72) 34%, transparent 60%),
+    linear-gradient(0deg, rgb(var(--c-rgb) / 0.28), transparent 42%);
+}
+.tt-top, .tt-tags, .tt-info { position: absolute; z-index: 2; }
+.tt-top { top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: flex-start; }
+.tt-rank {
+  display: grid; place-items: center; height: 42px; min-width: 56px; padding: 4px 10px 0;
+  border-radius: 10px; background: rgba(7, 6, 20, 0.8); border: 1px solid rgb(var(--c-rgb) / 0.6);
+  font: 900 32px/1 var(--f-display); color: var(--c);
+}
+.tier-badge {
+  display: grid; place-items: center; width: 54px; height: 60px; padding-bottom: 8px;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 45%, #fff), var(--c));
+  color: #07061a; font: 900 32px/1 var(--f-display);
+  filter: drop-shadow(0 0 14px rgb(var(--c-rgb) / 0.6));
+}
+
+.tt-tags { top: 12px; right: 12px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.tt--sm .tt-tags { right: auto; left: 80px; align-items: flex-start; }
+.tt-tag {
+  display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px;
+  border-radius: 8px; background: rgba(7, 6, 20, 0.84); border: 1px solid rgb(var(--c-rgb) / 0.75);
+  color: var(--c); font: 700 16px/1 var(--f-hud); letter-spacing: 0.1em; white-space: nowrap;
+  box-shadow: 0 0 16px rgb(var(--c-rgb) / 0.35);
+}
+.tt-tag svg { width: 16px; height: 16px; }
+.tt-move.is-up { --c: var(--buff); --c-rgb: var(--buff-rgb); }
+.tt-move.is-down { --c: var(--nerf); --c-rgb: var(--nerf-rgb); }
+.tt-move.is-new { --c: var(--accent); --c-rgb: var(--accent-rgb); }
+
+.tt-info { left: 18px; right: 18px; bottom: 16px; }
+.tt-name {
+  margin: 0; padding-top: 0.12em;
+  font: 900 54px/0.9 var(--f-display); letter-spacing: 0.01em; text-transform: uppercase; white-space: nowrap;
+  background: linear-gradient(180deg, #fff 40%, color-mix(in srgb, var(--c) 35%, #fff) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.85));
+}
+.tt-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 10px; }
+.tt-stat small { display: block; margin-bottom: 6px; font: 700 14px/1 var(--f-hud); letter-spacing: 0.16em; color: var(--text-3); }
+.tt-stat b { font: 700 26px/1 var(--f-hud); color: var(--text); }
+.tt-stat--win { grid-column: 1 / -1; }
+.tt-stat--win b { font: 900 56px/0.9 var(--f-display); color: var(--c); text-shadow: 0 0 22px rgb(var(--c-rgb) / 0.45); }
+.tt-stat.is-hot b { color: var(--nerf); }
+
+/* T0: thẻ rộng, thông số 1 hàng */
+.tt--lg .tt-info { left: 26px; right: 26px; bottom: 22px; }
+.tt--lg .tt-name { font-size: 92px; }
+.tt--lg .tt-stats { display: flex; align-items: flex-end; gap: 34px; }
+.tt--lg .tt-stat b { font-size: 30px; }
+.tt--lg .tt-stat--win b { font-size: 72px; }
+
+/* tổng quan: thẻ thấp, chỉ tên + tỉ lệ thắng */
+.tt--sm .tt-info { left: 16px; right: 16px; bottom: 12px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.tt--sm .tt-name { font-size: 44px; min-width: 0; }
+.tt-win { flex: none; font: 900 44px/0.9 var(--f-display); color: var(--c); text-shadow: 0 0 18px rgb(var(--c-rgb) / 0.45); }
+
+.tt--empty {
+  --c-rgb: 197 140 255;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  border: 2px dashed rgb(197 140 255 / 0.45); box-shadow: none;
+  background: radial-gradient(circle at 50% 40%, rgb(197 140 255 / 0.12), rgb(197 140 255 / 0.03) 70%);
+  text-align: center;
+}
+.tt--empty::after { display: none; }
+.tt--empty b { padding-top: 0.1em; font: 900 72px/1 var(--f-display); letter-spacing: 0.04em; color: rgb(197 140 255 / 0.9); }
+.tt--empty span { max-width: 480px; font: 500 24px/1.35 var(--f-body); color: var(--text-2); text-wrap: balance; }
+
+/* ---------- ảnh tổng quan: 5 cột đường ---------- */
+.tov-cols { position: absolute; left: var(--pad); right: var(--pad); top: 254px; height: 748px; display: flex; gap: 20px; }
+.tov-col { flex: none; width: 342px; display: flex; flex-direction: column; gap: 12px; }
+.lane-head {
+  flex: none; height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 24px;
+  color: #07061a;
+  background: linear-gradient(100deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #fff));
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  filter: drop-shadow(0 0 18px rgb(var(--accent-rgb) / 0.4));
+}
+.lane-head i svg { display: block; width: 36px; height: 36px; }
+.lane-head span { padding-top: 0.14em; font: 900 40px/1 var(--f-display); letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; }
+
+/* ---------- ảnh từng đường ---------- */
+.tl-rows { position: absolute; left: var(--pad); right: var(--pad); top: 254px; display: flex; flex-direction: column; gap: 20px; }
+.tl-row { display: flex; gap: 18px; height: 364px; }
+.tl-tiles { flex: 1; min-width: 0; display: flex; gap: 16px; }
+.tl-t0s { flex: none; display: flex; gap: 16px; }
+/* khe 30px chừa chỗ cho nhãn CHỐT; câu chốt quá dài sẽ tràn khỏi khung → audit báo */
+.tl-side { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 30px; }
+.tl-side .verdict { margin-top: 0; padding: 28px 28px 22px 30px; }
+.tl-side .verdict p { font-size: 36px; }
+/* 3 tướng T0: cột bên hẹp → chỉ còn câu chốt, canh giữa theo chiều dọc */
+.tl-side--verdict { justify-content: center; }
+/* 2 tướng T0: cột bên hẹp hơn nhưng vẫn giữ 3 ô nổi bật → chữ câu chốt nhỏ lại cho vừa 2 dòng */
+.tl-side--narrow .verdict p { font-size: 30px; }
+
+.hl-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.hl {
+  min-width: 0; padding: 20px 22px 18px;
+  border-radius: 14px; border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+}
+.hl small { display: block; font: 700 14px/1 var(--f-hud); letter-spacing: 0.16em; color: var(--text-3); }
+.hl b { display: block; margin-top: 10px; padding-top: 0.1em; font: 900 50px/1 var(--f-display); text-transform: uppercase; white-space: nowrap; }
+.hl em { display: block; margin-top: 6px; font: 700 30px/1 var(--f-hud); font-style: normal; color: var(--accent); }
+.hl.is-hot em { color: var(--nerf); }

@@ -1,0 +1,854 @@
+[
+ {
+  "cn": "盖伦",
+  "en": "Garen",
+  "slug": "garen",
+  "vi": "GAREN"
+ },
+ {
+  "cn": "亚托克斯",
+  "en": "Aatrox",
+  "slug": "aatrox",
+  "vi": "AATROX"
+ },
+ {
+  "cn": "拉克丝",
+  "en": "Lux",
+  "slug": "lux",
+  "vi": "LUX"
+ },
+ {
+  "cn": "阿木木",
+  "en": "Amumu",
+  "slug": "amumu",
+  "vi": "AMUMU"
+ },
+ {
+  "cn": "凯隐",
+  "en": "Kayn",
+  "slug": "kayn",
+  "vi": "KAYN"
+ },
+ {
+  "cn": "雷恩加尔",
+  "en": "Rengar",
+  "slug": "rengar",
+  "vi": "RENGAR"
+ },
+ {
+  "cn": "卡尔玛",
+  "en": "Karma",
+  "slug": "karma",
+  "vi": "Karma"
+ },
+ {
+  "cn": "努努和威朗普",
+  "en": "Nunu",
+  "slug": "nunu-and-willump",
+  "vi": "Nunu & Willump"
+ },
+ {
+  "cn": "孙悟空",
+  "en": "MonkeyKing",
+  "slug": "wukong",
+  "vi": "Ngộ Không"
+ },
+ {
+  "cn": "薇恩",
+  "en": "Vayne",
+  "slug": "vayne",
+  "vi": "VAYNE"
+ },
+ {
+  "cn": "艾克",
+  "en": "Ekko",
+  "slug": "ekko",
+  "vi": "EKKO"
+ },
+ {
+  "cn": "奥莉安娜",
+  "en": "Orianna",
+  "slug": "orianna",
+  "vi": "ORIANNA"
+ },
+ {
+  "cn": "黛安娜",
+  "en": "Diana",
+  "slug": "diana",
+  "vi": "DIANA"
+ },
+ {
+  "cn": "佐伊",
+  "en": "Zoe",
+  "slug": "zoe",
+  "vi": "ZOE"
+ },
+ {
+  "cn": "泰达米尔",
+  "en": "Tryndamere",
+  "slug": "tryndamere",
+  "vi": "TRYNDAMERE"
+ },
+ {
+  "cn": "赵信",
+  "en": "XinZhao",
+  "slug": "xin-zhao",
+  "vi": "XIN ZHAO"
+ },
+ {
+  "cn": "卡兹克",
+  "en": "Khazix",
+  "slug": "khazix",
+  "vi": "KHA'ZIX"
+ },
+ {
+  "cn": "金克丝",
+  "en": "Jinx",
+  "slug": "jinx",
+  "vi": "JINX"
+ },
+ {
+  "cn": "赫卡里姆",
+  "en": "Hecarim",
+  "slug": "hecarim",
+  "vi": "HECARIM"
+ },
+ {
+  "cn": "悠米",
+  "en": "Yuumi",
+  "slug": "yuumi",
+  "vi": "YUUMI"
+ },
+ {
+  "cn": "布隆",
+  "en": "Braum",
+  "slug": "braum",
+  "vi": "BRAUM"
+ },
+ {
+  "cn": "烬",
+  "en": "Jhin",
+  "slug": "jhin",
+  "vi": "JHIN"
+ },
+ {
+  "cn": "奥瑞利安·索尔",
+  "en": "AurelionSol",
+  "slug": "aurelion-sol",
+  "vi": "AURELION SOL"
+ },
+ {
+  "cn": "辛德拉",
+  "en": "Syndra",
+  "slug": "syndra",
+  "vi": "SYNDRA"
+ },
+ {
+  "cn": "崔斯特",
+  "en": "TwistedFate",
+  "slug": "twisted-fate",
+  "vi": "TWISTED FATE"
+ },
+ {
+  "cn": "卡莎",
+  "en": "Kaisa",
+  "slug": "kaisa",
+  "vi": "KAI'SA"
+ },
+ {
+  "cn": "尼菈",
+  "en": "Nilah",
+  "slug": "nilah",
+  "vi": "NILAH"
+ },
+ {
+  "cn": "莫甘娜",
+  "en": "Morgana",
+  "slug": "morgana",
+  "vi": "MORGANA"
+ },
+ {
+  "cn": "伊芙琳",
+  "en": "Evelynn",
+  "slug": "evelynn",
+  "vi": "EVELYNN"
+ },
+ {
+  "cn": "潘森",
+  "en": "Pantheon",
+  "slug": "pantheon",
+  "vi": "PANTHEON"
+ },
+ {
+  "cn": "阿卡丽",
+  "en": "Akali",
+  "slug": "akali",
+  "vi": "AKALI"
+ },
+ {
+  "cn": "菲奥娜",
+  "en": "Fiora",
+  "slug": "fiora",
+  "vi": "FIORA"
+ },
+ {
+  "cn": "布里茨",
+  "en": "Blitzcrank",
+  "slug": "blitzcrank",
+  "vi": "BLITZCRANK"
+ },
+ {
+  "cn": "萨勒芬妮",
+  "en": "Seraphine",
+  "slug": "seraphine",
+  "vi": "SERAPHINE"
+ },
+ {
+  "cn": "莫德凯撒",
+  "en": "Mordekaiser",
+  "slug": "mordekaiser",
+  "vi": "MORDEKAISER"
+ },
+ {
+  "cn": "安妮",
+  "en": "Annie",
+  "slug": "annie",
+  "vi": "ANNIE"
+ },
+ {
+  "cn": "亚索",
+  "en": "Yasuo",
+  "slug": "yasuo",
+  "vi": "YASUO"
+ },
+ {
+  "cn": "阿狸",
+  "en": "Ahri",
+  "slug": "ahri",
+  "vi": "AHRI"
+ },
+ {
+  "cn": "劫",
+  "en": "Zed",
+  "slug": "zed",
+  "vi": "ZED"
+ },
+ {
+  "cn": "贾克斯",
+  "en": "Jax",
+  "slug": "jax",
+  "vi": "JAX"
+ },
+ {
+  "cn": "凯尔",
+  "en": "Kayle",
+  "slug": "kayle",
+  "vi": "KAYLE"
+ },
+ {
+  "cn": "卢锡安",
+  "en": "Lucian",
+  "slug": "lucian",
+  "vi": "LUCIAN"
+ },
+ {
+  "cn": "蕾欧娜",
+  "en": "Leona",
+  "slug": "leona",
+  "vi": "LEONA"
+ },
+ {
+  "cn": "崔丝塔娜",
+  "en": "Tristana",
+  "slug": "tristana",
+  "vi": "TRISTANA"
+ },
+ {
+  "cn": "提莫",
+  "en": "Teemo",
+  "slug": "teemo",
+  "vi": "TEEMO"
+ },
+ {
+  "cn": "娑娜",
+  "en": "Sona",
+  "slug": "sona",
+  "vi": "SONA"
+ },
+ {
+  "cn": "璐璐",
+  "en": "Lulu",
+  "slug": "lulu",
+  "vi": "LULU"
+ },
+ {
+  "cn": "希瓦娜",
+  "en": "Shyvana",
+  "slug": "shyvana",
+  "vi": "SHYVANA"
+ },
+ {
+  "cn": "蔚",
+  "en": "Vi",
+  "slug": "vi",
+  "vi": "VI"
+ },
+ {
+  "cn": "霞",
+  "en": "Xayah",
+  "slug": "xayah",
+  "vi": "XAYAH"
+ },
+ {
+  "cn": "洛",
+  "en": "Rakan",
+  "slug": "rakan",
+  "vi": "RAKAN"
+ },
+ {
+  "cn": "图奇",
+  "en": "Twitch",
+  "slug": "twitch",
+  "vi": "TWITCH"
+ },
+ {
+  "cn": "格温",
+  "en": "Gwen",
+  "slug": "gwen",
+  "vi": "GWEN"
+ },
+ {
+  "cn": "卡蜜尔",
+  "en": "Camille",
+  "slug": "camille",
+  "vi": "CAMILLE"
+ },
+ {
+  "cn": "嘉文四世",
+  "en": "JarvanIV",
+  "slug": "jarvan-iv",
+  "vi": "JARVAN IV"
+ },
+ {
+  "cn": "佛耶戈",
+  "en": "Viego",
+  "slug": "viego",
+  "vi": "VIEGO"
+ },
+ {
+  "cn": "沃利贝尔",
+  "en": "Volibear",
+  "slug": "volibear",
+  "vi": "VOLIBEAR"
+ },
+ {
+  "cn": "李青",
+  "en": "LeeSin",
+  "slug": "lee-sin",
+  "vi": "LEE SIN"
+ },
+ {
+  "cn": "库奇",
+  "en": "Corki",
+  "slug": "corki",
+  "vi": "CORKI"
+ },
+ {
+  "cn": "凯南",
+  "en": "Kennen",
+  "slug": "kennen",
+  "vi": "KENNEN"
+ },
+ {
+  "cn": "蒙多医生",
+  "en": "DrMundo",
+  "slug": "dr-mundo",
+  "vi": "DR. MUNDO"
+ },
+ {
+  "cn": "婕拉",
+  "en": "Zyra",
+  "slug": "zyra",
+  "vi": "ZYRA"
+ },
+ {
+  "cn": "拉莫斯",
+  "en": "Rammus",
+  "slug": "rammus",
+  "vi": "RAMMUS"
+ },
+ {
+  "cn": "内瑟斯",
+  "en": "Nasus",
+  "slug": "nasus",
+  "vi": "NASUS"
+ },
+ {
+  "cn": "厄运小姐",
+  "en": "MissFortune",
+  "slug": "miss-fortune",
+  "vi": "MISS FORTUNE"
+ },
+ {
+  "cn": "泽丽",
+  "en": "Zeri",
+  "slug": "zeri",
+  "vi": "ZERI"
+ },
+ {
+  "cn": "瑟提",
+  "en": "Sett",
+  "slug": "sett",
+  "vi": "SETT"
+ },
+ {
+  "cn": "永恩",
+  "en": "Yone",
+  "slug": "yone",
+  "vi": "Yone"
+ },
+ {
+  "cn": "易",
+  "en": "MasterYi",
+  "slug": "master-yi",
+  "vi": "MASTER YI"
+ },
+ {
+  "cn": "德莱厄斯",
+  "en": "Darius",
+  "slug": "darius",
+  "vi": "DARIUS"
+ },
+ {
+  "cn": "格雷福斯",
+  "en": "Graves",
+  "slug": "graves",
+  "vi": "GRAVES"
+ },
+ {
+  "cn": "千珏",
+  "en": "Kindred",
+  "slug": "kindred",
+  "vi": "KINDRED"
+ },
+ {
+  "cn": "茂凯",
+  "en": "Maokai",
+  "slug": "maokai",
+  "vi": "MAOKAI"
+ },
+ {
+  "cn": "迦娜",
+  "en": "Janna",
+  "slug": "janna",
+  "vi": "JANNA"
+ },
+ {
+  "cn": "波比",
+  "en": "Poppy",
+  "slug": "poppy",
+  "vi": "POPPY"
+ },
+ {
+  "cn": "德莱文",
+  "en": "Draven",
+  "slug": "draven",
+  "vi": "DRAVEN"
+ },
+ {
+  "cn": "纳尔",
+  "en": "Gnar",
+  "slug": "gnar",
+  "vi": "GNAR"
+ },
+ {
+  "cn": "艾希",
+  "en": "Ashe",
+  "slug": "ashe",
+  "vi": "ASHE"
+ },
+ {
+  "cn": "基兰",
+  "en": "Zilean",
+  "slug": "zilean",
+  "vi": "ZILEAN"
+ },
+ {
+  "cn": "阿利斯塔",
+  "en": "Alistar",
+  "slug": "alistar",
+  "vi": "ALISTAR"
+ },
+ {
+  "cn": "安蓓萨",
+  "en": "Ambessa",
+  "slug": "ambessa",
+  "vi": "AMBESSA"
+ },
+ {
+  "cn": "墨菲特",
+  "en": "Malphite",
+  "slug": "malphite",
+  "vi": "MALPHITE"
+ },
+ {
+  "cn": "奈德丽",
+  "en": "Nidalee",
+  "slug": "nidalee",
+  "vi": "NIDALEE"
+ },
+ {
+  "cn": "阿萝拉",
+  "en": "Aurora",
+  "slug": "aurora",
+  "vi": "AURORA"
+ },
+ {
+  "cn": "菲兹",
+  "en": "Fizz",
+  "slug": "fizz",
+  "vi": "FIZZ"
+ },
+ {
+  "cn": "吉格斯",
+  "en": "Ziggs",
+  "slug": "ziggs",
+  "vi": "ZIGGS"
+ },
+ {
+  "cn": "科加斯",
+  "en": "Chogath",
+  "slug": "chogath",
+  "vi": "CHO'GATH"
+ },
+ {
+  "cn": "古拉加斯",
+  "en": "Gragas",
+  "slug": "gragas",
+  "vi": "GRAGAS"
+ },
+ {
+  "cn": "弗拉基米尔",
+  "en": "Vladimir",
+  "slug": "vladimir",
+  "vi": "ĐỎ"
+ },
+ {
+  "cn": "娜美",
+  "en": "Nami",
+  "slug": "nami",
+  "vi": "NAMI"
+ },
+ {
+  "cn": "锐雯",
+  "en": "Riven",
+  "slug": "riven",
+  "vi": "RIVEN"
+ },
+ {
+  "cn": "韦鲁斯",
+  "en": "Varus",
+  "slug": "varus",
+  "vi": "VARUS"
+ },
+ {
+  "cn": "艾瑞莉娅",
+  "en": "Irelia",
+  "slug": "irelia",
+  "vi": "IRELIA"
+ },
+ {
+  "cn": "卡特琳娜",
+  "en": "Katarina",
+  "slug": "katarina",
+  "vi": "KATARINA"
+ },
+ {
+  "cn": "辛吉德",
+  "en": "Singed",
+  "slug": "singed",
+  "vi": "SINGED"
+ },
+ {
+  "cn": "索拉卡",
+  "en": "Soraka",
+  "slug": "soraka",
+  "vi": "SORAKA"
+ },
+ {
+  "cn": "伊泽瑞尔",
+  "en": "Ezreal",
+  "slug": "ezreal",
+  "vi": "EZREAL"
+ },
+ {
+  "cn": "加里奥",
+  "en": "Galio",
+  "slug": "galio",
+  "vi": "GALIO"
+ },
+ {
+  "cn": "阿克尚",
+  "en": "Akshan",
+  "slug": "akshan",
+  "vi": "AKSHAN"
+ },
+ {
+  "cn": "杰斯",
+  "en": "Jayce",
+  "slug": "jayce",
+  "vi": "JAYCE"
+ },
+ {
+  "cn": "厄加特",
+  "en": "Urgot",
+  "slug": "urgot",
+  "vi": "URGOT"
+ },
+ {
+  "cn": "卡萨丁",
+  "en": "Kassadin",
+  "slug": "kassadin",
+  "vi": "KASSADIN"
+ },
+ {
+  "cn": "莎弥拉",
+  "en": "Samira",
+  "slug": "samira",
+  "vi": "SAMIRA"
+ },
+ {
+  "cn": "巴德",
+  "en": "Bard",
+  "slug": "bard",
+  "vi": "BARD"
+ },
+ {
+  "cn": "奥拉夫",
+  "en": "Olaf",
+  "slug": "olaf",
+  "vi": "OLAF"
+ },
+ {
+  "cn": "希维尔",
+  "en": "Sivir",
+  "slug": "sivir",
+  "vi": "SIVIR"
+ },
+ {
+  "cn": "米利欧",
+  "en": "Milio",
+  "slug": "milio",
+  "vi": "MILIO"
+ },
+ {
+  "cn": "丽桑卓",
+  "en": "Lissandra",
+  "slug": "lissandra",
+  "vi": "LISSANDRA"
+ },
+ {
+  "cn": "克格莫",
+  "en": "Kogmaw",
+  "slug": "kogmaw",
+  "vi": "KOG'MAW"
+ },
+ {
+  "cn": "凯特琳",
+  "en": "Caitlyn",
+  "slug": "caitlyn",
+  "vi": "CAITLYN"
+ },
+ {
+  "cn": "芮尔",
+  "en": "Rell",
+  "slug": "rell",
+  "vi": "RELL"
+ },
+ {
+  "cn": "斯卡纳",
+  "en": "Skarner",
+  "slug": "skarner",
+  "vi": "SKARNER"
+ },
+ {
+  "cn": "慎",
+  "en": "Shen",
+  "slug": "shen",
+  "vi": "SHEN"
+ },
+ {
+  "cn": "布兰德",
+  "en": "Brand",
+  "slug": "brand",
+  "vi": "BRAND"
+ },
+ {
+  "cn": "雷克顿",
+  "en": "Renekton",
+  "slug": "renekton",
+  "vi": "Renekton"
+ },
+ {
+  "cn": "维迦",
+  "en": "Veigar",
+  "slug": "veigar",
+  "vi": "VEIGAR"
+ },
+ {
+  "cn": "赛娜",
+  "en": "Senna",
+  "slug": "senna",
+  "vi": "SENNA"
+ },
+ {
+  "cn": "派克",
+  "en": "Pyke",
+  "slug": "pyke",
+  "vi": "PYKE"
+ },
+ {
+  "cn": "赛恩",
+  "en": "Sion",
+  "slug": "sion",
+  "vi": "SION"
+ },
+ {
+  "cn": "斯维因",
+  "en": "Swain",
+  "slug": "swain",
+  "vi": "SWAIN"
+ },
+ {
+  "cn": "黑默丁格",
+  "en": "Heimerdinger",
+  "slug": "heimerdinger",
+  "vi": "HEIMERDINGER"
+ },
+ {
+  "cn": "泰隆",
+  "en": "Talon",
+  "slug": "talon",
+  "vi": "TALON"
+ },
+ {
+  "cn": "维克兹",
+  "en": "Velkoz",
+  "slug": "velkoz",
+  "vi": "VEL'KOZ"
+ },
+ {
+  "cn": "锤石",
+  "en": "Thresh",
+  "slug": "thresh",
+  "vi": "THRESH"
+ },
+ {
+  "cn": "沃里克",
+  "en": "Warwick",
+  "slug": "warwick",
+  "vi": "WARWICK"
+ },
+ {
+  "cn": "诺提勒斯",
+  "en": "Nautilus",
+  "slug": "nautilus",
+  "vi": "NAUTILUS"
+ },
+ {
+  "cn": "费德提克",
+  "en": "Fiddlesticks",
+  "slug": "fiddlesticks",
+  "vi": "FIDDLESTICKS"
+ },
+ {
+  "cn": "卡莉丝塔",
+  "en": "Kalista",
+  "slug": "kalista",
+  "vi": "KALISTA"
+ },
+ {
+  "cn": "莉莉娅",
+  "en": "Lillia",
+  "slug": "lillia",
+  "vi": "LILLIA"
+ },
+ {
+  "cn": "奥恩",
+  "en": "Ornn",
+  "slug": "ornn",
+  "vi": "ORNN"
+ },
+ {
+  "cn": "瑞兹",
+  "en": "Ryze",
+  "slug": "ryze",
+  "vi": "RYZE"
+ },
+ {
+  "cn": "斯莫德",
+  "en": "Smolder",
+  "slug": "smolder",
+  "vi": "SMOLDER"
+ },
+ {
+  "cn": "梅尔",
+  "en": "Mel",
+  "slug": "mel",
+  "vi": "MEL"
+ },
+ {
+  "cn": "兰博",
+  "en": "Rumble",
+  "slug": "rumble",
+  "vi": "RUMBLE"
+ },
+ {
+  "cn": "薇古丝",
+  "en": "Vex",
+  "slug": "vex",
+  "vi": "VEX"
+ },
+ {
+  "cn": "维克托",
+  "en": "Viktor",
+  "slug": "viktor",
+  "vi": "VIKTOR"
+ },
+ {
+  "cn": "塔莉垭",
+  "en": "Taliyah",
+  "slug": "taliyah",
+  "vi": "TALIYAH"
+ },
+ {
+  "cn": "彗",
+  "en": "Hwei",
+  "slug": "hwei",
+  "vi": "HWEI"
+ },
+ {
+  "cn": "芸阿娜",
+  "en": "Yunara",
+  "slug": "yunara",
+  "vi": "YUNARA"
+ },
+ {
+  "cn": "魔腾",
+  "en": "Nocturne",
+  "slug": "nocturne",
+  "vi": "NOCTURNE"
+ },
+ {
+  "cn": "奎桑提",
+  "en": "Ksante",
+  "slug": "ksante",
+  "vi": "K'Sante"
+ },
+ {
+  "cn": "诺拉",
+  "en": "Norra",
+  "slug": "norra",
+  "vi": "NORRA"
+ }
+]

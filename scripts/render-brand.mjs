@@ -5,6 +5,7 @@
 //   node scripts/render-brand.mjs cover      # chỉ ảnh bìa Facebook
 //
 // → brand/meta-radar-avatar.png   1080×1080   (+ @2x 2160×2160)
+//   assets/brand/meta-radar-logo.png 512×512   logo kênh gắn ở thanh trên mọi ảnh (data/brand.json → "logo")
 //   brand/meta-radar-cover.png    1640×924    (+ @2x 3280×1848)
 //   review/avatar-preview.png, review/cover-preview.png — xem thử khi lên TikTok / Facebook
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -110,7 +111,10 @@ try {
     const x2 = await shoot(origin, t, 2);
     await writeFile(path.join(ROOT, 'brand', `${t.file}.png`), x1);
     await writeFile(path.join(ROOT, 'brand', `${t.file}@2x.png`), x2);
-    if (name === 'avatar') avatar = x1;
+    if (name === 'avatar') {
+      avatar = x1;
+      await writeFile(path.join(ROOT, 'assets', 'brand', 'meta-radar-logo.png'), await shoot(origin, t, 512 / t.width));
+    }
     if (name === 'cover' && !avatar) avatar = await shoot(origin, TARGETS.avatar, 1);
     await writeFile(path.join(ROOT, 'review', `${name}-preview.png`), await t.preview({ png: x1, avatar }));
     console.log(`✔ brand/${t.file}.png (${t.width}×${t.height}) + @2x (${t.width * 2}×${t.height * 2}) · review/${name}-preview.png`);

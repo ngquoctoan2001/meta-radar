@@ -1,4 +1,4 @@
-// Đọc danh mục patch + danh sách ảnh từ thư mục patches/.
+// Đọc danh mục bộ ảnh + danh sách ảnh: bản cập nhật (patches/) và tier list (tierlists/).
 // Dùng chung cho server (GET /api/patches) và bản build tĩnh (patches/index.json).
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -12,7 +12,7 @@ const tryJSON = (p) => readJSON(p).catch(() => null);
 // So sánh số phiên bản kiểu 7.3a > 7.2b > 7.2
 const verKey = (id) => id.split(/(\d+)/).filter(Boolean).map((p) => (/^\d+$/.test(p) ? p.padStart(4, '0') : p)).join('');
 
-export async function listPatches() {
+async function listPatches() {
   const dirs = await readdir(path.join(ROOT, 'patches'), { withFileTypes: true });
   const patches = [];
   for (const d of dirs.filter((x) => x.isDirectory())) {
@@ -35,6 +35,7 @@ export async function listPatches() {
     }
     const count = (st) => patch.champions.filter((c) => c.status === st).length;
     patches.push({
+      kind: 'patch',
       id: patch.id,
       title: patch.title,
       date: patch.date,
@@ -45,4 +46,34 @@ export async function listPatches() {
     });
   }
   return patches.sort((a, b) => verKey(b.id).localeCompare(verKey(a.id)));
+}
+
+const LANE_NAMES = { baron: 'Đường Baron', jungle: 'Đi Rừng', mid: 'Đường Giữa', dragon: 'Đường Rồng', support: 'Hỗ Trợ' };
+
+async function listTierlists() {
+  const dirs = await readdir(path.join(ROOT, 'tierlists'), { withFileTypes: true }).catch(() => []);
+  const lists = [];
+  for (const d of dirs.filter((x) => x.isDirectory())) {
+    const t = await tryJSON(`tierlists/${d.name}/tierlist.json`);
+    if (!t) continue;
+    const count = (tier) => new Set(t.lanes.flatMap((l) => l.champions.filter((c) => c.tier === tier).map((c) => c.slug))).size;
+    lists.push({
+      kind: 'tierlist',
+      id: t.id,
+      title: t.title,
+      date: t.date,
+      patch: t.patch,
+      filter: t.filter,
+      source: t.source,
+      headline: t.headline,
+      counts: { t0: count('T0'), t1: count('T1') },
+      slides: t.slides.map((s, i) => ({ ...s, label: s.title ?? LANE_NAMES[s.lane] ?? s.id, status: null, index: i })),
+    });
+  }
+  return lists.sort((a, b) => b.id.localeCompare(a.id));
+}
+
+// Mọi bộ ảnh: bản cập nhật (mới nhất trước) rồi tới tier list (mới nhất trước).
+export async function listCollections() {
+  return [...(await listPatches()), ...(await listTierlists())];
 }

@@ -64,7 +64,15 @@ svg { display: block; }
 .brand-logo { height: 66px; filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6)); }
 .brand-sep { width: 2px; height: 46px; margin: 0 8px; background: linear-gradient(transparent, rgba(255, 255, 255, 0.4), transparent); }
 .brand-channel b { display: block; font: 700 26px/1 var(--f-hud); letter-spacing: 0.1em; }
-.brand-channel span { display: block; margin-top: 6px; font: 600 19px/1 var(--f-hud); letter-spacing: 0.04em; color: var(--accent); }
+.brand-channel .handle { margin-top: 7px; font: 600 19px/1 var(--f-hud); letter-spacing: 0.04em; color: var(--accent); }
+/* logo kênh (avatar tròn) */
+.brand-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  box-shadow: 0 0 0 2px rgb(var(--accent-rgb) / 0.55), 0 0 22px rgb(var(--accent-rgb) / 0.35);
+}
+/* handle kênh kèm biểu tượng nền tảng (TikTok) — dùng ở thanh trên và chân ảnh */
+.handle { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.handle-ico { flex: none; width: 1.15em; height: 1.15em; }
 
 .patch-tag {
   display: flex; align-items: stretch; height: 64px;

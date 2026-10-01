@@ -26,7 +26,13 @@ Mở `review/splash-<slug>.png` bằng Read: vạch vàng đánh số 0.1…0.9,
 ```bash
 node scripts/splash-grid.mjs <slug> --focus=0.62
 ```
-Lệnh ghi `layout.focusX` vào `data/champions/<slug>.json` và vẽ lại lưới — mở lại ảnh xem vạch hồng đã nằm giữa mặt chưa. Có thể kiểm tra thêm bằng ảnh chi tiết của tướng (`node scripts/render.mjs <patch> <slug> --scale=1`). Tướng đứng sát mép phải ảnh gốc (vd Caitlyn ~0.78) thì khung dừng ở mép — mặt lệch phải chút là bình thường.
+Lệnh ghi `layout.focusX` vào `data/champions/<slug>.json` và vẽ lại lưới — mở lại ảnh xem vạch hồng đã nằm giữa mặt chưa. Có thể kiểm tra thêm bằng ảnh chi tiết của tướng (`node scripts/render.mjs <patch> <slug>`). Tướng đứng sát mép phải ảnh gốc (vd Caitlyn ~0.78) thì khung dừng ở mép — mặt lệch phải chút là bình thường.
+
+**Thẻ tướng của tier list** cắt ảnh quanh tâm khuôn mặt `layout.face` (x và y) thay vì `focusX`. Ảnh lưới có cả vạch ngang; đọc tâm khuôn mặt rồi ghi:
+```bash
+node scripts/splash-grid.mjs ashe --face=0.575,0.27
+```
+Dấu thập xanh trên ảnh lưới là vị trí đã ghi. `focusX` và `face` độc lập nhau — đừng chép số này sang số kia (focusX đã tính cả cách ảnh patch cắt khung).
 
 Script in kích thước icon đã chọn: máy chủ CN không có icon (404) thì dùng icon 96px của trang vi-vn — bình thường, không cần xử lý.
 

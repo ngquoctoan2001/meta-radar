@@ -6,7 +6,7 @@ Mỗi bản cập nhật là một thư mục `patches/<bản>/`:
 patches/7.3a/
 ├─ source.md     bản dịch gốc (bạn cung cấp)
 ├─ patch.json    dữ liệu để vẽ ảnh
-└─ out/          PNG đã xuất (tự tạo): 7.3a-02-samira.png (1920×1080) · 7.3a-02-samira@2x.png (3840×2160)
+└─ out/          PNG đã xuất (tự tạo, 3840×2160): 7.3a-02-samira.png
 ```
 
 Trang quản lý tự quét thư mục `patches/`. Có `patch.json` hợp lệ là patch hiện lên danh mục.
@@ -17,7 +17,7 @@ Trang quản lý tự quét thư mục `patches/`. Có `patch.json` hợp lệ l
 {
   "id": "7.3a",                       // tên thư mục, hiện trên mọi ảnh
   "title": "Bản cập nhật 7.3a",
-  "date": "",                         // để trống thì không hiện
+  "date": "29/09/2026",               // ngày ra bản cập nhật — tier list dùng để chọn bản & tính số ngày
   "sourceFile": "patches/7.3a/source.md",
   "headline": "Xạ thủ trỗi dậy · Rừng chậm lại · Nexus mỏng hơn",   // dòng tiêu đề ảnh tổng quan, ngăn bằng " · "
   "systemsVerdict": "…",              // câu chốt của ảnh "Khác"

@@ -1,0 +1,74 @@
+{
+  "slug": "nidalee",
+  "name": "NIDALEE",
+  "title": "NỮ THỢ SĂN HÓA THÚ",
+  "roles": [
+    "SÁT THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#070E0C",
+    "secondary": "#FFE8D6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/nidalee/portrait.jpg",
+  "splash": "assets/champions/nidalee/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "NIDALEE, NỮ THỢ SĂN HÓA THÚ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "RÌNH RẬP",
+      "icon": "assets/champions/nidalee/skill-p.png",
+      "iconSize": 128,
+      "description": "Nidalee được tăng Tốc Độ Di Chuyển khi di chuyển trong bụi cỏ, tăng thêm Tốc Độ Di Chuyển khi cô di chuyển về phía kẻ địch. Đánh trúng tướng địch hoặc quái bằng Phóng Lao hoặc Bẫy Rập sẽ kích hoạt cuộc Săn Đuổi, cho Tầm Nhìn Chuẩn lên chúng. Trong khoảng thời gian này, Nidalee nhận Tốc Độ Di Chuyển (được tăng thêm khi di chuyển về phía mục tiêu bị Săn Đuổi), Cắn Xé và Vồ của cô được cường hóa khi tấn công chúng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHÓNG LAO / CẮN XÉ",
+      "icon": "assets/champions/nidalee/skill-q.png",
+      "iconSize": 128,
+      "description": "Ở dạng người, Nidalee phóng ra một cây lao tới mục tiêu của cô và gây Sát Thương Phép, gây thêm sát thương theo khoảng cách phóng lao. \nỞ dạng báo, đòn đánh tiếp theo của cô sẽ đả thương mục tiêu, mục tiêu càng ít máu thì cô gây càng nhiều sát thương lên chúng."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BẪY RẬP / VỒ",
+      "icon": "assets/champions/nidalee/skill-w.png",
+      "iconSize": 128,
+      "description": "Ở dạng người, Nidalee đặt một bẫy tàng hình, gây Sát Thương Phép và làm lộ diện mục tiêu khi dính bẫy. Ở dạng báo, cô nhảy tới hướng chỉ định, gây Sát Thương Phép lên những kẻ địch gần bên."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "SỨC MẠNH HOANG DÃ / VẢ",
+      "icon": "assets/champions/nidalee/skill-e.png",
+      "iconSize": 128,
+      "description": "Ở dạng người, Nidalee hồi máu cho mục tiêu và cường hóa Tốc Độ Đánh trong một khoảng thời gian ngắn. Ở dạng báo, cô vồ tới hướng chỉ định, gây Sát Thương Phép lên những kẻ địch bị trúng chiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "LỐT BÁO",
+      "icon": "assets/champions/nidalee/skill-r.png",
+      "iconSize": 128,
+      "description": "Nội tại: Khi ở Dạng Người, đánh dấu săn đuổi kẻ địch sẽ làm mới hồi chiêu của Lốt Báo.\nKích hoạt: Nidalee biến đổi giữa dạng báo và người, nhận những kỹ năng mới."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.63,
+      "y": 0.235
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/nidalee/",
+  "syncedAt": "2026-10-01"
+}

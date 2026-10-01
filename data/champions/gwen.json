@@ -1,0 +1,73 @@
+{
+  "slug": "gwen",
+  "name": "GWEN",
+  "title": "Búp Bê Ước Nguyện",
+  "roles": [
+    "ĐẤU SĨ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#111A23",
+    "secondary": "#D6F4FF",
+    "label": "#080808"
+  },
+  "portrait": "assets/champions/gwen/portrait.jpg",
+  "splash": "assets/champions/gwen/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "GWEN, BÚP BÊ ƯỚC NGUYỆN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "NGÀN NHÁT CẮT",
+      "icon": "assets/champions/gwen/skill-p.jpg",
+      "iconSize": 96,
+      "description": "Đòn đánh thường của Gwen gây thêm sát thương phép theo lượng máu của mục tiêu. Cô sẽ được hồi máu bằng với một phần lượng sát thương gây lên tướng nhờ hiệu ứng này."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "XOẸT XOẸT!",
+      "icon": "assets/champions/gwen/skill-q.jpg",
+      "iconSize": 96,
+      "description": "Gwen nhấp kéo theo hình nón tối đa 6 lần, gây sát thương phép. Gwen gây sát thương chuẩn lên các đơn vị ở trung tâm và áp dụng sát thương nội tại lên chúng trong mỗi nhát cắt."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "SƯƠNG LAM BẤT BẠI",
+      "icon": "assets/champions/gwen/skill-w.jpg",
+      "iconSize": 96,
+      "description": "Gwen triệu hồi màn sương bảo vệ bản thân khỏi những kẻ địch bên ngoài. Cô chỉ có thể bị chỉ định bởi kẻ địch khi chúng bước vào trong màn sương."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "XÉN XÉN",
+      "icon": "assets/champions/gwen/skill-e.jpg",
+      "iconSize": 96,
+      "description": "Gwen lướt đi một quãng ngắn, sau đó tăng Tốc Độ Đánh, tầm đánh, và sát thương phép trên đòn đánh trong vài giây. Nếu tấn công kẻ địch trong thời gian đó, hồi chiêu của kỹ năng này sẽ được trả lại một phần."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "XE CHỈ LUỒN KIM",
+      "icon": "assets/champions/gwen/skill-r.jpg",
+      "iconSize": 96,
+      "description": "Gwen phóng một cây kim làm chậm kẻ địch, gây sát thương phép và áp dụng Ngàn Nhát Cắt lên tướng địch trúng chiêu. Kỹ năng này có thể được sử dụng hai lần nữa, với mỗi lần sau sẽ phóng ra nhiều kim và gây nhiều sát thương hơn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.485,
+      "y": 0.18
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/gwen/",
+  "syncedAt": "2026-10-01"
+}

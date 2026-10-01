@@ -41,3 +41,6 @@
 .is-mixed   { --c: var(--mixed);   --c-rgb: var(--mixed-rgb); }
 .is-neutral { --c: var(--neutral); --c-rgb: var(--neutral-rgb); }
 .is-rework, .is-new { --c: var(--rework); --c-rgb: var(--rework-rgb); }
+/* bậc tier list */
+.is-t0 { --c: #c58cff; --c-rgb: 197 140 255; }
+.is-t1 { --c: #ffcf6b; --c-rgb: 255 207 107; }

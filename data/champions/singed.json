@@ -1,0 +1,74 @@
+{
+  "slug": "singed",
+  "name": "SINGED",
+  "title": "Dược Sĩ Điên",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#0B1711",
+    "secondary": "#D6FFF1",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/singed/portrait.jpg",
+  "splash": "assets/champions/singed/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "SINGED, DƯỢC SĨ ĐIÊN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Xé Gió",
+      "icon": "assets/champions/singed/skill-p.png",
+      "iconSize": 128,
+      "description": "Singed bứt tốc khỏi các tướng gần đó, nhận thêm Tốc độ Di chuyển khi đi qua chúng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Phun Khói Độc",
+      "icon": "assets/champions/singed/skill-q.png",
+      "iconSize": 128,
+      "description": "Singed để lại một vệt khói độc phía sau, gây sát thương kẻ địch đi vào đám khói."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Keo Siêu Dính",
+      "icon": "assets/champions/singed/skill-w.png",
+      "iconSize": 128,
+      "description": "Quăng một hỗn hợp dung dịch keo dính lên mặt đất, làm chậm và sa lầy những kẻ địch bước lên đó."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Hất",
+      "icon": "assets/champions/singed/skill-e.png",
+      "iconSize": 128,
+      "description": "Gây sát thương cho đơn vị kẻ địch mục tiêu và hất văng đơn vị đó lên không ra phía sau Singed. Nếu mục tiêu mà Singed hất rơi trúng Keo Siêu Dính, chúng cũng bị trói chân."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Thuốc Hóa Điên",
+      "icon": "assets/champions/singed/skill-r.png",
+      "iconSize": 128,
+      "description": "Singed uống một loại dung dịch hóa học, giúp tăng các chỉ số của hắn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.715,
+      "y": 0.24
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/singed/",
+  "syncedAt": "2026-10-01"
+}

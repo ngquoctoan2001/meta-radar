@@ -48,6 +48,7 @@ Theo `references/chuyen-md-sang-json.md`. Những điều hay sai nhất:
 - Mỗi dòng số liệu là `{ "label", "old", "new" }` — **một chỉ số một dòng**. Giá trị gộp kiểu `50/90/130/170 + 75% AP` phải tách thành dòng "Sát thương cơ bản" và dòng "Tỷ lệ AP", bỏ phần không đổi.
 - Giữ nguyên số như bản dịch (`5,5`, `3.200`, `20 giây`) — bộ phân tích tự hiểu kiểu số Việt Nam, tự tô màu, tự biết hồi chiêu/giá/ngưỡng giảm là buff.
 - Chỉ ghi `"effect"` khi hướng buff/nerf không suy ra được từ con số (vd Nhà Chính giảm máu = trung tính, "thời gian tồn tại" của giáp trụ giảm = yếu đi).
+- `date`: **ngày bản cập nhật ra mắt** dạng `29/09/2026` (lấy trong .md hoặc người dùng nói; không rõ thì hỏi). Tier list dùng ngày này để tự chọn bản cập nhật và tính "mới cập nhật N ngày".
 - `reason`: câu giải thích của bản dịch (bỏ phần nguồn như "Wild Rift Fire"). Không in lên ảnh, dùng để viết câu chốt.
 - **Không bịa số**: con số nào không có trong .md thì không đưa vào. Chỗ nào .md mơ hồ → ghi lại để báo người dùng ở bước 7.
 
@@ -65,7 +66,7 @@ node scripts/audit.mjs <id> --sheet
 - Dòng `⚠` → đọc từng cái, sửa nếu hợp lý (vd câu chốt quá dài).
 - **Mở `review/<id>-tong-hop.png` bằng Read để tự nhìn cả bộ** — audit không bắt được mọi thứ (vd splash che mặt tướng, câu chốt vô nghĩa).
 
-Sạch rồi thì xuất ảnh (mặc định bản nét 3840×2160):
+Sạch rồi thì xuất ảnh (3840×2160):
 ```bash
 node scripts/render.mjs <id>
 ```

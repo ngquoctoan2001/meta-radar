@@ -1,0 +1,73 @@
+{
+  "slug": "darius",
+  "name": "DARIUS",
+  "title": "Đại Tướng Noxus",
+  "roles": [
+    "ĐẤU SĨ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#291814",
+    "secondary": "#F9F0DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/darius/portrait.jpg",
+  "splash": "assets/champions/darius/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "DARIUS, ĐẠI TƯỚNG NOXUS",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "XUẤT HUYẾT",
+      "icon": "assets/champions/darius/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường và kỹ năng tấn công của Darius khiến kẻ địch bị xuất huyết, gây sát thương vật lý theo thời gian, cộng dồn tối đa 5 lần. Ở điểm cộng dồn tối đa, Darius nhận hiệu ứng Sức Mạnh Noxus trong vài giây, tăng Sức Mạnh Công Kích và gây tối đa cộng dồn của Xuất Huyết lên mục tiêu thay vì 1 điểm."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TÀN SÁT",
+      "icon": "assets/champions/darius/skill-q.png",
+      "iconSize": 128,
+      "description": "Darius xoay rìu theo vòng tròn. Kẻ địch trúng phải lưỡi rìu nhận nhiều sát thương hơn những kẻ trúng phải cán rìu. Darius được hồi máu dựa vào số tướng bị trúng lưỡi rìu, đồng thời đặt hiệu ứng Xuất Huyết lên mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "ĐÁNH THỌT",
+      "icon": "assets/champions/darius/skill-w.png",
+      "iconSize": 128,
+      "description": "Darius cường hoá đòn đánh kế tiếp gây thêm sát thương và làm chậm mục tiêu."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "BẮT GIỮ",
+      "icon": "assets/champions/darius/skill-e.png",
+      "iconSize": 128,
+      "description": "Darius cường hóa chiếc rìu của mình, khiến sát thương vật lý của hắn bỏ qua một phần Giáp của mục tiêu. Khi được kích hoạt, Darius sẽ dùng rìu để kéo kẻ địch về cạnh mình."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "MÁY CHÉM NOXUS",
+      "icon": "assets/champions/darius/skill-r.png",
+      "iconSize": 128,
+      "description": "Darius nhảy xổ tới tướng địch và tung một cú bổ chí tử, gây sát thương chuẩn. Lượng sát thương sẽ tăng lên theo số điểm cộng dồn Xuất Huyết trên mục tiêu. Nếu Máy Chém Noxus kết liễu mục tiêu, hoàn lại hồi chiêu và khiến lính, quái rừng ở gần hoảng sợ."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.54,
+      "y": 0.17
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/darius/",
+  "syncedAt": "2026-10-01"
+}

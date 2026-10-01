@@ -1,11 +1,8 @@
 # Meta Tốc Chiến — Bộ ảnh cập nhật phiên bản
 
-Dự án tạo bộ ảnh **16:9** tóm tắt mỗi bản cập nhật (patch) của Liên Minh Huyền Thoại: Tốc Chiến để đăng lên **TikTok** và **Facebook**.
+Dự án tạo bộ ảnh **16:9** tóm tắt mỗi bản cập nhật (patch) và **tier list** của Liên Minh Huyền Thoại: Tốc Chiến để đăng lên **TikTok** và **Facebook**.
 
-| Độ nét khi tải | Ảnh xuất ra | Khi nào dùng |
-|---|---|---|
-| **Nét 2x** (mặc định) | 3840×2160 | Đăng Facebook: chữ, số, icon sắc nét nhất sau khi Facebook nén ảnh |
-| **Chuẩn** | 1920×1080 | Cần file nhẹ, đăng nhanh |
+Mọi ảnh xuất ra đều **3840×2160** (khung vẽ 1920×1080 chụp ở độ nét gấp đôi — chữ, số, icon vẫn sắc sau khi Facebook nén ảnh).
 
 Ảnh được dựng bằng **HTML + CSS + JS thuần**, rồi chụp thành PNG bằng trình duyệt Edge có sẵn trên máy.
 
@@ -22,19 +19,17 @@ npm start
 ```
 
 Trang quản lý có:
-- Danh mục các bản cập nhật ở cột trái.
-- **Độ nét khi tải: Chuẩn 1920×1080 · Nét 2x 3840×2160** — áp dụng cho Tải PNG và Tải tất cả (.zip).
-- Xem trước tất cả ảnh của patch, lọc theo Tổng quan / Tướng / Trang bị / Khác.
+- Cột trái: mục **Bản cập nhật** (các patch) rồi mục **Tier List** (các kỳ tier list).
+- Xem trước tất cả ảnh của bộ ảnh, lọc theo Tổng quan / Tướng / Trang bị / Khác (tier list: Tổng quan / Theo đường).
 - **Xem lớn**: dùng ← → để chuyển ảnh, Esc để đóng.
 - **Tải PNG** từng ảnh, **Tải tất cả (.zip)**, **Mở thư mục ảnh**, xem **bản dịch (.md)** gốc.
-- Ảnh xuất ra được lưu cả vào `patches/<bản>/out/`, tên dạng `7.3a-02-samira.png` (Chuẩn) và `7.3a-02-samira@2x.png` (Nét 2x).
+- Ảnh xuất ra (3840×2160) được lưu cả vào `patches/<bản>/out/` (tier list: `tierlists/<id>/out/`), tên dạng `7.3a-02-samira.png`.
 
 Xuất ảnh không cần mở trang (server chưa chạy thì script tự bật tạm):
 
 ```bash
 node scripts/render.mjs 7.3a
 ```
-Mặc định xuất bản Nét 2x. Muốn bản chuẩn 1920×1080 thì thêm `--scale=1`.
 
 ## Deploy lên web (Cloudflare Pages)
 
@@ -74,11 +69,19 @@ Gửi file `.md` bản dịch patch cho Claude (vd *"bản cập nhật mới n�
 
 Sau đó bấm **Làm mới** trên trang quản lý để xem và tải ảnh.
 
+## Tier List
+
+Tab **Tier List** trên trang quản lý: tướng mạnh nhất từng đường theo bảng xếp hạng Tốc Chiến Trung Quốc (排行榜 · 强度, đã chốt bộ lọc *Đại Cao Thủ trở lên*).
+- 1 ảnh tổng quan (top 3 mỗi đường) + 5 ảnh theo đường (Baron · Rừng · Giữa · Rồng · Hỗ trợ), đủ tướng T0 và T1.
+- Tướng có trong bản cập nhật gần nhất tự gắn nhãn **BUFF/NERF 7.3a**; có tier list kỳ trước thì tự gắn **MỚI / LÊN T0 / XUỐNG T1**.
+- Làm mới: gửi ảnh chụp bảng xếp hạng (đủ T0, T1 của cả 5 đường; ngày lấy ở dòng 刷新时间) cho Claude — skill **tao-tier-list**. Mỗi đường chứa 0–3 tướng T0 và tối đa 7 tướng T1. Dữ liệu ở `tierlists/tier-<ngày>/tierlist.json`, ảnh chụp gốc ở `source/`, ảnh xuất ở `out/`.
+
 ### Skill cho Claude (`.claude/skills/`)
 
 | Skill | Dùng khi |
 |---|---|
 | `tao-anh-patch` | Gửi file `.md` patch mới → tạo trọn bộ ảnh |
+| `tao-tier-list` | Gửi ảnh chụp bảng xếp hạng Tốc Chiến Trung Quốc → bộ ảnh tier list |
 | `them-tuong-trang-bi` | Thêm/làm mới tướng hoặc trang bị, ảnh tướng bị lệch, icon sai |
 | `kiem-tra-anh-patch` | Sửa câu chốt / trạng thái / số liệu rồi xuất lại, kiểm tra lỗi trước khi đăng |
 
@@ -87,11 +90,13 @@ Sau đó bấm **Làm mới** trên trang quản lý để xem và tải ảnh.
 | Lệnh | Việc |
 |---|---|
 | `node scripts/fetch-champion.mjs <slug…>` | Tải dữ liệu + splash + icon kỹ năng (tự chọn bản nét nhất) |
-| `node scripts/splash-grid.mjs <slug…>` | Ảnh splash kẻ lưới → đo `layout.focusX` (vị trí khuôn mặt) |
+| `node scripts/splash-grid.mjs <slug…>` | Ảnh splash kẻ lưới dọc + ngang → đo `layout.focusX` (ảnh patch) và `--face=x,y` (thẻ tier list) |
+| `node scripts/tierlist.mjs new <yyyy-mm-dd> baron=<ảnh> …` · `lane <id> <đường> "<tên> <T0\|T1> <thắng> <chọn> <cấm>; …"` · `compare <id>` | Tạo tier list theo ngày (báo ảnh trùng bộ đã làm, tự chọn bản cập nhật + kỳ trước), ghi số liệu từng đường bằng tên tiếng Trung, so sánh để viết câu chốt |
+| `node scripts/cn-hero.mjs <tên tiếng Trung…>` | Tra tên tướng trong ảnh bảng xếp hạng CN ra slug, báo đã có dữ liệu / khuôn mặt chưa |
 | `node scripts/fetch-item.mjs "<tên EN/VN>"` | Tải icon, giá, chỉ số Tốc Chiến, tên VN của trang bị · `--list` để tra tay |
-| `node scripts/audit.mjs <bản> --sheet` | Kiểm tra dữ liệu + từng ảnh, tạo `review/<bản>-tong-hop.png` |
-| `node scripts/render.mjs <bản>` | Xuất ảnh (mặc định nét 2x, `--scale=1` cho bản chuẩn) |
-| `node scripts/render-brand.mjs [avatar\|cover]` | Xuất avatar 1080×1080 và ảnh bìa Facebook 1640×924 (+ `@2x`) từ `brand/*.html` → `brand/`; xem thử khi lên TikTok/Facebook ở `review/avatar-preview.png`, `review/cover-preview.png` |
+| `node scripts/audit.mjs <bản> --sheet` | Kiểm tra dữ liệu + từng ảnh, tạo `review/<bản>-tong-hop.png` (tier list: `tier-<ngày>`) |
+| `node scripts/render.mjs <bản>` | Xuất ảnh 3840×2160 (tier list: `tier-<ngày>`) |
+| `node scripts/render-brand.mjs [avatar\|cover]` | Xuất avatar 1080×1080 và ảnh bìa Facebook 1640×924 (+ `@2x`) từ `brand/*.html` → `brand/`, kèm logo 512px `assets/brand/meta-radar-logo.png` gắn ở thanh trên mọi ảnh; xem thử khi lên TikTok/Facebook ở `review/avatar-preview.png`, `review/cover-preview.png` |
 
 ## Cấu trúc thư mục
 
@@ -99,16 +104,17 @@ Sau đó bấm **Làm mới** trên trang quản lý để xem và tải ảnh.
 index.html · slide.html          trang quản lý · khung vẽ 1 ảnh 1920×1080 (?patch=7.3a&slide=samira)
 start.bat                        nhấp đúp để chạy
 src/css/                         tokens.css (màu, font) · slide-*.css (từng loại ảnh) · gallery.css
-src/js/lib/output.js             khung vẽ 1920×1080, độ nét 1x/2x, tên file ảnh xuất
-src/js/slides/                   overview.js · champion.js · item.js · system.js
+src/js/lib/output.js             khung vẽ 1920×1080 · chụp tỉ lệ 2 → ảnh 3840×2160 · tên file ảnh xuất
+src/js/slides/                   overview.js · champion.js · item.js · system.js · tier.js (tier list)
 src/js/lib/                      values.js (phân tích số liệu) · ui.js (thành phần chung) · fit.js (tự co chữ)
-data/brand.json                  tên kênh, handle, bật/tắt logo game
+data/brand.json                  tên kênh, logo kênh, handle TikTok (@meta.radar), bật/tắt logo game
 brand/                           avatar.html · cover.html (ảnh bìa Facebook) · radar.js · brand.css · PNG đã xuất
 data/champions/<tướng>.json      tải tự động + vị trí khuôn mặt trong splash (layout.focusX)
 data/items/<trang-bị>.json       tên EN/VN, giá, chỉ số, màu nhấn
 patches/<bản>/                   source.md (bản dịch) · patch.json (dữ liệu ảnh) · out/ (PNG đã xuất)
+tierlists/tier-<ngày>/           source/ (ảnh chụp bảng xếp hạng) · tierlist.json · out/
 assets/                          logo, ảnh tướng, icon skill/trang bị, font (chạy offline)
-scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs · render-brand.mjs
+scripts/                         server.mjs · render.mjs · audit.mjs · fetch-champion.mjs · fetch-item.mjs · splash-grid.mjs · render-brand.mjs · cn-hero.mjs · tierlist.mjs
 .claude/skills/                  skill cho Claude: tao-anh-patch · them-tuong-trang-bi · kiem-tra-anh-patch
 review/                          ảnh kiểm tra tạm (không commit)
 tests/                           kiểm thử bộ phân tích số liệu:  npm test

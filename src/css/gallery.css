@@ -34,7 +34,11 @@ a { color: inherit; }
   margin: 22px 8px 10px; font: 700 12px/1 var(--f-hud); letter-spacing: 0.2em; color: var(--text-3);
 }
 .side-count { padding: 3px 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.07); color: var(--text-2); letter-spacing: 0; }
-.patch-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+.patch-ver--date { font-size: 16px; }
+.patch-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; }
+.side-group { display: flex; flex-direction: column; gap: 6px; }
+.side-group .side-title { margin: 4px 8px 4px; }
+.side-group:first-child .side-title { margin-top: 22px; }
 .patch {
   display: flex; align-items: center; gap: 12px; padding: 10px;
   border-radius: 12px; border: 1px solid transparent; text-decoration: none;
@@ -121,20 +125,6 @@ a { color: inherit; }
 .tab.is-active span { background: var(--accent); color: #07061a; }
 .tab:disabled { opacity: 0.35; cursor: default; }
 .toolbar-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-
-/* ---------- độ nét khi tải: Chuẩn 1x / Nét 2x ---------- */
-.quality { display: flex; align-items: center; gap: 6px; padding: 5px 5px 5px 14px; border-radius: 13px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--stroke); }
-.quality[hidden] { display: none; }
-.quality-label { margin-right: 6px; font: 700 11px/1 var(--f-hud); letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); }
-.qbtn {
-  display: inline-flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px;
-  height: 44px; padding: 0 14px; border: 1px solid transparent; border-radius: 9px;
-  background: transparent; color: var(--text-2); cursor: pointer; transition: background 0.18s, color 0.18s, border-color 0.18s;
-}
-.qbtn:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
-.qbtn.is-active { color: var(--text); background: rgb(var(--accent-rgb) / 0.12); border-color: rgb(var(--accent-rgb) / 0.5); }
-.qbtn b { font: 700 15px/1.1 var(--f-hud); letter-spacing: 0.04em; }
-.qbtn small { font: 500 11px/1.2 var(--f-body); color: var(--text-3); white-space: nowrap; }
 
 /* ---------- lưới ảnh ---------- */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 22px; }

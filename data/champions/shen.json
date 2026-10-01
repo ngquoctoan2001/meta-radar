@@ -1,0 +1,74 @@
+{
+  "slug": "shen",
+  "name": "SHEN",
+  "title": "Mắt Hoàng Hôn",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#040408",
+    "secondary": "#EDD6FF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/shen/portrait.jpg",
+  "splash": "assets/champions/shen/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "SHEN, MẮT HOÀNG HÔN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "LÁ CHẮN KIẾM KHÍ",
+      "icon": "assets/champions/shen/skill-p.png",
+      "iconSize": 128,
+      "description": "Sau khi dùng phép, Shen nhận được một lá chắn. Dùng phép lên tướng khác sẽ làm giảm thời gian hồi của hiệu ứng này."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "CÔNG KÍCH HOÀNG HÔN",
+      "icon": "assets/champions/shen/skill-q.png",
+      "iconSize": 128,
+      "description": "Shen gọi ra Kiếm Hồn cùng tấn công, gây sát thương dựa trên tỉ lệ máu tối đa của mục tiêu. Nếu Kiếm Hồn trúng vào một tướng địch, đòn đánh sẽ được cường hóa mạnh mẽ. Tất cả kẻ địch trúng Kiếm Hồn sẽ bị giảm tốc độ di chuyển khi chạy khỏi Shen."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BẢO HỘ LINH HỒN",
+      "icon": "assets/champions/shen/skill-w.png",
+      "iconSize": 128,
+      "description": "Shen tung Kiếm Hồn tới 1 tướng đồng minh, tạo ra một vùng chặn đòn tấn công của kẻ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "VÔ ẢNH BỘ",
+      "icon": "assets/champions/shen/skill-e.png",
+      "iconSize": 128,
+      "description": "Shen lướt tới một hướng, khiêu khích kẻ địch trên đường lướt."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "NHẤT THỐNG",
+      "icon": "assets/champions/shen/skill-r.png",
+      "iconSize": 128,
+      "description": "Shen che chở cho đồng minh khỏi các sát thương sắp tới, và dịch chuyển đến chỗ họ."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.755,
+      "y": 0.085
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/shen/",
+  "syncedAt": "2026-10-01"
+}

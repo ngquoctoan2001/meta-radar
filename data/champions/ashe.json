@@ -1,0 +1,74 @@
+{
+  "slug": "ashe",
+  "name": "ASHE",
+  "title": "Cung Băng",
+  "roles": [
+    "XẠ THỦ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#27334E",
+    "secondary": "#DCEDF9",
+    "label": "#091224"
+  },
+  "portrait": "assets/champions/ashe/portrait.jpg",
+  "splash": "assets/champions/ashe/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "ASHE, CUNG BĂNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Băng Tiễn",
+      "icon": "assets/champions/ashe/skill-p.png",
+      "iconSize": 128,
+      "description": "Các phát bắn của Ashe làm chậm mục tiêu, khiến cô gây thêm sát thương lên chúng. Đòn chí mạng của Ashe sẽ không gây thêm sát thương nhưng chúng sẽ làm mục tiêu bị chậm hơn nhiều."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Chú Tâm Tiễn",
+      "icon": "assets/champions/ashe/skill-q.png",
+      "iconSize": 128,
+      "description": "Ashe gia tăng điểm Chú Tâm bằng cách tung những phát bắn thường. Khi đạt tối đa điểm Chú Tâm, Chú Tâm Tiễn sẽ tiêu hao hết tất cả điểm này giúp tăng Tốc Độ Đánh và khiến các đòn đánh thường của Ashe thành những mũi tên liên hoàn trong một thời gian."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Tán Xạ Tiễn",
+      "icon": "assets/champions/ashe/skill-w.png",
+      "iconSize": 128,
+      "description": "Ashe bắn ra 9 mũi tên theo hình nón và gây sát thương cộng thêm. Các mũi tên này cũng sẽ áp dụng hiệu ứng Băng Tiễn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Ưng Tiễn",
+      "icon": "assets/champions/ashe/skill-e.png",
+      "iconSize": 128,
+      "description": "Ashe lệnh cho Linh Hồn Chim Ưng đi do thám bất cứ đâu trên bản đồ."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Đại Băng Tiễn",
+      "icon": "assets/champions/ashe/skill-r.png",
+      "iconSize": 128,
+      "description": "Ashe bắn ra một mũi tên băng có thể điều khiển được. Khi mũi tên trúng một Tướng địch sẽ gây sát thương và làm choáng Tướng đó. Thời gian làm choáng tăng theo quãng đường mũi tên đã bay. Ngoài ra, kẻ địch xung quanh cũng dính sát thương và bị làm chậm."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.575,
+      "y": 0.27
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ashe/",
+  "syncedAt": "2026-10-01"
+}

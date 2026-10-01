@@ -1,0 +1,74 @@
+{
+  "slug": "mordekaiser",
+  "name": "MORDEKAISER",
+  "title": "ÁC QUỶ THIẾT GIÁP",
+  "roles": [
+    "ĐẤU SĨ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#070C0F",
+    "secondary": "#D6FFF6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/mordekaiser/portrait.jpg",
+  "splash": "assets/champions/mordekaiser/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "MORDEKAISER, ÁC QUỶ THIẾT GIÁP",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "HẮC ÁM LAN TRÀN",
+      "icon": "assets/champions/mordekaiser/skill-p.jpg",
+      "iconSize": 500,
+      "description": "Mordekaiser tạo ra một vùng sát thương mạnh mẽ và được tăng Tốc Độ Di Chuyển sau khi tung 3 đòn đánh hoặc kỹ năng lên tướng hoặc quái rừng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "CHÙY HỦY DIỆT",
+      "icon": "assets/champions/mordekaiser/skill-q.jpg",
+      "iconSize": 500,
+      "description": "Mordekaiser đập chùy xuống đất, gây sát thương lên các kẻ địch trúng phải. Sát thương tăng nếu chỉ trúng một mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "GIÁP BẤT DIỆT",
+      "icon": "assets/champions/mordekaiser/skill-w.jpg",
+      "iconSize": 500,
+      "description": "Mordekaiser tích sát thương hắn gây ra và gánh chịu để tạo một lá chắn. Hắn có thể tiêu thụ lá chắn để hồi máu."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "BÀN TAY CHẾT CHÓC",
+      "icon": "assets/champions/mordekaiser/skill-e.jpg",
+      "iconSize": 500,
+      "description": "Mordekaiser kéo tất cả kẻ địch trong một khu vực."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "VƯƠNG QUỐC TỬ VONG",
+      "icon": "assets/champions/mordekaiser/skill-r.jpg",
+      "iconSize": 500,
+      "description": "Mordekaiser kéo nạn nhân vào không gian khác, đánh cắp một phần chỉ số. Nếu hạ gục mục tiêu, hắn giữ chỉ số đó đến khi mục tiêu hồi sinh."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.47,
+      "y": 0.15
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/mordekaiser/",
+  "syncedAt": "2026-10-01"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "tier-2026-09-30",
+  "title": "Tier List 30/09",
+  "date": "30/09/2026",
+  "patch": "7.3a",
+  "source": "Bảng xếp hạng Tốc Chiến Trung Quốc",
+  "filter": "Đấu Hạng · Đại Cao Thủ trở lên",
+  "headline": "Nerf chưa kịp ngấm · Samira lên T1 · Đường Rồng vắng T0",
+  "note": "7.3a mới cập nhật 1 ngày — bảng xếp hạng chưa kịp đổi nhiều",
+  "lanes": [
+    {
+      "lane": "baron",
+      "verdict": "Singed độc chiếm T0. Malphite vẫn trụ T1 và bị cấm tới 68% — người chơi chưa hết sợ.",
+      "champions": [
+        { "slug": "singed", "tier": "T0", "win": 57.58, "pick": 3.77, "ban": 1.14 },
+        { "slug": "ambessa", "tier": "T1", "win": 54.86, "pick": 3.08, "ban": 1.62 },
+        { "slug": "shen", "tier": "T1", "win": 53.5, "pick": 5.55, "ban": 0.46 },
+        { "slug": "malphite", "tier": "T1", "win": 52.9, "pick": 10.65, "ban": 68.35 },
+        { "slug": "mordekaiser", "tier": "T1", "win": 51.12, "pick": 10.89, "ban": 20.07 },
+        { "slug": "darius", "tier": "T1", "win": 51.11, "pick": 12.54, "ban": 6.49 }
+      ]
+    },
+    {
+      "lane": "jungle",
+      "verdict": "Rammus vẫn đứng đầu với 56,34% thắng dù rừng chậm hơn. Nocturne chỉ T1 nhưng bị cấm tới 65%.",
+      "champions": [
+        { "slug": "rammus", "tier": "T0", "win": 56.34, "pick": 10.41, "ban": 17.99 },
+        { "slug": "gwen", "tier": "T1", "win": 55.27, "pick": 3.03, "ban": 7.54 },
+        { "slug": "nidalee", "tier": "T1", "win": 54.79, "pick": 3.04, "ban": 12.37 },
+        { "slug": "fiddlesticks", "tier": "T1", "win": 54.55, "pick": 4.49, "ban": 1.44 },
+        { "slug": "amumu", "tier": "T1", "win": 53.73, "pick": 5.02, "ban": 0.18 },
+        { "slug": "nocturne", "tier": "T1", "win": 52.32, "pick": 8.55, "ban": 65.42 }
+      ]
+    },
+    {
+      "lane": "mid",
+      "verdict": "Hwei vẫn là T0 duy nhất và bị cấm 83,89% — gần như trận nào cũng cấm. Syndra vẫn trụ T1.",
+      "champions": [
+        { "slug": "hwei", "tier": "T0", "win": 54.88, "pick": 9.36, "ban": 83.89 },
+        { "slug": "kassadin", "tier": "T1", "win": 55.35, "pick": 3.5, "ban": 1.36 },
+        { "slug": "jayce", "tier": "T1", "win": 55.34, "pick": 2.86, "ban": 3.33 },
+        { "slug": "morgana", "tier": "T1", "win": 52.26, "pick": 3.63, "ban": 37.39 },
+        { "slug": "syndra", "tier": "T1", "win": 50.94, "pick": 8.1, "ban": 63.12 },
+        { "slug": "galio", "tier": "T1", "win": 50.35, "pick": 14.78, "ban": 2.76 }
+      ]
+    },
+    {
+      "lane": "dragon",
+      "verdict": "Không ai đủ sức lên T0. Samira vừa được buff đã vào T1, còn Caitlyn sau nerf vắng mặt trong nhóm này.",
+      "champions": [
+        { "slug": "senna", "tier": "T1", "win": 54.78, "pick": 4.51, "ban": 54.02 },
+        { "slug": "ashe", "tier": "T1", "win": 53.48, "pick": 5.47, "ban": 0.02 },
+        { "slug": "samira", "tier": "T1", "win": 53.15, "pick": 9.64, "ban": 2.69 },
+        { "slug": "yunara", "tier": "T1", "win": 50.98, "pick": 22.79, "ban": 35.29 }
+      ]
+    },
+    {
+      "lane": "support",
+      "verdict": "Senna giữ T0. Vòng Thì Thầm vừa bị cắt nửa hiệu quả, T1 giờ là Thresh, Malphite, Morgana.",
+      "champions": [
+        { "slug": "senna", "tier": "T0", "win": 53.58, "pick": 11.18, "ban": 54.02 },
+        { "slug": "thresh", "tier": "T1", "win": 52.36, "pick": 14.07, "ban": 4.88 },
+        { "slug": "malphite", "tier": "T1", "win": 51.98, "pick": 3.3, "ban": 68.35 },
+        { "slug": "morgana", "tier": "T1", "win": 49.77, "pick": 5.91, "ban": 37.39 }
+      ]
+    }
+  ],
+  "slides": [
+    { "id": "overview", "type": "tier-overview", "title": "Tổng quan" },
+    { "id": "baron", "type": "tier-lane", "lane": "baron" },
+    { "id": "jungle", "type": "tier-lane", "lane": "jungle" },
+    { "id": "mid", "type": "tier-lane", "lane": "mid" },
+    { "id": "dragon", "type": "tier-lane", "lane": "dragon" },
+    { "id": "support", "type": "tier-lane", "lane": "support" }
+  ]
+}

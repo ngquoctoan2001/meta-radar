@@ -1,0 +1,73 @@
+{
+  "slug": "amumu",
+  "name": "AMUMU",
+  "title": "Xác Ướp U Sầu",
+  "roles": [
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#2E1C17",
+    "secondary": "#DCF9F7",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/amumu/portrait.jpg",
+  "splash": "assets/champions/amumu/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "AMUMU, XÁC ƯỚP U SẦU",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Cú Đập Nguyền Rủa",
+      "icon": "assets/champions/amumu/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Amumu sẽ Nguyền Rủa kẻ địch, khiến chúng chịu thêm sát thương chuẩn khi trúng sát thương phép."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Quăng Dải Băng",
+      "icon": "assets/champions/amumu/skill-q.png",
+      "iconSize": 128,
+      "description": "Amumu quăng một dải băng dính vào một mục tiêu, làm choáng và gây sát thương cho mục tiêu cũng như kéo bản thân về phía mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Tuyệt Vọng",
+      "icon": "assets/champions/amumu/skill-w.png",
+      "iconSize": 128,
+      "description": "Đau đớn tột cùng, kẻ địch xung quanh mất một số phần trăm Máu tối đa của chúng mỗi giây và bị làm mới Nguyền Rủa trên người."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Giận Dữ",
+      "icon": "assets/champions/amumu/skill-e.png",
+      "iconSize": 128,
+      "description": "Giảm vĩnh viễn sát thương vật lý Amumu nhận vào. Amumu có thể giải phóng cơn thịnh nộ của mình, gây sát thương cho các kẻ địch ở gần. Mỗi khi Amumu bị đánh, thời gian hồi Giận Dữ giảm 0,5 giây."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Lời Nguyền Xác Ướp U Sầu",
+      "icon": "assets/champions/amumu/skill-r.png",
+      "iconSize": 128,
+      "description": "Amumu trói kẻ địch xung quanh bằng các dải băng, đặt Nguyền Rủa, gây sát thương lên chúng và khiến chúng không thể di chuyển hay tấn công."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.67,
+      "y": 0.28
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/amumu/",
+  "syncedAt": "2026-10-01"
+}

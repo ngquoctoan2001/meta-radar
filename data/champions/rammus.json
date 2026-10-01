@@ -62,7 +62,11 @@
     }
   ],
   "layout": {
-    "focusX": 0.55
+    "focusX": 0.55,
+    "face": {
+      "x": 0.57,
+      "y": 0.41
+    }
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/rammus/",
   "syncedAt": "2026-09-30"

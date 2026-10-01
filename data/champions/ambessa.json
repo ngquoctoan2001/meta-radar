@@ -1,0 +1,74 @@
+{
+  "slug": "ambessa",
+  "name": "AMBESSA",
+  "title": "NỮ TƯỚNG CHIẾN TRANH",
+  "roles": [
+    "ĐẤU SĨ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#1D120E",
+    "secondary": "#FFE3D6",
+    "label": "#040404"
+  },
+  "portrait": "assets/champions/ambessa/portrait.jpg",
+  "splash": "assets/champions/ambessa/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "AMBESSA, NỮ TƯỚNG CHIẾN TRANH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BƯỚC CHÂN LONG KHUYỂN",
+      "icon": "assets/champions/ambessa/skill-p.png",
+      "iconSize": 512,
+      "description": "Nhập một lệnh tung đòn đánh hoặc di chuyển khi thi triển kỹ năng sẽ khiến Ambessa lướt đi một khoảng ngắn khi kỹ năng tung ra, ban cho đòn đánh kế tiếp của bà thêm tầm đánh, sát thương, và tốc độ đánh, đồng thời hồi lại nội năng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ĐÒN QUÉT XẢO QUYỆT / CÚ ĐẬP PHÂN TÁCH",
+      "icon": "assets/champions/ambessa/skill-q.png",
+      "iconSize": 512,
+      "description": "Ambessa quét đao xích của bà theo hình bán nguyệt trước mặt, gây sát thương cộng thêm lên những kẻ địch trúng lưỡi đao. Đánh trúng một kẻ địch sẽ biến đổi lần thi triển tiếp theo của kỹ năng này trong thoáng chốc, khiến bà dậm mạnh đao xích theo đường thẳng trước mặt, gây sát thương cộng thêm lên kẻ địch đầu tiên trúng chiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "THOÁI THÁC",
+      "icon": "assets/champions/ambessa/skill-w.png",
+      "iconSize": 512,
+      "description": "Ambessa nhận một lá chắn, gồng mình trong thoáng chốc, sau đó dậm mạnh xuống mặt đất gây sát thương lên kẻ địch xung quanh. Nếu bà chặn được sát thương từ kẻ địch (trừ lính địch) khi đang gồng, kỹ năng này sẽ gây thêm sát thương."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "LIỆT TRẢM",
+      "icon": "assets/champions/ambessa/skill-e.png",
+      "iconSize": 512,
+      "description": "Ambessa quất đao xích của bà ra xung quanh, gây sát thương và làm chậm kẻ địch trúng chiêu. Kích hoạt Bước Chân Long Khuyển từ kỹ năng này sẽ khiến bà tung đòn đánh lần thứ hai tại điểm đến của cú lướt."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HÀNH QUYẾT CÔNG KHAI",
+      "icon": "assets/champions/ambessa/skill-r.png",
+      "iconSize": 512,
+      "description": "Ambessa dịch chuyển đến tướng địch ở xa nhất trên một đường thẳng và áp chế chúng khi đến đích. Sau đó bà quật kẻ địch xuống đất, khiến chúng chịu sát thương và làm choáng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.505,
+      "y": 0.14
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ambessa/",
+  "syncedAt": "2026-10-01"
+}

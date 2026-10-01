@@ -1,17 +1,31 @@
-// Trang quản lý: danh mục bản cập nhật → xem trước → tải PNG / ZIP (chọn độ nét 1x / 2x).
-import { CANVAS, SCALES, DEFAULT_SCALE, isScale, fileName } from './lib/output.js';
+// Trang quản lý: danh mục bộ ảnh (bản cập nhật / tier list) → xem trước → tải PNG / ZIP (3840×2160).
+import { CANVAS, fileName } from './lib/output.js';
+import { collectionDir } from './lib/collections.js';
 
 const $ = (sel) => document.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-const TYPES = [
-  { key: 'all', label: 'Tất cả' },
-  { key: 'overview', label: 'Tổng quan' },
-  { key: 'champion', label: 'Tướng' },
-  { key: 'item', label: 'Trang bị' },
-  { key: 'system', label: 'Khác' },
-];
-const TYPE_LABEL = Object.fromEntries(TYPES.map((t) => [t.key, t.label]));
+// Tab lọc ảnh theo loại bộ ảnh
+const TYPES = {
+  patch: [
+    { key: 'all', label: 'Tất cả' },
+    { key: 'overview', label: 'Tổng quan' },
+    { key: 'champion', label: 'Tướng' },
+    { key: 'item', label: 'Trang bị' },
+    { key: 'system', label: 'Khác' },
+  ],
+  tierlist: [
+    { key: 'all', label: 'Tất cả' },
+    { key: 'tier-overview', label: 'Tổng quan' },
+    { key: 'tier-lane', label: 'Theo đường' },
+  ],
+};
+const TYPE_LABEL = Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label]));
+// Danh mục bên trái: mỗi loại bộ ảnh là một mục cha, các bộ ảnh là mục con.
+const KIND = {
+  patch: { title: 'BẢN CẬP NHẬT', empty: 'Chưa có bản cập nhật nào.' },
+  tierlist: { title: 'TIER LIST', empty: 'Chưa có tier list nào.' },
+};
 const STATUS_LABEL = { buff: 'BUFF', nerf: 'NERF', adjust: 'ĐIỀU CHỈNH', mixed: 'ĐIỀU CHỈNH', rework: 'LÀM LẠI', new: 'MỚI' };
 
 const ICON = {
@@ -23,15 +37,13 @@ const ICON = {
   folder: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
 };
 
-const state = { patches: [], live: false, current: null, filter: 'all', scale: DEFAULT_SCALE, lbIndex: -1 };
+const state = { patches: [], live: false, current: null, filter: 'all', lbIndex: -1 };
 try {
   state.filter = localStorage.getItem('gallery.filter') ?? 'all';
-  const s = Number(localStorage.getItem('gallery.scale'));
-  if (isScale(s)) state.scale = s;
 } catch { /* trình duyệt chặn storage */ }
 
 const slideUrl = (patchId, slideId) => `/slide.html?${new URLSearchParams({ patch: patchId, slide: slideId })}`;
-const apiQuery = (extra) => new URLSearchParams({ patch: state.current.id, scale: state.scale, ...extra });
+const apiQuery = (extra) => new URLSearchParams({ patch: state.current.id, ...extra });
 const visibleSlides = () => state.current.slides.filter((s) => state.filter === 'all' || s.type === state.filter);
 
 // ---------- thông báo ----------
@@ -61,7 +73,7 @@ async function downloadFrom(url, fallbackName, button) {
     const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: name });
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở patches/${esc(state.current.id)}/out/</small>`);
+    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở ${esc(collectionDir(state.current.id))}/out/</small>`);
     if (warnings) toast(`Cảnh báo khi vẽ ảnh: ${esc(warnings)}`, 'warn', 7000);
   } catch (err) {
     toast(`Không xuất được ảnh: ${esc(err.message)}`, 'err', 7000);
@@ -75,42 +87,62 @@ async function downloadFrom(url, fallbackName, button) {
 }
 
 const downloadSlide = (slide, button) =>
-  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1 })}`, fileName(state.current.id, slide.index, slide.id, state.scale), button);
+  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1 })}`, fileName(state.current.id, slide.index, slide.id), button);
 
 // ---------- sidebar ----------
-function renderSidebar() {
-  $('#patchCount').textContent = state.patches.length;
-  $('#patchList').innerHTML = state.patches
-    .map((p) => `<a class="patch ${p.id === state.current?.id ? 'is-active' : ''}" href="#${encodeURIComponent(p.id)}">
-      <span class="patch-ver">${esc(p.id)}</span>
+const ofKind = (kind) => state.patches.filter((p) => (p.kind ?? 'patch') === kind);
+
+function sideItem(p) {
+  const tier = p.kind === 'tierlist';
+  const dots = tier
+    ? `<i class="dot is-t0"></i>${p.counts.t0}<i class="dot is-t1"></i>${p.counts.t1}`
+    : `${p.counts.buff ? `<i class="dot is-buff"></i>${p.counts.buff}` : ''}${p.counts.nerf ? `<i class="dot is-nerf"></i>${p.counts.nerf}` : ''}`;
+  return `<a class="patch ${p.id === state.current?.id ? 'is-active' : ''}" href="#${encodeURIComponent(p.id)}">
+      <span class="patch-ver ${tier ? 'patch-ver--date' : ''}">${esc(tier ? p.date.slice(0, 5) : p.id)}</span>
       <span class="patch-info">
         <b>${esc(p.title ?? `Bản ${p.id}`)}</b>
-        <span class="patch-meta">
-          ${p.counts.buff ? `<i class="dot is-buff"></i>${p.counts.buff}` : ''}
-          ${p.counts.nerf ? `<i class="dot is-nerf"></i>${p.counts.nerf}` : ''}
-          <span>· ${p.slides.length} ảnh</span>
-        </span>
+        <span class="patch-meta">${dots}<span>· ${p.slides.length} ảnh</span></span>
       </span>
-    </a>`)
-    .join('') || '<p class="empty-side">Chưa có bản cập nhật nào.</p>';
+    </a>`;
+}
+
+function renderSidebar() {
+  $('#patchList').innerHTML = Object.entries(KIND)
+    .map(([kind, k]) => {
+      const list = ofKind(kind);
+      return `<section class="side-group">
+        <div class="side-title"><span>${k.title}</span><span class="side-count">${list.length}</span></div>
+        ${list.map(sideItem).join('') || `<p class="empty-side">${k.empty}</p>`}
+      </section>`;
+    })
+    .join('');
 }
 
 // ---------- đầu trang ----------
+function headChips(p) {
+  const c = p.counts;
+  if (p.kind === 'tierlist') {
+    return `<span class="chip is-t0">${c.t0} TƯỚNG T0</span>
+      <span class="chip is-t1">${c.t1} TƯỚNG T1</span>
+      ${p.filter ? `<span class="chip">${esc(p.filter.toUpperCase())}</span>` : ''}
+      ${p.patch ? `<span class="chip">SAU BẢN ${esc(p.patch)}</span>` : ''}`;
+  }
+  return `${c.buff ? `<span class="chip is-buff">${c.buff} BUFF</span>` : ''}
+    ${c.nerf ? `<span class="chip is-nerf">${c.nerf} NERF</span>` : ''}
+    ${c.mixed ? `<span class="chip is-mixed">${c.mixed} ĐIỀU CHỈNH</span>` : ''}
+    ${c.items ? `<span class="chip">${c.items} TRANG BỊ</span>` : ''}
+    ${c.systems ? `<span class="chip">${c.systems} HỆ THỐNG</span>` : ''}`;
+}
+
 function renderHead() {
   const p = state.current;
-  const c = p.counts;
+  const kicker = p.kind === 'tierlist' ? `TIER LIST · ${esc(p.date ?? '')}` : `BẢN CẬP NHẬT ${p.date ? `· ${esc(p.date)}` : ''}`;
   $('#head').innerHTML = `
     <div class="head-text">
-      <span class="head-kicker">BẢN CẬP NHẬT ${p.date ? `· ${esc(p.date)}` : ''}</span>
+      <span class="head-kicker">${kicker}</span>
       <h1>${esc(p.title ?? p.id)}</h1>
       ${p.headline ? `<p>${esc(p.headline)}</p>` : ''}
-      <div class="chips">
-        ${c.buff ? `<span class="chip is-buff">${c.buff} BUFF</span>` : ''}
-        ${c.nerf ? `<span class="chip is-nerf">${c.nerf} NERF</span>` : ''}
-        ${c.mixed ? `<span class="chip is-mixed">${c.mixed} ĐIỀU CHỈNH</span>` : ''}
-        ${c.items ? `<span class="chip">${c.items} TRANG BỊ</span>` : ''}
-        ${c.systems ? `<span class="chip">${c.systems} HỆ THỐNG</span>` : ''}
-      </div>
+      <div class="chips">${headChips(p)}</div>
     </div>
     <div class="head-actions">
       ${state.live ? `<button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả (.zip)</button>
@@ -128,7 +160,7 @@ function renderHead() {
 // ---------- tab lọc ----------
 function renderTabs() {
   const slides = state.current.slides;
-  $('#tabs').innerHTML = TYPES.map((t) => {
+  $('#tabs').innerHTML = TYPES[state.current.kind ?? 'patch'].map((t) => {
     const n = t.key === 'all' ? slides.length : slides.filter((s) => s.type === t.key).length;
     return `<button class="tab ${state.filter === t.key ? 'is-active' : ''}" role="tab" aria-selected="${state.filter === t.key}" data-filter="${t.key}" ${n ? '' : 'disabled'}>
       ${t.label}<span>${n}</span>
@@ -140,26 +172,6 @@ function renderTabs() {
       try { localStorage.setItem('gallery.filter', state.filter); } catch { /* bỏ qua */ }
       renderTabs();
       renderGrid();
-    };
-  });
-}
-
-// ---------- độ nét khi tải (chỉ khi chạy local có server) ----------
-function renderQuality() {
-  const box = $('#quality');
-  box.hidden = !state.live;
-  if (!state.live) return;
-  box.innerHTML = `<span class="quality-label">Độ nét khi tải</span>` + Object.entries(SCALES)
-    .map(([key, q]) => `<button class="qbtn ${Number(key) === state.scale ? 'is-active' : ''}" type="button" data-scale="${key}"
-        aria-pressed="${Number(key) === state.scale}">
-        <b>${q.label}</b><small>${q.size}</small>
-      </button>`)
-    .join('');
-  box.querySelectorAll('.qbtn').forEach((b) => {
-    b.onclick = () => {
-      state.scale = Number(b.dataset.scale);
-      try { localStorage.setItem('gallery.scale', state.scale); } catch { /* bỏ qua */ }
-      renderQuality();
     };
   });
 }
@@ -277,13 +289,13 @@ function selectFromHash() {
   state.current = state.patches.find((p) => p.id === id) ?? state.patches[0] ?? null;
   renderSidebar();
   if (!state.current) {
-    $('#head').innerHTML = '<div class="head-text"><h1>Chưa có bản cập nhật</h1></div>';
+    $('#head').innerHTML = '<div class="head-text"><h1>Chưa có bộ ảnh nào</h1></div>';
+    $('#tabs').innerHTML = '';
     $('#grid').innerHTML = '';
     return;
   }
   if (!state.current.slides.some((s) => state.filter === 'all' || s.type === state.filter)) state.filter = 'all';
   document.title = `${state.current.id} · Meta Studio`;
-  renderQuality();
   renderHead();
   renderTabs();
   renderGrid();

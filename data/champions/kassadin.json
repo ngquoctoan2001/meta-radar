@@ -1,0 +1,74 @@
+{
+  "slug": "kassadin",
+  "name": "KASSADIN",
+  "title": "Lữ Khách Hư Không",
+  "roles": [
+    "SÁT THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#150F1E",
+    "secondary": "#F0DCF9",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/kassadin/portrait.jpg",
+  "splash": "assets/champions/kassadin/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "KASSADIN, LỮ KHÁCH HƯ KHÔNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐÁ HƯ KHÔNG",
+      "icon": "assets/champions/kassadin/skill-p.png",
+      "iconSize": 128,
+      "description": "Khi Kassadin sử dụng kỹ năng gần 1 tướng địch trong tầm nhìn, hắn được nhận một lá chắn phép thuật."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "QUẢ CẦU HƯ KHÔNG",
+      "icon": "assets/champions/kassadin/skill-q.png",
+      "iconSize": 128,
+      "description": "Bắn một quả cầu gây sát thương phép và làm câm lặng kẻ địch đầu tiên trúng phải."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "LƯỠI KIẾM ÂM TI",
+      "icon": "assets/champions/kassadin/skill-w.png",
+      "iconSize": 128,
+      "description": "Cường hóa đòn đánh cơ bản tiếp theo để tăng tầm đánh, gây thêm sát thương phép và hồi một phần năng lượng đã mất khi đánh trúng. \n\nNếu Lưỡi Kiếm Âm Ti hạ gục mục tiêu, thời gian hồi chiêu còn lại sẽ được giảm."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "ÁP SUẤT HƯ KHÔNG",
+      "icon": "assets/champions/kassadin/skill-e.png",
+      "iconSize": 128,
+      "description": "Gây sát thương phép lên những kẻ địch trong phạm vi hình nón và làm chậm chúng.\n\nÁp Suất Hư Không được cường hóa sau khi có kỹ năng khác được sử dụng ở xung quanh, gây thêm sát thương phép và làm chậm kẻ địch."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HƯ VÔ BỘ PHÁP",
+      "icon": "assets/champions/kassadin/skill-r.jpg",
+      "iconSize": 96,
+      "description": "Bay tới vị trí chỉ định và gây sát thương phép lên các kẻ địch gần đó. Thi triển Hư Vô Bộ Pháp sẽ khiến cho lần dùng Hư Vô Bộ Pháp tiếp theo trong một khoảng thời gian nhất định gây thêm sát thương và tăng gấp đôi năng lượng tiêu hao. (Tối đa 3 lần)"
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.635,
+      "y": 0.16
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/kassadin/",
+  "syncedAt": "2026-10-01"
+}

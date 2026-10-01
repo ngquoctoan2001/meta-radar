@@ -20,7 +20,19 @@ export const ICON = {
   tower: svg('<path d="M7 21h10M8.5 21l1-9h5l1 9M7.5 12h9M8 12 7 6.5h10L16 12M7 6.5V3.5h2.3v1.6h1.9V3.5h1.6v1.6h1.9V3.5H17v3"/>', { sw: 1.9 }),
   nexus: svg('<path d="M12 2.5 19 9l-7 12.5L5 9z"/><path d="M5 9h14M12 2.5 9.5 9l2.5 12.5L14.5 9z"/>', { sw: 1.9 }),
   shield: svg('<path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/>', { sw: 2.2 }),
+  clock: svg('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>', { sw: 2.2 }),
 };
+
+// Biểu tượng TikTok (nốt nhạc, 2 lớp bóng xanh/đỏ như logo gốc) đứng trước handle kênh.
+const TIKTOK_PATH = 'M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z';
+const HANDLE_ICON = {
+  tiktok: `<svg class="handle-ico" viewBox="-1 -1 26 26" aria-hidden="true">
+    <path fill="#25f4ee" transform="translate(-0.8 -0.8)" d="${TIKTOK_PATH}"/>
+    <path fill="#fe2c55" transform="translate(0.8 0.8)" d="${TIKTOK_PATH}"/>
+    <path fill="#fff" d="${TIKTOK_PATH}"/>
+  </svg>`,
+};
+export const handleHTML = (brand) => `<span class="handle">${HANDLE_ICON[brand.handleIcon] ?? ''}${esc(brand.handle)}</span>`;
 
 export const STATUS = {
   buff: { label: 'BUFF', icon: ICON.up },
@@ -44,28 +56,32 @@ export function statusBadge(status, { size = 'lg' } = {}) {
   </div>`;
 }
 
-export function topBar(ctx, label) {
-  const { brand, patch } = ctx;
+// tag: ô màu bên phải, mặc định "BẢN <patch>"; tier list truyền { small: 'SAU BẢN', value: '7.3a' }.
+export function topBar(ctx, label, tag = { small: 'BẢN', value: ctx.patch?.id }) {
+  const { brand } = ctx;
   return `<header class="topbar">
     <div class="brand">
-      ${brand.showGameLogo ? `<img class="brand-icon" src="/assets/brand/wild-rift-icon.png" alt="">
-      <img class="brand-logo" src="/assets/brand/toc-chien-logo.png" alt="Liên Minh Huyền Thoại: Tốc Chiến">
-      <span class="brand-sep"></span>` : ''}
-      <div class="brand-channel"><b>${esc(brand.channelName)}</b><span>${esc(brand.handle)}</span></div>
+      ${brand.logo ? `<img class="brand-avatar" src="/${esc(brand.logo)}" alt="">` : ''}
+      <div class="brand-channel"><b>${esc(brand.channelName)}</b>${handleHTML(brand)}</div>
+      ${brand.showGameLogo ? `<span class="brand-sep"></span>
+      <img class="brand-icon" src="/assets/brand/wild-rift-icon.png" alt="">
+      <img class="brand-logo" src="/assets/brand/toc-chien-logo.png" alt="Liên Minh Huyền Thoại: Tốc Chiến">` : ''}
     </div>
     <div class="patch-tag">
       ${label ? `<span class="patch-tag-label">${esc(label)}</span>` : ''}
-      <span class="patch-tag-ver"><small>BẢN</small>${esc(patch.id)}</span>
+      <span class="patch-tag-ver"><small>${esc(tag.small)}</small>${esc(tag.value)}</span>
     </div>
   </header>`;
 }
 
-export function footBar(ctx) {
+// note: dòng ghi chú thêm sau handle (vd nguồn dữ liệu tier list).
+export function footBar(ctx, note) {
   const { brand, index, total } = ctx;
   return `<footer class="footbar">
     <span>${esc(brand.credit)}</span>
     <span class="footbar-dot"></span>
-    <span>${esc(brand.handle)}</span>
+    ${handleHTML(brand)}
+    ${note ? `<span class="footbar-dot"></span><span class="footbar-note">${esc(note)}</span>` : ''}
     <span class="footbar-page"><b>${String(index + 1).padStart(2, '0')}</b> / ${String(total).padStart(2, '0')}</span>
   </footer>`;
 }

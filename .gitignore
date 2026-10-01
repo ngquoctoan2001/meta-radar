@@ -1,4 +1,5 @@
 node_modules/
 patches/*/out/
+tierlists/*/out/
 dist/
 review/

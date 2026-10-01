@@ -1,0 +1,73 @@
+{
+  "slug": "thresh",
+  "name": "THRESH",
+  "title": "Cai Ngục Xiềng Xích",
+  "roles": [
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#060C0B",
+    "secondary": "#D6FFF8",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/thresh/portrait.jpg",
+  "splash": "assets/champions/thresh/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "THRESH, CAI NGỤC XIỀNG XÍCH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐỌA ĐẦY",
+      "icon": "assets/champions/thresh/skill-p.png",
+      "iconSize": 128,
+      "description": "Thresh có thể thu thập linh hồn của kẻ địch bị hạ gục ở cạnh hắn, mỗi linh hồn sẽ tăng vĩnh viễn cho hắn Giáp và Sức Mạnh Phép Thuật."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ÁN TỬ",
+      "icon": "assets/champions/thresh/skill-q.png",
+      "iconSize": 128,
+      "description": "Thresh trói một kẻ địch bằng xích rồi kéo nạn nhân về phía hắn. Kích hoạt kĩ năng này lần thứ hai để kéo Thresh về phía kẻ địch."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "CON ĐƯỜNG TĂM TỐI",
+      "icon": "assets/champions/thresh/skill-w.png",
+      "iconSize": 128,
+      "description": "Quăng Lồng Đèn đến vị trí chỉ định. Nếu một đồng minh nhặt lồng đèn, Thresh sẽ kéo đồng minh đó về phía hắn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "LƯỠI HÁI XOÁY",
+      "icon": "assets/champions/thresh/skill-e.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Thresh sẽ gây thêm sát thương phụ thuộc vào thời gian chờ kể từ đòn đánh trước đó. Khi kích hoạt, Thresh sẽ xoáy xiềng xích, hất văng tất cả kẻ địch trúng phải theo hướng của chiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "ĐÓNG HỘP",
+      "icon": "assets/champions/thresh/skill-r.png",
+      "iconSize": 128,
+      "description": "Một bức tường ngục tù có khả năng làm chậm và sẽ gây sát thương nếu bị phá vỡ."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.495,
+      "y": 0.13
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/thresh/",
+  "syncedAt": "2026-10-01"
+}

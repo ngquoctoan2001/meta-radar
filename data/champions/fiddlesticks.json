@@ -1,0 +1,73 @@
+{
+  "slug": "fiddlesticks",
+  "name": "FIDDLESTICKS",
+  "title": "Nỗi Sợ Viễn Cổ",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#170B11",
+    "secondary": "#FFE6D6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/fiddlesticks/portrait.jpg",
+  "splash": "assets/champions/fiddlesticks/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "FIDDLESTICKS, NỖI SỢ VIỄN CỔ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BÙ NHÌN VÔ HẠI",
+      "icon": "assets/champions/fiddlesticks/skill-p.jpg",
+      "iconSize": 512,
+      "description": "Khi tham gia hạ gục, Fiddlesticks để lại một bù nhìn có thể di chuyển. Bù nhìn sẽ di chuyển về phía tướng địch gần nhất và phát nổ sau vài giây hoặc khi bị hạ, gây hoảng sợ."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "KHIẾP HÃI",
+      "icon": "assets/champions/fiddlesticks/skill-q.jpg",
+      "iconSize": 512,
+      "description": "Nội Tại: Khi Fiddlesticks không tham gia giao tranh trong thời gian dài và không bị kẻ địch phát hiện, hoặc đứng yên trong một thời gian ngắn, kỹ năng tiếp theo của nó sẽ khiến mục tiêu hoảng sợ.\n\nFiddlesticks phóng một con quạ vào mục tiêu, gây sát thương phép và khiến mục tiêu hoảng sợ. Quạ gây thêm sát thương nếu mục tiêu vừa mới bị hoảng sợ trước đó."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BỘI THU",
+      "icon": "assets/champions/fiddlesticks/skill-w.jpg",
+      "iconSize": 512,
+      "description": "Fiddlesticks hút máu từ tất cả kẻ địch xung quanh, gây thêm sát thương kết liễu ở cuối hiệu ứng. Trong khi vận chiêu, Fiddlesticks bị làm chậm và không thể sử dụng kỹ năng nào khác."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "GẶT",
+      "icon": "assets/champions/fiddlesticks/skill-e.jpg",
+      "iconSize": 512,
+      "description": "Fiddlesticks chém lưỡi liềm lên một khu vực, làm chậm tất cả kẻ địch trúng chiêu và câm lặng những mục tiêu ở trung tâm cú chém."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BÃO QUẠ",
+      "icon": "assets/champions/fiddlesticks/skill-r.jpg",
+      "iconSize": 512,
+      "description": "Triệu hồi một đàn quạ sát nhân bay điên cuồng xung quanh Fiddlesticks, gây sát thương mỗi giây lên tất cả kẻ địch trong vùng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.46,
+      "y": 0.45
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/fiddlesticks/",
+  "syncedAt": "2026-10-01"
+}

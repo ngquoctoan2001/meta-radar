@@ -7,10 +7,10 @@
 
 import { cp, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { ROOT, listPatches } from './lib/patches.mjs';
+import { ROOT, listCollections } from './lib/patches.mjs';
 
 const DIST = path.join(ROOT, 'dist');
-const COPY = ['index.html', 'slide.html', 'src', 'assets', 'data', 'patches'];
+const COPY = ['index.html', 'slide.html', 'src', 'assets', 'data', 'patches', 'tierlists'];
 
 await rm(DIST, { recursive: true, force: true });
 for (const p of COPY) {
@@ -21,11 +21,11 @@ for (const p of COPY) {
   });
 }
 
-const patches = await listPatches();
+const patches = await listCollections();
 // bản dịch .md nằm ngoài thư mục đã copy (nếu có)
 for (const { sourceFile } of patches) {
   if (sourceFile && !COPY.includes(sourceFile.split('/')[0])) await cp(path.join(ROOT, sourceFile), path.join(DIST, sourceFile));
 }
 await writeFile(path.join(DIST, 'patches', 'index.json'), JSON.stringify(patches));
 
-console.log(`✔ dist/ — ${patches.length} patch, ${patches.reduce((n, p) => n + p.slides.length, 0)} ảnh`);
+console.log(`✔ dist/ — ${patches.length} bộ ảnh, ${patches.reduce((n, p) => n + p.slides.length, 0)} ảnh`);

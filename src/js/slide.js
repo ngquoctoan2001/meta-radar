@@ -1,13 +1,17 @@
-// Vẽ 1 ảnh theo URL:  /slide.html?patch=7.3a&slide=samira
-import { loadPatchBundle } from './lib/data.js';
+// Vẽ 1 ảnh theo URL:  /slide.html?patch=7.3a&slide=samira  (tier list: ?patch=tier-2026-09-30&slide=baron)
+import { loadBundle } from './lib/data.js';
 import { fitAll } from './lib/fit.js';
 import { esc } from './lib/ui.js';
 import { renderOverview } from './slides/overview.js';
 import { renderChampion } from './slides/champion.js';
 import { renderItem } from './slides/item.js';
 import { renderSystem } from './slides/system.js';
+import { renderTierOverview, renderTierLane } from './slides/tier.js';
 
-const RENDERERS = { overview: renderOverview, champion: renderChampion, item: renderItem, system: renderSystem };
+const RENDERERS = {
+  overview: renderOverview, champion: renderChampion, item: renderItem, system: renderSystem,
+  'tier-overview': renderTierOverview, 'tier-lane': renderTierLane,
+};
 const root = document.getElementById('root');
 
 async function waitImages() {
@@ -29,10 +33,10 @@ async function main() {
   const slideId = q.get('slide');
   if (!patchId || !slideId) throw new Error('Thiếu tham số ?patch=...&slide=...');
 
-  const bundle = await loadPatchBundle(patchId);
-  const slides = bundle.patch.slides;
+  const bundle = await loadBundle(patchId);
+  const { slides } = bundle;
   const index = slides.findIndex((s) => s.id === slideId);
-  if (index < 0) throw new Error(`Patch ${patchId} không có ảnh "${slideId}"`);
+  if (index < 0) throw new Error(`Bộ ảnh ${patchId} không có ảnh "${slideId}"`);
   const slide = slides[index];
   const render = RENDERERS[slide.type];
   if (!render) throw new Error(`Chưa có mẫu ảnh cho loại "${slide.type}"`);

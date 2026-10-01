@@ -1,6 +1,6 @@
 // Chụp ảnh slide bằng trình duyệt thật (Edge/Chrome có sẵn trên máy) qua playwright-core.
 import { chromium } from 'playwright-core';
-import { CANVAS } from '../../src/js/lib/output.js';
+import { CANVAS, SCALE } from '../../src/js/lib/output.js';
 
 let browserPromise;
 
@@ -30,10 +30,10 @@ export async function closeBrowser() {
 }
 
 // Trả về Buffer PNG. `origin` là địa chỉ server đang phục vụ slide.html.
-// scale = 2 → ảnh 3840×2160: trình duyệt vẽ lại mọi thứ ở độ phân giải gấp đôi (không phải phóng to ảnh 1x).
-export async function renderSlide(origin, patchId, slideId, scale = 1) {
+// Ảnh 3840×2160: khung 1920×1080 chụp ở tỉ lệ SCALE = 2 (trình duyệt vẽ lại mọi thứ ở độ phân giải gấp đôi).
+export async function renderSlide(origin, patchId, slideId) {
   const browser = await getBrowser();
-  const page = await browser.newPage({ viewport: CANVAS, deviceScaleFactor: Number(scale) });
+  const page = await browser.newPage({ viewport: CANVAS, deviceScaleFactor: SCALE });
   const warnings = [];
   page.on('console', (m) => {
     if (m.type() === 'warning' || m.type() === 'error') warnings.push(m.text());
