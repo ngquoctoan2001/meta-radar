@@ -1,0 +1,74 @@
+{
+  "slug": "varus",
+  "name": "VARUS",
+  "title": "Mũi Tên Báo Thù",
+  "roles": [
+    "XẠ THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#0A0D14",
+    "secondary": "#F4D6FF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/varus/portrait.jpg",
+  "splash": "assets/champions/varus/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "VARUS, MŨI TÊN BÁO THÙ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Sức Mạnh Báo Thù",
+      "icon": "assets/champions/varus/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi khi Varus hạ gục hay hỗ trợ tiêu diệt đối phương, hắn tạm thời nhận thêm Tốc Độ Đánh. Tốc độ nhận được sẽ nhiều hơn nếu đối phương là tướng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Mũi Tên Xuyên Phá",
+      "icon": "assets/champions/varus/skill-q.png",
+      "iconSize": 128,
+      "description": "Varus kéo cung rồi bắn ra một phát cực mạnh. Tầm bắn và sát thương tăng theo thời gian kéo cung."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Tên Độc",
+      "icon": "assets/champions/varus/skill-w.png",
+      "iconSize": 128,
+      "description": "Nội tại: Đòn đánh thường của Varus gây thêm sát thương phép và hiệu ứng Tên Độc. Các kỹ năng khác của Varus sẽ kích nổ Tên Độc, gây sát thương phép dựa trên máu tối đa của mục tiêu. Kích hoạt: Varus cường hóa Mũi Tên Xuyên Phá tiếp theo của hắn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Mưa Tên",
+      "icon": "assets/champions/varus/skill-e.png",
+      "iconSize": 128,
+      "description": "Varus bắn ra một cơn mưa tên gây sát thương vật lý và yểm bùa mặt đất. Đất bị yểm bùa làm chậm Tốc Độ Di Chuyển của kẻ địch và giảm khả năng hồi máu và tự phục hồi."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Sợi Xích Tội Lỗi",
+      "icon": "assets/champions/varus/skill-r.png",
+      "iconSize": 128,
+      "description": "Varus tung ra một sợi xích có khả năng trói mục tiêu tướng đầu tiên đụng phải, sau đó dài ra và tiếp tục trói những mục tiêu chưa bị ảnh hưởng xung quanh."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.59,
+      "y": 0.12
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/varus/",
+  "syncedAt": "2026-10-01"
+}

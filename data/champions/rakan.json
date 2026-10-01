@@ -63,7 +63,11 @@
     }
   ],
   "layout": {
-    "focusX": 0.5
+    "focusX": 0.5,
+    "face": {
+      "x": 0.46,
+      "y": 0.11
+    }
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/rakan/",
   "syncedAt": "2026-10-01"

@@ -1,0 +1,73 @@
+{
+  "slug": "twitch",
+  "name": "TWITCH",
+  "title": "CHUỘT THÀNH TINH",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#0D1A15",
+    "secondary": "#D6FFF5",
+    "label": "#010101"
+  },
+  "portrait": "assets/champions/twitch/portrait.jpg",
+  "splash": "assets/champions/twitch/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "TWITCH, CHUỘT THÀNH TINH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐỘC CHẾT NGƯỜI",
+      "icon": "assets/champions/twitch/skill-p.png",
+      "iconSize": 128,
+      "description": "Các đòn đánh cơ bản của Twitch khiến mục tiêu bị trúng độc, phải chịu sát thương chuẩn mỗi giây."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ĐỘT KÍCH",
+      "icon": "assets/champions/twitch/skill-q.png",
+      "iconSize": 128,
+      "description": "Twitch được Ngụy Trang trong chốc lát và nhận thêm Tốc độ Di chuyển. Khi hết Ngụy Trang, Twitch nhận thêm Tốc Độ Đánh trong chốc lát. Khi một tướng địch có Độc Chết Người bị hạ gục, hồi chiêu Đột Kích được hoàn lại."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "ĐỘC SUY NHƯỢC",
+      "icon": "assets/champions/twitch/skill-w.png",
+      "iconSize": 128,
+      "description": "Twitch làm bùng nổ độc suy nhược trong một khu vực, làm chậm kẻ địch và khiến các nạn nhân bị nhiễm độc."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "NHIỄM KHUẨN",
+      "icon": "assets/champions/twitch/skill-e.png",
+      "iconSize": 128,
+      "description": "Twitch kích hoạt thứ dịch bệnh chết người trên những nạn nhân đã bị hạ độc."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "NHẮM MẮT BẮN BỪA",
+      "icon": "assets/champions/twitch/skill-r.png",
+      "iconSize": 128,
+      "description": "Twitch xả toàn bộ sức mạnh của chiếc nỏ, bắn ra những mũi tên bay cực xa, xuyên qua tất cả các mục tiêu trúng phải."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.6,
+      "y": 0.37
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/twitch/",
+  "syncedAt": "2026-10-01"
+}

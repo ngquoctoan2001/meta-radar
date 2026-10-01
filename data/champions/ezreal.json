@@ -1,0 +1,74 @@
+{
+  "slug": "ezreal",
+  "name": "EZREAL",
+  "title": "Nhà Thám Hiểm",
+  "roles": [
+    "XẠ THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#2B162D",
+    "secondary": "#DCF0F9",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/ezreal/portrait.jpg",
+  "splash": "assets/champions/ezreal/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "EZREAL, NHÀ THÁM HIỂM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Pháp Lực Gia Tăng",
+      "icon": "assets/champions/ezreal/skill-p.png",
+      "iconSize": 128,
+      "description": "Ezreal nhận thêm Tốc Độ Đánh mỗi khi dùng kỹ năng trúng đích, cộng dồn tối đa 4 lần."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Phát Bắn Thần Bí",
+      "icon": "assets/champions/ezreal/skill-q.png",
+      "iconSize": 128,
+      "description": "Ezreal bắn ra một luồng năng lượng gây sát thương, nếu trúng kẻ địch sẽ giảm thời gian hồi chiêu của bản thân."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Tinh Hoa Tuôn Chảy",
+      "icon": "assets/champions/ezreal/skill-w.png",
+      "iconSize": 128,
+      "description": "Ezreal bắn ra một quả cầu dính vào tướng hoặc mục tiêu đầu tiên trúng phải. Nếu Ezreal tấn công kẻ địch có quả cầu, nó sẽ phát nổ và gây sát thương."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Dịch Chuyển Cổ Học",
+      "icon": "assets/champions/ezreal/skill-e.png",
+      "iconSize": 128,
+      "description": "Ezreal bay đến một vị trí chỉ định ở gần và bắn ra một luồng năng lượng vào kẻ địch gần nhất. Ưu tiên kẻ địch bị trúng Tinh Hoa Tuôn Chảy."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Cung Ánh Sáng",
+      "icon": "assets/champions/ezreal/skill-r.png",
+      "iconSize": 128,
+      "description": "Ezreal vận sức để bắn ra sóng năng lượng cực mạnh gây sát thương lên mỗi đơn vị nó đi qua (sát thương giảm đi đối với lính và quái không phải dạng khủng)."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.58,
+      "y": 0.22
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ezreal/",
+  "syncedAt": "2026-10-01"
+}

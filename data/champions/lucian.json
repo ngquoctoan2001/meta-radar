@@ -1,0 +1,73 @@
+{
+  "slug": "lucian",
+  "name": "LUCIAN",
+  "title": "the Purifier",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#040306",
+    "secondary": "#FFE1D6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/lucian/portrait.jpg",
+  "splash": "assets/champions/lucian/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "LUCIAN, KẺ THANH TRỪNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "XẠ THỦ ÁNH SÁNG",
+      "icon": "assets/champions/lucian/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi khi Lucian dùng 1 kỹ năng, đòn đánh kế tiếp của anh sẽ trở thành cú bắn đôi."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TIA SÁNG XUYÊN THẤU",
+      "icon": "assets/champions/lucian/skill-q.png",
+      "iconSize": 128,
+      "description": "Lucian bắn ra một tia sáng xuyên thấu qua mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "TIA SÁNG RỰC CHÁY",
+      "icon": "assets/champions/lucian/skill-w.png",
+      "iconSize": 128,
+      "description": "Lucian bắn ra một viên đạn phát nổ thành hình sao, đánh dấu và làm lộ diện kẻ địch. Lucian được tăng Tốc độ Di chuyển về phía kẻ địch bị đánh dấu."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TRUY CÙNG DIỆT TẬN",
+      "icon": "assets/champions/lucian/skill-e.png",
+      "iconSize": 128,
+      "description": "Lucian lướt đi một đoạn ngắn. Các đòn tấn công từ nội tại Xạ Thủ Ánh Sáng sẽ giảm thời gian hồi của Truy Cùng Diệt Tận."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "THANH TRỪNG",
+      "icon": "assets/champions/lucian/skill-r.png",
+      "iconSize": 128,
+      "description": "Lucian phóng thích ra một luồng đạn từ vũ khí của mình."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.7,
+      "y": 0.37
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/lucian/",
+  "syncedAt": "2026-10-01"
+}

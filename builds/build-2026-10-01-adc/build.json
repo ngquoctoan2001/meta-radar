@@ -6,6 +6,7 @@
   "patch": "7.3a",
   "tierlist": "tier-2026-09-30",
   "source": "Bảng xếp hạng Tốc Chiến Trung Quốc",
+  "headline": "6 xạ thủ đáng chơi · 3 build mỗi tướng · Theo cao thủ Trung Quốc",
   "champions": [
     {
       "champion": "ashe",
@@ -15,12 +16,12 @@
         "strong": [
           "vayne",
           "kogmaw",
-          "jinx"
+          "twitch"
         ],
         "weak": [
-          "draven",
           "samira",
-          "caitlyn"
+          "draven",
+          "lucian"
         ],
         "synergy": [
           "nami",
@@ -113,13 +114,13 @@
         "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
         "strong": [
           "ashe",
-          "jinx",
-          "kogmaw"
+          "ezreal",
+          "jhin"
         ],
         "weak": [
           "caitlyn",
-          "draven",
-          "vayne"
+          "vayne",
+          "varus"
         ],
         "synergy": [
           "nautilus",
@@ -213,12 +214,12 @@
         "strong": [
           "jinx",
           "kogmaw",
-          "ashe"
+          "sivir"
         ],
         "weak": [
           "caitlyn",
           "draven",
-          "samira"
+          "lucian"
         ],
         "synergy": [
           "lulu",
@@ -249,7 +250,7 @@
             "lord-dominiks-regards",
             "runaans-hurricane",
             "item-2271",
-            "berserkers-greaves"
+            "gunmetal-greaves"
           ]
         },
         {
@@ -274,7 +275,7 @@
             "infinity-edge",
             "lord-dominiks-regards",
             "hextech-scope-c44",
-            "berserkers-greaves"
+            "gunmetal-greaves"
           ]
         },
         {
@@ -299,7 +300,7 @@
             "mortal-reminder",
             "runaans-hurricane",
             "immortal-shieldbow",
-            "berserkers-greaves"
+            "gunmetal-greaves"
           ]
         }
       ]
@@ -310,14 +311,14 @@
       "matchups": {
         "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
         "strong": [
-          "vayne",
           "jinx",
-          "ashe"
+          "jhin",
+          "twitch"
         ],
         "weak": [
           "samira",
-          "draven",
-          "tristana"
+          "tristana",
+          "draven"
         ],
         "synergy": [
           "lulu",
@@ -409,14 +410,14 @@
       "matchups": {
         "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
         "strong": [
-          "jinx",
-          "kogmaw",
+          "miss-fortune",
+          "varus",
           "ashe"
         ],
         "weak": [
           "caitlyn",
           "draven",
-          "samira"
+          "tristana"
         ],
         "synergy": [
           "milio",
@@ -508,14 +509,14 @@
       "matchups": {
         "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
         "strong": [
-          "jinx",
-          "kogmaw",
-          "senna"
+          "senna",
+          "miss-fortune",
+          "sivir"
         ],
         "weak": [
           "samira",
-          "caitlyn",
-          "draven"
+          "vayne",
+          "caitlyn"
         ],
         "synergy": [
           "thresh",
@@ -603,6 +604,11 @@
     }
   ],
   "slides": [
+    {
+      "id": "overview",
+      "type": "build-overview",
+      "title": "Tổng quan"
+    },
     {
       "id": "ashe",
       "type": "build",

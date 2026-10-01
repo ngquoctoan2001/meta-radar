@@ -19,7 +19,11 @@ const TYPES = {
     { key: 'tier-overview', label: 'Tổng quan' },
     { key: 'tier-lane', label: 'Theo đường' },
   ],
-  build: [{ key: 'all', label: 'Tất cả' }],
+  build: [
+    { key: 'all', label: 'Tất cả' },
+    { key: 'build-overview', label: 'Tổng quan' },
+    { key: 'build', label: 'Tướng' },
+  ],
 };
 const TYPE_LABEL = { ...Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label])), build: 'Build', 'build-items': 'Trang bị' };
 // Danh mục bên trái: mỗi loại bộ ảnh là một mục cha, các bộ ảnh là mục con.

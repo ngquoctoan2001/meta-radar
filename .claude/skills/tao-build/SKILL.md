@@ -7,7 +7,8 @@ description: Tạo ảnh BUILD CAO THỦ 16:9 (3840×2160) cho một tướng T�
 
 Mẫu ảnh đã được người dùng duyệt (`src/js/slides/build.js`, `src/css/slide-build.css`). Ví dụ hoàn chỉnh: `builds/build-2026-10-01-adc/` (6 xạ thủ: Ashe, Samira, Tristana, Senna, Yunara, Kalista).
 
-**Bộ build = 1 ngày + 1 vai trò** (ADC, TOP, RỪNG, MID, SP): mỗi bộ là 1 mục con trên trang quản lý (vd "01/10 · Build ADC"), chứa mọi tướng làm trong ngày đó cho vai trò đó, mỗi tướng 1 ảnh. Người dùng muốn vậy để menu không dài ("hôm nay ADC, mai TOP"). Ảnh gốc của từng tướng nằm ở `source/<tướng>/`.
+**Bộ build = 1 ngày + 1 vai trò** (ADC, TOP, RỪNG, MID, SP): mỗi bộ là 1 mục con trên trang quản lý (vd "01/10 · Build ADC"), gồm **1 ảnh tổng quan** (tự tạo, đứng đầu) rồi mỗi tướng 1 ảnh.
+- **Ảnh tổng quan** (`build-overview`, đã duyệt): "BUILD ADC" + `headline`; mỗi tướng 1 cột gồm ảnh tướng, bậc + %, BUFF/NERF, 3 món cốt lõi (tự tính: món có trong nhiều build nhất, không tính giày), ngọc chính, giày, 3 avatar "mạnh khi đối đầu với" (lấy từ `matchups.strong`). Vừa nhất ≤ 6 tướng. Khi bộ đủ tướng, viết `headline` ở gốc `build.json`: 3 cụm ngắn nối bằng ` · `, vd "6 xạ thủ đáng chơi · 3 build mỗi tướng · Theo cao thủ Trung Quốc". Người dùng muốn vậy để menu không dài ("hôm nay ADC, mai TOP"). Ảnh gốc của từng tướng nằm ở `source/<tướng>/`.
 
 Mỗi tướng có **1 ảnh**:
 - **Bên trái:** ảnh tướng, đường, bậc trong tier list, và 3 nhóm avatar MẠNH khi gặp · YẾU khi gặp · HỢP với… (mỗi nhóm 3 tướng).
@@ -75,7 +76,8 @@ Mỗi build cần `title` (lối chơi), `team` (hợp đội hình nào của m
 - Cách chọn xem `references/viet-build.md`.
 - Nhãn "HỢP với …" tự đổi theo đường.
 - Không có số liệu đối đầu đáng tin (cột 对位情况 trên bảng xếp hạng chỉ là đối thủ hay gặp + tỉ lệ thắng **của đối thủ**). Vì vậy 9 tướng là **phân tích của bạn**; giữ `matchups.note` và nói rõ trong báo cáo. Người dùng gửi số liệu khắc chế (克制 / 被克制 / 搭档) thì dùng số liệu đó.
-- Tướng chưa có dữ liệu → `node scripts/fetch-champion.mjs <slug…>` (avatar = ảnh chân dung, không cần đo khuôn mặt).
+- Tướng chưa có dữ liệu → `node scripts/fetch-champion.mjs <slug…>`.
+- **Avatar cắt từ ảnh splash lớn quanh khuôn mặt** (ảnh chân dung trên web chỉ 285×323 nên mờ — người dùng đã chê). Mọi tướng trong 9 avatar cần `layout.face`; thiếu thì audit nhắc. Đo nhiều tướng một lúc: ghép 4 ảnh lưới / tấm cho đỡ tốn lượt đọc, hoặc `splash-grid.mjs <slug…>` rồi `--face=x,y` từng tướng; soát lại avatar trong ảnh xuất (vd Kog'Maw cần lấy mắt + miệng, không phải đỉnh đầu).
 
 ### 5. Ảnh tooltip → lưu `summary` (không làm ảnh)
 Người dùng không muốn ảnh giải thích trang bị, nhưng **giữ dữ liệu** để dùng sau. Với mỗi tooltip, ghi `summary` vào `data/items/<slug>.json` bằng Edit (định dạng ở `references/viet-build.md`).

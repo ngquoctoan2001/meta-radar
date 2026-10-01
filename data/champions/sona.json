@@ -63,7 +63,11 @@
     }
   ],
   "layout": {
-    "focusX": 0.5
+    "focusX": 0.5,
+    "face": {
+      "x": 0.66,
+      "y": 0.1
+    }
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/sona/",
   "syncedAt": "2026-10-01"

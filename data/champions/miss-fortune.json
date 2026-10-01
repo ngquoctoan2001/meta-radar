@@ -1,0 +1,74 @@
+{
+  "slug": "miss-fortune",
+  "name": "MISS FORTUNE",
+  "title": "Thợ Săn Tiền Thưởng",
+  "roles": [
+    "XẠ THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#16292D",
+    "secondary": "#F9F3DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/miss-fortune/portrait.jpg",
+  "splash": "assets/champions/miss-fortune/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "MISS FORTUNE, THỢ SĂN TIỀN THƯỞNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Đánh Yêu",
+      "icon": "assets/champions/miss-fortune/skill-p.png",
+      "iconSize": 128,
+      "description": "Miss Fortune gây thêm sát thương vật lý mỗi khi đánh thường một mục tiêu mới."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Bắn Một Được Hai",
+      "icon": "assets/champions/miss-fortune/skill-q.png",
+      "iconSize": 128,
+      "description": "Miss Fortune bắn một viên đạn, gây sát thương lên mục tiêu đầu tiên và chí mạng kẻ địch đứng sau đó. Gây hiệu ứng trên đòn đánh."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Sải Bước",
+      "icon": "assets/champions/miss-fortune/skill-w.png",
+      "iconSize": 128,
+      "description": "Miss Fortune nhận thêm Tốc Độ Di Chuyển khi không bị tấn công. Kĩ năng này có thể được kích hoạt để tăng Tốc Độ Đánh trong thoáng chốc. Khi đang hồi chiêu, Đánh Yêu giúp Sải Bước hồi lại nhanh hơn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Mưa Đạn",
+      "icon": "assets/champions/miss-fortune/skill-e.png",
+      "iconSize": 128,
+      "description": "Miss Fortune bắn một cơn mưa đạn vào một địa điểm, gây sát thương theo từng đợt lên những kẻ địch và làm chậm chúng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Bão Đạn",
+      "icon": "assets/champions/miss-fortune/skill-r.png",
+      "iconSize": 128,
+      "description": "Miss Fortune bắn liên tục hàng loạt đạn theo hình nón phía trước, gây một lượng sát thương lớn lên kẻ địch. Mỗi đợt Bão Đạn có thể chí mạng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.73,
+      "y": 0.31
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/miss-fortune/",
+  "syncedAt": "2026-10-01"
+}

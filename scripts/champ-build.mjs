@@ -322,8 +322,9 @@ async function cmdNew(args) {
     ...(patch ? { patch: patch.id } : {}),
     ...(tier ? { tierlist: tier.id } : {}),
     source: SOURCE,
+    headline: '',
     champions: [],
-    slides: [],
+    slides: [{ id: 'overview', type: 'build-overview', title: 'Tổng quan' }],
   };
   const at = out.champions.findIndex((c) => c.champion === slug);
   if (at >= 0) out.champions[at] = { ...entry, matchups: out.champions[at].matchups };
@@ -333,13 +334,13 @@ async function cmdNew(args) {
   }
   await writeFile(path.join(dir, 'build.json'), JSON.stringify(out, null, 2) + '\n');
 
-  console.log(`\n✔ builds/${id}/build.json — ${at >= 0 ? 'ghi đè' : 'thêm'} ${name} (${builds.length} build) · bộ có ${out.champions.length} tướng: ${out.slides.map((s) => s.title).join(', ')}`);
+  console.log(`\n✔ builds/${id}/build.json — ${at >= 0 ? 'ghi đè' : 'thêm'} ${name} (${builds.length} build) · bộ có ${out.champions.length} tướng: ${out.slides.filter((s) => s.champion).map((s) => s.title).join(', ')}`);
   console.log(`  ảnh gốc  → builds/${id}/source/${slug}/`);
   console.log(`  đường    = ${lane} · vai trò ${ROLES[role].name}${opt('lane') || roleArg ? '' : inLanes.length > 1 ? ` (tướng có ở ${inLanes.map((x) => x.lane).join(', ')} — chọn đường tỉ lệ chọn cao nhất; sai thì chạy lại với --role=…)` : ''}`);
   console.log(`  tierlist = ${out.tierlist ?? '—'}${inLanes.some((x) => x.lane === lane) ? '' : ' (tướng không có ở T0–T1 đường này → không hiện bậc)'}`);
   console.log(`  patch    = ${out.patch ?? '—'}`);
   if (!champ.layout?.face) console.log(`  ⚠ ${slug} chưa đo khuôn mặt → splash-grid.mjs ${slug} rồi --face=x,y (ảnh nền bên trái cắt theo khuôn mặt)`);
-  console.log(`\nẢnh soát: review/build-read-${slug}.png · Tiếp theo: viết title/team/enemy + matchups của ${slug} trong builds/${id}/build.json`);
+  console.log(`\nẢnh soát: review/build-read-${slug}.png · Tiếp theo: viết title/team/enemy + matchups của ${slug} trong builds/${id}/build.json (+ "headline" của ảnh tổng quan khi đủ tướng)`);
 }
 
 const [cmd, ...rest] = process.argv.slice(2);

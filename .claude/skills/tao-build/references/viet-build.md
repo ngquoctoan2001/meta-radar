@@ -61,6 +61,7 @@ Không chắc một món làm gì → đọc `stats`, `passives`, `summary` tron
   - Baron → đường trên
   - Giữa → đường giữa
   - Rừng → đi rừng
+- **Đa dạng.** Xạ thủ có rất nhiều tướng (Jinx, Kog'Maw, Vayne, Twitch, Sivir, Ezreal, Jhin, Lucian, Miss Fortune, Varus, Caitlyn, Draven, Kai'Sa, Xayah…). Người dùng chê khi "mạnh khi đối đầu" xoay quanh vài tướng — ảnh tổng quan bày 6 cột cạnh nhau nên lặp rất lộ. Một tướng không nên xuất hiện ở "mạnh khi gặp" của quá nửa bộ (audit cảnh báo).
 - **Đúng trước, hot sau.**
   - Chọn theo hiểu biết chắc chắn về bộ kỹ năng.
   - Trong số các lựa chọn đúng, ưu tiên tướng đang hot / hay gặp.
@@ -104,16 +105,18 @@ Ashe (đã duyệt):
 
 | Nhóm | Tướng | Lý do |
 |---|---|---|
-| Mạnh | Vayne, Kog'Maw, Jinx | tầm ngắn hoặc khó chạy, dễ bị làm chậm và thả diều |
-| Yếu | Draven, Samira, Caitlyn | Draven bắt nạt đường; Samira chặn tên và chiêu cuối; Caitlyn bắn xa hơn |
+| Mạnh | Vayne, Kog'Maw, Twitch | tầm ngắn hoặc khó chạy, dễ bị làm chậm và thả diều |
+| Yếu | Samira, Draven, Lucian | Samira chặn tên và chiêu cuối; Draven, Lucian bắt nạt đầu trận |
 | Hợp | Nami, Sona, Leona | Nami E cường hoá đòn đánh + bong bóng nối làm chậm; chiêu cuối Sona choáng nối tên Ashe; Leona theo tên chiêu cuối |
 
 Samira (đã duyệt):
 
 | Nhóm | Tướng | Lý do |
 |---|---|---|
-| Mạnh | Ashe, Jinx, Kog'Maw | W chặn tên / tên lửa; tướng ít cơ động dễ bị lao vào |
-| Yếu | Caitlyn, Draven, Vayne | Caitlyn bắn xa + bẫy chặn lướt; Draven bắt nạt đầu trận; Vayne đẩy choáng cắt chiêu cuối |
+| Mạnh | Ashe, Ezreal, Jhin | W chặn tên / Q / chiêu cuối; tướng ít cơ động dễ bị lao vào |
+| Yếu | Caitlyn, Vayne, Varus | Caitlyn bẫy chặn lướt; Vayne đẩy choáng cắt chiêu cuối; Varus trói |
+
+Các tướng khác đã duyệt (mạnh / yếu): Tristana — Jinx, Kog'Maw, Sivir / Caitlyn, Draven, Lucian · Senna — Jinx, Jhin, Twitch / Samira, Tristana, Draven · Yunara — Miss Fortune, Varus, Ashe / Caitlyn, Draven, Tristana · Kalista — Senna, Miss Fortune, Sivir / Samira, Vayne, Caitlyn.
 | Hợp | Nautilus, Rakan, Yuumi | Nautilus/Rakan mở giao tranh cho Samira lao vào; Yuumi bám theo khi Samira lướt |
 
 Hỗ trợ hợp đã duyệt cho các tướng khác: Tristana — Lulu, Rakan, Nami · Senna (Rồng) — Lulu, Janna, Braum · Yunara — Milio, Lulu, Janna · Kalista — Thresh, Alistar, Rakan (chiêu cuối ném đồng đội cần hỗ trợ mở giao tranh).

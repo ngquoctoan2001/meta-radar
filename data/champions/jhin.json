@@ -1,0 +1,74 @@
+{
+  "slug": "jhin",
+  "name": "JHIN",
+  "title": "Nghệ Sĩ Tử Thần",
+  "roles": [
+    "XẠ THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#000000",
+    "secondary": "#FFEBD6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/jhin/portrait.jpg",
+  "splash": "assets/champions/jhin/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "JHIN, NGHỆ SĨ TỬ THẦN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Lời Thì Thầm",
+      "icon": "assets/champions/jhin/skill-p.png",
+      "iconSize": 128,
+      "description": "Khẩu đại bác cầm tay của Jhin, Lời Thì Thầm, là một công cụ gây sát thương cực lớn với độ chính xác cao. Nó được bắn theo một tốc độ cố định và chỉ chứa được 4 viên đạn. Jhin nhuộm viên đạn cuối cùng bằng phép thuật hắc ám để ra đòn chí mạng và gây thêm sát thương kết liễu. Bất cứ khi nào Lời Thì Thầm chí mạng, Jhin sẽ được tăng mạnh tốc độ di chuyển."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Lựu Đạn Nhảy Múa",
+      "icon": "assets/champions/jhin/skill-q.png",
+      "iconSize": 128,
+      "description": "Jhin ném một bọc đạn vào một kẻ địch. Nó có thể nảy tới tối đa 4 mục tiêu và tăng thêm sát thương mỗi lần hạ gục được một mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Nét Vẽ Chết Chóc",
+      "icon": "assets/champions/jhin/skill-w.png",
+      "iconSize": 128,
+      "description": "Jhin bắn ra một phát đạn với tầm cực xa. Nó xuyên qua lính và quái, nhưng dừng lại ở tướng địch đầu tiên chạm phải. Nếu mục tiêu vừa bị tấn công bởi đồng minh của Jhin, dính bẫy hoa sen hoặc sát thương từ Jhin, chúng sẽ bị trói."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Cạm Bẫy Nghệ Thuật",
+      "icon": "assets/champions/jhin/skill-e.png",
+      "iconSize": 128,
+      "description": "Jhin đặt một bẫy hoa sen kích hoạt khi bị giẫm lên. Nó làm chậm kẻ địch xung quanh trước khi gây sát thương trong một vụ nổ của những cánh hoa. Khi Jhin hạ gục một tướng địch, một Bẫy Hoa Sen sẽ kích hoạt tại vị trí nạn nhân vừa bị hạ gục."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Sân Khấu Tử Thần",
+      "icon": "assets/champions/jhin/skill-r.png",
+      "iconSize": 128,
+      "description": "Jhin tập trung sức mạnh, biến đổi Lời Thì Thầm thành khẩu đại bác vác vai. Hắn có thể bắn ra 4 phát súng với tầm cực xa xuyên qua lính và quái nhưng dừng lại ở tướng địch đầu tiên chạm phải. Lời Thì Thầm làm chậm và gây sát thương kết liễu lên kẻ địch trúng phải. Viên đạn thứ 4 được chế tạo hoàn hảo, vô cùng mạnh mẽ, và chắc chắn sẽ chí mạng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.6,
+      "y": 0.16
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/jhin/",
+  "syncedAt": "2026-10-01"
+}

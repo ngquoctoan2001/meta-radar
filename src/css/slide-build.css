@@ -63,6 +63,8 @@
 .mu-label b { padding-top: 0.16em; font: 900 34px/1.08 var(--f-display); letter-spacing: 0.02em; }
 .mu-label small { font: 700 14px/1 var(--f-hud); letter-spacing: 0.16em; color: var(--text-2); }
 .mu-avatars { display: flex; gap: 14px; }
+/* .is-crop: avatar cắt từ splash (span có nền) — cùng khung với ảnh chân dung */
+.mu-avatar.is-crop { background-repeat: no-repeat; }
 .mu-avatar {
   display: block; width: 104px; height: 104px; border-radius: 18px; object-fit: cover; object-position: 50% 16%;
   background: #0b0920;
@@ -151,3 +153,42 @@
 .bi-stats { display: flex; flex-wrap: wrap; gap: 6px 12px; }
 .bi-stats span { font: 600 19px/1.2 var(--f-hud); color: var(--buff); }
 .bi-text { margin: 0; font: 500 22px/1.38 var(--f-body); color: var(--text-2); }
+
+/* ---------- ảnh tổng quan bộ build: 1 cột / tướng ---------- */
+.slide--build-ov .lane-title h1 { font-size: 120px; }
+.bo-cols { position: absolute; left: var(--pad); right: var(--pad); top: 254px; height: 748px; display: flex; justify-content: center; gap: 20px; }
+.bo-card {
+  position: relative; flex: none; height: 100%; overflow: hidden;
+  display: flex; flex-direction: column;
+  border-radius: 18px; border: 1px solid var(--stroke-2);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+}
+.bo-art { position: relative; flex: none; height: 410px; background-repeat: no-repeat; }
+.bo-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(14 11 32) 0%, rgba(14, 11, 32, 0.6) 26%, transparent 55%); }
+.bo-tags { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; gap: 8px; }
+.bo-tag {
+  display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px;
+  border-radius: 9px; background: rgba(7, 6, 20, 0.84); border: 1px solid rgb(var(--c-rgb) / 0.75);
+  color: var(--c); font: 700 17px/1 var(--f-hud); letter-spacing: 0.08em; white-space: nowrap;
+}
+.bo-tag b { font: 900 26px/1 var(--f-display); padding-top: 2px; }
+.bo-tag svg { width: 18px; height: 18px; }
+.bo-name {
+  position: absolute; left: 18px; right: 18px; top: 332px; margin: 0; padding-top: 0.12em;
+  font: 900 64px/0.9 var(--f-display); letter-spacing: 0.01em; text-transform: uppercase; white-space: nowrap;
+  background: linear-gradient(180deg, #fff 40%, #bdefff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.85));
+}
+.bo-body { flex: 1; display: flex; flex-direction: column; padding: 16px 18px 18px; gap: 9px; }
+.bo-body small { font: 700 14px/1 var(--f-hud); letter-spacing: 0.2em; color: var(--text-3); }
+.bo-core { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 8px; }
+.bo-core img { display: block; width: 100%; aspect-ratio: 1; border-radius: 12px; border: 2px solid rgb(var(--accent-rgb) / 0.55); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5); }
+.bo-extra { display: flex; align-items: center; gap: 10px; }
+.bo-key { width: 58px; height: 58px; border-radius: 50%; background: #0b0920; box-shadow: 0 0 0 2px rgb(var(--accent-rgb) / 0.6), 0 0 16px rgb(var(--accent-rgb) / 0.3); }
+.bo-boots { width: 54px; height: 54px; margin-left: auto; border-radius: 11px; border: 2px solid var(--stroke-2); }
+.bo-extra { margin-bottom: 8px; }
+/* 3 tướng mạnh khi đối đầu — viền xanh lá giống nhóm MẠNH ở ảnh từng tướng */
+.bo-mu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.bo-av { display: block; width: 100%; aspect-ratio: 1.15; object-fit: cover; object-position: 50% 16%; background-repeat: no-repeat; border-radius: 12px; outline: 2px solid rgb(var(--buff-rgb) / 0.8); outline-offset: -2px; box-shadow: 0 0 14px rgb(var(--buff-rgb) / 0.25); }

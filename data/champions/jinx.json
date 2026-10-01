@@ -62,7 +62,11 @@
     }
   ],
   "layout": {
-    "focusX": 0.5
+    "focusX": 0.5,
+    "face": {
+      "x": 0.6,
+      "y": 0.22
+    }
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/jinx/",
   "syncedAt": "2026-10-01"

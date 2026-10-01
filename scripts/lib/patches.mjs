@@ -86,7 +86,7 @@ async function listBuilds() {
       date: b.date,
       role: b.role,
       patch: b.patch,
-      headline: b.slides.map((s) => s.title ?? s.champion).join(' · '),
+      headline: b.slides.filter((s) => s.champion).map((s) => s.title ?? s.champion).join(' · '),
       source: b.source,
       counts: { champions: b.champions.length },
       slides: b.slides.map((s, i) => ({ ...s, label: s.title ?? s.id, status: null, index: i })),

@@ -154,9 +154,18 @@ async function validateBuild(b, folder) {
   const runes = await loadJSON('data/runes.json');
   if (!runes) errors.push('chưa có data/runes.json → node scripts/fetch-runes.mjs');
   if (!b.champions?.length) errors.push('chưa có tướng nào trong "champions"');
+  if (!b.slides?.some((s) => s.type === 'build-overview')) notes.push('chưa có ảnh tổng quan ("type": "build-overview") ở đầu "slides"');
+  else if (!b.headline) notes.push('ảnh tổng quan chưa có "headline" (3 cụm ngắn nối bằng " · ")');
+  if ((b.champions?.length ?? 0) > 6) notes.push(`bộ có ${b.champions.length} tướng — ảnh tổng quan chứa vừa nhất 6 cột`);
 
   const noSummary = new Set();
   const synergyTrios = new Map();
+  // tướng xuất hiện ở "mạnh khi gặp" của quá nửa số tướng trong bộ → lặp, nhìn rõ trên ảnh tổng quan
+  const strongCount = new Map();
+  for (const e of b.champions ?? []) for (const s of e.matchups?.strong ?? []) strongCount.set(s, (strongCount.get(s) ?? 0) + 1);
+  const n = b.champions?.length ?? 0;
+  const repeated = [...strongCount].filter(([, c]) => n >= 4 && c > n / 2).map(([s, c]) => `${s} (${c}/${n})`);
+  if (repeated.length) notes.push(`"mạnh khi gặp" lặp nhiều: ${repeated.join(', ')} — đa dạng hơn theo lối chơi từng tướng`);
   for (const e of b.champions ?? []) {
     const who = e.champion;
     const champ = await loadJSON(`data/champions/${who}.json`);
@@ -192,7 +201,7 @@ async function validateBuild(b, folder) {
       for (const slug of m[k]) {
         const c = await loadJSON(`data/champions/${slug}.json`);
         if (!c) errors.push(`${who} · matchups.${k}: chưa có data/champions/${slug}.json → fetch-champion.mjs`);
-        else if (!(await exists(c.portrait))) errors.push(`${who} · matchups.${k}: thiếu ảnh ${c.portrait}`);
+        else if (!c.layout?.face) notes.push(`${who} · matchups.${k}: ${slug} chưa đo khuôn mặt → avatar dùng ảnh chân dung nhỏ (mờ). Đo: splash-grid.mjs ${slug} --face=x,y`);
       }
     }
     if (m.synergy?.length) {
@@ -203,8 +212,8 @@ async function validateBuild(b, folder) {
   }
   if (noSummary.size) notes.push(`chưa có giải thích ("summary") cho: ${[...noSummary].join(', ')} — không bắt buộc, để dành`);
   for (const s of b.slides ?? []) {
-    if (!['build', 'build-items'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build, build-items)`);
-    if (!b.champions?.some((c) => c.champion === s.champion)) errors.push(`slides: "${s.id}" trỏ tới tướng "${s.champion}" không có trong champions`);
+    if (!['build-overview', 'build', 'build-items'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build-overview, build, build-items)`);
+    if (s.type !== 'build-overview' && !b.champions?.some((c) => c.champion === s.champion)) errors.push(`slides: "${s.id}" trỏ tới tướng "${s.champion}" không có trong champions`);
   }
   return { errors, notes };
 }
@@ -228,7 +237,7 @@ function checkLayout() {
   for (const gear of document.querySelectorAll('.bd-gear')) {
     if (gear.scrollWidth > gear.clientWidth + 1) issues.push(`hàng trang bị + ngọc của ${name(gear.closest('.bd-card'))} tràn ngang (bị cắt)`);
   }
-  for (const card of document.querySelectorAll('.bd-card, .bi-card')) {
+  for (const card of document.querySelectorAll('.bd-card, .bi-card, .bo-card')) {
     if (card.scrollHeight > card.clientHeight + 1) issues.push(`${name(card)} chật — nội dung tràn khỏi thẻ`);
   }
   const hero = document.querySelector('.bd-hero');

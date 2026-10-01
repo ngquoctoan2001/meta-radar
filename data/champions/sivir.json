@@ -1,0 +1,73 @@
+{
+  "slug": "sivir",
+  "name": "SIVIR",
+  "title": "Nữ Chúa Chiến Trường",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#2D2016",
+    "secondary": "#F9F0DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/sivir/portrait.jpg",
+  "splash": "assets/champions/sivir/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "SIVIR, NỮ CHÚA CHIẾN TRƯỜNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BƯỚC CHÂN THẦN TỐC",
+      "icon": "assets/champions/sivir/skill-p.jpg",
+      "iconSize": 256,
+      "description": "Sivir nhận thêm Tốc Độ Di Chuyển mỗi khi tấn công tướng địch."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "GƯƠM BOOMERANG",
+      "icon": "assets/champions/sivir/skill-q.jpg",
+      "iconSize": 256,
+      "description": "Sivir phóng thanh thập tự kiếm của mình đi như một cái boomerang, gây sát thương cả lượt đi lẫn về."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "NẢY BẬT",
+      "icon": "assets/champions/sivir/skill-w.jpg",
+      "iconSize": 256,
+      "description": "Một vài đòn đánh tiếp theo của Sivir được tăng tốc độ đánh và nảy bật vào các mục tiêu gần đó, giảm sát thương so với đòn đánh gốc."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "KHIÊN CHỐNG PHÉP",
+      "icon": "assets/champions/sivir/skill-e.jpg",
+      "iconSize": 256,
+      "description": "Tạo một lá chắn ma thuật ngăn chặn kỹ năng đầu tiên trúng vào Sivir. Cô nhận lại máu và tốc độ di chuyển trong thoáng chốc nếu chặn được một kỹ năng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "SĂN ĐUỔI",
+      "icon": "assets/champions/sivir/skill-r.jpg",
+      "iconSize": 512,
+      "description": "Sivir dẫn dắt đồng minh trên chiến trường, tăng cho họ một lượng Tốc độ Di chuyển trong thời gian ngắn. Ngoài ra, thời gian hồi kỹ năng của cô ấy được giảm. Sivir tăng sĩ khí khi gây sát thương lên một kẻ địch, ban cường hóa cho đồng minh và làm mới chiêu cuối ở mức tối đa sĩ khí."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.555,
+      "y": 0.14
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/sivir/",
+  "syncedAt": "2026-10-01"
+}
