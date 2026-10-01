@@ -1,0 +1,70 @@
+{
+  "slug": "rakan",
+  "name": "RAKAN",
+  "title": "Anh Chàng Quyến Rũ",
+  "roles": [
+    "HỖ TRỢ",
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#30181C",
+    "secondary": "#F9E7DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/rakan/portrait.jpg",
+  "splash": "assets/champions/rakan/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "Anh Chàng Quyến Rũ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BỘ CÁNH MA THUẬT",
+      "icon": "assets/champions/rakan/skill-p.png",
+      "iconSize": 128,
+      "description": "Rakan nhận lá chắn sau một khoảng thời gian nhất định.\n\nVũ Điệu Tình Yêu: Rakan có thể biến về cùng Xayah."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHI TIÊU LẤP LÁNH",
+      "icon": "assets/champions/rakan/skill-q.png",
+      "iconSize": 128,
+      "description": "Bắn một lông vũ ma thuật gây sát thương phép. Bắn trúng tướng hoặc quái khủng cho phép Rakan hồi máu cho đồng minh."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "XUẤT HIỆN HOÀNH TRÁNG",
+      "icon": "assets/champions/rakan/skill-w.png",
+      "iconSize": 128,
+      "description": "Lướt tới một vị trí, hất tung kẻ địch xung quanh khi đến nơi."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "ĐIỆU NHẢY TIẾP VIỆN",
+      "icon": "assets/champions/rakan/skill-e.png",
+      "iconSize": 128,
+      "description": "Bay đến bên tướng đồng minh, trao lá chắn cho tướng đó. Có thể dùng lần nữa sau vài giây mà không tiêu hao năng lượng.\n\nNếu dùng lên Xayah, lượng giáp tăng gấp đôi và giảm hồi chiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BỘ PHÁP THẦN TỐC",
+      "icon": "assets/champions/rakan/skill-r.png",
+      "iconSize": 128,
+      "description": "Tăng tốc độ di chuyển, mê hoặc kẻ địch bị chạm phải và gây sát thương phép."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/rakan/",
+  "syncedAt": "2026-10-01"
+}

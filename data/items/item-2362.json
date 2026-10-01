@@ -1,0 +1,43 @@
+{
+  "slug": "item-2362",
+  "name": "Jak'Sho, The Protean",
+  "nameVi": "Giáp Jak'Sho",
+  "cnId": "2362",
+  "cnName": "永生花的双生守护",
+  "icon": "assets/items/item-2362.png",
+  "price": 3200,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Giáp"
+  ],
+  "color": "#E05040",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+300"
+    },
+    {
+      "label": "Giáp",
+      "value": "+50"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+50"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2362) · tên VN theo Riot vi_VN",
+  "nameTemp": true,
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+300 máu",
+      "+50 giáp",
+      "+50 kháng phép"
+    ],
+    "text": "Giao tranh với tướng: mỗi giây +1 cộng dồn (tối đa 5); đầy cộng dồn thì +20% kháng hiệu ứng, +30% giáp và kháng phép cộng thêm.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

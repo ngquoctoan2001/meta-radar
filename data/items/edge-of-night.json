@@ -1,0 +1,43 @@
+{
+  "slug": "edge-of-night",
+  "name": "Edge of Night",
+  "nameVi": "Áo Choàng Bóng Tối",
+  "cnId": "2161",
+  "cnName": "夜之锋刃",
+  "icon": "assets/items/edge-of-night.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Sát thủ",
+    "Khiên phép"
+  ],
+  "color": "#9B6BFF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+250"
+    },
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+50"
+    },
+    {
+      "label": "Xuyên giáp",
+      "value": "+12"
+    }
+  ],
+  "passives": [
+    "Hóa Giải"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2161) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": [
+      "+250 máu",
+      "+50 SMCK",
+      "+12 xuyên giáp"
+    ],
+    "text": "Tạo khiên phép chặn kỹ năng kế tiếp của địch. Hồi 35 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

@@ -2,6 +2,8 @@
   "slug": "stormrazor",
   "name": "Stormrazor",
   "nameVi": "Phong Thần Kiếm",
+  "cnId": "2288",
+  "cnName": "岚切",
   "icon": "assets/items/stormrazor.png",
   "price": 3000,
   "tier": "Trang bị cao cấp",

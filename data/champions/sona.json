@@ -1,0 +1,70 @@
+{
+  "slug": "sona",
+  "name": "SONA",
+  "title": "Đại Cầm Nữ",
+  "roles": [
+    "HỖ TRỢ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#502847",
+    "secondary": "#F9E6DC",
+    "label": "#270A21"
+  },
+  "portrait": "assets/champions/sona/portrait.jpg",
+  "splash": "assets/champions/sona/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "SONA, ĐẠI CẦM NỮ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Sức Mạnh Hợp Âm",
+      "icon": "assets/champions/sona/skill-p.png",
+      "iconSize": 128,
+      "description": "Sau 3 lần thi triển kỹ năng, đòn đánh kế tiếp của Sona sẽ gây thêm sát thương phép và làm choáng mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Anh Hùng Ca",
+      "icon": "assets/champions/sona/skill-q.png",
+      "iconSize": 128,
+      "description": "Sona tấu lên Anh Hùng Ca, bắn ra những luồng sấm âm thanh, gây sát thương phép lên hai kẻ địch gần nhất, ưu tiên tướng và quái. Sona nhận được một hào quang tạm thời tăng sát thương ở đòn đánh kế tiếp cho đồng minh đứng trong vùng hiệu lực."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Giai Điệu Khích Lệ",
+      "icon": "assets/champions/sona/skill-w.png",
+      "iconSize": 128,
+      "description": "Sona tấu lên Giai Điệu Khích Lệ, bắn ra những luồng âm thanh bảo hộ, giúp hồi máu cho Sona và một vị đồng minh trọng thương cạnh bên. Sona nhận được một hào quang tạm thời tạo lá chắn cho đồng minh trong vùng hiệu lực."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Bản Nhạc Tốc Độ",
+      "icon": "assets/champions/sona/skill-e.png",
+      "iconSize": 128,
+      "description": "Sona tấu lên Bản Nhạc Tốc Độ, tăng Tốc Độ Di Chuyển cho đồng minh xung quanh. Sona nhận được một hào quang tạm thời tăng Tốc Độ Di Chuyển cho tướng đồng minh đứng trong vùng hiệu lực."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Khúc Cao Trào",
+      "icon": "assets/champions/sona/skill-r.png",
+      "iconSize": 128,
+      "description": "Nội tại: Hào quang của Sona được kéo dài, mang lại bùa lợi mạnh hơn. Bản nhạc tối hậu của Sona tiến từ từ đến vị trí mục tiêu, gây sát thương trên đường đi. Những kẻ địch trúng đòn đầu tiên bị làm choáng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/sona/",
+  "syncedAt": "2026-10-01"
+}

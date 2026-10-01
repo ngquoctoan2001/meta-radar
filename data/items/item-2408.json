@@ -1,0 +1,24 @@
+{
+  "slug": "item-2408",
+  "name": "Gluttonous Greaves",
+  "nameVi": "Giày Tham Lam",
+  "cnId": "2408",
+  "cnName": "贪婪之靴",
+  "icon": "assets/items/item-2408.png",
+  "price": 1000,
+  "tier": "Trang bị trung cấp",
+  "tags": [
+    "Giày",
+    "Hút máu"
+  ],
+  "color": "#C0603A",
+  "stats": [
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+45"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2408) · tên VN theo Riot vi_VN",
+  "nameTemp": true
+}

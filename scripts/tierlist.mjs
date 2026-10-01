@@ -21,6 +21,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { ROOT } from './lib/patches.mjs';
 import { findHero, localStatus, STATUS_TEXT } from './lib/heroes.mjs';
+import { parseVN, pickPatch, listDirs, DAY } from './lib/pick.mjs';
 
 const DEFAULT_FILTER = 'Đấu Hạng · Đại Cao Thủ trở lên';
 const SOURCE = 'Bảng xếp hạng Tốc Chiến Trung Quốc';
@@ -34,32 +35,6 @@ const tryJSON = (p) => readJSON(p).catch(() => null);
 const writeJSON = (p, data) => writeFile(path.join(ROOT, p), JSON.stringify(data, null, 2) + '\n');
 const exists = (p) => stat(path.join(ROOT, p)).then(() => true, () => false);
 const fail = (msg) => { console.error(`✘ ${msg}`); process.exit(1); };
-
-// "30/09/2026" → Date (UTC) | null
-function parseVN(d) {
-  const m = String(d ?? '').match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-  return m ? new Date(Date.UTC(+m[3], +m[2] - 1, +m[1])) : null;
-}
-const verKey = (id) => id.split(/(\d+)/).filter(Boolean).map((p) => (/^\d+$/.test(p) ? p.padStart(4, '0') : p)).join('');
-const DAY = 86400000;
-
-async function listDirs(dir) {
-  return (await readdir(path.join(ROOT, dir), { withFileTypes: true }).catch(() => [])).filter((d) => d.isDirectory()).map((d) => d.name);
-}
-
-// Bản cập nhật áp dụng cho tier list ngày `date`: bản có "date" (ngày ra) gần nhất không sau `date`.
-// Chưa bản nào ghi ngày → lấy bản số hiệu cao nhất (và báo để bổ sung ngày).
-async function pickPatch(date) {
-  const patches = [];
-  for (const id of await listDirs('patches')) {
-    const p = await tryJSON(`patches/${id}/patch.json`);
-    if (p) patches.push({ id: p.id, date: parseVN(p.date) });
-  }
-  const dated = patches.filter((p) => p.date && p.date <= date).sort((a, b) => b.date - a.date);
-  if (dated.length) return { ...dated[0], why: 'bản ra gần nhất trước ngày này' };
-  const latest = patches.sort((a, b) => verKey(b.id).localeCompare(verKey(a.id)))[0];
-  return latest ? { ...latest, why: 'số hiệu cao nhất — các patch.json chưa ghi "date" (ngày ra)' } : null;
-}
 
 // Tier list kỳ trước: cùng bộ lọc, ngày sớm hơn. Bộ khác cùng ngày không tính (không phải "kỳ trước").
 async function pickPrevious(id, date, filter) {

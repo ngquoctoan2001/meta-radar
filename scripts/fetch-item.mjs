@@ -11,7 +11,7 @@
 // đúng bản Tốc Chiến (bản PC khác số).
 //
 // Kết quả: data/items/<slug>.json + assets/items/<slug>.png
-// Giữ nguyên các trường chỉnh tay (tags, color) nếu file đã có.
+// Giữ nguyên các trường chỉnh tay (tags, color, nameVi của món chỉ Tốc Chiến có, summary) nếu file đã có.
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -125,8 +125,12 @@ async function fetchItem(query, src, { cnId, slug: slugArg, tags, color } = {}) 
   const old = await readFile(jsonPath, 'utf8').then(JSON.parse, () => ({}));
   const data = {
     slug,
-    name: nameEn,
-    nameVi: id ? src.vi[id]?.name ?? '' : '',
+    // trang bị chỉ Tốc Chiến có: không có tên Anh/Việt chính thức → giữ tên ghi tay (nameTemp = tên tạm dịch)
+    name: nameEn || old.name || '',
+    nameVi: (id ? src.vi[id]?.name : '') || old.nameVi || '',
+    ...(old.nameTemp && !(id && src.vi[id]?.name) ? { nameTemp: true } : {}),
+    cnId: cn.equipId,
+    cnName: cn.name,
     icon: iconFile,
     price: Number(cn.price),
     tier: TIER_VI[cn.level] ?? cn.level,
@@ -136,6 +140,8 @@ async function fetchItem(query, src, { cnId, slug: slugArg, tags, color } = {}) 
     stats: parseStats(cn.description),
     passives: id ? passiveNames(src.vi[id]?.description) : [],
     source: `Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã ${cn.equipId}) · tên VN theo Riot vi_VN`,
+    // giải thích theo tooltip trong game (ghi tay khi làm build) — chạy lại script không xoá
+    ...(old.summary ? { summary: old.summary } : {}),
   };
   await mkdir(path.dirname(jsonPath), { recursive: true });
   await writeFile(jsonPath, JSON.stringify(data, null, 2) + '\n');

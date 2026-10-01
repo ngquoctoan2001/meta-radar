@@ -1,0 +1,44 @@
+{
+  "slug": "mortal-reminder",
+  "name": "Mortal Reminder",
+  "nameVi": "Lời Nhắc Tử Vong",
+  "cnId": "2249",
+  "cnName": "凡性的提醒",
+  "icon": "assets/items/mortal-reminder.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Giảm hồi máu"
+  ],
+  "color": "#9BD44F",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+35"
+    },
+    {
+      "label": "Xuyên giáp",
+      "value": "+30%"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    }
+  ],
+  "passives": [
+    "Vết Thương Sâu"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2249) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+35 SMCK",
+      "+30% xuyên giáp",
+      "+25% chí mạng"
+    ],
+    "text": "Sát thương vật lý lên tướng địch gây giảm 50% hồi máu (Vết Thương Sâu) trong 3 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

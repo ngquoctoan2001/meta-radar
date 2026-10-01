@@ -2,6 +2,8 @@
   "slug": "berserkers-greaves",
   "name": "Berserker's Greaves",
   "nameVi": "Giày Cuồng Nộ",
+  "cnId": "2403",
+  "cnName": "狂战士胫甲",
   "icon": "assets/items/berserkers-greaves.png",
   "price": 1200,
   "tier": "Trang bị trung cấp",

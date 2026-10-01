@@ -1,0 +1,73 @@
+{
+  "slug": "kalista",
+  "name": "KALISTA",
+  "title": "Mũi Giáo Phục Hận",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#05090B",
+    "secondary": "#D6FEFF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/kalista/portrait.jpg",
+  "splash": "assets/champions/kalista/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "KALISTA, MŨI GIÁO PHỤC HẬN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "PHONG THÁI QUÂN NHÂN",
+      "icon": "assets/champions/kalista/skill-p.jpg",
+      "iconSize": 256,
+      "description": "Ra lệnh di chuyển khi Kalista đang đánh thường hoặc dùng Đâm Xuyên sẽ khiến cô phóng về hướng đó khi tung đòn đánh."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ĐÂM XUYÊN",
+      "icon": "assets/champions/kalista/skill-q.jpg",
+      "iconSize": 256,
+      "description": "Kalista phóng ra một mũi giáo bay cực nhanh."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "HỒN MA DO THÁM",
+      "icon": "assets/champions/kalista/skill-w.jpg",
+      "iconSize": 256,
+      "description": "Gây thêm sát thương khi Kalista và đồng minh Thệ Ước tấn công cùng một mục tiêu. Kích hoạt để thả hồn ma do thám soi sáng khu vực trước mặt nó."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "GIÀY VÒ",
+      "icon": "assets/champions/kalista/skill-e.jpg",
+      "iconSize": 256,
+      "description": "Các đòn đánh phóng giáo xuyên kẻ địch. Kích hoạt để rút các mũi giáo ra, làm chậm và gây sát thương gia tăng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "ĐỊNH MỆNH VẪY GỌI",
+      "icon": "assets/champions/kalista/skill-r.jpg",
+      "iconSize": 256,
+      "description": "Dịch chuyển đồng minh Thệ Ước đến với Kalista. Đồng minh đó có thể lướt tới một vị trí và đẩy lùi tất cả tướng địch."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.565,
+      "y": 0.31
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/kalista/",
+  "syncedAt": "2026-10-01"
+}

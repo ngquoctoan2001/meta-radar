@@ -1,0 +1,30 @@
+{
+  "slug": "terminus",
+  "name": "Terminus",
+  "nameVi": "Cung Chạng Vạng",
+  "cnId": "2285",
+  "cnName": "界弓",
+  "icon": "assets/items/terminus.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Hiệu ứng đòn đánh"
+  ],
+  "color": "#7FE3D0",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+35"
+    },
+    {
+      "label": "Tốc độ đánh",
+      "value": "+35%"
+    }
+  ],
+  "passives": [
+    "Bóng Tối",
+    "Đối Nghịch"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2285) · tên VN theo Riot vi_VN"
+}

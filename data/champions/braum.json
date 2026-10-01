@@ -1,0 +1,70 @@
+{
+  "slug": "braum",
+  "name": "BRAUM",
+  "title": "Trái Tim của Freljord",
+  "roles": [
+    "HỖ TRỢ",
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#111822",
+    "secondary": "#F9F2DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/braum/portrait.jpg",
+  "splash": "assets/champions/braum/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "BRAUM, TRÁI TIM CỦA FRELJORD",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Đánh Ngất Ngư",
+      "icon": "assets/champions/braum/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Braum gây hiệu ứng Đánh Ngất Ngư. Sau khi đã kích hoạt điểm cộng dồn đầu tiên, các đòn đánh thường từ đồng minh cũng sẽ cộng dồn hiệu ứng Đánh Ngất Ngư. Khi đủ 4 điểm cộng dồn, mục tiêu sẽ bị choáng và chịu sát thương phép. Trong vài giây kế tiếp, chúng không thể nhận điểm cộng dồn mới, nhưng sẽ nhận thêm sát thương phép từ đòn đánh thường của Braum."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Tuyết Tê Tái",
+      "icon": "assets/champions/braum/skill-q.png",
+      "iconSize": 128,
+      "description": "Braum phóng băng từ chiếc khiên của mình, gây sát thương phép và làm chậm. Cộng dồn 1 điểm cho Đánh Ngất Ngư."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Nấp Sau Ta",
+      "icon": "assets/champions/braum/skill-w.png",
+      "iconSize": 128,
+      "description": "Braum phóng tới một mục tiêu là tướng hoặc lính đồng minh. Khi đến nơi, Braum và đồng minh sẽ được nhận Giáp và Kháng Phép trong vài giây."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Tối Kiên Cường",
+      "icon": "assets/champions/braum/skill-e.png",
+      "iconSize": 128,
+      "description": "Braum giương chiếc khiên của mình lên theo một hướng trong vài giây, tất cả các tia đạn đạo trúng hắn sẽ bị tiêu hủy. Ngoài ra, chặn toàn bộ sát thương từ đòn đánh đầu tiên đồng thời giảm sát thương của toàn bộ các đòn đánh về sau tung ra từ hướng đó."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Băng Địa Chấn",
+      "icon": "assets/champions/braum/skill-r.png",
+      "iconSize": 128,
+      "description": "Braum dậm mạnh xuống mặt đất, hất văng những kẻ địch cạnh bên, và trong đường thẳng phía trước hắn lên không. Một vệt rạn nứt sẽ hiện ra theo đường thẳng đó gây hiệu ứng làm chậm lên kẻ địch."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/braum/",
+  "syncedAt": "2026-10-01"
+}

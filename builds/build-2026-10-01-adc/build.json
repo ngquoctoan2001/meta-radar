@@ -1,0 +1,643 @@
+{
+  "id": "build-2026-10-01-adc",
+  "title": "Build ADC",
+  "role": "adc",
+  "date": "01/10/2026",
+  "patch": "7.3a",
+  "tierlist": "tier-2026-09-30",
+  "source": "Bảng xếp hạng Tốc Chiến Trung Quốc",
+  "champions": [
+    {
+      "champion": "ashe",
+      "lane": "dragon",
+      "matchups": {
+        "note": "Tạm theo hiểu biết bộ kỹ năng — chưa có số liệu đối đầu",
+        "strong": [
+          "vayne",
+          "kogmaw",
+          "jinx"
+        ],
+        "weak": [
+          "draven",
+          "samira",
+          "caitlyn"
+        ],
+        "synergy": [
+          "nami",
+          "sona",
+          "leona"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Thả diều tầm xa",
+          "team": "Đội có tướng chắn trước bảo kê",
+          "enemy": "Đối thủ nhiều tướng lao vào",
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "kraken-slayer",
+            "phantom-dancer",
+            "hextech-scope-c44",
+            "lord-dominiks-regards",
+            "infinity-edge",
+            "gunmetal-greaves"
+          ],
+          "spells": [
+            "ghost",
+            "flash"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Giao tranh tổng",
+          "team": "Đội nhiều khống chế, thích đánh tổng",
+          "enemy": "Đối thủ đông đỡ đòn, đứng cụm",
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "stormrazor",
+            "runaans-hurricane",
+            "infinity-edge",
+            "lord-dominiks-regards",
+            "blade-of-the-ruined-king",
+            "gunmetal-greaves"
+          ],
+          "spells": [
+            "ghost",
+            "flash"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "Hút máu, đánh lâu",
+          "team": "Đội thiếu hỗ trợ hồi máu",
+          "enemy": "Đối thủ máu dày, chọc máu",
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572425001"
+          ],
+          "items": [
+            "yun-tal-wildarrows",
+            "stormrazor",
+            "infinity-edge",
+            "lord-dominiks-regards",
+            "blade-of-the-ruined-king",
+            "gunmetal-greaves"
+          ],
+          "spells": [
+            "ghost",
+            "flash"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "samira",
+      "lane": "dragon",
+      "matchups": {
+        "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
+        "strong": [
+          "ashe",
+          "jinx",
+          "kogmaw"
+        ],
+        "weak": [
+          "caitlyn",
+          "draven",
+          "vayne"
+        ],
+        "synergy": [
+          "nautilus",
+          "rakan",
+          "yuumi"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Hạ gục đỡ đòn",
+          "team": "Đội có khống chế để lao vào",
+          "enemy": "Đối thủ đông đỡ đòn, máu dày",
+          "spells": [
+            "flash",
+            "barrier"
+          ],
+          "runes": [
+            "572112001",
+            "572225001",
+            "572212001",
+            "572223001",
+            "572217001"
+          ],
+          "items": [
+            "the-collector",
+            "infinity-edge",
+            "lord-dominiks-regards",
+            "the-bloodthirster",
+            "immortal-shieldbow",
+            "item-2416"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Chống hồi máu",
+          "team": "Đội đánh tổng, cần trụ lâu",
+          "enemy": "Đối thủ hồi máu, hút máu nhiều",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572112001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572217001"
+          ],
+          "items": [
+            "the-collector",
+            "infinity-edge",
+            "the-bloodthirster",
+            "mortal-reminder",
+            "guardian-angel",
+            "item-2416"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Lướt vào kết liễu",
+          "team": "Đội thiếu tướng mở giao tranh",
+          "enemy": "Đối thủ nhiều chiêu khống chế",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572112001",
+            "572225001",
+            "572220001",
+            "572223001",
+            "572324001"
+          ],
+          "items": [
+            "the-collector",
+            "galeforce",
+            "lord-dominiks-regards",
+            "infinity-edge",
+            "edge-of-night",
+            "item-2416"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "tristana",
+      "lane": "dragon",
+      "matchups": {
+        "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
+        "strong": [
+          "jinx",
+          "kogmaw",
+          "ashe"
+        ],
+        "weak": [
+          "caitlyn",
+          "draven",
+          "samira"
+        ],
+        "synergy": [
+          "lulu",
+          "rakan",
+          "nami"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 2,
+          "title": "Xả đạn giao tranh",
+          "team": "Đội đánh tổng, có tướng chắn",
+          "enemy": "Đối thủ đông, đứng cụm",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "yun-tal-wildarrows",
+            "infinity-edge",
+            "lord-dominiks-regards",
+            "runaans-hurricane",
+            "item-2271",
+            "berserkers-greaves"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Nổ bom tầm xa",
+          "team": "Đội có tướng chắn, đánh từ xa",
+          "enemy": "Đối thủ máu giấy, ít lao vào",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572427001"
+          ],
+          "items": [
+            "stormrazor",
+            "item-2271",
+            "infinity-edge",
+            "lord-dominiks-regards",
+            "hextech-scope-c44",
+            "berserkers-greaves"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Bền bỉ, cắt hồi máu",
+          "team": "Đội thiếu hồi máu, thiếu khiên",
+          "enemy": "Đối thủ hồi máu, nhiều phép",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572116001",
+            "572211001",
+            "572212001",
+            "572221001",
+            "572320001"
+          ],
+          "items": [
+            "kraken-slayer",
+            "blade-of-the-ruined-king",
+            "mortal-reminder",
+            "runaans-hurricane",
+            "immortal-shieldbow",
+            "berserkers-greaves"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "senna",
+      "lane": "dragon",
+      "matchups": {
+        "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
+        "strong": [
+          "vayne",
+          "jinx",
+          "ashe"
+        ],
+        "weak": [
+          "samira",
+          "draven",
+          "tristana"
+        ],
+        "synergy": [
+          "lulu",
+          "janna",
+          "braum"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Bắn xa rỉa máu",
+          "team": "Đội thích cấu rỉa từ xa",
+          "enemy": "Đối thủ tầm ngắn, khó áp sát",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572116001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572425001"
+          ],
+          "items": [
+            "statikk-shiv",
+            "rapid-firecannon",
+            "mortal-reminder",
+            "infinity-edge",
+            "guardian-angel",
+            "gunmetal-greaves"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Chí mạng tầm xa",
+          "team": "Đội có khống chế giữ chân",
+          "enemy": "Đối thủ máu giấy, hay đứng lẻ",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572116001",
+            "572211001",
+            "572212001",
+            "572221001",
+            "572425001"
+          ],
+          "items": [
+            "stormrazor",
+            "infinity-edge",
+            "mortal-reminder",
+            "hextech-scope-c44",
+            "guardian-angel",
+            "gunmetal-greaves"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "Bắn lan giao tranh",
+          "team": "Đội thích đánh tổng",
+          "enemy": "Đối thủ đông đỡ đòn, máu dày",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572116001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "statikk-shiv",
+            "runaans-hurricane",
+            "mortal-reminder",
+            "blade-of-the-ruined-king",
+            "guardian-angel",
+            "gunmetal-greaves"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "yunara",
+      "lane": "dragon",
+      "matchups": {
+        "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
+        "strong": [
+          "jinx",
+          "kogmaw",
+          "ashe"
+        ],
+        "weak": [
+          "caitlyn",
+          "draven",
+          "samira"
+        ],
+        "synergy": [
+          "milio",
+          "lulu",
+          "janna"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Lướt né đánh tổng",
+          "team": "Đội thiếu tướng bảo kê",
+          "enemy": "Đối thủ nhiều sát thủ lao vào",
+          "spells": [
+            "cleanse",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "stormrazor",
+            "galeforce",
+            "lord-dominiks-regards",
+            "runaans-hurricane",
+            "blade-of-the-ruined-king",
+            "gunmetal-greaves"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Chiêu cuối chí mạng",
+          "team": "Đội đánh tổng theo chiêu cuối",
+          "enemy": "Đối thủ máu giấy, hay bắt lẻ",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "yun-tal-wildarrows",
+            "fiendhunter-bolts",
+            "lord-dominiks-regards",
+            "infinity-edge",
+            "mercurial-scimitar",
+            "gunmetal-greaves"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Diệt đỡ đòn",
+          "team": "Đội có tướng chắn, đánh lâu",
+          "enemy": "Đối thủ đông đỡ đòn, khống chế",
+          "spells": [
+            "flash",
+            "barrier"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572223001",
+            "572312001"
+          ],
+          "items": [
+            "kraken-slayer",
+            "runaans-hurricane",
+            "infinity-edge",
+            "lord-dominiks-regards",
+            "mercurial-scimitar",
+            "gunmetal-greaves"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "kalista",
+      "lane": "dragon",
+      "matchups": {
+        "note": "Phân tích theo bộ kỹ năng — chưa có số liệu đối đầu",
+        "strong": [
+          "jinx",
+          "kogmaw",
+          "senna"
+        ],
+        "weak": [
+          "samira",
+          "caitlyn",
+          "draven"
+        ],
+        "synergy": [
+          "thresh",
+          "alistar",
+          "rakan"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Bám trụ giao tranh",
+          "team": "Đội thiếu đỡ đòn tuyến trước",
+          "enemy": "Đối thủ nhiều sát thủ lao vào",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572221001",
+            "572312001"
+          ],
+          "items": [
+            "blade-of-the-ruined-king",
+            "runaans-hurricane",
+            "guinsoos-rageblade",
+            "terminus",
+            "item-2362",
+            "gunmetal-greaves"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Xuyên thủ đánh tổng",
+          "team": "Đội có tướng chắn, đánh tổng",
+          "enemy": "Đối thủ đỡ đòn, nhiều phép",
+          "spells": [
+            "barrier",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572221001",
+            "572312001"
+          ],
+          "items": [
+            "terminus",
+            "guinsoos-rageblade",
+            "runaans-hurricane",
+            "blade-of-the-ruined-king",
+            "wits-end",
+            "gunmetal-greaves"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Rỉa máu đầu trận",
+          "team": "Đội thích giao tranh sớm",
+          "enemy": "Đối thủ máu dày, hay lao vào",
+          "spells": [
+            "exhaust",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572221001",
+            "572312001"
+          ],
+          "items": [
+            "blade-of-the-ruined-king",
+            "guinsoos-rageblade",
+            "runaans-hurricane",
+            "terminus",
+            "wits-end",
+            "gunmetal-greaves"
+          ]
+        }
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "id": "ashe",
+      "type": "build",
+      "champion": "ashe",
+      "title": "Ashe"
+    },
+    {
+      "id": "samira",
+      "type": "build",
+      "champion": "samira",
+      "title": "Samira"
+    },
+    {
+      "id": "tristana",
+      "type": "build",
+      "champion": "tristana",
+      "title": "Tristana"
+    },
+    {
+      "id": "senna",
+      "type": "build",
+      "champion": "senna",
+      "title": "Senna"
+    },
+    {
+      "id": "yunara",
+      "type": "build",
+      "champion": "yunara",
+      "title": "Yunara"
+    },
+    {
+      "id": "kalista",
+      "type": "build",
+      "champion": "kalista",
+      "title": "Kalista"
+    }
+  ]
+}

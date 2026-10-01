@@ -19,12 +19,9 @@ const TYPES = {
     { key: 'tier-overview', label: 'Tổng quan' },
     { key: 'tier-lane', label: 'Theo đường' },
   ],
-  build: [
-    { key: 'all', label: 'Tất cả' },
-    { key: 'build', label: 'Build' },
-  ],
+  build: [{ key: 'all', label: 'Tất cả' }],
 };
-const TYPE_LABEL = Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label]));
+const TYPE_LABEL = { ...Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label])), build: 'Build', 'build-items': 'Trang bị' };
 // Danh mục bên trái: mỗi loại bộ ảnh là một mục cha, các bộ ảnh là mục con.
 const KIND = {
   patch: { title: 'BẢN CẬP NHẬT', empty: 'Chưa có bản cập nhật nào.' },
@@ -103,11 +100,9 @@ function sideItem(p) {
   const dots = tier
     ? `<i class="dot is-t0"></i>${p.counts.t0}<i class="dot is-t1"></i>${p.counts.t1}`
     : build
-      ? `<span>${p.counts.builds} build · ${esc(p.date.slice(0, 5))}</span>`
+      ? `<span>${p.counts.champions} tướng</span>`
       : `${p.counts.buff ? `<i class="dot is-buff"></i>${p.counts.buff}` : ''}${p.counts.nerf ? `<i class="dot is-nerf"></i>${p.counts.nerf}` : ''}`;
-  const badge = build && p.portrait
-    ? `<span class="patch-ver patch-ver--img"><img src="/${esc(p.portrait)}" alt=""></span>`
-    : `<span class="patch-ver ${tier ? 'patch-ver--date' : ''}">${esc(tier ? p.date.slice(0, 5) : p.id)}</span>`;
+  const badge = `<span class="patch-ver ${tier || build ? 'patch-ver--date' : ''}">${esc(tier || build ? p.date.slice(0, 5) : p.id)}</span>`;
   return `<a class="patch ${p.id === state.current?.id ? 'is-active' : ''}" href="#${encodeURIComponent(p.id)}">
       ${badge}
       <span class="patch-info">
@@ -133,8 +128,8 @@ function renderSidebar() {
 function headChips(p) {
   const c = p.counts;
   if (p.kind === 'build') {
-    return `<span class="chip">${c.builds} BUILD</span>
-      ${c.items ? `<span class="chip">${c.items} TRANG BỊ</span>` : ''}
+    return `<span class="chip">${c.champions} TƯỚNG</span>
+      <span class="chip">3 BUILD / TƯỚNG</span>
       ${p.patch ? `<span class="chip">BẢN ${esc(p.patch)}</span>` : ''}`;
   }
   if (p.kind === 'tierlist') {

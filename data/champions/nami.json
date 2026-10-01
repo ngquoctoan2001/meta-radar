@@ -1,0 +1,70 @@
+{
+  "slug": "nami",
+  "name": "NAMI",
+  "title": "Nàng Tiên Cá",
+  "roles": [
+    "HỖ TRỢ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#243E47",
+    "secondary": "#DCF9E9",
+    "label": "#07171C"
+  },
+  "portrait": "assets/champions/nami/portrait.jpg",
+  "splash": "assets/champions/nami/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "NAMI, NÀNG TIÊN CÁ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Dậy Sóng",
+      "icon": "assets/champions/nami/skill-p.png",
+      "iconSize": 128,
+      "description": "Khi kỹ năng của Nami tung trúng tướng đồng minh, họ được tăng Tốc Độ Di Chuyển trong thoáng chốc."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Thủy Ngục",
+      "icon": "assets/champions/nami/skill-q.png",
+      "iconSize": 128,
+      "description": "Tung ra một bong bóng khổng lồ tới vị trí mục tiêu, gây sát thương và làm choáng tất cả kẻ địch trúng phải."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Thủy Triều",
+      "icon": "assets/champions/nami/skill-w.png",
+      "iconSize": 128,
+      "description": "Phóng ra một luồng nước nảy giữa đồng minh và kẻ địch, hồi máu cho đồng minh và gây sát thương cho kẻ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Ước Nguyện Tiên Cá",
+      "icon": "assets/champions/nami/skill-e.png",
+      "iconSize": 128,
+      "description": "Cường hóa một tướng đồng minh trong thoáng chốc. Các đòn đánh thường và phép của đồng minh gây thêm sát thương phép và làm chậm mục tiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Sóng Thần",
+      "icon": "assets/champions/nami/skill-r.png",
+      "iconSize": 128,
+      "description": "Triệu hồi một cơn Sóng Thần khổng lồ hất văng lên không, làm chậm, và sát thương tất cả kẻ địch trúng phải. Tướng đồng minh đứng trong phạm vi của Sóng Thần sẽ được nhận hiệu ứng Dậy Sóng gấp 2 lần."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/nami/",
+  "syncedAt": "2026-10-01"
+}

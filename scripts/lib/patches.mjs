@@ -78,19 +78,17 @@ async function listBuilds() {
   const list = [];
   for (const d of dirs.filter((x) => x.isDirectory())) {
     const b = await tryJSON(`builds/${d.name}/build.json`);
-    if (!b) continue;
-    const champ = await tryJSON(`data/champions/${b.champion}.json`);
+    if (!b?.champions) continue;
     list.push({
       kind: 'build',
       id: b.id,
       title: b.title,
       date: b.date,
+      role: b.role,
       patch: b.patch,
-      champion: b.champion,
-      portrait: champ?.portrait ?? null,
-      headline: b.verdict,
+      headline: b.slides.map((s) => s.title ?? s.champion).join(' · '),
       source: b.source,
-      counts: { builds: b.builds.length, items: b.itemNotes?.length ?? 0 },
+      counts: { champions: b.champions.length },
       slides: b.slides.map((s, i) => ({ ...s, label: s.title ?? s.id, status: null, index: i })),
     });
   }

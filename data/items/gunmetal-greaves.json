@@ -2,6 +2,8 @@
   "slug": "gunmetal-greaves",
   "name": "Gunmetal Greaves",
   "nameVi": "Giày Hắc Kim",
+  "cnId": "2412",
+  "cnName": "炮铜胫甲",
   "icon": "assets/items/gunmetal-greaves.png",
   "price": 2200,
   "tier": "Trang bị cao cấp",

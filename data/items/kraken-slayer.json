@@ -2,6 +2,8 @@
   "slug": "kraken-slayer",
   "name": "Kraken Slayer",
   "nameVi": "Móc Diệt Thủy Quái",
+  "cnId": "2292",
+  "cnName": "海妖杀手",
   "icon": "assets/items/kraken-slayer.png",
   "price": 2900,
   "tier": "Trang bị cao cấp",

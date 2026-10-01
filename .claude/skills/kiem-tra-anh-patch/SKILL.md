@@ -13,7 +13,7 @@ node scripts/render.mjs <patch>             # xuất toàn bộ (3840×2160) →
 node scripts/render.mjs <patch> samira      # chỉ vài ảnh (theo id trong "slides")
 node --test tests/*.test.js                 # khi sửa src/js/lib/values.js
 ```
-Tier list dùng cùng lệnh với id `tier-<ngày>` (vd `node scripts/audit.mjs tier-2026-09-30 --sheet`), ảnh lưu ở `tierlists/<id>/out/`; cách làm dữ liệu xem skill **tao-tier-list**.
+Tier list dùng cùng lệnh với id `tier-<ngày>` (vd `node scripts/audit.mjs tier-2026-09-30 --sheet`), ảnh lưu ở `tierlists/<id>/out/`; cách làm dữ liệu xem skill **tao-tier-list**. Build dùng id `build-<ngày>-<vai trò>` (vd `build-2026-10-01-adc`, ảnh ở `builds/<id>/out/`) — xem skill **tao-build**.
 Server tự bật tạm nếu chưa chạy. Nếu server của người dùng (`start.bat`) đang chạy code cũ, script tự nhận ra (so phiên bản API), in cảnh báo và dùng server riêng ở cổng kế tiếp — chỉ cần nhắc người dùng tắt `start.bat` rồi mở lại. Khi sửa API của `scripts/server.mjs` (tham số, nơi lưu ảnh…), tăng `API_VERSION` trong `scripts/lib/ensure-server.mjs`.
 
 Sửa `patch.json` / dữ liệu bằng công cụ Edit, không dùng `sed -i` (hệ thống quyền có thể chặn lệnh shell sửa file dữ liệu).

@@ -15,7 +15,7 @@
 .bd-splash::after {
   content: ''; position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(8, 6, 20, 0.7) 0%, transparent 16%),
+    linear-gradient(180deg, rgba(8, 6, 20, 0.88) 0%, rgba(8, 6, 20, 0.55) 11%, transparent 20%),
     linear-gradient(0deg, rgba(8, 6, 20, 0.97) 8%, rgba(8, 6, 20, 0.7) 44%, transparent 70%);
 }
 .bd-shade { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 30%, rgba(9, 7, 22, 0.75) 40%, rgba(9, 7, 22, 0.92) 52%); }
@@ -33,7 +33,10 @@
 }
 .bd-chip i svg { display: block; width: 24px; height: 24px; color: var(--accent); }
 .bd-chip b { font: 900 30px/1 var(--f-display); letter-spacing: 0; color: var(--c); padding-top: 3px; }
-.bd-chip[class*='is-t'] { border-color: rgb(var(--c-rgb) / 0.6); color: var(--c); }
+.bd-chip[class*='is-t'], .bd-chip--patch { border-color: rgb(var(--c-rgb) / 0.6); color: var(--c); }
+.bd-chip--patch i svg { color: var(--c); width: 22px; height: 22px; }
+.bd-chip--patch em { font-style: normal; text-transform: none; }
+.bd-chip { white-space: nowrap; }
 .bd-name {
   margin: 0 0 -14px; padding: 0.12em 20px 0.04em 0;
   font: 900 180px/0.86 var(--f-display); letter-spacing: 0.005em; text-transform: uppercase; white-space: nowrap;

@@ -1,0 +1,45 @@
+{
+  "slug": "the-collector",
+  "name": "The Collector",
+  "nameVi": "Súng Hải Tặc",
+  "cnId": "2280",
+  "cnName": "收集者",
+  "icon": "assets/items/the-collector.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Chí mạng"
+  ],
+  "color": "#4FD1E0",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+50"
+    },
+    {
+      "label": "Xuyên giáp",
+      "value": "+10"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    }
+  ],
+  "passives": [
+    "Về Với Cát Bụi",
+    "Lợi Tức"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2280) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+50 SMCK",
+      "+10 xuyên giáp",
+      "+25% chí mạng"
+    ],
+    "text": "Gây sát thương khiến tướng địch còn dưới 5% máu tối đa sẽ kết liễu ngay; mỗi lần kết liễu +0,1% ngưỡng (vĩnh viễn) và +25 vàng.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

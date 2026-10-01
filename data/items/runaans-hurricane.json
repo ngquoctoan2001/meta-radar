@@ -2,6 +2,8 @@
   "slug": "runaans-hurricane",
   "name": "Runaan's Hurricane",
   "nameVi": "Cuồng Cung Runaan",
+  "cnId": "2251",
+  "cnName": "卢安娜的飓风",
   "icon": "assets/items/runaans-hurricane.png",
   "price": 2650,
   "tier": "Trang bị cao cấp",

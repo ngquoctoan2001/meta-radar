@@ -1,0 +1,33 @@
+{
+  "slug": "the-bloodthirster",
+  "name": "The Bloodthirster",
+  "nameVi": "Huyết Kiếm",
+  "cnId": "2243",
+  "cnName": "饮血剑",
+  "icon": "assets/items/the-bloodthirster.png",
+  "price": 3200,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Hút máu"
+  ],
+  "color": "#E0407A",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+75"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2243) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+75 SMCK",
+      "+15% hút máu"
+    ],
+    "text": "Phần hút máu dư khi đầy máu chuyển thành khiên, tối đa 165–345 (theo cấp).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

@@ -1,19 +1,29 @@
 // Ảnh BUILD: bên trái tướng + đối đầu (mạnh / yếu / hỗ trợ hợp, mỗi nhóm 3 avatar), bên phải 3 build
-// (6 trang bị theo thứ tự + ngọc chính + 4 ngọc).
-// Dữ liệu: builds/<id>/build.json · ngọc: data/runes.json · trang bị: data/items/<slug>.json
+// (6 trang bị theo thứ tự + ngọc chính + 4 ngọc). Mỗi tướng trong bộ build = 1 ảnh.
+// Dữ liệu: builds/<id>/build.json (1 ngày + 1 vai trò, "champions": [...]) · ngọc: data/runes.json · trang bị: data/items/<slug>.json
 // renderBuildItems (giải thích trang bị, đọc "summary" trong data/items) để dành — hiện không đưa vào bộ ảnh.
-import { esc, topBar, footBar, background, ICON } from '../lib/ui.js';
+import { esc, topBar, footBar, background, ICON, STATUS, statusKey } from '../lib/ui.js';
 import { LANES } from './tier.js';
+import { ROLES, titleCase } from '../lib/roles.js';
 
 const BUILD_CLASS = ['is-b1', 'is-b2', 'is-b3'];
 const num = (n) => Number(n).toLocaleString('vi-VN', { maximumFractionDigits: 2 });
 const runeName = (r) => r?.vi ?? r?.en ?? r?.cn ?? '?';
 const itemName = (it) => it?.nameVi || it?.name || '?';
 const tag = (ctx) => ({ small: 'BẢN', value: ctx.build.patch ?? ctx.build.date });
-const sourceNote = (b) => `Nguồn: ${b.source} · ${b.date}`;
+const sourceNote = (b, name) => `Nguồn: Build của cao thủ ${name} · ${b.source} · ${b.date}`;
+const laneOf = (ctx, e) => e.lane ?? ROLES[ctx.build.role]?.lane;
+
+// Tướng của ảnh này trong bộ build
+function entryOf(ctx, slide) {
+  const e = ctx.build.champions?.find((c) => c.champion === slide.champion);
+  if (!e) throw new Error(`Bộ build không có tướng "${slide.champion}"`);
+  const champ = ctx.champions[e.champion];
+  return { e, champ, name: slide.title ?? titleCase(champ.name) };
+}
 
 // Giày luôn đứng cuối hàng (vị trí 6), dù ảnh chụp ghi ở vị trí nào — người dùng chốt quy ước này.
-export const isBoots = (it) => !!it && (it.tags?.includes('Giày') || /greaves|boots|treads|shoes/i.test(it.name ?? ''));
+export const isBoots = (it) => !!it && (it.tags?.includes('Giày') || /greaves|boots|treads|steelcaps|shoes/i.test(it.name ?? '') || /靴|胫甲|鞋/.test(it.cnName ?? ''));
 export const orderItems = (slugs, items) => [...slugs.filter((s) => !isBoots(items[s])), ...slugs.filter((s) => isBoots(items[s]))];
 
 // Splash cắt quanh khuôn mặt cho khung w×h (giống thẻ tier list), mặt đặt tại (ax, ay) của khung.
@@ -30,23 +40,25 @@ function art(champ, w, h, { zoom = 1, ax = 0.5, ay = 0.3 } = {}) {
 }
 
 // Bậc + tỉ lệ thắng của tướng ở đường này trong tier list gắn kèm (nếu có).
-function tierInfo(ctx) {
-  const lane = ctx.tierlist?.lanes.find((l) => l.lane === ctx.build.lane);
-  return lane?.champions.find((c) => c.slug === ctx.build.champion) ?? null;
+function tierInfo(ctx, e) {
+  const lane = ctx.tierlist?.lanes.find((l) => l.lane === laneOf(ctx, e));
+  return lane?.champions.find((c) => c.slug === e.champion) ?? null;
 }
 
 // ---------------- ảnh 1: 3 build ----------------
 const MATCHUP_ROWS = [
   { key: 'strong', cls: 'is-buff', icon: ICON.up, label: 'MẠNH', sub: 'KHI GẶP' },
   { key: 'weak', cls: 'is-nerf', icon: ICON.down, label: 'YẾU', sub: 'KHI GẶP' },
-  { key: 'synergy', cls: 'is-ally', icon: ICON.shield, label: 'HỢP', sub: 'VỚI HỖ TRỢ' },
+  { key: 'synergy', cls: 'is-ally', icon: ICON.shield, label: 'HỢP', sub: null },
 ];
+// "Hợp với …": vai trò hay đi cùng nhất theo đường (ghi đè bằng matchups.synergyLabel)
+const SYNERGY_SUB = { dragon: 'VỚI HỖ TRỢ', support: 'VỚI XẠ THỦ', jungle: 'VỚI ĐƯỜNG GIỮA', mid: 'VỚI ĐI RỪNG', baron: 'VỚI ĐI RỪNG' };
 
-function matchups(ctx) {
-  const m = ctx.build.matchups;
+function matchups(ctx, e) {
+  const m = e.matchups;
   if (!m) return '';
   const rows = MATCHUP_ROWS.filter((r) => m[r.key]?.length).map((r) => `<div class="mu-row ${r.cls}">
-      <div class="mu-label"><i>${r.icon}</i><span><b>${r.label}</b><small>${r.sub}</small></span></div>
+      <div class="mu-label"><i>${r.icon}</i><span><b>${r.label}</b><small>${esc(r.sub ?? m.synergyLabel ?? SYNERGY_SUB[laneOf(ctx, e)] ?? 'VỚI ĐỒNG ĐỘI')}</small></span></div>
       <div class="mu-avatars">${m[r.key].map((slug) => {
         const c = ctx.champions[slug];
         return `<img class="mu-avatar" src="/${esc(c.portrait)}" alt="${esc(c.name)}">`;
@@ -83,11 +95,19 @@ function buildCard(ctx, b, i, base) {
   </article>`;
 }
 
-export function renderBuild(ctx) {
-  const { build, champion } = ctx;
-  const lane = LANES[build.lane];
-  const tier = tierInfo(ctx);
-  const base = build.builds[0];
+// Tướng có thay đổi ở bản cập nhật gắn kèm → nhãn "▲ BUFF 7.3a" / "▼ NERF 7.3a" (như thẻ tier list).
+function patchChip(ctx, e) {
+  const st = ctx.patch?.champions?.find((c) => c.slug === e.champion)?.status;
+  if (!st) return '';
+  const k = statusKey(st);
+  return `<span class="bd-chip bd-chip--patch is-${k}"><i>${STATUS[k].icon}</i>${STATUS[k].label} <em>${esc(ctx.patch.id)}</em></span>`;
+}
+
+export function renderBuild(ctx, slide) {
+  const { e, champ: champion, name } = entryOf(ctx, slide);
+  const lane = LANES[laneOf(ctx, e)];
+  const tier = tierInfo(ctx, e);
+  const base = e.builds[0];
 
   return `<div class="slide slide--build">
     ${background(`<div class="bd-splash" style="${art(champion, 1000, 1080, { zoom: 1.05, ax: 0.36, ay: 0.26 })}"></div><div class="bd-shade"></div><div class="watermark bd-watermark">BUILD</div>`)}
@@ -95,20 +115,22 @@ export function renderBuild(ctx) {
     <section class="bd-hero">
       <div class="bd-chips">
         ${lane ? `<span class="bd-chip"><i>${lane.icon}</i>${esc(lane.name)}</span>` : ''}
-        ${tier ? `<span class="bd-chip is-${tier.tier.toLowerCase()}"><b>${esc(tier.tier)}</b>${num(tier.win)}% thắng</span>` : ''}
+        ${tier ? `<span class="bd-chip is-${tier.tier.toLowerCase()}"><b>${esc(tier.tier)}</b>${num(tier.win)}%</span>` : ''}
+        ${patchChip(ctx, e)}
       </div>
       <h1 class="bd-name" data-fit>${esc(champion.name)}</h1>
-      ${matchups(ctx)}
+      ${matchups(ctx, e)}
     </section>
-    <section class="bd-cards">${build.builds.map((b, i) => buildCard(ctx, b, i, base)).join('')}</section>
-    ${footBar(ctx, sourceNote(build))}
+    <section class="bd-cards">${e.builds.map((b, i) => buildCard(ctx, b, i, base)).join('')}</section>
+    ${footBar(ctx, sourceNote(ctx.build, name))}
   </div>`;
 }
 
 // ---------------- (để dành) giải thích trang bị ----------------
 // Đọc "summary" { flag, stats, text } trong data/items/<slug>.json của các món có trong build.
-export function renderBuildItems(ctx) {
-  const { build, champion } = ctx;
+export function renderBuildItems(ctx, slide) {
+  const { e, champ: champion, name } = entryOf(ctx, slide);
+  const build = e;
   const slugs = [...new Set(build.builds.flatMap((b) => b.items))].filter((s) => ctx.items[s]?.summary).slice(0, 9);
   const usedBy = (slug) => build.builds.map((b, i) => (b.items.includes(slug) ? i : -1)).filter((i) => i >= 0);
   const nNew = slugs.filter((s) => ctx.items[s].summary.flag === 'new').length;
@@ -142,6 +164,6 @@ export function renderBuildItems(ctx) {
       </div>
     </section>
     <section class="bi-grid">${cards}</section>
-    ${footBar(ctx, sourceNote(build))}
+    ${footBar(ctx, sourceNote(ctx.build, name))}
   </div>`;
 }

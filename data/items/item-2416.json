@@ -1,0 +1,34 @@
+{
+  "slug": "item-2416",
+  "name": "Immortal Greaves",
+  "nameVi": "Chiến Hài Bất Tử",
+  "nameTemp": true,
+  "cnId": "2416",
+  "cnName": "不朽战靴",
+  "icon": "assets/items/item-2416.png",
+  "price": 2000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Giày",
+    "Hút máu"
+  ],
+  "color": "#E04870",
+  "stats": [
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+45"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2416) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": [
+      "+45 tốc chạy",
+      "+12 SMCK",
+      "+5% hút máu toàn phần"
+    ],
+    "text": "Mỗi lần tham gia hạ gục +0,5% hút máu toàn phần (tối đa +5%). Trên 50% máu: +5% sát thương; dưới 50%: +12% hồi máu và khiên.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

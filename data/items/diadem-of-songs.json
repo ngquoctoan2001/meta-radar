@@ -2,6 +2,8 @@
   "slug": "diadem-of-songs",
   "name": "Diadem of Songs",
   "nameVi": "Vương Miện Khúc Ca",
+  "cnId": "2119",
+  "cnName": "歌之权冠",
   "icon": "assets/items/diadem-of-songs.png",
   "price": 2400,
   "tier": "Trang bị cao cấp",

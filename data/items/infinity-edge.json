@@ -2,6 +2,8 @@
   "slug": "infinity-edge",
   "name": "Infinity Edge",
   "nameVi": "Vô Cực Kiếm",
+  "cnId": "2245",
+  "cnName": "无尽之刃",
   "icon": "assets/items/infinity-edge.png",
   "price": 3400,
   "tier": "Trang bị cao cấp",

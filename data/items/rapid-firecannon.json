@@ -1,0 +1,44 @@
+{
+  "slug": "rapid-firecannon",
+  "name": "Rapid Firecannon",
+  "nameVi": "Đại Bác Liên Thanh",
+  "cnId": "2250",
+  "cnName": "疾射火炮",
+  "icon": "assets/items/rapid-firecannon.png",
+  "price": 2650,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Tầm xa"
+  ],
+  "color": "#FF7A3D",
+  "stats": [
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    },
+    {
+      "label": "Tốc độ đánh",
+      "value": "+40%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+4%"
+    }
+  ],
+  "passives": [
+    "Thiện Xạ"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2250) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "new",
+    "stats": [
+      "+25% chí mạng",
+      "+40% tốc đánh",
+      "+4% tốc chạy"
+    ],
+    "text": "Đòn tích điện được +35% tầm đánh (tối đa +150) và gây thêm 80 sát thương phép.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

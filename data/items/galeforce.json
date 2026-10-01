@@ -1,0 +1,45 @@
+{
+  "slug": "galeforce",
+  "name": "Galeforce",
+  "nameVi": "Cung Phong Linh",
+  "cnId": "2296",
+  "cnName": "狂风之力",
+  "icon": "assets/items/galeforce.png",
+  "price": 3100,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Lướt"
+  ],
+  "color": "#6FD3E8",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+60"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+4%"
+    }
+  ],
+  "passives": [
+    "Kích hoạt -",
+    "Giông Tố:"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2296) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+60 SMCK",
+      "+25% chí mạng",
+      "+4% tốc chạy"
+    ],
+    "text": "Kích hoạt: lướt một đoạn rồi bắn 3 phát vào kẻ địch ít máu nhất gần đó, tổng 40–125 (+35% SMCK cộng thêm) sát thương vật lý. Hồi 60 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

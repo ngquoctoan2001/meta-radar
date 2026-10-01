@@ -1,0 +1,70 @@
+{
+  "slug": "yuumi",
+  "name": "YUUMI",
+  "title": "Cô Mèo Ma Thuật",
+  "roles": [
+    "HỖ TRỢ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#321B19",
+    "secondary": "#DCF9E2",
+    "label": "#030101"
+  },
+  "portrait": "assets/champions/yuumi/portrait.jpg",
+  "splash": "assets/champions/yuumi/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "YUUMI, CÔ MÈO MA THUẬT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Mèo Đồng Hành",
+      "icon": "assets/champions/yuumi/skill-p.png",
+      "iconSize": 128,
+      "description": "Kỹ Năng và Đòn Đánh Cơ Bản của Yuumi sẽ định kỳ trao lá chắn cho cô. Nếu Yuumi đang Quấn Quýt với đồng minh hoặc quấn quýt với đồng minh trong vòng vài giây, họ cũng sẽ nhận lá chắn tương tự. Khi đang Quấn Quýt với đồng minh, Yuumi trao cho họ cộng dồn Tình Bạn mỗi khi họ hạ gục lính hoặc tướng địch. Đồng minh có cộng dồn Tình Bạn cao nhất sẽ trở thành Bạn Chí Cốt của Yuumi, và những kỹ năng của cô lên Bạn Chí Cốt sẽ được cường hóa."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "MŨI TÊN THƠ THẨN",
+      "icon": "assets/champions/yuumi/skill-q.png",
+      "iconSize": 128,
+      "description": "Yuumi bắn ra 1 mũi tên gây Sát Thương Phép cho mục tiêu đầu tiên trúng phải. Nó gây thêm sát thương và Làm Chậm nếu mất ít nhất 1 giây trước khi đến chỗ mục tiêu. Khi Quấn Quýt, mũi tên có thể được điều khiển bằng con trỏ. Thưởng Bạn Chí Cốt: Làm Chậm khi đánh trúng, và khi đánh trúng tướng địch, đồng minh được Yuumi Quấn Quýt sẽ gây thêm sát thương phép lên mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "NHƯ HÌNH VỚI BÓNG!",
+      "icon": "assets/champions/yuumi/skill-w.png",
+      "iconSize": 128,
+      "description": "Nội tại: Khi Yuumi Quấn Quýt với Bạn Chí Cốt, cô được tăng hiệu lực Hồi Máu và Tạo Lá Chắn, đồng thời Bạn Chí Cốt cũng nhận được hiệu ứng Hồi Máu cộng thêm. Kích hoạt: Yuumi lướt tới một đồng minh mục tiêu, trở nên không thể bị chỉ định bởi bất kỳ thứ gì ngoài trụ."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TĂNG ĐỘNG",
+      "icon": "assets/champions/yuumi/skill-e.png",
+      "iconSize": 128,
+      "description": "Yuumi tự tạo Lá Chắn và tăng Tốc Độ Đánh cho mình. Cô cũng được tăng Tốc Độ Di Chuyển khi Lá Chắn còn tồn tại. Nếu Yuumi đang Quấn Quýt, Tăng Động sẽ áp dụng hiệu ứng cho đồng minh."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "CHƯƠNG CUỐI",
+      "icon": "assets/champions/yuumi/skill-r.png",
+      "iconSize": 128,
+      "description": "Yuumi phóng 5 đợt sóng về hướng chỉ định. Khi đang Quấn Quýt, Yuumi có thể điều hướng các đợt sóng. Tách khỏi đồng minh sẽ chấm dứt khả năng điều hướng. Tướng đồng minh trúng đợt sóng sẽ được Hồi Máu, Bạn Chí Cốt được Hồi Máu nhiều hơn. Hồi Máu phụ trội được chuyển thành Lá Chắn. Kẻ địch trúng đợt sóng sẽ nhận Sát Thương Phép và bị Làm Chậm. Hiệu ứng Làm Chậm cộng dồn và làm mới mỗi lần trúng chiêu."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/yuumi/",
+  "syncedAt": "2026-10-01"
+}

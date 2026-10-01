@@ -1,0 +1,41 @@
+{
+  "slug": "mercurial-scimitar",
+  "name": "Mercurial Scimitar",
+  "nameVi": "Đao Thủy Ngân",
+  "cnId": "2297",
+  "cnName": "水银弯刀",
+  "icon": "assets/items/mercurial-scimitar.png",
+  "price": 3100,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Giải khống chế"
+  ],
+  "color": "#8FE36A",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+45"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+40"
+    }
+  ],
+  "passives": [
+    "KÍCH HOẠT",
+    "Áo Choàng Thủy Ngân"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2297) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+45 SMCK",
+      "+40 kháng phép",
+      "+12% hút máu"
+    ],
+    "text": "Kích hoạt: xoá mọi khống chế, miễn khống chế 0,25 giây rồi +30% kháng hiệu ứng và kháng làm chậm 1,5 giây. Hồi 60 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

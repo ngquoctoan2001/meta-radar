@@ -2,6 +2,8 @@
   "slug": "deaths-dance",
   "name": "Death's Dance",
   "nameVi": "Vũ Điệu Tử Thần",
+  "cnId": "2257",
+  "cnName": "死亡之舞",
   "icon": "assets/items/deaths-dance.png",
   "price": 3200,
   "tier": "Trang bị cao cấp",

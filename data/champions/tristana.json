@@ -62,7 +62,11 @@
     }
   ],
   "layout": {
-    "focusX": 0.63
+    "focusX": 0.63,
+    "face": {
+      "x": 0.655,
+      "y": 0.27
+    }
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/tristana/",
   "syncedAt": "2026-09-30"

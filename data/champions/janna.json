@@ -1,0 +1,70 @@
+{
+  "slug": "janna",
+  "name": "JANNA",
+  "title": "Cơn Thịnh Nộ Của Bão Tố",
+  "roles": [
+    "HỖ TRỢ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#2A4854",
+    "secondary": "#DCF9F7",
+    "label": "#0B222C"
+  },
+  "portrait": "assets/champions/janna/portrait.jpg",
+  "splash": "assets/champions/janna/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "JANNA, CƠN THỊNH NỘ CỦA BÃO TỐ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Thuận Gió",
+      "icon": "assets/champions/janna/skill-p.png",
+      "iconSize": 128,
+      "description": "Nội tại cho Janna tốc độ di chuyển và các đồng minh gần đó được tăng tốc tương tự."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Gió Lốc",
+      "icon": "assets/champions/janna/skill-q.png",
+      "iconSize": 128,
+      "description": "Janna triệu hồi một cơn lốc xoáy mạnh mẽ, gây sát thương và hất tung những kẻ địch trên đường nó đi qua."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Gió Tây",
+      "icon": "assets/champions/janna/skill-w.png",
+      "iconSize": 128,
+      "description": "Janna tăng tốc độ di chuyển. Linh hồn thần gió gây ảnh hưởng đến hai tướng trong tầm gần nhất, trao cho các đồng minh tốc độ di chuyển và gây sát thương lên kẻ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Mắt Bão",
+      "icon": "assets/champions/janna/skill-e.png",
+      "iconSize": 128,
+      "description": "Janna tạo ra một luồng gió bao phủ lên bản thân, đồng minh hoặc trụ trong tầm ảnh hưởng. Lớp giáp gió này đồng thời có hiệu ứng tăng sức mạnh công kích."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Gió Mùa",
+      "icon": "assets/champions/janna/skill-r.png",
+      "iconSize": 128,
+      "description": "Janna gọi ra một cơn bão cực mạnh, đẩy lùi những kẻ địch xung quanh đi và đồng thời hồi lại máu cho các đồng minh cạnh bên."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/janna/",
+  "syncedAt": "2026-10-01"
+}

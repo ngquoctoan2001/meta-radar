@@ -141,62 +141,71 @@ async function validateTierlist(t, folder) {
   return { errors, notes };
 }
 
-// Kiểm tra build.json.
+// Kiểm tra build.json (bộ build: 1 ngày + 1 vai trò, nhiều tướng).
+const ROLE_KEYS = ['adc', 'top', 'jungle', 'mid', 'sp'];
+const isBootsItem = (it) => !!it && (it.tags?.includes('Giày') || /greaves|boots|treads|steelcaps|shoes/i.test(it.name ?? '') || /靴|胫甲|鞋/.test(it.cnName ?? ''));
 async function validateBuild(b, folder) {
   const errors = [];
   const notes = [];
   if (b.id !== folder) errors.push(`"id" là "${b.id}" nhưng thư mục là "${folder}"`);
-  const champ = await loadJSON(`data/champions/${b.champion}.json`);
-  if (!champ) errors.push(`chưa có data/champions/${b.champion}.json → fetch-champion.mjs`);
-  else if (!champ.layout?.face) notes.push(`${b.champion}: chưa đo khuôn mặt → splash-grid.mjs ${b.champion} --face=x,y`);
+  if (!ROLE_KEYS.includes(b.role)) errors.push(`"role" = "${b.role}" không hợp lệ (${ROLE_KEYS.join(', ')})`);
   if (b.tierlist && !(await exists(`tierlists/${b.tierlist}/tierlist.json`))) errors.push(`"tierlist": không có tierlists/${b.tierlist}`);
   if (b.patch && !(await exists(`patches/${b.patch}/patch.json`))) notes.push(`"patch": không có patches/${b.patch} (chỉ dùng làm nhãn phiên bản)`);
   const runes = await loadJSON('data/runes.json');
   if (!runes) errors.push('chưa có data/runes.json → node scripts/fetch-runes.mjs');
-  if (!b.builds?.length || b.builds.length > 3) errors.push(`cần 1–3 build (đang có ${b.builds?.length ?? 0})`);
-  for (const [i, x] of (b.builds ?? []).entries()) {
-    const w = `build ${i + 1}`;
-    for (const k of ['title', 'team', 'enemy']) if (!x[k]) errors.push(`${w}: thiếu "${k}"`);
-    if (x.items?.length !== 6) errors.push(`${w}: cần đúng 6 trang bị (đang có ${x.items?.length ?? 0})`);
-    const boots = [];
-    for (const s of x.items ?? []) {
-      const it = await loadJSON(`data/items/${s}.json`);
-      if (it && (it.tags?.includes('Giày') || /greaves|boots|treads|shoes/i.test(it.name ?? ''))) boots.push(s);
+  if (!b.champions?.length) errors.push('chưa có tướng nào trong "champions"');
+
+  const noSummary = new Set();
+  const synergyTrios = new Map();
+  for (const e of b.champions ?? []) {
+    const who = e.champion;
+    const champ = await loadJSON(`data/champions/${who}.json`);
+    if (!champ) errors.push(`${who}: chưa có data/champions/${who}.json → fetch-champion.mjs`);
+    else if (!champ.layout?.face) notes.push(`${who}: chưa đo khuôn mặt → splash-grid.mjs ${who} --face=x,y`);
+    if (!b.slides?.some((s) => s.champion === who)) errors.push(`${who}: chưa có ảnh trong "slides"`);
+    if (!e.builds?.length || e.builds.length > 3) errors.push(`${who}: cần 1–3 build (đang có ${e.builds?.length ?? 0})`);
+    const bootsUsed = new Set();
+    for (const [i, x] of (e.builds ?? []).entries()) {
+      const w = `${who} · build ${i + 1}`;
+      for (const k of ['title', 'team', 'enemy']) if (!x[k]) errors.push(`${w}: thiếu "${k}"`);
+      if (x.items?.length !== 6) errors.push(`${w}: cần đúng 6 trang bị (đang có ${x.items?.length ?? 0})`);
+      const boots = [];
+      for (const s of x.items ?? []) {
+        const it = await loadJSON(`data/items/${s}.json`);
+        if (!it) { errors.push(`${w}: chưa có data/items/${s}.json → fetch-item.mjs`); continue; }
+        if (isBootsItem(it)) boots.push(s);
+        if (!it.summary) noSummary.add(s);
+      }
+      boots.forEach((s) => bootsUsed.add(s));
+      if (boots.length > 1) notes.push(`${w}: có ${boots.length} đôi giày (${boots.join(', ')})`);
+      if (boots.length === 1 && x.items.at(-1) !== boots[0]) notes.push(`${w}: giày (${boots[0]}) không ở vị trí 6 — ảnh tự xếp giày xuống cuối, nên sửa thứ tự trong build.json cho khớp`);
+      if (x.runes?.length !== 5) errors.push(`${w}: cần đúng 5 ngọc (1 ngọc chính + 4) — đang có ${x.runes?.length ?? 0}`);
+      for (const r of x.runes ?? []) if (runes && !runes.runes.some((y) => y.id === r)) errors.push(`${w}: không có ngọc mã "${r}" trong data/runes.json`);
+      if (runes && x.runes?.[0] && runes.runes.find((y) => y.id === x.runes[0])?.type !== 'keystone') errors.push(`${w}: ngọc đầu tiên phải là ngọc chính`);
+      if (x.spells?.length !== 2) errors.push(`${w}: cần đúng 2 phép bổ trợ`);
+      for (const k of x.spells ?? []) if (runes && !runes.spells.some((y) => y.key === k)) errors.push(`${w}: không có phép bổ trợ "${k}"`);
     }
-    if (boots.length > 1) notes.push(`${w}: có ${boots.length} đôi giày (${boots.join(', ')})`);
-    if (boots.length === 1 && x.items.at(-1) !== boots[0]) notes.push(`${w}: giày (${boots[0]}) không ở vị trí 6 — ảnh tự xếp giày xuống cuối, nên sửa thứ tự trong build.json cho khớp`);
-    for (const s of x.items ?? []) {
-      const it = await loadJSON(`data/items/${s}.json`);
-      if (!it) errors.push(`${w}: chưa có data/items/${s}.json → fetch-item.mjs`);
-      else if (!it.nameVi) notes.push(`${w}: ${s} chưa có tên tiếng Việt (nameVi)`);
+    if (bootsUsed.size > 1) notes.push(`${who}: các build đi giày khác nhau (${[...bootsUsed].join(', ')}) — quy ước: cùng một đôi`);
+    const m = e.matchups ?? {};
+    for (const [k, label] of [['strong', 'mạnh khi gặp'], ['weak', 'yếu khi gặp'], ['synergy', 'hợp với']]) {
+      if (m[k]?.length !== 3) { errors.push(`${who} · matchups.${k} (${label}): cần đúng 3 tướng (đang có ${m[k]?.length ?? 0})`); if (!m[k]?.length) continue; }
+      for (const slug of m[k]) {
+        const c = await loadJSON(`data/champions/${slug}.json`);
+        if (!c) errors.push(`${who} · matchups.${k}: chưa có data/champions/${slug}.json → fetch-champion.mjs`);
+        else if (!(await exists(c.portrait))) errors.push(`${who} · matchups.${k}: thiếu ảnh ${c.portrait}`);
+      }
     }
-    if (x.runes?.length !== 5) errors.push(`${w}: cần đúng 5 ngọc (1 ngọc chính + 4) — đang có ${x.runes?.length ?? 0}`);
-    for (const r of x.runes ?? []) {
-      const rune = runes?.runes.find((y) => y.id === r);
-      if (!rune) errors.push(`${w}: không có ngọc mã "${r}" trong data/runes.json`);
-      else if (!rune.vi) notes.push(`${w}: ngọc ${rune.cn} (${rune.en}) chưa có tên tiếng Việt`);
+    if (m.synergy?.length) {
+      const key = [...m.synergy].sort().join(',');
+      if (synergyTrios.has(key)) notes.push(`${who}: "hợp với" trùng hệt ${synergyTrios.get(key)} (${key}) — nên chọn theo lối chơi từng tướng`);
+      else synergyTrios.set(key, who);
     }
-    if (runes && x.runes?.[0] && runes.runes.find((y) => y.id === x.runes[0])?.type !== 'keystone') errors.push(`${w}: ngọc đầu tiên phải là ngọc chính`);
-    if (x.spells?.length !== 2) errors.push(`${w}: cần đúng 2 phép bổ trợ`);
-    for (const k of x.spells ?? []) if (runes && !runes.spells.some((y) => y.key === k)) errors.push(`${w}: không có phép bổ trợ "${k}"`);
   }
-  const m = b.matchups ?? {};
-  for (const [k, label] of [['strong', 'mạnh khi gặp'], ['weak', 'yếu khi gặp'], ['synergy', 'hỗ trợ hợp']]) {
-    if (!m[k]?.length) { notes.push(`matchups.${k} (${label}): chưa có`); continue; }
-    if (m[k].length !== 3) notes.push(`matchups.${k} (${label}): nên đúng 3 tướng (đang có ${m[k].length})`);
-    for (const slug of m[k]) {
-      const c = await loadJSON(`data/champions/${slug}.json`);
-      if (!c) errors.push(`matchups.${k}: chưa có data/champions/${slug}.json → fetch-champion.mjs`);
-      else if (!(await exists(c.portrait))) errors.push(`matchups.${k}: thiếu ảnh ${c.portrait}`);
-    }
+  if (noSummary.size) notes.push(`chưa có giải thích ("summary") cho: ${[...noSummary].join(', ')} — không bắt buộc, để dành`);
+  for (const s of b.slides ?? []) {
+    if (!['build', 'build-items'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build, build-items)`);
+    if (!b.champions?.some((c) => c.champion === s.champion)) errors.push(`slides: "${s.id}" trỏ tới tướng "${s.champion}" không có trong champions`);
   }
-  const noSummary = [];
-  for (const it of new Set((b.builds ?? []).flatMap((x) => x.items ?? []))) {
-    const d = await loadJSON(`data/items/${it}.json`);
-    if (d && !d.summary) noSummary.push(it);
-  }
-  if (noSummary.length) notes.push(`chưa có giải thích ("summary") cho: ${noSummary.join(', ')} — không bắt buộc, để dành`);
-  for (const s of b.slides ?? []) if (!['build', 'build-items'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build, build-items)`);
   return { errors, notes };
 }
 

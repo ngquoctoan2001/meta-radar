@@ -2,6 +2,8 @@
   "slug": "blade-of-the-ruined-king",
   "name": "Blade of The Ruined King",
   "nameVi": "Gươm Suy Vong",
+  "cnId": "2242",
+  "cnName": "破败王者之刃",
   "icon": "assets/items/blade-of-the-ruined-king.png",
   "price": 3100,
   "tier": "Trang bị cao cấp",

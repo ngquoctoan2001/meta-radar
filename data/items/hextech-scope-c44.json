@@ -2,6 +2,8 @@
   "slug": "hextech-scope-c44",
   "name": "Hextech Scope C44",
   "nameVi": "Thấu Kính Hextech C44",
+  "cnId": "2237",
+  "cnName": "海克斯镜片 C44",
   "icon": "assets/items/hextech-scope-c44.png",
   "price": 2900,
   "tier": "Trang bị cao cấp",

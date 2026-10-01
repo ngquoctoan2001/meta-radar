@@ -2,6 +2,8 @@
   "slug": "phantom-dancer",
   "name": "Phantom Dancer",
   "nameVi": "Ma Vũ Song Kiếm",
+  "cnId": "2260",
+  "cnName": "幻影之舞",
   "icon": "assets/items/phantom-dancer.png",
   "price": 2650,
   "tier": "Trang bị cao cấp",

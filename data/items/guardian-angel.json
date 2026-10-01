@@ -1,0 +1,38 @@
+{
+  "slug": "guardian-angel",
+  "name": "Guardian Angel",
+  "nameVi": "Giáp Thiên Thần",
+  "cnId": "2259",
+  "cnName": "守护天使",
+  "icon": "assets/items/guardian-angel.png",
+  "price": 3200,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Hồi sinh"
+  ],
+  "color": "#FFD27A",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+45"
+    },
+    {
+      "label": "Giáp",
+      "value": "+40"
+    }
+  ],
+  "passives": [
+    "Tái Sinh"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2259) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": [
+      "+45 SMCK",
+      "+40 giáp"
+    ],
+    "text": "Nhận đòn chí mạng: hóa đá 4 giây rồi hồi sinh với 50% máu cơ bản và 100% năng lượng. Hồi 180 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

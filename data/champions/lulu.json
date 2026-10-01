@@ -1,0 +1,70 @@
+{
+  "slug": "lulu",
+  "name": "LULU",
+  "title": "Pháp Sư Tinh Linh",
+  "roles": [
+    "HỖ TRỢ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#1A120D",
+    "secondary": "#F9EFDC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/lulu/portrait.jpg",
+  "splash": "assets/champions/lulu/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "LULU, PHÁP SƯ TINH LINH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BẠN ĐỒNG HÀNH PIX",
+      "icon": "assets/champions/lulu/skill-p.png",
+      "iconSize": 128,
+      "description": "Pix sẽ bắn ra tia chớp ma thuật khi vị tướng mà nó bám vào tấn công kẻ thù. Tia chớp sẽ tự động xác định mục tiêu nhưng vẫn có thể bị chặn bởi các đơn vị khác."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "NGỌN THƯƠNG ÁNH SÁNG",
+      "icon": "assets/champions/lulu/skill-q.png",
+      "iconSize": 128,
+      "description": "Pix và Lulu cùng bắn ra tia chớp ma thuật làm chậm mọi kẻ địch trúng phải."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BIẾN HÓA",
+      "icon": "assets/champions/lulu/skill-w.png",
+      "iconSize": 128,
+      "description": "Nếu niệm lên đồng minh, tăng cho đồng minh đó Tốc Độ Đánh và Tốc Độ Di Chuyển trong thời gian ngắn. Nếu niệm lên kẻ địch, hoá nhỏ kẻ địch đó thành một sinh vật dễ thương không thể tấn công và sử dụng kỹ năng."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "GIÚP NÀO PIX!",
+      "icon": "assets/champions/lulu/skill-e.png",
+      "iconSize": 128,
+      "description": "Nếu niệm lên đồng minh, Pix sẽ bám vào mục tiêu và tạo lá chắn bảo vệ đồng thời hỗ trợ các đòn tấn công của đồng minh đó. Nếu niệm lên kẻ địch, Pix sẽ bám vào nạn nhân và gây sát thương đồng thời cho tầm nhìn trên kẻ địch đó."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "KHỔNG LỒ HÓA",
+      "icon": "assets/champions/lulu/skill-r.png",
+      "iconSize": 128,
+      "description": "Lulu hóa lớn 1 đồng minh (hoặc bản thân), hất kẻ địch ở gần lên không đồng thời tăng cho mục tiêu một lượng máu lớn. Trong vòng vài giây kế tiếp, đồng minh đó sở hữu hào quang làm chậm tất cả kẻ địch xung quanh."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/lulu/",
+  "syncedAt": "2026-10-01"
+}

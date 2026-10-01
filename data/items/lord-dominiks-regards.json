@@ -2,6 +2,8 @@
   "slug": "lord-dominiks-regards",
   "name": "Lord Dominik's Regards",
   "nameVi": "Nỏ Thần Dominik",
+  "cnId": "2278",
+  "cnName": "多米尼克领主的致意",
   "icon": "assets/items/lord-dominiks-regards.png",
   "price": 3300,
   "tier": "Trang bị cao cấp",

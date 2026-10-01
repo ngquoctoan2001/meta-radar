@@ -1,0 +1,50 @@
+{
+  "slug": "statikk-shiv",
+  "name": "Statikk Shiv",
+  "nameVi": "Dao Điện Statikk",
+  "cnId": "2240",
+  "cnName": "斯塔缇克电刃",
+  "icon": "assets/items/statikk-shiv.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Dọn lính"
+  ],
+  "color": "#7FD8FF",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+40"
+    },
+    {
+      "label": "Tốc độ đánh",
+      "value": "+30%"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+40"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+4%"
+    }
+  ],
+  "passives": [
+    "Phóng Điện",
+    "Điện Giật"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2240) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "new",
+    "stats": [
+      "+40 SMCK",
+      "+30% tốc đánh",
+      "+40 SMPT",
+      "+4% tốc chạy"
+    ],
+    "text": "Di chuyển và đánh thường tích điện; đòn tích đầy phóng sét nảy 4–7 mục tiêu (theo cấp), 60 sát thương phép (90 lên lính, quái).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

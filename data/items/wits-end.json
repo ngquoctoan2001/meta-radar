@@ -1,0 +1,44 @@
+{
+  "slug": "wits-end",
+  "name": "Wit's End",
+  "nameVi": "Đao Tím",
+  "cnId": "2266",
+  "cnName": "智慧末刃",
+  "icon": "assets/items/wits-end.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Kháng phép"
+  ],
+  "color": "#B06BFF",
+  "stats": [
+    {
+      "label": "Tốc độ đánh",
+      "value": "+50%"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+45"
+    },
+    {
+      "label": "Kháng hiệu ứng",
+      "value": "+20%"
+    }
+  ],
+  "passives": [
+    "Xé Toạc"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2266) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": [
+      "+50% tốc đánh",
+      "+45 kháng phép",
+      "+20% kháng hiệu ứng"
+    ],
+    "text": "Đánh thường gây thêm 40 sát thương phép.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

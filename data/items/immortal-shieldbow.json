@@ -1,0 +1,39 @@
+{
+  "slug": "immortal-shieldbow",
+  "name": "Immortal Shieldbow",
+  "nameVi": "Nỏ Tử Thủ",
+  "cnId": "2279",
+  "cnName": "不朽盾弓",
+  "icon": "assets/items/immortal-shieldbow.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Xạ thủ",
+    "Chí mạng"
+  ],
+  "color": "#E04848",
+  "stats": [
+    {
+      "label": "Sức mạnh công kích",
+      "value": "+55"
+    },
+    {
+      "label": "Tỉ lệ chí mạng",
+      "value": "+25%"
+    }
+  ],
+  "passives": [
+    "Bảo Hiểm Ma Pháp"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2279) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "new",
+    "stats": [
+      "+55 SMCK",
+      "+25% chí mạng"
+    ],
+    "text": "Trúng đòn khiến máu tụt dưới 35%: nhận khiên 300–550 (đánh xa) trong 3 giây. Hồi 70 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 01/10/2026"
+  }
+}

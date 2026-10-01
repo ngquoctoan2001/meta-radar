@@ -45,21 +45,22 @@ export async function loadTierlistBundle(id) {
   return { brand, tierlist, patch, previous, champions, slides: tierlist.slides };
 }
 
-// Build: tướng + trang bị trong các build + ngọc/phép bổ trợ + tướng đối đầu / hỗ trợ hợp (avatar)
-// + tier list (bậc, tỉ lệ thắng).
+// Bộ build (1 ngày + 1 vai trò, nhiều tướng): tướng + tướng đối đầu / hỗ trợ hợp (avatar) + trang bị
+// + ngọc/phép bổ trợ + tier list (bậc, tỉ lệ thắng) + bản cập nhật (nhãn BUFF/NERF).
 export async function loadBuildBundle(id) {
   const [brand, build, runeData] = await Promise.all([loadBrand(), loadPatch(id), getJSON('/data/runes.json')]);
-  const slugs = [...new Set(build.builds.flatMap((b) => b.items))];
-  const m = build.matchups ?? {};
-  const [champion, tierlist, items, champions] = await Promise.all([
-    loadChampion(build.champion),
+  const entries = build.champions ?? [];
+  const slugs = [...new Set(entries.flatMap((e) => e.builds.flatMap((b) => b.items)))];
+  const heroes = entries.flatMap((e) => [e.champion, ...Object.values(e.matchups ?? {}).filter(Array.isArray).flat()]);
+  const [tierlist, patch, items, champions] = await Promise.all([
     build.tierlist ? loadPatch(build.tierlist) : null,
+    build.patch ? loadPatch(build.patch).catch(() => null) : null,
     Promise.all(slugs.map(async (s) => [s, await loadItem(s)])).then(Object.fromEntries),
-    loadChampions([...(m.strong ?? []), ...(m.weak ?? []), ...(m.synergy ?? [])]),
+    loadChampions(heroes),
   ]);
   const runes = Object.fromEntries(runeData.runes.map((r) => [r.id, r]));
   const spells = Object.fromEntries(runeData.spells.map((s) => [s.key, s]));
-  return { brand, build, champion, tierlist, items, runes, spells, champions, slides: build.slides };
+  return { brand, build, tierlist, patch, items, runes, spells, champions, slides: build.slides };
 }
 
 const LOADERS = { patch: loadPatchBundle, tierlist: loadTierlistBundle, build: loadBuildBundle };

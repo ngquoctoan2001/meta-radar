@@ -1,0 +1,70 @@
+{
+  "slug": "alistar",
+  "name": "ALISTAR",
+  "title": "Quái Vật Đầu Bò",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#1E150F",
+    "secondary": "#F9ECDC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/alistar/portrait.jpg",
+  "splash": "assets/champions/alistar/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "ALISTAR, QUÁI VẬT ĐẦU BÒ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Tiếng Gầm Chiến Thắng",
+      "icon": "assets/champions/alistar/skill-p.png",
+      "iconSize": 128,
+      "description": "Alistar cộng dồn tiếng gầm bằng cách làm choáng hoặc đẩy lùi tướng địch hoặc khi có kẻ địch gần đó chết. Khi nạp đầy cộng dồn, hắn hồi máu cho mình và tất cả tướng đồng minh gần đó."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Nghiền Nát",
+      "icon": "assets/champions/alistar/skill-q.png",
+      "iconSize": 128,
+      "description": "Alistar dộng xuống đất, gây sát thương lên kẻ địch gần đó và hất chúng lên không."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Bò Húc",
+      "icon": "assets/champions/alistar/skill-w.png",
+      "iconSize": 128,
+      "description": "Alistar húc mục tiêu, gây sát thương và hất văng nạn nhân đi. Có thể chọn trụ làm mục tiêu và sẽ gây thêm sát thương lên trụ."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Giày Xéo",
+      "icon": "assets/champions/alistar/skill-e.png",
+      "iconSize": 128,
+      "description": "Alistar giày xéo các đơn vị địch gần đó, đi xuyên vật thể và nhận một cộng dồn nếu gây sát thương tướng địch. Khi nạp đầy cộng dồn, đòn đánh tiếp theo của Alistar lên tướng địch gây thêm sát thương phép và làm choáng chúng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Bất Khuất",
+      "icon": "assets/champions/alistar/skill-r.png",
+      "iconSize": 128,
+      "description": "Alistar gầm lên một tiếng, loại bỏ mọi trạng thái khống chế, và giảm sát thương vật lý và phép gánh chịu trong thời gian tác dụng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/alistar/",
+  "syncedAt": "2026-10-01"
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "milio",
+  "name": "MILIO",
+  "title": "NGỌN LỬA DỊU ÊM",
+  "roles": [
+    "HỖ TRỢ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#393E1F",
+    "secondary": "#F9EFDC",
+    "label": "#0F1104"
+  },
+  "portrait": "assets/champions/milio/portrait.jpg",
+  "splash": "assets/champions/milio/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "MILIO, NGỌN LỬA DỊU ÊM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "NỔI LỬA!",
+      "icon": "assets/champions/milio/skill-p.png",
+      "iconSize": 512,
+      "description": "Các kỹ năng của Milio phù phép cho đồng minh khi chạm vào họ, khiến đòn đánh tiếp theo của đồng minh gây thêm sát thương và thiêu đốt mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "HỎA CƯỚC SIÊU CƯỜNG",
+      "icon": "assets/champions/milio/skill-q.png",
+      "iconSize": 512,
+      "description": "Sút một quả bóng đẩy lùi kẻ địch. Quả bóng nảy về hướng kẻ địch, gây sát thương và làm chậm kẻ địch trong vùng ảnh hưởng khi va chạm."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "LỬA TRẠI ẤM CÚNG",
+      "icon": "assets/champions/milio/skill-w.png",
+      "iconSize": 512,
+      "description": "Tạo một vùng cường hóa có khả năng hồi máu và tăng Tầm Đánh cho các đồng minh ở bên trong. Vùng này sẽ bám theo đồng minh đứng gần vị trí thi triển nhất."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "CÁI ÔM ẤM ÁP",
+      "icon": "assets/champions/milio/skill-e.png",
+      "iconSize": 512,
+      "description": "Milio tạo lá chắn cho một đồng minh, tăng Tốc Độ Di Chuyển của đồng minh đó trong thời gian ngắn. Kĩ năng này có 2 tích trữ."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HƠI THỞ SỰ SỐNG",
+      "icon": "assets/champions/milio/skill-r.png",
+      "iconSize": 512,
+      "description": "Milio giải phóng một đợt sóng lửa trị thương có khả năng hồi máu và loại bỏ hiệu ứng khống chế cho đồng minh trong phạm vi."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/milio/",
+  "syncedAt": "2026-10-01"
+}

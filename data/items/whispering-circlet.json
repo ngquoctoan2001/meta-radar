@@ -2,6 +2,8 @@
   "slug": "whispering-circlet",
   "name": "Whispering Circlet",
   "nameVi": "Vòng Thì Thầm",
+  "cnId": "2118",
+  "cnName": "耳语头环",
   "icon": "assets/items/whispering-circlet.png",
   "price": 2400,
   "tier": "Trang bị cao cấp",
