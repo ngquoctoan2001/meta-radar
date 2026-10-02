@@ -1,0 +1,40 @@
+{
+  "slug": "nashors-tooth",
+  "name": "Nashor's Tooth",
+  "nameVi": "Nanh Nashor",
+  "cnId": "2151",
+  "cnName": "纳什之牙",
+  "icon": "assets/items/nashors-tooth.png",
+  "price": 2900,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Tốc đánh"
+  ],
+  "color": "#B86BFF",
+  "stats": [
+    {
+      "label": "Tốc độ đánh",
+      "value": "+50%"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+80"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "passives": [
+    "Vết Cắn Icathia"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2151) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+50% tốc đánh", "+80 SMPT", "+15 điểm hồi kỹ năng"],
+    "text": "Đòn đánh thường gây thêm 15 + 20% SMPT cộng thêm sát thương phép (hiệu ứng đòn đánh).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "aurelion-sol",
+  "name": "AURELION SOL",
+  "title": "Ác Long Thượng Giới",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#161B2D",
+    "secondary": "#F9DCF9",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/aurelion-sol/portrait.jpg",
+  "splash": "assets/champions/aurelion-sol/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "AURELION SOL, ÁC LONG THƯỢNG GIỚI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "KHỞI LẬP VŨ TRỤ",
+      "icon": "assets/champions/aurelion-sol/skill-p.png",
+      "iconSize": 128,
+      "description": "Các Kỹ Năng gây sát thương của Aurelion Sol sẽ nghiền nát kẻ địch thành các cộng dồn Bụi Sao vĩnh viễn và cải thiện từng kỹ năng của ông."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "HƠI THỞ HỎA TINH",
+      "icon": "assets/champions/aurelion-sol/skill-q.png",
+      "iconSize": 128,
+      "description": "Aurelion Sol bắn ra hơi thở của rồng để thổi ra luồng lửa sao, làm lộ diện và gây sát thương lên kẻ địch đầu tiên trúng đòn và lan lượng sát thương đã suy giảm lên những kẻ địch ở gần. Mỗi giây hơi thở được bắn trực tiếp lên một kẻ địch sẽ gây thêm sát thương nhờ lượng Bụi Sao đã thu thập được. Kỹ năng này sẽ thu được Bụi Sao nếu mục tiêu là tướng. Aurelion Sol có thể di chuyển khi đang thi triển Hơi Thở Hỏa Tinh."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "THƯỢNG LONG CẢNH GIỚI",
+      "icon": "assets/champions/aurelion-sol/skill-w.png",
+      "iconSize": 128,
+      "description": "Aurelion Sol bay vượt địa hình theo hướng chỉ định. Ông vẫn có thể sử dụng các kỹ năng khác khi đang trong trạng thái này. Khi đang bay, Hơi Thở Hỏa Tinh không có hồi chiêu hay thời gian vận tối đa, và sẽ gây thêm sát thương. Hồi chiêu còn lại của Thượng Long Cảnh Giới sẽ giảm khi có tướng địch bị tiêu diệt sau khi nhận sát thương từ Aurelion Sol. Bụi Sao sẽ tăng tầm sử dụng tối đa của Thượng Long Cảnh Giới."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "HỐ ĐEN KỲ BÍ",
+      "icon": "assets/champions/aurelion-sol/skill-e.png",
+      "iconSize": 128,
+      "description": "Aurelion Sol triệu hồi 1 hố đen, gây sát thương và từ từ kéo kẻ địch vào giữa tâm của hố. Kỹ năng này sẽ cho Bụi Sao với mỗi kẻ địch bị hạ gục trong hố đen và mỗi giây một tướng địch bị kẹt bên trong. Khi bị hút vào trung tâm, kẻ địch sẽ bị kết liễu nếu còn dưới một lượng % Máu tối đa nhất định. Bụi Sao giúp tăng phạm vi tác dụng của Hố Đen Kỳ Bí cũng như ngưỡng kết liễu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "SAO RƠI / MÀN TRỜI GIÁNG THẾ",
+      "icon": "assets/champions/aurelion-sol/skill-r.png",
+      "iconSize": 128,
+      "description": "Sao Rơi: Aurelion Sol triệu gọi một ngôi sao rơi xuống. Tác động này sẽ gây sát thương phép và làm choáng những kẻ địch trúng đòn, đồng thời vẫn ban Bụi Sao tương ứng với mỗi kẻ địch. Lần thi triển chiêu cuối tiếp theo của Aurelion Sol sẽ biến thể thành Màn Trời Giáng Thế nếu thu thập đủ Bụi Sao. Màn Trời Giáng Thế: Aurelion Sol triệu hồi một ngôi sao khổng lồ từ thượng giới, tăng phạm vi tác động và lượng sát thương gây ra, đồng thời hất tung tất cả kẻ địch thay vì làm choáng chúng. Sau đó, một luồng sóng xung kích sẽ lan tỏa từ rìa của vùng tác động, gây sát thương và làm chậm tất cả kẻ địch trúng đòn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.615,
+      "y": 0.27
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/aurelion-sol/",
+  "syncedAt": "2026-10-02"
+}

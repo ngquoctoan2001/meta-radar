@@ -1,0 +1,74 @@
+{
+  "slug": "kayle",
+  "name": "KAYLE",
+  "title": "Thiên Thần Phán Quyết",
+  "roles": [
+    "ĐẤU SĨ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#1C1020",
+    "secondary": "#F9DCE1",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/kayle/portrait.jpg",
+  "splash": "assets/champions/kayle/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "KAYLE - THIÊN THẦN PHÁN QUYẾT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "THƯỢNG NHÂN CẢNH GIỚI",
+      "icon": "assets/champions/kayle/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh của Kayle được cường hóa khi cô lên cấp và cộng điểm kỹ năng. Đôi cánh của cô ngày một rực rỡ hơn, dần dần tăng Tốc Độ Đánh, Tốc Độ Di Chuyển, Tầm Đánh và bắn sóng lửa khi đánh."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "HÀO QUANG TRỪNG PHẠT",
+      "icon": "assets/champions/kayle/skill-q.png",
+      "iconSize": 128,
+      "description": "Kayle triệu hồi thánh kiếm xuyên qua kẻ địch, gây sát thương, làm chậm và giảm chống chịu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "THIÊN GIỚI BAN PHƯỚC",
+      "icon": "assets/champions/kayle/skill-w.png",
+      "iconSize": 128,
+      "description": "Được thiên giới ban phước, Kayle hồi máu và tăng tốc độ di chuyển cho bản thân cùng đồng minh gần nhất."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "KIẾM TINH HỎA",
+      "icon": "assets/champions/kayle/skill-e.png",
+      "iconSize": 128,
+      "description": "Nội tại: Thánh kiếm của Kayle, Thiên Đạo, gây thêm sát thương phép lên kẻ địch cô tấn công. Kích hoạt: Đòn đánh kế tiếp của Kayle trừng phạt kẻ địch bằng lửa sao trời, gây thêm sát thương tùy theo máu đã mất của chúng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "THẦN LINH ĐỊNH ĐOẠT",
+      "icon": "assets/champions/kayle/skill-r.png",
+      "iconSize": 128,
+      "description": "Kayle khiến một tướng đồng minh bất tử và gọi Thượng Nhân Công Lý xuống thanh tẩy khu vực quanh người cô chọn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.735,
+      "y": 0.25
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/kayle/",
+  "syncedAt": "2026-10-02"
+}

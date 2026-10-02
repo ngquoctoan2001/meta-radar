@@ -1,0 +1,73 @@
+{
+  "slug": "mel",
+  "name": "MEL",
+  "title": "Ảnh Chiếu Của Tâm Hồn",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#2F1818",
+    "secondary": "#F9E8DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/mel/portrait.jpg",
+  "splash": "assets/champions/mel/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "MEL, ẢNH CHIẾU CỦA TÂM HỒN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "HÀO QUANG RỰC RỠ",
+      "icon": "assets/champions/mel/skill-p.png",
+      "iconSize": 512,
+      "description": "Mỗi khi sử dụng Kỹ Năng, Mel nhận thêm 3 tia năng lượng (tối đa 9 tia) cho đòn đánh kế tiếp. Khi Mel gây sát thương bằng kỹ năng hoặc đòn đánh, cô đặt hiệu ứng Áp Đảo lên kẻ địch, có thể cộng dồn vô hạn. Nếu kẻ địch bị Mel đánh trúng đã tích đủ sát thương Áp Đảo, số cộng dồn sẽ được tiêu hao để kết liễu mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "CHÙM SÁNG HỘI TỤ",
+      "icon": "assets/champions/mel/skill-q.png",
+      "iconSize": 512,
+      "description": "Mel bắn ra hàng loạt tia năng lượng phát nổ xung quanh một vị trí chỉ định, liên tục gây sát thương lên các kẻ địch trong khu vực này."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "PHẢN QUANG CHIẾT KÍNH",
+      "icon": "assets/champions/mel/skill-w.png",
+      "iconSize": 512,
+      "description": "Mel tạo một rào chắn xung quanh bản thân giúp phản lại đường đạn phe địch về phía kẻ tấn công, ngăn cô nhận sát thương, đồng thời cho cô thêm tốc độ di chuyển."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "PHI LUÂN DƯƠNG VIÊM",
+      "icon": "assets/champions/mel/skill-e.png",
+      "iconSize": 512,
+      "description": "Mel bắn một quả cầu rực sáng về phía trước, gây sát thương và làm chậm kẻ địch trong phạm vi, đồng thời trói chân kẻ địch ở trung tâm."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "NHẬT THỰC HOÀNG KIM",
+      "icon": "assets/champions/mel/skill-r.png",
+      "iconSize": 512,
+      "description": "Mel ra đòn lên tất cả kẻ địch bị đánh dấu Áp Đảo bất kể khoảng cách của chúng, gây thêm sát thương với mỗi cộng dồn Áp Đảo. Sát thương Áp Đảo sẽ tăng theo cấp của Nhật Thực Hoàng Kim."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.445,
+      "y": 0.14
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/mel/",
+  "syncedAt": "2026-10-02"
+}

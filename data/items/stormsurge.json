@@ -1,0 +1,40 @@
+{
+  "slug": "stormsurge",
+  "name": "Stormsurge",
+  "nameVi": "Quyền Trượng Bão Tố",
+  "cnId": "2701",
+  "cnName": "风暴狂涌",
+  "icon": "assets/items/stormsurge.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Xuyên phép"
+  ],
+  "color": "#5CC8FF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+90"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+15"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+6%"
+    }
+  ],
+  "passives": [
+    "Đột Kích Bão Tố",
+    "Gió Giật"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2701) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+90 SMPT", "+15 xuyên phép", "+6% tốc chạy"],
+    "text": "Gây 25% máu tối đa lên 1 tướng trong 2,5 giây: +25% tốc chạy, 2 giây sau nổ 125 + 10% SMPT (hồi 25 giây). Địch chết trước thì nổ lan, +25 vàng.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

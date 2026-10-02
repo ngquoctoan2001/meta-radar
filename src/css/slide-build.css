@@ -189,6 +189,77 @@
 .bo-key { width: 58px; height: 58px; border-radius: 50%; background: #0b0920; box-shadow: 0 0 0 2px rgb(var(--accent-rgb) / 0.6), 0 0 16px rgb(var(--accent-rgb) / 0.3); }
 .bo-boots { width: 54px; height: 54px; margin-left: auto; border-radius: 11px; border: 2px solid var(--stroke-2); }
 .bo-extra { margin-bottom: 8px; }
+/* bộ có nhiều ảnh tổng quan: nhãn "PHẦN 1/2" cạnh ngày */
+.bo-page { --c: var(--accent); --c-rgb: var(--accent-rgb); }
+/* 3 build đi 3 ngọc chính khác nhau: thu nhỏ một chút để giày không lấn ra lề phải */
+.bo-extra.is-tight { gap: 8px; min-height: 58px; } /* giữ chiều cao hàng như thẻ thường → hàng dưới thẳng giữa các cột */
+.bo-extra.is-tight .bo-key { width: 50px; height: 50px; }
 /* 3 tướng mạnh khi đối đầu — viền xanh lá giống nhóm MẠNH ở ảnh từng tướng */
 .bo-mu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .bo-av { display: block; width: 100%; aspect-ratio: 1.15; object-fit: cover; object-position: 50% 16%; background-repeat: no-repeat; border-radius: 12px; outline: 2px solid rgb(var(--buff-rgb) / 0.8); outline-offset: -2px; box-shadow: 0 0 14px rgb(var(--buff-rgb) / 0.25); }
+
+/* ---------- ảnh bìa (thumbnail TikTok) — khổ DỌC 3:4, khung 1080×1440 ----------
+   Khung dọc: khối ảnh trên 0–416 · dải tiêu đề 416–1024 · khối ảnh dưới 1024–1440 */
+.slide--build-cover { width: 1080px; height: 1440px; background: var(--bg-0); }
+.bc-block { position: absolute; left: 0; right: 0; height: 416px; display: flex; flex-direction: column; gap: 6px; --g: 6px; }
+.bc-block--top { top: 0; }
+.bc-block--bottom { bottom: 0; }
+.bc-row { position: relative; flex: 1; }
+.bc-panel {
+  position: absolute; top: 0; bottom: 0;
+  clip-path: polygon(calc(var(--s) + var(--g)) 0, 100% 0, calc(100% - var(--s)) 100%, var(--g) 100%);
+}
+.bc-panel:first-child { clip-path: polygon(0 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%); }
+.bc-panel:last-child { clip-path: polygon(calc(var(--s) + var(--g)) 0, 100% 0, 100% 100%, var(--g) 100%); }
+.bc-art { position: absolute; inset: 0; background-repeat: no-repeat; }
+.bc-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 64%, rgba(6, 5, 13, 0.38) 100%); }
+
+.bc-band {
+  position: absolute; left: 0; right: 0; top: 416px; height: 608px; z-index: 2;
+  display: flex; flex-direction: column; padding-top: 20px;
+  background:
+    radial-gradient(ellipse 72% 80% at 50% 52%, rgb(var(--accent-rgb) / 0.22), transparent 72%),
+    linear-gradient(180deg, #121030 0%, #0a0819 100%);
+  box-shadow: 0 0 50px 14px rgba(6, 5, 13, 0.8);
+}
+.bc-band::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 24px 3px rgb(var(--accent-rgb) / 0.6);
+}
+.bc-band .topbar { position: static; flex: none; margin: 0 44px; }
+.bc-main { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+.bc-main h1 {
+  margin: 0; padding: 0.14em 0.02em 0;
+  font: 900 300px/0.8 var(--f-display); letter-spacing: 0.01em; text-transform: uppercase; white-space: nowrap;
+  background: linear-gradient(180deg, #fff 34%, var(--accent) 112%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 44px rgb(var(--accent-rgb) / 0.45)) drop-shadow(0 8px 0 rgba(0, 0, 0, 0.35));
+}
+.bc-info { display: flex; align-items: center; gap: 26px; }
+.bc-info i { display: block; color: var(--accent); filter: drop-shadow(0 0 22px rgb(var(--accent-rgb) / 0.6)); }
+.bc-info i svg { display: block; width: 104px; height: 104px; }
+.bc-badge {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; gap: 16px; height: 128px; padding: 6px 48px 0 40px;
+  color: #07061a; font: 900 78px/1 var(--f-display); letter-spacing: 0.02em; white-space: nowrap;
+  filter: drop-shadow(0 0 30px rgb(255 207 107 / 0.55));
+}
+.bc-badge::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(100deg, var(--gold) 0%, #fff0c2 100%);
+  clip-path: polygon(24px 0, 100% 0, calc(100% - 24px) 100%, 0 100%);
+}
+.bc-badge b { font-size: 132px; line-height: 0.8; padding-top: 0.08em; }
+.bc-sub { margin: 0; display: flex; flex-direction: column; gap: 12px; white-space: nowrap; }
+.bc-sub b { font: 900 70px/0.8 var(--f-display); letter-spacing: 0.02em; color: var(--gold); padding-top: 0.1em; }
+.bc-sub span { font: 700 30px/1 var(--f-hud); letter-spacing: 0.12em; color: var(--text); }
+.bc-ticker {
+  flex: none; height: 50px; margin: 0;
+  display: flex; align-items: center; justify-content: center; gap: 22px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #07061a; font: 700 24px/1 var(--f-hud); letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;
+  box-shadow: 0 0 26px rgb(var(--accent-rgb) / 0.45);
+}
+.bc-ticker span { padding-top: 0.1em; }
+.bc-ticker i { flex: none; width: 9px; height: 9px; transform: rotate(45deg); background: #07061a; }

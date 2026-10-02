@@ -1,0 +1,74 @@
+{
+  "slug": "annie",
+  "name": "ANNIE",
+  "title": "Đứa Trẻ Bóng Tối",
+  "roles": [
+    "PHÁP SƯ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#2A1A15",
+    "secondary": "#F9F3DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/annie/portrait.jpg",
+  "splash": "assets/champions/annie/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "ANNIE, ĐỨA TRẺ BÓNG TỐI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Hỏa Cuồng",
+      "icon": "assets/champions/annie/skill-p.png",
+      "iconSize": 128,
+      "description": "Sau mỗi 4 phép đã sử dụng, phép công kích tiếp theo của Annie sẽ làm choáng mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Hỏa Cầu",
+      "icon": "assets/champions/annie/skill-q.png",
+      "iconSize": 128,
+      "description": "Annie phóng một quả cầu lửa gây sát thương trong một phạm vi nhỏ và hồi lại năng lượng tổn thất cũng như một nửa thời gian hồi chiêu nếu kết liễu được mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Thiêu Cháy",
+      "icon": "assets/champions/annie/skill-w.png",
+      "iconSize": 128,
+      "description": "Annie chưởng một luồng lửa theo hình nón gây sát thương lên tất cả kẻ địch trong vùng ảnh hưởng."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Khiên Lửa",
+      "icon": "assets/champions/annie/skill-e.png",
+      "iconSize": 128,
+      "description": "Annie sử dụng lá chắn lên bản thân và Tibber, đồng thời nhận thêm tốc độ di chuyển."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Triệu Hồi: Tibbers",
+      "icon": "assets/champions/annie/skill-r.png",
+      "iconSize": 128,
+      "description": "Annie triệu hồi Tibbers, gây sát thương trong khu vực đó. Tibbers sẽ nổi cơn thịnh nộ sau khi vồ vào một kẻ địch hoặc khi Annie hy sinh, nhận thêm tốc độ di chuyển và tốc độ đánh. Tái kích hoạt: Annie ra lệnh cho Tibbers vồ vào 1 mục tiêu, gây sát thương và hất tung kẻ đó khi tiếp đất."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.755,
+      "y": 0.34
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/annie/",
+  "syncedAt": "2026-10-02"
+}

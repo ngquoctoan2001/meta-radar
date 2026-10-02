@@ -1,0 +1,73 @@
+{
+  "slug": "vi",
+  "name": "VI",
+  "title": "Cảnh Binh Piltover",
+  "roles": [
+    "ĐẤU SĨ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#2C1A16",
+    "secondary": "#F9E7DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/vi/portrait.jpg",
+  "splash": "assets/champions/vi/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "VI, CẢNH BINH PILTOVER",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "CÚ ĐẤM PHÁ GIÁP",
+      "icon": "assets/champions/vi/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi đòn đánh thường thứ 3 lên cùng kẻ địch sẽ gây thêm sát thương tương đương một phần Máu tối đa của mục tiêu, giảm Giáp của nạn nhân đi và tăng Tốc Độ Đánh cho Vi."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Cú Đấm Bùng Nổ",
+      "icon": "assets/champions/vi/skill-q.png",
+      "iconSize": 128,
+      "description": "Vi vận sức mạnh rồi tung một cú đấm bùng nổ đẩy cô về phía trước. Kẻ địch trúng chiêu sẽ bị hất văng đi và chịu thêm 1 cộng dồn Cú Đấm Phá Giáp."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "GIÁP CHỐNG CHẤT NỔ",
+      "icon": "assets/champions/vi/skill-w.png",
+      "iconSize": 128,
+      "description": "Vi nhận điểm cộng dồn cho Giáp Chống Chất Nổ khi tấn công một kẻ địch bằng đòn đánh thường hoặc kỹ năng. Kích hoạt Giáp Chống Chất Nổ sẽ tạo ra lá chắn hấp thụ sát thương. Ở điểm cộng dồn tối đa, Vi nhận thêm Tốc Độ Di Chuyển."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Cú Đấm Xuyên Thấu",
+      "icon": "assets/champions/vi/skill-e.png",
+      "iconSize": 128,
+      "description": "Đòn đánh kế tiếp của Vi xuyên qua mục tiêu, gây sát thương cho kẻ địch ở phía sau."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Tả Xung Hữu Đột",
+      "icon": "assets/champions/vi/skill-r.png",
+      "iconSize": 128,
+      "description": "Vi lao đến một kẻ địch, hất văng những kẻ cản đường sang hai bên. Khi đến bên kẻ địch cô hất văng mục tiêu lên không rồi nhảy bật lên nện nạn nhân xuống mặt đất."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.68,
+      "y": 0.26
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/vi/",
+  "syncedAt": "2026-10-02"
+}

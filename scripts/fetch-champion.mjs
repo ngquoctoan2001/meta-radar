@@ -23,7 +23,12 @@ const CN = 'https://game.gtimg.cn/images/lgamem/act/lrlib';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) meta-wildrift/1.0';
 
 // Tốc Chiến ghi ô kỹ năng là NỘI TẠI / 1 / 2 / 3 / CHIÊU CUỐI → đổi sang P/Q/W/E/R cho quen tay.
-const SLOT_KEY = { 'NỘI TẠI': 'p', '1': 'q', '2': 'w', '3': 'e', 'CHIÊU CUỐI': 'r' };
+const SLOT_KEY = { 'NỘI TẠI': 'p', '1': 'q', '2': 'w', '3': 'e', 'CHIÊU CUỐI': 'r', PASSIVE: 'p', ULTIMATE: 'r' };
+// Trang vi-vn ghi sai tên (vd Vladimir hiện là "ĐỎ") → tên đúng ghi tay ở đây.
+const NAME_FIX = { vladimir: 'VLADIMIR' };
+// Trang chi tiết vi-vn của vài tướng mới bị lỗi 404 (vd Aurora) dù tướng có trong danh sách → lấy tạm trang tiếng Anh
+// (tên kỹ năng, danh hiệu, vai trò sẽ là tiếng Anh; ghi "pageLocale" để biết mà tải lại sau).
+const PAGE_LOCALES = ['vi-vn', 'en-us'];
 const SLOT_LABEL = { p: 'NỘI TẠI', q: 'Q', w: 'W', e: 'E', r: 'R' };
 // Tên trên máy chủ CN khác slug vi-vn.
 const CN_ALIAS = { wukong: 'monkeyking', 'nunu-and-willump': 'nunu' };
@@ -137,7 +142,18 @@ async function fetchChampion(slug) {
   const card = (await wildRiftIndex()).get(slug);
   if (!card) throw new Error(`Không có tướng "${slug}" trên trang Tốc Chiến`);
 
-  const page = await getNextData(`${BASE}/vi-vn/champions/${slug}/`);
+  let page, pageLocale;
+  for (const locale of PAGE_LOCALES) {
+    try {
+      page = await getNextData(`${BASE}/${locale}/champions/${slug}/`);
+      pageLocale = locale;
+      break;
+    } catch (err) {
+      if (locale === PAGE_LOCALES.at(-1)) throw err;
+      console.warn(`  ⚠ ${slug}: trang ${locale} lỗi (${err.message.split(' ')[0]}) — thử trang ${PAGE_LOCALES[PAGE_LOCALES.indexOf(locale) + 1]}`);
+    }
+  }
+  if (pageLocale !== 'vi-vn') console.warn(`  ⚠ ${slug}: dùng trang ${pageLocale} — tên kỹ năng / danh hiệu / vai trò là tiếng Anh, tải lại khi trang vi-vn có`);
   const head = page.blades.find((b) => b.type === 'characterMasthead');
   const tab = page.blades.find((b) => b.type === 'iconTab');
   const skin = page.blades.find((b) => b.type === 'landingMediaCarousel')?.groups?.[0];
@@ -179,8 +195,9 @@ async function fetchChampion(slug) {
 
   const data = {
     slug,
-    name: head?.title ?? card.name,
+    name: NAME_FIX[slug] ?? head?.title ?? card.name,
     title: head?.subtitle ?? '',
+    ...(pageLocale !== 'vi-vn' ? { pageLocale } : {}),
     roles: head?.role?.roles?.map((r) => r.name) ?? [],
     difficulty: head?.difficulty?.value ?? null,
     colors: skin?.thumbnail?.colors ?? card.colors,
@@ -192,7 +209,7 @@ async function fetchChampion(slug) {
     skills,
     // layout.focusX: vị trí ngang khuôn mặt tướng trong splash (0 = trái, 1 = phải) — sửa tay, dùng để căn khung.
     layout: old.layout ?? { focusX: 0.5 },
-    source: `${BASE}/vi-vn/champions/${slug}/`,
+    source: `${BASE}/${pageLocale}/champions/${slug}/`,
     syncedAt: new Date().toISOString().slice(0, 10),
   };
   await writeFile(jsonPath, JSON.stringify(data, null, 2) + '\n');

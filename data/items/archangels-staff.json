@@ -1,0 +1,40 @@
+{
+  "slug": "archangels-staff",
+  "name": "Archangel's Staff",
+  "nameVi": "Quyền Trượng Thiên Thần",
+  "cnId": "2142",
+  "cnName": "大天使之杖",
+  "icon": "assets/items/archangels-staff.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Năng lượng"
+  ],
+  "color": "#6FA8FF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+60"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+500"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+25"
+    }
+  ],
+  "passives": [
+    "Tuyệt",
+    "Dòng Chảy Năng Lượng"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2142) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+60 SMPT", "+500 năng lượng", "+25 điểm hồi kỹ năng"],
+    "text": "+SMPT bằng 1% năng lượng tối đa, hoàn lại 25% năng lượng đã dùng. Mỗi lần dùng năng lượng +14 năng lượng tối đa (tối đa 700), đủ thì tự nâng cấp.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

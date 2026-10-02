@@ -1,0 +1,79 @@
+{
+  "slug": "akshan",
+  "name": "AKSHAN",
+  "title": "Vệ Binh Nổi Loạn",
+  "roles": [
+    "XẠ THỦ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#4D3E27",
+    "secondary": "#F9EFDC",
+    "label": "#231909"
+  },
+  "portrait": "assets/champions/akshan/portrait.jpg",
+  "splash": "assets/champions/akshan/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "AKSHAN, VỆ BINH NỔI LOẠN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "KHÔNG TỪ THỦ ĐOẠN",
+      "icon": "assets/champions/akshan/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi đòn đánh hoặc kỹ năng thứ 3 gây thêm sát thương vật lý. Nếu gây sát thương lên tướng, nhận thêm khiên chắn sát thương trong chốc lát."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "BOOMERANG BÁO THÙ",
+      "icon": "assets/champions/akshan/skill-q.png",
+      "iconSize": 128,
+      "description": "Giống như các kỹ năng boomerang thường thấy, có thể gây sát thương lên mỗi kẻ địch 2 lần (một lần khi ném ra và một lần khi bay về). Boomerang sẽ bay thêm một đoạn ngắn ra sau mục tiêu cuối cùng trúng đòn, nếu nó văng trúng một mục tiêu khác trong thời gian này, phạm vi của nó sẽ mở rộng thêm (về mặt lý thuyết là phạm vi vô hạn)"
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "LEN LÉN BÁO THÙ",
+      "icon": "assets/champions/akshan/skill-w.png",
+      "iconSize": 128,
+      "description": "Nội tại: Kẻ địch hạ gục đồng đội của Akshan sẽ trở thành Kẻ Vô Lại trong chốc lát. Hạ gục 1 Kẻ Vô Lại sẽ cho Akshan thêm vàng và giảm thời gian hồi sinh của đồng minh. Kích hoạt: Trở nên tàng hình trong vài giây. Thời gian tác dụng được làm mới mỗi khi Akshan ở gần tường hoặc bụi cỏ. Tăng tốc độ di chuyển khi di chuyển về phía Kẻ Vô Lại."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "ANH HÙNG ĐU DÂY",
+      "icon": "assets/champions/akshan/skill-e.png",
+      "iconSize": 128,
+      "description": "Akshan bắn dây vào tường trong vài giây và anh có thể đu dây theo đường vòng cung. Trong khi du dây, Akshan bắn vào kẻ địch vừa chịu sát thương từ anh."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "ĐÒN TRỪNG PHẠT",
+      "icon": "assets/champions/akshan/skill-r.png",
+      "iconSize": 128,
+      "description": "Khóa mục tiêu vào 1 tướng địch, sau đó bắt đầu tích tụ loạt đạn Màn Sương trong vài giây."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.715,
+      "y": 0.51
+    },
+    "avatar": {
+      "x": 0.665,
+      "y": 0.42,
+      "zoom": 0.6
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/akshan/",
+  "syncedAt": "2026-10-02"
+}

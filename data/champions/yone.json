@@ -1,0 +1,73 @@
+{
+  "slug": "yone",
+  "name": "Yone",
+  "title": "Kẻ Về Từ Cõi Chết",
+  "roles": [
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#0C1018",
+    "secondary": "#FFDED6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/yone/portrait.jpg",
+  "splash": "assets/champions/yone/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "YONE, KẺ VỀ TỪ CÕI CHẾT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐẠO CỦA KẺ SĂN",
+      "icon": "assets/champions/yone/skill-p.png",
+      "iconSize": 128,
+      "description": "Yone gây sát thương phép ở mỗi đòn đánh thứ hai. Đồng thời, tỉ lệ chí mạng của hắn được gia tăng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TỬ KIẾM",
+      "icon": "assets/champions/yone/skill-q.png",
+      "iconSize": 128,
+      "description": "Đâm kiếm về phía trước, gây sát thương lên tất cả kẻ địch trên đường thẳng. Khi trúng, cho một cộng dồn Tụ Bão trong vài giây. Ở 2 cộng dồn, Tử Kiếm sẽ giúp Yone lướt về phía trước cùng một cơn gió, Hất Tung kẻ địch. Tử Kiếm được coi như Đòn đánh thường và nhận các hiệu ứng đi kèm."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "TRẢM HỒN",
+      "icon": "assets/champions/yone/skill-w.png",
+      "iconSize": 128,
+      "description": "Chém về phía trước, gây sát thương lên tất cả kẻ địch theo hình nón. Tạo một lớp lá chắn cho Yone. Giá trị lá chắn sẽ tăng dựa trên số tướng địch trúng chiêu. Thời gian hồi và thời gian thi triển của Trảm Hồn sẽ tỉ lệ với Tốc Độ Đánh."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "XUẤT HỒN",
+      "icon": "assets/champions/yone/skill-e.png",
+      "iconSize": 128,
+      "description": "Linh hồn của Yone bỏ lại thân xác phía sau và tăng Tốc Độ Di Chuyển. Khi kỹ năng kết thúc, linh hồn của Yone sẽ buộc phải quay lại và gây một lượng sát thương dựa trên số sát thương đã gây ra ở dạng linh hồn."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "ĐOẠT MỆNH",
+      "icon": "assets/champions/yone/skill-r.png",
+      "iconSize": 128,
+      "description": "Yone dịch chuyển ra phía sau kẻ địch cuối cùng trên đường thẳng với một cú chém đoạt mệnh, đồng thời, kéo chúng về phía mình."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.565,
+      "y": 0.09
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/yone/",
+  "syncedAt": "2026-10-02"
+}

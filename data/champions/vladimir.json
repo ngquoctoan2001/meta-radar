@@ -1,0 +1,73 @@
+{
+  "slug": "vladimir",
+  "name": "VLADIMIR",
+  "title": "Thần Chết Đỏ",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#1D0E10",
+    "secondary": "#F9E9DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/vladimir/portrait.jpg",
+  "splash": "assets/champions/vladimir/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "VLADIMIR, THẦN CHẾT ĐỎ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "HUYẾT THỆ",
+      "icon": "assets/champions/vladimir/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi 30 Máu cộng thêm sẽ cho Vladimir thêm 1 Sức Mạnh Phép Thuật và mỗi điểm Sức Mạnh Phép Thuật cho Vladimir 1,6 Máu cộng thêm. (không cộng dồn với chính nó)"
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TRUYỀN MÁU",
+      "icon": "assets/champions/vladimir/skill-q.png",
+      "iconSize": 128,
+      "description": "Vladimir hút máu từ nạn nhân của hắn. Khi đạt mức tối đa, Truyền Máu sẽ được tăng thêm nhiều sát thương và hồi máu trong thời gian ngắn."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "HỒ MÁU",
+      "icon": "assets/champions/vladimir/skill-w.png",
+      "iconSize": 128,
+      "description": "Vladimir lặn vào một vũng máu và không thể bị chỉ định trong 2 giây. Ngoài ra, kẻ địch trúng phải vũng máu sẽ bị làm chậm và đồng thời Vladimir cũng rút máu từ chúng."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "THỦY TRIỀU MÁU",
+      "icon": "assets/champions/vladimir/skill-e.png",
+      "iconSize": 128,
+      "description": "Vladimir dùng lượng máu của bản thân để tích tụ sức mạnh, khi phóng thích sẽ gây sát thương lên khu vực quanh hắn nhưng có thể bị chặn bởi đơn vị địch."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "MÁU ĐỘC",
+      "icon": "assets/champions/vladimir/skill-r.png",
+      "iconSize": 128,
+      "description": "Vladimir gây nhiễm một khu vực bằng dịch bệnh. Kẻ địch bị nhiễm sẽ chịu thêm sát thương trong thời gian hiệu lực. Sau vài giây, Máu Độc gây sát thương phép lên kẻ địch bị nhiễm và hồi máu cho Vladimir với mỗi Tướng địch trúng phải."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.71,
+      "y": 0.165
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/vladimir/",
+  "syncedAt": "2026-10-02"
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "ahri",
+  "name": "AHRI",
+  "title": "Hồ Li Chín Đuôi",
+  "roles": [
+    "PHÁP SƯ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#111122",
+    "secondary": "#DCE8F9",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/ahri/portrait.jpg",
+  "splash": "assets/champions/ahri/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "AHRI, HỒ LI CHÍN ĐUÔI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Hút Hồn",
+      "icon": "assets/champions/ahri/skill-p.jpg",
+      "iconSize": 96,
+      "description": "Mỗi khi Ahri đánh trúng địch bằng phép, cô nhận được một điểm cộng dồn Hút Hồn. Khi đủ điểm cộng dồn, phép tiếp theo của cô đánh trúng địch sẽ hồi máu cho cô."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Quả Cầu Ma Thuật",
+      "icon": "assets/champions/ahri/skill-q.jpg",
+      "iconSize": 96,
+      "description": "Ahri phóng ra rồi thu hồi quả cầu của mình, gây sát thương phép trên đường bay ra và sát thương chuẩn trên đường thu về."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Lửa Hồ Li",
+      "icon": "assets/champions/ahri/skill-w.jpg",
+      "iconSize": 96,
+      "description": "Ahri tăng tốc độ di chuyển trong thời gian ngắn và tung ra ba ngọn lửa hồ li, chúng sẽ tự khóa mục tiêu và tấn công những kẻ địch ở gần."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Hôn Gió",
+      "icon": "assets/champions/ahri/skill-e.jpg",
+      "iconSize": 96,
+      "description": "Ahri hôn gió gây sát thương và mê hoặc một kẻ địch trúng phải, chặn kỹ năng di chuyển của địch ngay lập tức và buộc nạn nhân phải mê đắm bước về phía cô. Mục tiêu tạm thời nhận sát thương cộng thêm từ Ahri."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Phi Hồ",
+      "icon": "assets/champions/ahri/skill-r.jpg",
+      "iconSize": 96,
+      "description": "Ahri lướt tới trước và bắn ra các luồng sét, gây sát thương lên các kẻ địch gần đó. Phi Hồ có thể được thi triển tối đa 3 lần trước khi bắt đầu hồi chiêu."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.585,
+      "y": 0.235
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ahri/",
+  "syncedAt": "2026-10-02"
+}

@@ -7,12 +7,13 @@ import { renderChampion } from './slides/champion.js';
 import { renderItem } from './slides/item.js';
 import { renderSystem } from './slides/system.js';
 import { renderTierOverview, renderTierLane } from './slides/tier.js';
-import { renderBuild, renderBuildItems, renderBuildOverview } from './slides/build.js';
+import { renderBuild, renderBuildItems, renderBuildOverview, renderBuildCover } from './slides/build.js';
+import { isCover, canvasOf } from './lib/output.js';
 
 const RENDERERS = {
   overview: renderOverview, champion: renderChampion, item: renderItem, system: renderSystem,
   'tier-overview': renderTierOverview, 'tier-lane': renderTierLane,
-  build: renderBuild, 'build-items': renderBuildItems, 'build-overview': renderBuildOverview,
+  build: renderBuild, 'build-items': renderBuildItems, 'build-overview': renderBuildOverview, 'build-cover': renderBuildCover,
 };
 const root = document.getElementById('root');
 
@@ -48,7 +49,14 @@ async function main() {
   await Promise.all([...document.fonts].map((f) => f.load().catch(() => {})));
 
   document.title = `${patchId} · ${slideId}`;
-  root.innerHTML = render({ ...bundle, index, total: slides.length }, slide);
+  // khung vẽ theo loại ảnh (ảnh bìa là khổ dọc) — renderer đọc window.__CANVAS__ để chụp đúng cỡ
+  const canvas = canvasOf(slide);
+  Object.assign(document.body.style, { width: `${canvas.width}px`, height: `${canvas.height}px` });
+  window.__CANVAS__ = canvas;
+
+  // số trang ở chân ảnh chỉ đếm ảnh nội dung, bỏ qua ảnh bìa / thumbnail
+  const pages = slides.filter((s) => !isCover(s));
+  root.innerHTML = render({ ...bundle, index: isCover(slide) ? index : pages.indexOf(slide), total: pages.length }, slide);
 
   await document.fonts.ready;
   await waitImages();

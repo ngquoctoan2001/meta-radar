@@ -1,0 +1,79 @@
+{
+  "slug": "nunu-and-willump",
+  "name": "Nunu & Willump",
+  "title": "Cậu Bé Và Người Tuyết",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#1C2739",
+    "secondary": "#DCF1F9",
+    "label": "#03060B"
+  },
+  "portrait": "assets/champions/nunu-and-willump/portrait.jpg",
+  "splash": "assets/champions/nunu-and-willump/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "NUNU & WILLUMP, CẬU BÉ VÀ NGƯỜI TUYẾT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "TIẾNG GỌI NƠI BĂNG GIÁ",
+      "icon": "assets/champions/nunu-and-willump/skill-p.jpg",
+      "iconSize": 96,
+      "description": "Nunu tăng tốc độ đánh và tốc độ di chuyển cho Willump và 1 đồng minh ở gần đó, đồng thời khiến cho đòn tấn công của Willump gây sát thương lên những kẻ địch ở xung quanh mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "NUỐT CHỬNG",
+      "icon": "assets/champions/nunu-and-willump/skill-q.jpg",
+      "iconSize": 96,
+      "description": "Willump cắn lính, quái hoặc tướng địch, gây sát thương lên mục tiêu và hồi máu cho bản thân."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "CẦU TUYẾT TRONG TRUYỀN THUYẾT!",
+      "icon": "assets/champions/nunu-and-willump/skill-w.jpg",
+      "iconSize": 96,
+      "description": "Willump tạo ra một quả cầu tuyết ngày một to hơn và lăn nhanh hơn. Cầu tuyết gây sát thương và hất tung kẻ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "PHÁO TUYẾT",
+      "icon": "assets/champions/nunu-and-willump/skill-e.jpg",
+      "iconSize": 96,
+      "description": "Nunu ném ra một loạt cầu tuyết gây sát thương và làm chậm mục tiêu. Khi kết thúc, Willump sẽ trói chân tướng hoặc quái lớn bị trúng cầu tuyết."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "TUYỆT ĐỈNH BĂNG GIÁ",
+      "icon": "assets/champions/nunu-and-willump/skill-r.jpg",
+      "iconSize": 96,
+      "description": "Nunu & Willump tạo ra một cơn bão tuyết cực mạnh trong một khu vực, làm chậm kẻ địch và gây sát thương khủng khiếp khi kết thúc."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.655,
+      "y": 0.4
+    },
+    "avatar": {
+      "x": 0.66,
+      "y": 0.55,
+      "zoom": 0.62
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/nunu-and-willump/",
+  "syncedAt": "2026-10-02"
+}

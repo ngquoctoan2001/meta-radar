@@ -1,0 +1,40 @@
+{
+  "slug": "riftmaker",
+  "name": "Riftmaker",
+  "nameVi": "Quyền Trượng Ác Thần",
+  "cnId": "2168",
+  "cnName": "峡谷制造者",
+  "icon": "assets/items/riftmaker.png",
+  "price": 3100,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Hút máu"
+  ],
+  "color": "#B58CFF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+350"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+70"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "passives": [
+    "Tha Hóa Hư Không",
+    "Dung Hợp Hư Không"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2168) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+350 máu", "+70 SMPT", "+15 điểm hồi kỹ năng"],
+    "text": "Giao tranh với tướng: mỗi giây +2% sát thương, tối đa 8%; đầy cộng dồn thì hút máu toàn phần 6% (đánh xa) / 10% (cận chiến). +SMPT bằng 2% máu cộng thêm.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

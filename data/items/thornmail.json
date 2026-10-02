@@ -1,0 +1,35 @@
+{
+  "slug": "thornmail",
+  "name": "Thornmail",
+  "nameVi": "Giáp Gai",
+  "cnId": "2348",
+  "cnName": "荆棘之甲",
+  "icon": "assets/items/thornmail.png",
+  "price": 2700,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Giảm hồi máu"
+  ],
+  "color": "#E04848",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+200"
+    },
+    {
+      "label": "Giáp",
+      "value": "+75"
+    }
+  ],
+  "passives": [
+    "Gai"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2348) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+200 máu", "+75 giáp"],
+    "text": "Bị đánh thường: phản lại 20 + 6% giáp cộng thêm + 1% máu cộng thêm sát thương phép. Bị đánh thường hoặc gây sát thương lên tướng: gây 50% Vết Thương Sâu trong 3 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

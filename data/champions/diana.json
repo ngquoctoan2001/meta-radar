@@ -1,0 +1,74 @@
+{
+  "slug": "diana",
+  "name": "DIANA",
+  "title": "Vầng Trăng Ai Oán",
+  "roles": [
+    "ĐẤU SĨ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#131224",
+    "secondary": "#D6E4FF",
+    "label": "#090909"
+  },
+  "portrait": "assets/champions/diana/portrait.jpg",
+  "splash": "assets/champions/diana/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "DIANA, VẦNG TRĂNG AI OÁN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "GƯƠM ÁNH TRĂNG",
+      "icon": "assets/champions/diana/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi đòn đánh thứ 3 gây sát thương phép lan lên các kẻ địch gần đó. Sau khi dùng kỹ năng, Diana được tăng tốc độ đánh trong 3 đòn đánh kế tiếp."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TRĂNG LƯỠI LIỀM",
+      "icon": "assets/champions/diana/skill-q.png",
+      "iconSize": 128,
+      "description": "Phóng thích một tia chớp năng lượng mặt trăng theo hình cung, gây sát thương phép và đặt hiệu ứng Ánh Trăng."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "THÁC BẠC",
+      "icon": "assets/champions/diana/skill-w.png",
+      "iconSize": 128,
+      "description": "Diana tạo ra 3 quả cầu bay quanh người, phát nổ khi tiếp xúc với kẻ địch để gây sát thương trong một phạm vi. Cô cũng được nhận một lá chắn hấp thụ sát thương tạm thời. Lá chắn được tăng sức mạnh nếu quả cầu thứ 3 phát nổ."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TRĂNG NON",
+      "icon": "assets/champions/diana/skill-e.png",
+      "iconSize": 128,
+      "description": "Diana lướt đến vị trí của một kẻ địch rồi gây sát thương phép. Trăng Non sẽ hồi chiêu ngay lập tức khi được sử dụng để lướt tới một mục tiêu bị ảnh hưởng bởi Ánh Trăng, loại bỏ hiệu ứng Ánh Trăng trong một khu vực."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "TRĂNG MỜ",
+      "icon": "assets/champions/diana/skill-r.png",
+      "iconSize": 128,
+      "description": "Diana triệu hồi mặt trăng, làm chậm kẻ địch lân cận và gây hiệu ứng Ánh Trăng trong một phạm vi lớn dần. Thao tác thả nút sẽ giáng mặt trăng xuống, cuốn kẻ địch về phía Diana và gây sát thương tăng lên theo thời gian niệm chú."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.665,
+      "y": 0.36
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/diana/",
+  "syncedAt": "2026-10-02"
+}

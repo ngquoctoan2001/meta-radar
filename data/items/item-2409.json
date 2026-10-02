@@ -1,0 +1,36 @@
+{
+  "slug": "item-2409",
+  "name": "Boots of Mana",
+  "nameVi": "Giày Năng Lượng",
+  "cnId": "2409",
+  "cnName": "法力之靴",
+  "icon": "assets/items/item-2409.png",
+  "price": 1200,
+  "tier": "Trang bị trung cấp",
+  "tags": [
+    "Giày",
+    "Năng lượng"
+  ],
+  "color": "#9A7BFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+25"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+8"
+    },
+    {
+      "label": "Hồi năng lượng cơ bản",
+      "value": "+75%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+45"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2409) · tên VN theo Riot vi_VN",
+  "nameTemp": true
+}

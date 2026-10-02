@@ -1,0 +1,74 @@
+{
+  "slug": "rell",
+  "name": "RELL",
+  "title": "NỮ KỴ SĨ THÉP",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#251412",
+    "secondary": "#F9F0DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/rell/portrait.jpg",
+  "splash": "assets/champions/rell/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "RELL, NỮ KỴ SĨ THÉP",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "PHÁ VỠ KHUÔN PHÉP",
+      "icon": "assets/champions/rell/skill-p.jpg",
+      "iconSize": 512,
+      "description": "Đòn Đánh Thường và Kỹ Năng của Rell gây thêm Sát Thương Phép và đánh cắp Giáp &amp; Kháng Phép của Tướng Địch khi trúng đích. Làm mới khi đánh trúng lần kế tiếp và cộng dồn tối đa 5 lần. Đòn đánh thường gây Sát Thương Phép Cộng Thêm."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "XUYÊN TÂM KÍCH",
+      "icon": "assets/champions/rell/skill-q.png",
+      "iconSize": 512,
+      "description": "Rell ném giáo, gây Sát Thương Phép lên kẻ địch trúng chiêu, phá vỡ Lá Chắn của Kẻ Địch và làm choáng chúng."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "HẮC KIM THUẬT: CHIẾN GIÁP",
+      "icon": "assets/champions/rell/skill-w.png",
+      "iconSize": 512,
+      "description": "Chiến Mã\nNội tại: Rell tăng Tốc Độ Di Chuyển.\nKích hoạt: Rell xuống ngựa, nhảy vào vị trí chỉ định, hất tung kẻ địch và nhận Lá Chắn. \n\nChiến Giáp\nNội tại: Khi ở dạng chiến giáp, Rell nhận Giáp, Kháng Phép, Tốc Độ Đánh và Tầm Đánh, nhưng bị làm chậm. \nKích hoạt: Rell biến lớp chiến giáp thành Chiến Mã, nhận tốc độ di chuyển trong thoáng chốc và đòn đánh thường tiếp theo của cô hất tung kẻ địch trúng đòn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "PHI NƯỚC ĐẠI",
+      "icon": "assets/champions/rell/skill-e.png",
+      "iconSize": 512,
+      "description": "Rell tăng Tốc Độ Di Chuyển cho bản thân và một đồng minh, nhận gấp đôi khi di chuyển về phía kẻ địch và về phía nhau. Đòn Đánh Thường hoặc lần dùng Xuyên Tâm Kích tiếp theo của cô sẽ phát nổ, gây Sát Thương Phép."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "SỨC HÚT KINH HOÀNG",
+      "icon": "assets/champions/rell/skill-r.png",
+      "iconSize": 512,
+      "description": "Rell bùng nổ năng lượng từ trường, kéo những kẻ địch ở gần về phía mình. Rell liên tục kéo tướng địch gần bên về phía mình, gây Sát Thương Phép."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.485,
+      "y": 0.2
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/rell/",
+  "syncedAt": "2026-10-02"
+}

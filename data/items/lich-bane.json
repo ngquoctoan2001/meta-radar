@@ -1,0 +1,39 @@
+{
+  "slug": "lich-bane",
+  "name": "Lich Bane",
+  "nameVi": "Kiếm Tai Ương",
+  "cnId": "2143",
+  "cnName": "巫妖之祸",
+  "icon": "assets/items/lich-bane.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Tốc chạy"
+  ],
+  "color": "#FFA63D",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+100"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+10"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+5%"
+    }
+  ],
+  "passives": [
+    "Kiếm Phép"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2143) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+100 SMPT", "+10 điểm hồi kỹ năng", "+5% tốc chạy"],
+    "text": "Sau khi dùng kỹ năng, đòn đánh kế tiếp trong 10 giây gây thêm 75% SMCK cơ bản + 45% SMPT sát thương phép (hồi 1,5 giây). Giảm sát thương lên công trình.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

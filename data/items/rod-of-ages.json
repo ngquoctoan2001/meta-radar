@@ -1,0 +1,40 @@
+{
+  "slug": "rod-of-ages",
+  "name": "Rod of Ages",
+  "nameVi": "Trượng Trường Sinh",
+  "cnId": "2147",
+  "cnName": "时光之杖",
+  "icon": "assets/items/rod-of-ages.png",
+  "price": 2700,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Năng lượng"
+  ],
+  "color": "#C05CFF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+350"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+50"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+400"
+    }
+  ],
+  "passives": [
+    "Vô Tận",
+    "Vĩnh Hằng"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2147) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+350 máu", "+50 SMPT", "+400 năng lượng"],
+    "text": "Mỗi 35 giây +15 máu, 30 năng lượng, 4 SMPT (tối đa 10 lần). Chịu sát thương từ tướng: hồi 15% thành năng lượng; dùng năng lượng: hồi 20% thành máu.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

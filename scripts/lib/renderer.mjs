@@ -44,7 +44,10 @@ export async function renderSlide(origin, patchId, slideId) {
     await page.waitForFunction(() => window.__READY__ !== undefined, null, { timeout: 30000 });
     const state = await page.evaluate(() => [window.__READY__, window.__ERROR__]);
     if (state[0] === 'error') throw new Error(state[1]);
-    const png = await page.screenshot({ type: 'png', clip: { x: 0, y: 0, ...CANVAS } });
+    // ảnh bìa là khổ dọc (1080×1920): slide.js báo khung vẽ của ảnh qua window.__CANVAS__
+    const size = (await page.evaluate(() => window.__CANVAS__)) ?? CANVAS;
+    if (size.width !== CANVAS.width || size.height !== CANVAS.height) await page.setViewportSize(size);
+    const png = await page.screenshot({ type: 'png', clip: { x: 0, y: 0, width: size.width, height: size.height } });
     return { png, warnings };
   } finally {
     await page.close();

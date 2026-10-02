@@ -1,0 +1,32 @@
+{
+  "slug": "item-2170",
+  "name": "Oceanid's Trident",
+  "nameVi": "Đinh Ba Hải Linh",
+  "nameTemp": true,
+  "cnId": "2170",
+  "cnName": "海灵之戟",
+  "icon": "assets/items/item-2170.png",
+  "price": 2600,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Phá khiên"
+  ],
+  "color": "#5CB8FF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+200"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+80"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+10"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2170) · tên VN theo Riot vi_VN"
+}

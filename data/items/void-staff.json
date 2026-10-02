@@ -1,0 +1,33 @@
+{
+  "slug": "void-staff",
+  "name": "Void Staff",
+  "nameVi": "Trượng Hư Vô",
+  "cnId": "2144",
+  "cnName": "虚空之杖",
+  "icon": "assets/items/void-staff.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Xuyên phép"
+  ],
+  "color": "#7A5CFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+95"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+40%"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2144) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+95 SMPT", "+40% xuyên phép"],
+    "text": "Không có nội tại — thuần sức mạnh phép thuật và xuyên kháng phép theo phần trăm.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "zed",
+  "name": "ZED",
+  "title": "Chúa Tể Bóng Tối",
+  "roles": [
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#141B0D",
+    "secondary": "#FFF1D6",
+    "label": "#020202"
+  },
+  "portrait": "assets/champions/zed/portrait.jpg",
+  "splash": "assets/champions/zed/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "ZED, CHÚA TỂ BÓNG TỐI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Khinh Thường Kẻ Yếu",
+      "icon": "assets/champions/zed/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh của Zed lên mục tiêu thấp máu gây thêm sát thương phép. Hiệu ứng chỉ có thể xảy ra 1 lần trên 1 mục tiêu mỗi vài giây."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Phi Tiêu Sắc Lẻm",
+      "icon": "assets/champions/zed/skill-q.png",
+      "iconSize": 128,
+      "description": "Zed cùng phân thân bóng tối ném phi tiêu. Mỗi phi tiêu gây sát thương cho mọi kẻ địch trúng phải."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Phân Thân Bóng Tối",
+      "icon": "assets/champions/zed/skill-w.png",
+      "iconSize": 128,
+      "description": "Nội Tại: Zed nhận được nội năng mỗi khi Zed và phân thân dùng cùng một kỹ năng trúng kẻ địch. Nội năng chỉ có thể nhận được 1 lần với 1 chiêu thức tung ra. Kích Hoạt: Phân thân của Zed lướt tới trước, ở lại vị trí chỉ định trong vài giây. Tái kích hoạt Phân Thân Bóng Tối sẽ khiến Zed đổi vị trí với phân thân."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Đường Kiếm Bóng Tối",
+      "icon": "assets/champions/zed/skill-e.png",
+      "iconSize": 128,
+      "description": "Zed và phân thân cùng xoáy lưỡi kiếm, gây sát thương cho các kẻ địch gần đó."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Dấu Ấn Tử Thần",
+      "icon": "assets/champions/zed/skill-r.png",
+      "iconSize": 128,
+      "description": "Zed để lại một cái bóng sau lưng rồi lướt tới tướng mục tiêu, khắc dấu ấn tử thần lên nạn nhân. Sau vài giây, dấu ấn sẽ kích nổ, gây một số phần trăm sát thương Zed đã gây ra khi dấu ấn còn trong thời gian hiệu lực. Zed để lại một phân thân phía sau và có thể tái kích hoạt Dấu Ấn Tử Thần khiến Zed đổi vị trí cho phân thân."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.615,
+      "y": 0.18
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/zed/",
+  "syncedAt": "2026-10-02"
+}

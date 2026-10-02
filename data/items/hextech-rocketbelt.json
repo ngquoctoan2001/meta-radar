@@ -1,0 +1,39 @@
+{
+  "slug": "hextech-rocketbelt",
+  "name": "Hextech Rocketbelt",
+  "nameVi": "Đai Tên Lửa Hextech",
+  "cnId": "2385",
+  "cnName": "海克斯科技火箭腰带",
+  "icon": "assets/items/hextech-rocketbelt.png",
+  "price": 2700,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Cơ động"
+  ],
+  "color": "#FF9A3D",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+250"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+70"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+20"
+    }
+  ],
+  "passives": [
+    "Lướt Siêu Thanh"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2385) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+250 máu", "+70 SMPT", "+20 điểm hồi kỹ năng"],
+    "text": "Kích hoạt: lướt tới và bắn loạt tên lửa hình nón gây 100 + 10% SMPT sát thương phép (hồi 30 giây). Trúng nhiều tên thì mỗi tên sau chỉ gây 10%.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

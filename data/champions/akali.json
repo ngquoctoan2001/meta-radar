@@ -1,0 +1,73 @@
+{
+  "slug": "akali",
+  "name": "AKALI",
+  "title": "SÁT THỦ ĐƠN ĐỘC",
+  "roles": [
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#201013",
+    "secondary": "#FFDED6",
+    "label": "#060606"
+  },
+  "portrait": "assets/champions/akali/portrait.jpg",
+  "splash": "assets/champions/akali/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "AKALI, SÁT THỦ ĐƠN ĐỘC",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "DẤU ẤN SÁT THỦ",
+      "icon": "assets/champions/akali/skill-p.png",
+      "iconSize": 128,
+      "description": "Dùng kỹ năng sát thương tướng địch tạo một vòng năng lượng quanh chúng. Rời khỏi vòng này cường hóa đòn đánh kế tiếp của Akali, giúp tăng tầm đánh và sát thương."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHI ĐAO NĂM CÁNH",
+      "icon": "assets/champions/akali/skill-q.png",
+      "iconSize": 128,
+      "description": "Akali ném ra năm phi đao, gây sát thương dựa trên SMCK và SMPT cộng thêm của cô, đồng thời làm chậm ở khoảng cách tối đa."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "BOM KHÓI",
+      "icon": "assets/champions/akali/skill-w.png",
+      "iconSize": 128,
+      "description": "Akali ném bom khói, đồng thời được tăng Tốc Độ Di Chuyển trong thoáng chốc và hồi lại Nội Năng. Khi đứng trong khói mù, Akali trở nên vô hình. Tấn công hoặc dùng kỹ năng thoáng làm cô lộ diện."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "PHÓNG PHI TIÊU",
+      "icon": "assets/champions/akali/skill-e.png",
+      "iconSize": 128,
+      "description": "Akali nhảy lùi lại và phóng phi tiêu ra trước mặt, gây sát thương vật lý. Kẻ địch đầu tiên hoặc khói mù trúng phải bị đánh dấu. Tái kích hoạt để lướt tới chỗ mục tiêu bị đánh dấu, gây thêm sát thương."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "SÁT CHIÊU HOÀN HẢO",
+      "icon": "assets/champions/akali/skill-r.png",
+      "iconSize": 128,
+      "description": "Akali lướt theo hướng chỉ định, gây sát thương kẻ địch trúng phải. Tái kích hoạt: Akali lướt theo một hướng, sát thương mọi kẻ địch cô lướt qua."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.5,
+      "y": 0.16
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/akali/",
+  "syncedAt": "2026-10-02"
+}

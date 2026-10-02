@@ -24,7 +24,7 @@ import { ROOT } from './lib/patches.mjs';
 import { getBrowser, closeBrowser } from './lib/renderer.mjs';
 import { findHero } from './lib/heroes.mjs';
 import { parseISO, pickPatch, pickTierlist } from './lib/pick.mjs';
-import { ROLES, roleOfLane, titleCase } from '../src/js/lib/roles.js';
+import { ROLES, roleOfLane, titleCase, OVERVIEW_SIZE } from '../src/js/lib/roles.js';
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) meta-wildrift/1.0';
 const CN_EQUIP = 'https://game.gtimg.cn/images/lgamem/act/lrlib/js/equip/equip.js';
@@ -212,6 +212,88 @@ async function findDuplicates(files) {
   return out;
 }
 
+// Ảnh tổng quan chứa 6 tướng / ảnh (OVERVIEW_SIZE trong src/js/lib/roles.js): bộ nhiều hơn 6 tướng → thêm ảnh
+// "overview-2", "overview-3"… đứng liền sau ảnh tổng quan trước đó. Ảnh thứ k tự lấy 6 tướng thứ k theo thứ tự "champions".
+function syncOverviews(set) {
+  const need = Math.max(1, Math.ceil(set.champions.length / OVERVIEW_SIZE));
+  const have = set.slides.filter((s) => s.type === 'build-overview');
+  for (let k = have.length + 1; k <= need; k++) {
+    const last = set.slides.findLastIndex((s) => s.type === 'build-overview');
+    set.slides.splice(last + 1, 0, { id: `overview-${k}`, type: 'build-overview', title: `Tổng quan ${k}` });
+  }
+  const overviews = set.slides.filter((s) => s.type === 'build-overview');
+  if (overviews.length > 1) overviews.forEach((s, i) => { s.title = `Tổng quan ${i + 1}`; });
+}
+
+// node scripts/champ-build.mjs order <id> <slug…>: xếp lại thứ tự tướng trong bộ (tướng không ghi giữ thứ tự cũ, đứng sau).
+async function cmdOrder([id, ...slugs]) {
+  const file = `builds/${id}/build.json`;
+  const set = await tryJSON(file);
+  if (!set || !slugs.length) fail('Cách dùng: node scripts/champ-build.mjs order <build-…> <slug> <slug> …');
+  const unknown = slugs.filter((s) => !set.champions.some((c) => c.champion === s));
+  if (unknown.length) fail(`Không có trong bộ: ${unknown.join(', ')} (đang có: ${set.champions.map((c) => c.champion).join(', ')})`);
+  const rank = (s) => (slugs.includes(s) ? slugs.indexOf(s) : slugs.length);
+  set.champions = set.champions.map((c, i) => ({ c, i })).sort((a, b) => rank(a.c.champion) - rank(b.c.champion) || a.i - b.i).map((x) => x.c);
+  const pos = (s) => set.champions.findIndex((c) => c.champion === s.champion);
+  // tổng quan → tướng theo thứ tự mới → ảnh bìa / thumbnail (luôn đứng cuối để số thứ tự file của ảnh khác không đổi)
+  const kind = (s) => (s.type === 'build-overview' ? 0 : s.type === 'build-cover' ? 2 : 1);
+  set.slides = [0, 1, 2].flatMap((k) => set.slides.filter((s) => kind(s) === k).sort((a, b) => (k === 1 ? pos(a) - pos(b) : 0)));
+  syncOverviews(set);
+  await writeFile(path.join(ROOT, file), JSON.stringify(set, null, 2) + '\n');
+  console.log(`✔ ${file}: ${set.champions.map((c) => c.champion).join(' · ')}`);
+}
+
+// node scripts/champ-build.mjs set <id> <tướng> strong=a,b,c weak=a,b,c synergy=a,b,c [note="…"] [label="VỚI ĐỒNG ĐỘI"]
+//        [boots=<slug trang bị>] [b1="tên build|hợp|khắc chế"] [b2=…] [b3=…]
+// Ghi 9 tướng đối đầu (tên Trung / Anh / slug — chỉ nhận tướng có trong Tốc Chiến), đôi giày chung của 3 build,
+// tên + tình huống từng build. Chỉ ghi phần được truyền, phần còn lại giữ nguyên.
+async function cmdSet([id, who, ...rest]) {
+  const file = `builds/${id}/build.json`;
+  const set = await tryJSON(file);
+  const hero = who && (await findHero(who));
+  const e = set?.champions.find((c) => c.champion === hero?.slug);
+  if (!set || !e) fail(`Cách dùng: node scripts/champ-build.mjs set <build-…> <tướng trong bộ> strong=a,b,c weak=a,b,c synergy=a,b,c [note=…] [label=…] [boots=…] [b1="tên|hợp|khắc chế"]…`);
+  const args = Object.fromEntries(rest.map((a) => [a.slice(0, a.indexOf('=')), a.slice(a.indexOf('=') + 1)]));
+  const errors = [];
+  e.matchups ??= {};
+  for (const k of ['strong', 'weak', 'synergy']) {
+    if (args[k] === undefined) continue;
+    const slugs = [];
+    for (const name of args[k].split(',').map((s) => s.trim()).filter(Boolean)) {
+      const h = await findHero(name);
+      if (!h?.slug) errors.push(`${k}: "${name}" không có trong Tốc Chiến (hoặc gõ sai tên)`);
+      else if (h.slug === e.champion) errors.push(`${k}: không chọn chính ${e.champion}`);
+      else slugs.push(h.slug);
+    }
+    if (slugs.length !== 3) errors.push(`${k}: cần đúng 3 tướng (đang có ${slugs.length})`);
+    e.matchups[k] = slugs;
+  }
+  const all = ['strong', 'weak', 'synergy'].flatMap((k) => e.matchups[k] ?? []);
+  const twice = [...new Set(all.filter((s, i) => all.indexOf(s) !== i))];
+  if (twice.length) errors.push(`trùng tướng giữa các nhóm: ${twice.join(', ')}`);
+  if (args.note !== undefined) e.matchups.note = args.note;
+  if (args.label !== undefined) { if (args.label) e.matchups.synergyLabel = args.label; else delete e.matchups.synergyLabel; }
+  if (args.boots !== undefined) {
+    const index = await itemIndex();
+    const bySlug = new Map([...index.values()].map((j) => [j.slug, j]));
+    if (!isBoots(bySlug.get(args.boots))) errors.push(`boots: "${args.boots}" không phải giày trong data/items`);
+    else for (const b of e.builds) b.items = [...b.items.filter((s) => !isBoots(bySlug.get(s))), args.boots];
+  }
+  for (const [i, b] of e.builds.entries()) {
+    const v = args[`b${i + 1}`];
+    if (v === undefined) continue;
+    const [title, team, enemy] = v.split('|').map((s) => s.trim());
+    if (!title || !team || !enemy) errors.push(`b${i + 1}: cần "tên build|hợp|khắc chế"`);
+    Object.assign(b, { title, team, enemy });
+  }
+  if (errors.length) fail(`Chưa ghi gì — sửa lại:\n  ${errors.join('\n  ')}`);
+  await writeFile(path.join(ROOT, file), JSON.stringify(set, null, 2) + '\n');
+  const m = e.matchups;
+  console.log(`✔ ${e.champion}: mạnh ${m.strong?.join(', ') || '—'} · yếu ${m.weak?.join(', ') || '—'} · hợp ${m.synergy?.join(', ') || '—'}`);
+  for (const [i, b] of e.builds.entries()) console.log(`  build ${i + 1}: ${b.title || '—'} | ${b.team || '—'} | ${b.enemy || '—'} · giày ${b.items.at(-1)}`);
+  for (const s of all) if (!(await tryJSON(`data/champions/${s}.json`))?.layout?.face) console.log(`  ⚠ ${s}: chưa có dữ liệu / khuôn mặt → fetch-champion.mjs ${s}, splash-grid.mjs ${s} --face=x,y`);
+}
+
 async function cmdRead(files) {
   if (!files.length) fail('Cách dùng: node scripts/champ-build.mjs read <ảnh> [ảnh…]');
   const cat = await catalogs();
@@ -327,11 +409,16 @@ async function cmdNew(args) {
     slides: [{ id: 'overview', type: 'build-overview', title: 'Tổng quan' }],
   };
   const at = out.champions.findIndex((c) => c.champion === slug);
-  if (at >= 0) out.champions[at] = { ...entry, matchups: out.champions[at].matchups };
+  // ghi đè build: giữ 9 tướng đối đầu và phần người dùng dặn riêng ("tier": số liệu mới hơn, "hide": nhãn không hiện)
+  const keep = (old) => Object.fromEntries(['tier', 'hide'].filter((k) => old[k] !== undefined).map((k) => [k, old[k]]));
+  if (at >= 0) out.champions[at] = { ...entry, ...keep(out.champions[at]), matchups: out.champions[at].matchups };
   else {
     out.champions.push(entry);
-    out.slides.push({ id: slug, type: 'build', champion: slug, title: name });
+    // ảnh bìa / thumbnail (nếu có) luôn đứng cuối
+    const cover = out.slides.findIndex((s) => s.type === 'build-cover');
+    out.slides.splice(cover < 0 ? out.slides.length : cover, 0, { id: slug, type: 'build', champion: slug, title: name });
   }
+  syncOverviews(out);
   await writeFile(path.join(dir, 'build.json'), JSON.stringify(out, null, 2) + '\n');
 
   console.log(`\n✔ builds/${id}/build.json — ${at >= 0 ? 'ghi đè' : 'thêm'} ${name} (${builds.length} build) · bộ có ${out.champions.length} tướng: ${out.slides.filter((s) => s.champion).map((s) => s.title).join(', ')}`);
@@ -347,8 +434,10 @@ const [cmd, ...rest] = process.argv.slice(2);
 try {
   if (cmd === 'read') await cmdRead(rest);
   else if (cmd === 'new') await cmdNew(rest);
+  else if (cmd === 'order') await cmdOrder(rest);
+  else if (cmd === 'set') await cmdSet(rest);
   else {
-    console.log('Cách dùng:\n  node scripts/champ-build.mjs read <ảnh> [ảnh…]\n  node scripts/champ-build.mjs new <tướng> <yyyy-mm-dd> <ảnh build 1> [ảnh 2] [ảnh 3] [--lane=…] [--suffix=b]');
+    console.log('Cách dùng:\n  node scripts/champ-build.mjs read <ảnh> [ảnh…]\n  node scripts/champ-build.mjs new <tướng> <yyyy-mm-dd> top<N>=<ảnh>… [tip=<ảnh>…] [--role=adc|top|jungle|mid|sp] [--replace]\n  node scripts/champ-build.mjs order <build-…> <slug> <slug> …\n  node scripts/champ-build.mjs set <build-…> <tướng> strong=a,b,c weak=a,b,c synergy=a,b,c [note=…] [label=…] [boots=…] [b1="tên|hợp|khắc chế"]…');
     process.exitCode = 1;
   }
 } finally {

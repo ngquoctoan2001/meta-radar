@@ -1,0 +1,1308 @@
+{
+  "id": "build-2026-10-02-mid",
+  "title": "Build MID",
+  "role": "mid",
+  "date": "02/10/2026",
+  "patch": "7.3a",
+  "tierlist": "tier-2026-09-30",
+  "source": "Bảng xếp hạng Tốc Chiến Trung Quốc",
+  "headline": "12 tướng đường giữa · 3 build mỗi tướng · Theo cao thủ Trung Quốc",
+  "champions": [
+    {
+      "champion": "hwei",
+      "lane": "mid",
+      "tier": {
+        "win": 55.13,
+        "note": "Tỉ lệ thắng người dùng báo ngày 02/10/2026 (tier list 30/09 ghi 54,88%)"
+      },
+      "matchups": {
+        "note": "Theo số liệu người dùng cung cấp ngày 02/10/2026",
+        "synergyLabel": "VỚI ĐỒNG ĐỘI",
+        "strong": [
+          "mel",
+          "ryze",
+          "galio"
+        ],
+        "weak": [
+          "velkoz",
+          "fizz",
+          "annie"
+        ],
+        "synergy": [
+          "rammus",
+          "nunu-and-willump",
+          "poppy"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Đốt máu dai dẳng",
+          "team": "Đội đánh tổng lâu, cần hồi máu",
+          "enemy": "Đối thủ đông đỡ đòn, máu dày",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572114001",
+            "572412001",
+            "572418001",
+            "572417001",
+            "572226001"
+          ],
+          "items": [
+            "blackfire-torch",
+            "item-2158",
+            "liandrys-torment",
+            "cryptbloom",
+            "banshees-veil",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Cấu rỉa tầm xa",
+          "team": "Đội cấu máu rồi mới giao tranh",
+          "enemy": "Đối thủ nhiều sát thủ lao vào",
+          "spells": [
+            "exhaust",
+            "flash"
+          ],
+          "runes": [
+            "572124001",
+            "572421001",
+            "572418001",
+            "572215001",
+            "572226001"
+          ],
+          "items": [
+            "ludens-echo",
+            "item-2158",
+            "rabadons-deathcap",
+            "void-staff",
+            "zhonyas-hourglass",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Dồn sát thương",
+          "team": "Đội nhiều khống chế, bắt lẻ nhanh",
+          "enemy": "Đối thủ nhiều tướng máu giấy",
+          "spells": [
+            "cleanse",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572412001",
+            "572427001",
+            "572215001",
+            "572226001"
+          ],
+          "items": [
+            "stormsurge",
+            "rabadons-deathcap",
+            "void-staff",
+            "imperial-mandate",
+            "item-2158",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "swain",
+      "lane": "mid",
+      "hide": [
+        "tier"
+      ],
+      "matchups": {
+        "note": "Theo số liệu người dùng cung cấp ngày 02/10/2026",
+        "synergyLabel": "VỚI ĐỒNG ĐỘI",
+        "strong": [
+          "fizz",
+          "kayle",
+          "corki"
+        ],
+        "weak": [
+          "akali",
+          "galio",
+          "jayce"
+        ],
+        "synergy": [
+          "amumu",
+          "jarvan-iv",
+          "warwick"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 3,
+          "title": "Gánh sát thương",
+          "team": "Đội thiếu sát thương phép",
+          "enemy": "Đối thủ lên kháng phép sớm",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572112001",
+            "572424001",
+            "572418001",
+            "572417001",
+            "572316001"
+          ],
+          "items": [
+            "rod-of-ages",
+            "malignance",
+            "rabadons-deathcap",
+            "void-staff",
+            "item-2362",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Đỡ đòn tuyến đầu",
+          "team": "Đội nhiều sát thương phép",
+          "enemy": "Đối thủ cận chiến hay lao vào",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572115001",
+            "572326001",
+            "572318001",
+            "572316001",
+            "572417001"
+          ],
+          "items": [
+            "malignance",
+            "abyssal-mask",
+            "rylais-crystal-scepter",
+            "zhonyas-hourglass",
+            "bloodletters-curse",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Giao tranh tổng",
+          "team": "Đội thích đánh tổng 5 đấu 5",
+          "enemy": "Đối thủ nhiều sát thủ bắt lẻ",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572112001",
+            "572424001",
+            "572427001",
+            "572417001",
+            "572312001"
+          ],
+          "items": [
+            "malignance",
+            "cryptbloom",
+            "banshees-veil",
+            "seekers-armguard",
+            "item-2158",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "morgana",
+      "lane": "mid",
+      "hide": [
+        "patch"
+      ],
+      "matchups": {
+        "note": "Theo số liệu người dùng cung cấp ngày 02/10/2026",
+        "synergyLabel": "VỚI ĐỒNG ĐỘI",
+        "strong": [
+          "twisted-fate",
+          "vex",
+          "swain"
+        ],
+        "weak": [
+          "zed",
+          "annie",
+          "katarina"
+        ],
+        "synergy": [
+          "pantheon",
+          "lee-sin",
+          "amumu"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 4,
+          "title": "Sát thương tối đa",
+          "team": "Đội đã có tướng chắn phía trước",
+          "enemy": "Đối thủ máu dày, ít cơ động",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572124001",
+            "572412001",
+            "572418001",
+            "572213001",
+            "572518001"
+          ],
+          "items": [
+            "liandrys-torment",
+            "rylais-crystal-scepter",
+            "item-2158",
+            "rabadons-deathcap",
+            "riftmaker",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Lao vào trói chân",
+          "team": "Đội đánh tổng, cần hồi máu",
+          "enemy": "Đối thủ nhiều sát thủ áp sát",
+          "spells": [
+            "heal",
+            "flash"
+          ],
+          "runes": [
+            "572114001",
+            "572412001",
+            "572418001",
+            "572213001",
+            "572312001"
+          ],
+          "items": [
+            "blackfire-torch",
+            "liandrys-torment",
+            "rylais-crystal-scepter",
+            "zhonyas-hourglass",
+            "cryptbloom",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Chống hồi máu",
+          "team": "Đội cần đẩy đường, phá trụ nhanh",
+          "enemy": "Đối thủ hồi máu, hút máu nhiều",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572115001",
+            "572421001",
+            "572418001",
+            "572417001",
+            "572415001"
+          ],
+          "items": [
+            "ludens-echo",
+            "rylais-crystal-scepter",
+            "liandrys-torment",
+            "riftmaker",
+            "morellonomicon",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "galio",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "swain",
+          "akali",
+          "gragas"
+        ],
+        "weak": [
+          "zed",
+          "hwei",
+          "ahri"
+        ],
+        "synergy": [
+          "jarvan-iv",
+          "nocturne",
+          "vi"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Đỡ đòn thuần túy",
+          "team": "Đội thiếu tướng chắn phía trước",
+          "enemy": "Đối thủ nhiều xạ thủ, chí mạng",
+          "spells": [
+            "flash",
+            "ignite"
+          ],
+          "runes": [
+            "572127001",
+            "572326001",
+            "572318001",
+            "572324001",
+            "572417001"
+          ],
+          "items": [
+            "hollow-radiance",
+            "frozen-heart",
+            "radiant-virtue",
+            "randuins-omen",
+            "force-of-nature",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Khống chế đánh lâu",
+          "team": "Đội có sát thương theo sau",
+          "enemy": "Đối thủ hút máu, đánh tay nhiều",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572127001",
+            "572323001",
+            "572312001",
+            "572324001",
+            "572217001"
+          ],
+          "items": [
+            "hollow-radiance",
+            "imperial-mandate",
+            "unending-despair",
+            "riftmaker",
+            "thornmail",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Bay vào nổ phép",
+          "team": "Đội đã đủ tướng đỡ đòn",
+          "enemy": "Đối thủ máu giấy, nhiều phép",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572217001",
+            "572524001",
+            "572516001",
+            "572417001"
+          ],
+          "items": [
+            "ludens-echo",
+            "rabadons-deathcap",
+            "item-2158",
+            "cryptbloom",
+            "banshees-veil",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "aurora",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (số liệu bản PC — chưa tìm được trang Tốc Chiến cho Aurora) + phân tích bộ kỹ năng, cần soát lại",
+        "strong": [
+          "mel",
+          "orianna",
+          "velkoz"
+        ],
+        "weak": [
+          "swain",
+          "katarina",
+          "diana"
+        ],
+        "synergy": [
+          "fiddlesticks",
+          "wukong",
+          "jarvan-iv"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Combo an toàn",
+          "team": "Đội cần pháp sư dồn sát thương",
+          "enemy": "Đối thủ nhiều sát thủ lao vào",
+          "spells": [
+            "flash",
+            "ignite"
+          ],
+          "runes": [
+            "572113001",
+            "572217001",
+            "572523001",
+            "572518001",
+            "572427001"
+          ],
+          "items": [
+            "ludens-echo",
+            "item-2158",
+            "zhonyas-hourglass",
+            "rabadons-deathcap",
+            "void-staff",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Bùng nổ một combo",
+          "team": "Đội đã có tướng chắn phía trước",
+          "enemy": "Đối thủ máu giấy, ít cơ động",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572217001",
+            "572523001",
+            "572518001",
+            "572224001"
+          ],
+          "items": [
+            "ludens-echo",
+            "stormsurge",
+            "rabadons-deathcap",
+            "void-staff",
+            "item-2158",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Bắt lẻ lấy lợi thế",
+          "team": "Đội giao tranh cần thêm hồi máu",
+          "enemy": "Đối thủ đi lẻ, dễ bị bắt",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572217001",
+            "572523001",
+            "572516001",
+            "572312001"
+          ],
+          "items": [
+            "ludens-echo",
+            "stormsurge",
+            "item-2158",
+            "cryptbloom",
+            "rabadons-deathcap",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "orianna",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "pantheon",
+          "gragas",
+          "yone"
+        ],
+        "weak": [
+          "aurelion-sol",
+          "ahri",
+          "ekko"
+        ],
+        "synergy": [
+          "nocturne",
+          "jarvan-iv",
+          "xin-zhao"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 2,
+          "title": "Phép mạnh cuối trận",
+          "team": "Đội cần pháp sư gánh cuối trận",
+          "enemy": "Đối thủ nhiều sát thủ lao vào",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572112001",
+            "572412001",
+            "572418001",
+            "572215001",
+            "572225001"
+          ],
+          "items": [
+            "archangels-staff",
+            "item-2158",
+            "zhonyas-hourglass",
+            "void-staff",
+            "rabadons-deathcap",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Thiêu đốt diện rộng",
+          "team": "Đội thích đánh tổng kéo dài",
+          "enemy": "Đối thủ đông đỡ đòn, đứng cụm",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572112001",
+            "572412001",
+            "572418001",
+            "572417001",
+            "572212001"
+          ],
+          "items": [
+            "blackfire-torch",
+            "archangels-staff",
+            "rabadons-deathcap",
+            "item-2158",
+            "zhonyas-hourglass",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Nổ sát thương",
+          "team": "Đội có tướng lao vào trước",
+          "enemy": "Đối thủ máu giấy, lên kháng phép",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572112001",
+            "572412001",
+            "572418001",
+            "572417001",
+            "572312001"
+          ],
+          "items": [
+            "ludens-echo",
+            "rabadons-deathcap",
+            "item-2158",
+            "void-staff",
+            "stormsurge",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "ahri",
+      "lane": "mid",
+      "hide": [
+        "tier",
+        "patch"
+      ],
+      "matchups": {
+        "note": "Theo số liệu người dùng cung cấp ngày 02/10/2026",
+        "synergyLabel": "VỚI ĐỒNG ĐỘI",
+        "strong": [
+          "aurelion-sol",
+          "galio",
+          "kassadin"
+        ],
+        "weak": [
+          "mel",
+          "hwei",
+          "irelia"
+        ],
+        "synergy": [
+          "rell",
+          "lee-sin",
+          "jarvan-iv"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Combo một nhịp",
+          "team": "Đội cần người kết liễu chủ lực",
+          "enemy": "Đối thủ máu giấy, lên kháng phép",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572514001",
+            "572523001",
+            "572516001",
+            "572226001"
+          ],
+          "items": [
+            "ludens-echo",
+            "rabadons-deathcap",
+            "zhonyas-hourglass",
+            "item-2158",
+            "void-staff",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Chiêu cuối liên tục",
+          "team": "Đội thích giao tranh kéo dài",
+          "enemy": "Đối thủ nhiều chiêu khống chế",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572514001",
+            "572523001",
+            "572516001",
+            "572312001"
+          ],
+          "items": [
+            "malignance",
+            "item-2158",
+            "rabadons-deathcap",
+            "cryptbloom",
+            "banshees-veil",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Cơ động bắt lẻ",
+          "team": "Đội cần người đảo đường liên tục",
+          "enemy": "Đối thủ có tướng hồi máu mạnh",
+          "spells": [
+            "cleanse",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572514001",
+            "572523001",
+            "572516001",
+            "572312001"
+          ],
+          "items": [
+            "ludens-echo",
+            "lich-bane",
+            "rabadons-deathcap",
+            "item-2158",
+            "morellonomicon",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "aurelion-sol",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "twisted-fate",
+          "orianna",
+          "corki"
+        ],
+        "weak": [
+          "zed",
+          "ahri",
+          "akshan"
+        ],
+        "synergy": [
+          "amumu",
+          "rammus",
+          "nunu-and-willump"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Chống khống chế",
+          "team": "Đội đánh tổng, cần hồi máu",
+          "enemy": "Đối thủ nhiều chiêu khống chế",
+          "spells": [
+            "flash",
+            "cleanse"
+          ],
+          "runes": [
+            "572126001",
+            "572412001",
+            "572418001",
+            "572213001",
+            "572226001"
+          ],
+          "items": [
+            "rylais-crystal-scepter",
+            "cryptbloom",
+            "banshees-veil",
+            "rabadons-deathcap",
+            "item-2158",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Chống sát thủ",
+          "team": "Đội thiếu tướng bảo kê tuyến sau",
+          "enemy": "Đối thủ nhiều sát thủ áp sát",
+          "spells": [
+            "exhaust",
+            "flash"
+          ],
+          "runes": [
+            "572126001",
+            "572412001",
+            "572418001",
+            "572213001",
+            "572312001"
+          ],
+          "items": [
+            "rylais-crystal-scepter",
+            "item-2158",
+            "rabadons-deathcap",
+            "void-staff",
+            "zhonyas-hourglass",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Cơ động xả chiêu",
+          "team": "Đội có tướng chắn phía trước",
+          "enemy": "Đối thủ đỡ đòn, lên kháng phép",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572126001",
+            "572412001",
+            "572418001",
+            "572213001",
+            "572226001"
+          ],
+          "items": [
+            "rylais-crystal-scepter",
+            "item-2158",
+            "rabadons-deathcap",
+            "void-staff",
+            "zhonyas-hourglass",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "vladimir",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "katarina",
+          "fizz",
+          "yasuo"
+        ],
+        "weak": [
+          "akshan",
+          "ziggs",
+          "pantheon"
+        ],
+        "synergy": [
+          "lee-sin",
+          "amumu",
+          "wukong"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Lao vào nổ chiêu",
+          "team": "Đội có khống chế diện rộng",
+          "enemy": "Đối thủ đứng cụm, lên kháng phép",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572115001",
+            "572225001",
+            "572220001",
+            "572226001",
+            "572417001"
+          ],
+          "items": [
+            "item-2158",
+            "rabadons-deathcap",
+            "hextech-rocketbelt",
+            "cosmic-drive",
+            "void-staff",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Ám sát tuyến sau",
+          "team": "Đội cần người lao vào tuyến sau",
+          "enemy": "Đối thủ có xạ thủ ít cơ động",
+          "spells": [
+            "flash",
+            "ghost"
+          ],
+          "runes": [
+            "572115001",
+            "572225001",
+            "572220001",
+            "572226001",
+            "572418001"
+          ],
+          "items": [
+            "stormsurge",
+            "rabadons-deathcap",
+            "item-2158",
+            "cryptbloom",
+            "hextech-rocketbelt",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Trâu bò đánh lâu",
+          "team": "Đội thích giao tranh kéo dài",
+          "enemy": "Đối thủ đông đỡ đòn, máu dày",
+          "spells": [
+            "ghost",
+            "flash"
+          ],
+          "runes": [
+            "572115001",
+            "572225001",
+            "572220001",
+            "572226001",
+            "572418001"
+          ],
+          "items": [
+            "cosmic-drive",
+            "riftmaker",
+            "rabadons-deathcap",
+            "item-2158",
+            "cryptbloom",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "teemo",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "akshan",
+          "yone",
+          "kassadin"
+        ],
+        "weak": [
+          "lux",
+          "ziggs",
+          "jayce"
+        ],
+        "synergy": [
+          "lee-sin",
+          "rammus",
+          "vi"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Đốt máu phá khiên",
+          "team": "Đội đánh lâu, cần thêm hồi máu",
+          "enemy": "Đối thủ nhiều khiên, máu dày",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572116001",
+            "572217001",
+            "572524001",
+            "572518001",
+            "572312001"
+          ],
+          "items": [
+            "liandrys-torment",
+            "cryptbloom",
+            "nashors-tooth",
+            "rabadons-deathcap",
+            "item-2170",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Dồn sát thương phép",
+          "team": "Đội đã có tướng chắn phía trước",
+          "enemy": "Đối thủ máu giấy, lên kháng phép",
+          "spells": [
+            "flash",
+            "ignite"
+          ],
+          "runes": [
+            "572116001",
+            "572217001",
+            "572524001",
+            "572518001",
+            "572312001"
+          ],
+          "items": [
+            "liandrys-torment",
+            "nashors-tooth",
+            "rabadons-deathcap",
+            "stormsurge",
+            "void-staff",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Khắc chế hồi máu",
+          "team": "Đội thiếu trang bị giảm hồi máu",
+          "enemy": "Đối thủ có tướng hồi máu mạnh",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572116001",
+            "572211001",
+            "572224001",
+            "572221001",
+            "572312001"
+          ],
+          "items": [
+            "liandrys-torment",
+            "morellonomicon",
+            "cryptbloom",
+            "rabadons-deathcap",
+            "lich-bane",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "kennen",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "yasuo",
+          "diana",
+          "ekko"
+        ],
+        "weak": [
+          "akshan",
+          "galio",
+          "morgana"
+        ],
+        "synergy": [
+          "wukong",
+          "amumu",
+          "jarvan-iv"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Mở giao tranh",
+          "team": "Đội có sát thương diện rộng",
+          "enemy": "Đối thủ nhiều chiêu khống chế",
+          "spells": [
+            "flash",
+            "ignite"
+          ],
+          "runes": [
+            "572116001",
+            "572514001",
+            "572523001",
+            "572516001",
+            "572312001"
+          ],
+          "items": [
+            "hextech-rocketbelt",
+            "item-2158",
+            "rabadons-deathcap",
+            "void-staff",
+            "banshees-veil",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Đánh tay tốc đánh",
+          "team": "Đội thiếu sát thương vật lý",
+          "enemy": "Đối thủ đông đỡ đòn, máu dày",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572120001",
+            "572211001",
+            "572212001",
+            "572221001",
+            "572312001"
+          ],
+          "items": [
+            "kraken-slayer",
+            "blade-of-the-ruined-king",
+            "guinsoos-rageblade",
+            "statikk-shiv",
+            "terminus",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Ám sát một nhịp",
+          "team": "Đội đã có người mở giao tranh",
+          "enemy": "Đối thủ nhiều tướng máu giấy",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572126001",
+            "572514001",
+            "572523001",
+            "572516001",
+            "572421001"
+          ],
+          "items": [
+            "item-2158",
+            "hextech-rocketbelt",
+            "rabadons-deathcap",
+            "stormsurge",
+            "void-staff",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    },
+    {
+      "champion": "lissandra",
+      "lane": "mid",
+      "matchups": {
+        "note": "Tra cứu trên web (zathong.com, bản Tốc Chiến) + phân tích bộ kỹ năng — chưa có số liệu đối đầu, cần soát lại",
+        "strong": [
+          "akali",
+          "vex",
+          "twisted-fate"
+        ],
+        "weak": [
+          "orianna",
+          "lux",
+          "ziggs"
+        ],
+        "synergy": [
+          "vi",
+          "xin-zhao",
+          "wukong"
+        ]
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "title": "Đảo đường bắt lẻ",
+          "team": "Đội cần người đảo đường hỗ trợ",
+          "enemy": "Đối thủ nhiều sát thủ vật lý",
+          "spells": [
+            "flash",
+            "teleport"
+          ],
+          "runes": [
+            "572113001",
+            "572515001",
+            "572524001",
+            "572518001",
+            "572427001"
+          ],
+          "items": [
+            "malignance",
+            "stormsurge",
+            "rabadons-deathcap",
+            "seekers-armguard",
+            "item-2158",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Giao tranh an toàn",
+          "team": "Đội đánh tổng, cần thêm hồi máu",
+          "enemy": "Đối thủ hồi máu, nhiều khống chế",
+          "spells": [
+            "ignite",
+            "flash"
+          ],
+          "runes": [
+            "572113001",
+            "572515001",
+            "572523001",
+            "572518001",
+            "572312001"
+          ],
+          "items": [
+            "cryptbloom",
+            "item-2158",
+            "banshees-veil",
+            "rabadons-deathcap",
+            "morellonomicon",
+            "spellslingers-shoes"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Phá khiên đối thủ",
+          "team": "Đội có sát thương theo sau",
+          "enemy": "Đối thủ nhiều khiên, tướng bảo kê",
+          "spells": [
+            "flash",
+            "ignite"
+          ],
+          "runes": [
+            "572113001",
+            "572217001",
+            "572524001",
+            "572516001",
+            "572312001"
+          ],
+          "items": [
+            "malignance",
+            "cryptbloom",
+            "rabadons-deathcap",
+            "item-2170",
+            "item-2158",
+            "spellslingers-shoes"
+          ]
+        }
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "id": "overview",
+      "type": "build-overview",
+      "title": "Tổng quan 1"
+    },
+    {
+      "id": "overview-2",
+      "type": "build-overview",
+      "title": "Tổng quan 2"
+    },
+    {
+      "id": "hwei",
+      "type": "build",
+      "champion": "hwei",
+      "title": "Hwei"
+    },
+    {
+      "id": "swain",
+      "type": "build",
+      "champion": "swain",
+      "title": "Swain"
+    },
+    {
+      "id": "morgana",
+      "type": "build",
+      "champion": "morgana",
+      "title": "Morgana"
+    },
+    {
+      "id": "galio",
+      "type": "build",
+      "champion": "galio",
+      "title": "Galio"
+    },
+    {
+      "id": "aurora",
+      "type": "build",
+      "champion": "aurora",
+      "title": "Aurora"
+    },
+    {
+      "id": "orianna",
+      "type": "build",
+      "champion": "orianna",
+      "title": "Orianna"
+    },
+    {
+      "id": "ahri",
+      "type": "build",
+      "champion": "ahri",
+      "title": "Ahri"
+    },
+    {
+      "id": "aurelion-sol",
+      "type": "build",
+      "champion": "aurelion-sol",
+      "title": "Aurelion Sol"
+    },
+    {
+      "id": "vladimir",
+      "type": "build",
+      "champion": "vladimir",
+      "title": "Vladimir"
+    },
+    {
+      "id": "teemo",
+      "type": "build",
+      "champion": "teemo",
+      "title": "Teemo"
+    },
+    {
+      "id": "kennen",
+      "type": "build",
+      "champion": "kennen",
+      "title": "Kennen"
+    },
+    {
+      "id": "lissandra",
+      "type": "build",
+      "champion": "lissandra",
+      "title": "Lissandra"
+    },
+    {
+      "id": "thumbnail",
+      "type": "build-cover",
+      "title": "Thumbnail",
+      "headline": "3 build mỗi tướng · Lên đồ + ngọc · Khắc chế"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "gragas",
+  "name": "GRAGAS",
+  "title": "Gã Bợm Rượu",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#10080C",
+    "secondary": "#D6EAFF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/gragas/portrait.jpg",
+  "splash": "assets/champions/gragas/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "GRAGAS, GÃ BỢM RƯỢU",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Giờ Khuyến Mãi",
+      "icon": "assets/champions/gragas/skill-p.png",
+      "iconSize": 128,
+      "description": "Gragas sẽ hồi máu theo từng mốc thời gian khi sử dụng một kỹ năng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Lăn Thùng Rượu",
+      "icon": "assets/champions/gragas/skill-q.png",
+      "iconSize": 128,
+      "description": "Gragas quẳng bình rượu đến một vị trí, có thể kích hoạt để phát nổ hoặc tự phát nổ sau 3 giây. Kẻ địch bị vụ nổ tác động sẽ bị giảm Tốc Độ Di Chuyển."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Say Quá Hóa Cuồng",
+      "icon": "assets/champions/gragas/skill-w.png",
+      "iconSize": 128,
+      "description": "Gragas nốc rượu trong bình trong 1 giây. Hậu quả là hắn trở nên say xỉn khiến đòn đánh thường tiếp theo gây thêm sát thương phép lên tất cả kẻ địch xung quanh, đòng thời được giảm sát thương nhận vào."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Lăn Bụng",
+      "icon": "assets/champions/gragas/skill-e.png",
+      "iconSize": 128,
+      "description": "Gragas lao tới một vị trí và tông vào kẻ địch đầu tiên mà hắn gặp phải, gây sát thương và làm choáng tất cả kẻ địch ở gần."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Thùng Rượu Nổ",
+      "icon": "assets/champions/gragas/skill-r.png",
+      "iconSize": 128,
+      "description": "Gragas quẳng bình rượu nổ đến vị trí mục tiêu, gây sát thương và hất tung kẻ địch trong phạm vi ảnh hưởng."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.56,
+      "y": 0.26
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/gragas/",
+  "syncedAt": "2026-10-02"
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "yasuo",
+  "name": "YASUO",
+  "title": "Kẻ Bất Dung Thứ",
+  "roles": [
+    "ĐẤU SĨ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#242112",
+    "secondary": "#F9EDDC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/yasuo/portrait.jpg",
+  "splash": "assets/champions/yasuo/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "YASUO, KẺ BẤT DUNG THỨ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Đạo của Lãng Khách",
+      "icon": "assets/champions/yasuo/skill-p.png",
+      "iconSize": 128,
+      "description": "Tỉ lệ Chí mạng của Yasuo được tăng gấp đôi. Ngoài ra, Yasuo sẽ dần tạo ra một lớp khiên cho bản thân khi di chuyển. Lớp khiên sẽ được kích hoạt khi hắn phải chịu sát thương từ tướng hoặc quái."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Bão Kiếm",
+      "icon": "assets/champions/yasuo/skill-q.png",
+      "iconSize": 128,
+      "description": "Đâm tới, sát thương tất cả kẻ địch trên đường thẳng. Khi đánh trúng, tăng 1 điểm cộng dồn Tụ Bão trong vài giây. Khi đạt 2 điểm cộng dồn, Bão Kiếm bắn ra một cơn lốc xoáy có thể Hất Lên Không. Bão Kiếm được xem là đòn đánh thường."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Tường Gió",
+      "icon": "assets/champions/yasuo/skill-w.png",
+      "iconSize": 128,
+      "description": "Tạo tường gió chặn các luồng đạn của kẻ địch trong 4 giây."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Quét Kiếm",
+      "icon": "assets/champions/yasuo/skill-e.png",
+      "iconSize": 128,
+      "description": "Lướt qua mục tiêu, gây sát thương phép. Mỗi lần lướt sẽ tăng Sát Thương cơ bản của lần lướt kế tiếp, cho đến khi đạt số lần tối đa. Không thể thi triển lên cùng một kẻ địch trong vài giây. Nếu dùng Bão Kiếm khi đang lướt, nó sẽ tấn công theo hình tròn."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Trăng Trối",
+      "icon": "assets/champions/yasuo/skill-r.png",
+      "iconSize": 128,
+      "description": "Bay tới chỗ một tướng địch đang bị Hất Lên Không, gây sát thương vật lý và giữ tất cả kẻ địch đang bị Hất Lên Không ở nguyên vị trí. Tăng đầy thanh Nhịp nhưng mất hết cộng dồn của Tụ Bão. Trong một thời gian sau đó, những đòn chí mạng của Yasuo sẽ nhận một lượng lớn Xuyên Giáp Cộng Thêm."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.775,
+      "y": 0.36
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/yasuo/",
+  "syncedAt": "2026-10-02"
+}

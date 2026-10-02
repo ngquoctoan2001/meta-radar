@@ -1,0 +1,43 @@
+{
+  "slug": "unending-despair",
+  "name": "Unending Despair",
+  "nameVi": "Áo Choàng Diệt Vong",
+  "cnId": "2803",
+  "cnName": "无终恨意",
+  "icon": "assets/items/unending-despair.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Hồi máu"
+  ],
+  "color": "#3DD6B0",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+300"
+    },
+    {
+      "label": "Giáp",
+      "value": "+40"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+40"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+10"
+    }
+  ],
+  "passives": [
+    "Đau Đớn"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2803) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+300 máu", "+40 giáp", "+40 kháng phép", "+10 điểm hồi kỹ năng"],
+    "text": "Giao tranh với tướng: mỗi 4 giây gây 3% máu tối đa sát thương phép lên tướng địch gần đó và hồi máu bằng 250% sát thương gây ra.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

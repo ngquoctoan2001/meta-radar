@@ -1,0 +1,73 @@
+{
+  "slug": "lissandra",
+  "name": "LISSANDRA",
+  "title": "Mụ Phù Thủy Băng",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#0D151B",
+    "secondary": "#D6F5FF",
+    "label": "#020202"
+  },
+  "portrait": "assets/champions/lissandra/portrait.jpg",
+  "splash": "assets/champions/lissandra/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "LISSANDRA, MỤ PHÙ THỦY BĂNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "UY QUYỀN BĂNG TỘC",
+      "icon": "assets/champions/lissandra/skill-p.png",
+      "iconSize": 256,
+      "description": "Khi một tướng địch bị hạ gục ở gần Lissandra, chúng sẽ trở thành Nô Lệ Băng. Nô Lệ Băng làm chậm kẻ địch gần đó và vỡ tan sau ít lâu, gây sát thương phép lên các mục tiêu xung quanh."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "MẢNH BĂNG",
+      "icon": "assets/champions/lissandra/skill-q.png",
+      "iconSize": 256,
+      "description": "Phóng ra một ngọn giáo băng, vỡ vụn khi trúng kẻ địch, gây sát thương phép và làm chậm Tốc Độ Di Chuyển. Những mảnh vỡ sẽ bay xuyên qua mục tiêu, gây sát thương tương tự lên những kẻ địch khác trúng đòn."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "VÒNG TRÒN LẠNH GIÁ",
+      "icon": "assets/champions/lissandra/skill-w.png",
+      "iconSize": 256,
+      "description": "Khiến những kẻ địch cạnh bên bị trúng băng giá, gây sát thương phép và trói chân nạn nhân."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "CON ĐƯỜNG BĂNG GIÁ",
+      "icon": "assets/champions/lissandra/skill-e.png",
+      "iconSize": 256,
+      "description": "Lissandra tạo ra một vết cào băng giá gây sát thương phép. Tái kích hoạt kỹ năng sẽ biến Lissandra tới vị trí hiện tại của vết cào."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "HÀN BĂNG MỘ",
+      "icon": "assets/champions/lissandra/skill-r.png",
+      "iconSize": 256,
+      "description": "Nếu niệm lên một tướng địch, mục tiêu sẽ bị đông cứng và làm choáng. Nếu niệm lên Lissandra, cô sẽ tự bao phủ bản thân trong băng đen, hồi máu đồng thời trở nên không thể bị chỉ định và bất tử. Băng đen sau đó mọc ra từ mục tiêu, gây sát thương phép lên kẻ địch và làm chậm Tốc Độ Di Chuyển."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.64,
+      "y": 0.18
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/lissandra/",
+  "syncedAt": "2026-10-02"
+}

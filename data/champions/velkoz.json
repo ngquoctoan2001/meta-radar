@@ -1,0 +1,74 @@
+{
+  "slug": "velkoz",
+  "name": "VEL'KOZ",
+  "title": "MẮT HƯ KHÔNG",
+  "roles": [
+    "PHÁP SƯ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#131123",
+    "secondary": "#E0D6FF",
+    "label": "#080808"
+  },
+  "portrait": "assets/champions/velkoz/portrait.jpg",
+  "splash": "assets/champions/velkoz/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "VEL'KOZ, MẮT HƯ KHÔNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "PHÂN RÃ HỮU CƠ",
+      "icon": "assets/champions/velkoz/skill-p.png",
+      "iconSize": 128,
+      "description": "Các kỹ năng của Vel'Koz áp dụng hiệu ứng Phân Rã Hữu Cơ lên các kẻ địch trúng đòn. Nếu tích đủ 3 điểm cộng dồn, kẻ địch sẽ phải chịu một lượng sát thương chuẩn."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHÂN HẠCH PLASMA",
+      "icon": "assets/champions/velkoz/skill-q.png",
+      "iconSize": 128,
+      "description": "Vel'Koz bắn ra một luồng plasma chia làm hai tia khi kích hoạt, hoặc khi trúng phải kẻ địch. Tia plasma gây sát thương và làm chậm khi trúng đích."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "VẾT RÁCH HƯ KHÔNG",
+      "icon": "assets/champions/velkoz/skill-w.png",
+      "iconSize": 128,
+      "description": "Vel'Koz mở ra một vết rách không gian dẫn tới vùng hư không, gây một lượng sát thương bộc phá khởi điểm, sau đó sẽ gây sát thương theo thời gian lên những nạn nhân bên trong vệt rách không gian đó.\\n"
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "PHÁ VỠ KẾT CẤU",
+      "icon": "assets/champions/velkoz/skill-e.png",
+      "iconSize": 128,
+      "description": "Vel'Koz tạo một vùng nổ dị thường tại vị trí chỉ định, hất văng kẻ địch lên không và đẩy lùi nhẹ những kẻ địch cạnh bên. Vùng dị thường càng gần Vel’Koz thì hiệu ứng hất văng của nó càng mạnh.\\n"
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "TIA PHÂN HỦY SỰ SỐNG",
+      "icon": "assets/champions/velkoz/skill-r.png",
+      "iconSize": 128,
+      "description": "Nội tại: Đặt 3 cộng dồn Phân Rã lên một kẻ địch và đánh dấu chúng là Đã Nghiên Cứu trong 7 giây.\\nKích hoạt: Vel'Koz phóng thích ra một luồng năng lượng tích tụ có thể điều hướng tới một vị trí chỉ định để gây sát thương phép và làm chậm kẻ địch trúng chiêu. Những tướng địch bị đánh dấu Đã Nghiên Cứu sẽ nhận sát thương chuẩn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.58,
+      "y": 0.42
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/velkoz/",
+  "syncedAt": "2026-10-02"
+}

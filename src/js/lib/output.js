@@ -6,5 +6,12 @@ export const CANVAS = { width: 1920, height: 1080 };
 export const SCALE = 2;
 export const OUTPUT = { width: CANVAS.width * SCALE, height: CANVAS.height * SCALE };
 
+// Ảnh bìa / thumbnail (loại "…-cover") là ảnh rời: không có số trang và không tính vào tổng "NN / tổng" ở chân các ảnh khác.
+// Ảnh bìa theo khổ DỌC 3:4 — đúng tỉ lệ ô ảnh trên lưới trang cá nhân TikTok (người dùng chốt 02/10/2026):
+// khung 1080×1440, chụp ở tỉ lệ SCALE = 2 → xuất 2160×2880.
+export const isCover = (slide) => String(slide?.type ?? '').endsWith('-cover');
+export const COVER_CANVAS = { width: 1080, height: 1440 };
+export const canvasOf = (slide) => (isCover(slide) ? COVER_CANVAS : CANVAS);
+
 // vd 7.3a-02-samira.png · tier-2026-09-30-02-baron.png
 export const fileName = (id, index, slideId) => `${id}-${String(index + 1).padStart(2, '0')}-${slideId}.png`;

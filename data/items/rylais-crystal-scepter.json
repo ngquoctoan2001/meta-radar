@@ -1,0 +1,35 @@
+{
+  "slug": "rylais-crystal-scepter",
+  "name": "Rylai's Crystal Scepter",
+  "nameVi": "Trượng Pha Lê Rylai",
+  "cnId": "2146",
+  "cnName": "瑞莱的冰晶节杖",
+  "icon": "assets/items/rylais-crystal-scepter.png",
+  "price": 2700,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Máu"
+  ],
+  "color": "#5CC8FF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+350"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+65"
+    }
+  ],
+  "passives": [
+    "Sương Giá"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2146) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+350 máu", "+65 SMPT"],
+    "text": "Kỹ năng gây sát thương và đòn đánh cường hoá làm chậm kẻ địch 30% trong 0,75 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

@@ -7,7 +7,9 @@ export const ROLES = {
   mid: { name: 'MID', lane: 'mid' },
   sp: { name: 'SP', lane: 'support' },
 };
-export const roleOfLane = (lane) => Object.entries(ROLES).find(([, r]) => r.lane === lane)?.[0] ?? null;
+// Số tướng trên 1 ảnh tổng quan của bộ build; bộ nhiều tướng hơn thì có thêm ảnh tổng quan thứ 2, 3…
+export const OVERVIEW_SIZE = 6;
+export const roleOfLane =(lane) => Object.entries(ROLES).find(([, r]) => r.lane === lane)?.[0] ?? null;
 
 // "KOG'MAW" → "Kog'Maw", "JARVAN IV" → "Jarvan IV", "DR. MUNDO" → "Dr. Mundo"
 export const titleCase = (s) =>

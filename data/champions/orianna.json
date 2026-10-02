@@ -1,0 +1,74 @@
+{
+  "slug": "orianna",
+  "name": "ORIANNA",
+  "title": "Quý Cô Dây Cót",
+  "roles": [
+    "PHÁP SƯ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#231119",
+    "secondary": "#FFDCD6",
+    "label": "#080808"
+  },
+  "portrait": "assets/champions/orianna/portrait.jpg",
+  "splash": "assets/champions/orianna/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "ORIANNA, QUÝ CÔ DÂY CÓT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Lên Dây Cót",
+      "icon": "assets/champions/orianna/skill-p.png",
+      "iconSize": 128,
+      "description": "Các đòn đánh của Orianna gây thêm sát thương phép. Sát thương này gia tăng khi Orianna tấn công cùng một mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Lệnh: Tấn Công",
+      "icon": "assets/champions/orianna/skill-q.png",
+      "iconSize": 128,
+      "description": "Orianna hiệu lệnh cho Khối Cầu bắn đến vị trí chỉ định, gây sát thương phép lên những mục tiêu va phải trên đường bay (sát thương gây ra giảm đi cho mỗi mục tiêu kế tiếp). Khối cầu sẽ yên vị tại vị trí đó."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Lệnh: Phát Sóng",
+      "icon": "assets/champions/orianna/skill-w.png",
+      "iconSize": 128,
+      "description": "Orianna hiệu lệnh cho Khối Cầu phóng ra năng lượng, gây sát thương phép xung quanh nó. Từ đó tạo thành trường năng lượng giúp tăng tốc độ đồng minh và làm chậm kẻ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Lệnh: Bảo Vệ",
+      "icon": "assets/champions/orianna/skill-e.png",
+      "iconSize": 128,
+      "description": "Orianna hiệu lệnh cho Khối Cầu bám vào một tướng đồng minh, bảo vệ và gây sát thương phép lên những kẻ địch va phải trên đường bay. Ngoài ra, Khối Cầu còn tăng Giáp và Kháng Phép cho tướng mà nó bám vào."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Lệnh: Sóng Âm",
+      "icon": "assets/champions/orianna/skill-r.png",
+      "iconSize": 128,
+      "description": "Orianna hiệu lệnh cho Khối Cầu phóng thích ra sóng chấn động, gây sát thương phép và hút kẻ địch ở gần về phía Khối Cầu sau một khoảng thời gian ngắn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.75,
+      "y": 0.16
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/orianna/",
+  "syncedAt": "2026-10-02"
+}

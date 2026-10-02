@@ -1,0 +1,74 @@
+{
+  "slug": "pantheon",
+  "name": "PANTHEON",
+  "title": "Mũi Giáo Bất Diệt",
+  "roles": [
+    "ĐẤU SĨ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#2C1F16",
+    "secondary": "#F9EADC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/pantheon/portrait.jpg",
+  "splash": "assets/champions/pantheon/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "PANTHEON, MŨI GIÁO BẤT DIỆT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "CHIẾN Ý",
+      "icon": "assets/champions/pantheon/skill-p.png",
+      "iconSize": 128,
+      "description": "Cứ sau một vài kỹ năng hoặc đòn đánh, kỹ năng kế tiếp của Pantheon sẽ được cường hóa."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "NGỌN GIÁO SAO BĂNG",
+      "icon": "assets/champions/pantheon/skill-q.png",
+      "iconSize": 128,
+      "description": "Pantheon đâm giáo hoặc ném giáo theo hướng chỉ định. Kẻ địch có ít máu sẽ chịu chí mạng. Chiến Ý: Gây thêm sát thương."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "KHIÊN TRỜI GIÁNG",
+      "icon": "assets/champions/pantheon/skill-w.png",
+      "iconSize": 128,
+      "description": "Pantheon nhảy vào mục tiêu, gây sát thương và làm choáng. Chiến Ý: Tung thêm đòn đánh, đâm giáo 3 lần."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TIẾN CÔNG VŨ BÃO",
+      "icon": "assets/champions/pantheon/skill-e.png",
+      "iconSize": 128,
+      "description": "Pantheon giương khiên chặn hết sát thương đến từ trước mặt và liên tục đâm giáo. Chiến Ý: Pantheon nhận thêm tốc độ di chuyển."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "TRỜI SẬP",
+      "icon": "assets/champions/pantheon/skill-r.png",
+      "iconSize": 128,
+      "description": "Pantheon dồn sức bay lên trời cao rồi rơi như một thiên thạch xuống vị trí chỉ định, làm chậm và gây sát thương theo một đường thẳng đến nơi Pantheon đáp xuống."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.53,
+      "y": 0.22
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/pantheon/",
+  "syncedAt": "2026-10-02"
+}

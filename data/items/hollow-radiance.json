@@ -1,0 +1,40 @@
+{
+  "slug": "hollow-radiance",
+  "name": "Hollow Radiance",
+  "nameVi": "Áo Choàng Hắc Quang",
+  "cnId": "2183",
+  "cnName": "璀璨回响",
+  "icon": "assets/items/hollow-radiance.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Kháng phép"
+  ],
+  "color": "#B05CFF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+400"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+40"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "passives": [
+    "Hiến Tế",
+    "Tàn Phá"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2183) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+400 máu", "+40 kháng phép", "+15 điểm hồi kỹ năng"],
+    "text": "Trong giao tranh: mỗi giây gây 20–30 + 1% máu cộng thêm sát thương phép quanh mình trong 5 giây (quái 125%, lính 200%). Hạ gục mục tiêu: nổ 30 + 2% máu cộng thêm.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

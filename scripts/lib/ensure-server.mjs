@@ -7,7 +7,7 @@ import path from 'node:path';
 import { ROOT } from './patches.mjs';
 
 // Tăng số này mỗi khi đổi API của server (tham số, đường dẫn lưu ảnh…).
-export const API_VERSION = 5;
+export const API_VERSION = 6;
 
 const BASE_PORT = Number(process.env.PORT ?? 5173);
 

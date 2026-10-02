@@ -1,0 +1,73 @@
+{
+  "slug": "vex",
+  "name": "VEX",
+  "title": "Pháp Sư Khó Chịu",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#141C29",
+    "secondary": "#DCDEF9",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/vex/portrait.jpg",
+  "splash": "assets/champions/vex/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "VEX, PHÁP SƯ KHÓ CHỊU",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BUỒN BỰC",
+      "icon": "assets/champions/vex/skill-p.png",
+      "iconSize": 128,
+      "description": "Vex được cường hóa sau mỗi khoảng thời gian nhất định, khiến Kỹ Năng cơ bản tiếp theo làm hoảng sợ và gián đoạn lướt của kẻ địch. Mỗi khi có kẻ địch lướt đi ở gần, Vex đánh dấu lên chúng và có thể kích nổ nó để gây thêm sát thương, đồng thời giảm hồi chiêu của trạng thái cường hóa."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "SÓNG U SẦU",
+      "icon": "assets/champions/vex/skill-q.png",
+      "iconSize": 128,
+      "description": "Phóng ra một đợt sóng gây sát thương, tăng tốc mạnh trên đường bay."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "CHỖ NÀY CỦA TA!",
+      "icon": "assets/champions/vex/skill-w.png",
+      "iconSize": 128,
+      "description": "Nhận một lá chắn và gây sát thương lên những kẻ địch gần bên."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "NỖI BUỒN LAN TỎA",
+      "icon": "assets/champions/vex/skill-e.png",
+      "iconSize": 128,
+      "description": "Triệu hồi một vùng gây sát thương và làm chậm, đồng thời áp đặt Buồn Bã lên kẻ địch trúng chiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BÓNG ĐEN ĐOẠT MỆNH",
+      "icon": "assets/champions/vex/skill-r.png",
+      "iconSize": 128,
+      "description": "Bắn ra một bóng đen đánh dấu tướng địch. Tái kích hoạt để lướt tới và gây sát thương."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.66,
+      "y": 0.33
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/vex/",
+  "syncedAt": "2026-10-02"
+}

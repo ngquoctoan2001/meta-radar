@@ -1,0 +1,74 @@
+{
+  "slug": "katarina",
+  "name": "KATARINA",
+  "title": "Ác Kiếm",
+  "roles": [
+    "SÁT THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#160B14",
+    "secondary": "#D6E2FF",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/katarina/portrait.jpg",
+  "splash": "assets/champions/katarina/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "KATARINA, ÁC KIẾM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "THAM LAM",
+      "icon": "assets/champions/katarina/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi lần kẻ địch hy sinh sau khi vừa nhận sát thương từ Katarina, hồi chiêu các kỹ năng của cô sẽ được giảm đáng kể. Nếu Katarina nhặt 1 Dao Găm, cô sẽ sử dụng nó để chém và gây sát thương phép lên tất cả kẻ địch ở gần."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHI DAO",
+      "icon": "assets/champions/katarina/skill-q.png",
+      "iconSize": 128,
+      "description": "Katarina ném Phi Dao vào mục tiêu, Phi Dao sẽ nảy sang kẻ địch xung quanh trước khi cắm xuống đất."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "TUNG HỨNG",
+      "icon": "assets/champions/katarina/skill-w.png",
+      "iconSize": 128,
+      "description": "Katarina được tăng tốc độ di chuyển, ném Phi Dao lên không phía trên đầu cô."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "ÁM SÁT",
+      "icon": "assets/champions/katarina/skill-e.png",
+      "iconSize": 128,
+      "description": "Katarine bay tới vị trí của 1 Phi Dao hoặc 1 đơn vị, gây sát thương phép lên kẻ địch gần nhất. Nhặt lên 1 Phi Dao giảm đáng kể Thời gian hồi chiêu của Ám Sát."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BÔNG SEN TỬ THẦN",
+      "icon": "assets/champions/katarina/skill-r.png",
+      "iconSize": 128,
+      "description": "Katarina trở thành một cơn lốc phi dao, gây sát thương phép theo thời gian và gây hiệu ứng giảm hồi máu. Katarina có thể di chuyển với tốc độ chậm trong một khoảng thời gian ngắn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.645,
+      "y": 0.37
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/katarina/",
+  "syncedAt": "2026-10-02"
+}

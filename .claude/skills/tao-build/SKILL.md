@@ -50,7 +50,8 @@ node scripts/champ-build.mjs new <tên tướng tiếng Trung> <yyyy-mm-dd> top<
   - so từng icon với icon chính thức máy chủ CN;
   - **tự tải** tướng / trang bị chưa có;
   - xếp **giày vào ô 6**;
-  - **giày khác nhau giữa các build → đổi hết sang đôi xuất hiện nhiều nhất** (người dùng đã chốt quy ước này ở cả Ashe lẫn Samira; nói lại trong báo cáo);
+  - **giày khác nhau giữa các build → đổi hết sang đôi xuất hiện nhiều nhất** (người dùng đã chốt quy ước này ở cả Ashe lẫn Samira; nói lại trong báo cáo). Người dùng chỉ định đôi khác ("lấy giày của build 3") → sửa ô 6 của cả 3 build trong `build.json` bằng Edit;
+  - **món có tên Trung khác bản PC** (vd 灭世者之帽, 兰德里的苦痛面具) bị lưu thành `item-<mã>` không tên dù có tên chính thức → tải lại bằng `node scripts/fetch-item.mjs "Rabadon's Deathcap" --cn=<mã>`, xoá file `item-<mã>` vừa tạo, sửa slug trong `build.json`;
   - tự chọn bản cập nhật, tier list, **đường** (đường có tỉ lệ chọn cao nhất của tướng trong tier list);
   - **từ chối nếu ảnh trùng ảnh của build đã làm**. Người dùng gửi lại ảnh cũ → hỏi làm lại hay sửa bộ cũ. Chắc chắn làm lại thì thêm `--allow-duplicate`.
 - **Tướng chơi nhiều đường** (vd Senna Rồng / Hỗ trợ): xem build là đồ xạ thủ hay đồ hỗ trợ, hoặc theo lời người dùng, rồi dùng `--role=adc` / `--role=sp`.
@@ -62,6 +63,9 @@ node scripts/champ-build.mjs new <tên tướng tiếng Trung> <yyyy-mm-dd> top<
   - `name` / `nameVi` tạm dịch + `"nameTemp": true`;
   - `"tags"` có `"Giày"` nếu là giày;
   - báo người dùng để xác nhận tên.
+- **Ảnh nằm trong thư mục** (người dùng nói "xem N ảnh mới nhất trong Downloads"): chép N ảnh mới nhất ra thư mục tạm, ghép ảnh thu nhỏ kèm phần tên tướng + 排位 phóng to (12 ảnh / tấm) để phân loại nhanh ảnh build / tooltip theo tướng, rồi chạy `new` từng tướng.
+- **Bộ nhiều hơn 6 tướng**: script tự thêm ảnh tổng quan `overview-2`… (mỗi ảnh 6 tướng theo thứ tự `champions`, có nhãn "PHẦN 1/2"). Đổi thứ tự tướng: `node scripts/champ-build.mjs order <id> <slug> <slug> …`.
+- **Trang vi-vn lỗi 404** dù tướng có trong danh sách (vd Aurora): `fetch-champion.mjs` tự lấy trang tiếng Anh (ghi `pageLocale`); ảnh build chỉ cần tên + splash nên vẫn làm được, báo người dùng. Trang vi-vn ghi sai tên (Vladimir = "ĐỎ") → thêm vào `NAME_FIX` trong `fetch-champion.mjs`.
 - **Tướng chưa đo khuôn mặt** (script nhắc): ảnh nền bên trái cắt theo khuôn mặt, nên đo:
   ```bash
   node scripts/splash-grid.mjs <slug>                  # mở review/splash-<slug>.png, đọc tâm khuôn mặt
@@ -76,8 +80,17 @@ Mỗi build cần `title` (lối chơi), `team` (hợp đội hình nào của m
 - Cách chọn xem `references/viet-build.md`.
 - Nhãn "HỢP với …" tự đổi theo đường.
 - Không có số liệu đối đầu đáng tin (cột 对位情况 trên bảng xếp hạng chỉ là đối thủ hay gặp + tỉ lệ thắng **của đối thủ**). Vì vậy 9 tướng là **phân tích của bạn**; giữ `matchups.note` và nói rõ trong báo cáo. Người dùng gửi số liệu khắc chế (克制 / 被克制 / 搭档) thì dùng số liệu đó.
+- **Ghi nhanh bằng script** (kiểm tra tên có trong Tốc Chiến, đủ 3 tướng, không trùng; ghi luôn tên build + giày chung):
+  ```bash
+  node scripts/champ-build.mjs set <id> <tướng> strong=a,b,c weak=a,b,c synergy=a,b,c note="…" [label="VỚI ĐỒNG ĐỘI"] [boots=<slug giày>] b1="tên build|hợp|khắc chế" b2="…" b3="…"
+  ```
+- **Người dùng bảo tự tra trên mạng** ("tra google rồi bổ sung, tôi check lại sau"): chỉ chọn tướng **có trong Tốc Chiến** (lệnh `set` từ chối tướng không có, vd Xerath, Zac, Sejuani). Nguồn bản Tốc Chiến: `zathong.com/<tướng>-wild-rift-build/` (mục weak against / strong against / good with). Kết quả tìm kiếm hay lẫn số liệu bản PC (u.gg, mobalytics, lolalytics) — chỉ dùng khi không có nguồn Tốc Chiến và ghi rõ. Mạnh / yếu lấy tướng cùng đường của bộ (bộ MID → tướng đường giữa; nguồn ghi tướng đường khác thì thay bằng tướng cùng kiểu và nói rõ là phân tích). "Hợp" theo người dùng dặn (vd "hợp với tướng đi rừng nào" → 3 tướng đi rừng, nhãn mặc định). Giữ nhất quán với các tướng người dùng đã cho trong cùng bộ (Ahri mạnh khi gặp Aurelion Sol → Aurelion Sol yếu khi gặp Ahri). Ghi `note` nguồn + "cần soát lại", và báo cáo tách rõ: tướng nào theo nguồn, tướng nào là phân tích.
+- **Người dùng tự cho 9 tướng** ("mạnh hơn X là…", "yếu hơn X là…", "hợp với…") → dùng đúng danh sách đó, sửa `matchups.note` thành "Theo số liệu người dùng cung cấp ngày …". Cẩn thận chiều: tướng **mạnh hơn** X = X **yếu khi gặp** (`weak`); tướng **yếu hơn** X = X **mạnh khi gặp** (`strong`). Nhóm "hợp với" không cùng một vai trò (vd Rammus + Kog'Maw + Poppy) → thêm `"synergyLabel": "VỚI ĐỒNG ĐỘI"` để nhãn không ghi sai "VỚI ĐI RỪNG".
+- **Người dùng báo tỉ lệ thắng mới hơn tier list** (vd "tỉ lệ thắng của Hwei là 55.13%") → ghi `"tier": { "win": 55.13 }` trong mục của tướng (cạnh `"lane"`); bậc vẫn lấy từ tier list, thêm `"tier": "T0"` bên trong nếu người dùng nói cả bậc hoặc tướng chưa có trong tier list. `--replace` giữ nguyên trường này.
+- **Người dùng không muốn nhãn nào đó** ("không cần thẻ tỉ lệ thắng / tier", "không cần buff/nerf") → thêm `"hide": ["tier"]`, `["patch"]` hoặc cả hai trong mục của tướng (cạnh `"lane"`). Áp dụng cho cả ảnh tướng lẫn ảnh tổng quan; `--replace` giữ nguyên.
 - Tướng chưa có dữ liệu → `node scripts/fetch-champion.mjs <slug…>`.
 - **Avatar cắt từ ảnh splash lớn quanh khuôn mặt** (ảnh chân dung trên web chỉ 285×323 nên mờ — người dùng đã chê). Mọi tướng trong 9 avatar cần `layout.face`; thiếu thì audit nhắc. Đo nhiều tướng một lúc: ghép 4 ảnh lưới / tấm cho đỡ tốn lượt đọc, hoặc `splash-grid.mjs <slug…>` rồi `--face=x,y` từng tướng; soát lại avatar trong ảnh xuất (vd Kog'Maw cần lấy mắt + miệng, không phải đỉnh đầu).
+- **Cắt sát mặt mà khó nhận ra tướng** (người dùng đã chê Nunu & Willump khi chỉ thấy mặt người tuyết) → đặt khung avatar riêng: `node scripts/splash-grid.mjs <slug> --avatar=<x>,<y>,<zoom>` (tâm khung, zoom < 1 = lấy rộng hơn; vd Nunu `0.66,0.55,0.62` để thấy cả cậu bé lẫn Willump). Ô nét đứt xanh lá trên ảnh lưới là khung avatar; `--avatar=none` để bỏ.
 
 ### 5. Ảnh tooltip → lưu `summary` (không làm ảnh)
 Người dùng không muốn ảnh giải thích trang bị, nhưng **giữ dữ liệu** để dùng sau. Với mỗi tooltip, ghi `summary` vào `data/items/<slug>.json` bằng Edit (định dạng ở `references/viet-build.md`).
@@ -106,6 +119,15 @@ node scripts/render.mjs build-<yyyy-mm-dd>-<vai trò> [tướng…]       # 3840
   - món đã lưu `summary`.
 
   Gửi ảnh xuất. Trên trang quản lý: mục **Build** → Làm mới. Không commit/push trừ khi được yêu cầu.
+
+## Ảnh thumbnail (ảnh bìa clip TikTok) của bộ
+Người dùng xin "ảnh thumbnail" cho bài đăng của bộ → thêm vào **cuối** `slides` trong `build.json`:
+```json
+{ "id": "thumbnail", "type": "build-cover", "title": "Thumbnail", "headline": "3 build mỗi tướng · Lên đồ + ngọc · Khắc chế" }
+```
+- **Khổ dọc 3:4, xuất 2160×2880** (khung 1080×1440, `COVER_CANVAS` trong `src/js/lib/output.js`) — đúng tỉ lệ ô ảnh trên lưới trang cá nhân TikTok. Người dùng đã chốt: lần đầu làm 16:9 thì ô trên lưới bị cắt mất hai bên ("nhầm kích thước rồi"). Đây là ngoại lệ duy nhất của quy tắc "chỉ 16:9".
+- Mẫu `build-cover` (`renderBuildCover`): nửa đầu bộ là khối ảnh tướng cắt xéo phía trên (2 hàng × 3), nửa sau phía dưới, giữa là dải tiêu đề: thương hiệu + ngày + bản, "BUILD <vai trò>" thật to, nhãn vàng "<N> TƯỚNG", "<số build> BUILD / CAO THỦ TRUNG QUỐC" (`tagline` để đổi), dòng chữ chạy (`headline` của ảnh bìa, tổng ≤ ~45 ký tự; không ghi thì lấy `headline` của bộ).
+- Xuất: `render.mjs <id> thumbnail`. Ảnh bìa không có chân ảnh và **không tính vào số trang** "NN / tổng" của các ảnh khác; để cuối `slides` thì tên file các ảnh khác không đổi số.
 
 ## Thiết kế đã chốt — đừng đổi
 - Nhãn **BUILD 1/2/3** (không ghi "Top N cao thủ").

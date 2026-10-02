@@ -1,0 +1,41 @@
+{
+  "slug": "imperial-mandate",
+  "name": "Imperial Mandate",
+  "nameVi": "Trát Lệnh Đế Vương",
+  "cnId": "2163",
+  "cnName": "帝国指令",
+  "icon": "assets/items/imperial-mandate.png",
+  "price": 2600,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Khống chế"
+  ],
+  "color": "#FF4D6D",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+60"
+    },
+    {
+      "label": "Hồi năng lượng cơ bản",
+      "value": "+50%"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+20"
+    }
+  ],
+  "passives": [
+    "Khống Chế",
+    "Chỉ Huy"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2163) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+60 SMPT", "+50% hồi năng lượng", "+20 điểm hồi kỹ năng"],
+    "text": "Kỹ năng khống chế được +20 điểm hồi kỹ năng. Khống chế tướng địch: đánh dấu 4 giây, mục tiêu chịu thêm 7% sát thương.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "spellslingers-shoes",
+  "name": "Spellslinger's Shoes",
+  "nameVi": "Giày Ma Pháp Sư",
+  "cnId": "2417",
+  "cnName": "灵能使之靴",
+  "icon": "assets/items/spellslingers-shoes.png",
+  "price": 2200,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Giày",
+    "Xuyên phép"
+  ],
+  "color": "#C05CFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+35"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+18"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+8%"
+    },
+    {
+      "label": "Hồi năng lượng cơ bản",
+      "value": "+100%"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+45"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2417) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+35 SMPT", "+18 xuyên phép", "+8% xuyên phép", "+100% hồi năng lượng", "+45 tốc chạy"],
+    "text": "Đòn đánh và kỹ năng gây thêm 18 sát thương chuẩn lên lính. Tướng không dùng năng lượng nhận 50% hồi máu cơ bản.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

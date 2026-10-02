@@ -1,0 +1,74 @@
+{
+  "slug": "lux",
+  "name": "LUX",
+  "title": "Tiểu Thư Ánh Sáng",
+  "roles": [
+    "PHÁP SƯ",
+    "HỖ TRỢ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#603043",
+    "secondary": "#F9DCDE",
+    "label": "#3A0F20"
+  },
+  "portrait": "assets/champions/lux/portrait.jpg",
+  "splash": "assets/champions/lux/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "LUX, TIỂU THƯ ÁNH SÁNG",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Chớp Lửa Soi Rọi",
+      "icon": "assets/champions/lux/skill-p.png",
+      "iconSize": 128,
+      "description": "Các kỹ năng sát thương của Lux phủ năng lượng lên kẻ địch trong 5 giây. Đòn đánh kế tiếp của Lux đốt cháy năng lượng này, gây thêm sát thương (tùy theo cấp của Lux) lên mục tiêu."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Khóa Ánh Sáng",
+      "icon": "assets/champions/lux/skill-q.png",
+      "iconSize": 128,
+      "description": "Lux phóng ra một quả cầu ánh sáng làm trói chân và gây sát thương lên tối đa 2 mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Lăng Kính Phòng Hộ",
+      "icon": "assets/champions/lux/skill-w.png",
+      "iconSize": 128,
+      "description": "Lux ném chiếc gậy phép của mình làm bẻ cong tia sáng quanh các đơn vị đồng minh chạm phải, bảo vệ họ khỏi sát thương nhận phải."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Quả Cầu Ánh Sáng",
+      "icon": "assets/champions/lux/skill-e.png",
+      "iconSize": 128,
+      "description": "Bắn một vòng xoáy năng lượng đến vị trí đã chọn, làm chậm kẻ địch cạnh bên. Lux có thể kích nổ gây sát thương lên kẻ địch trong khu vực ảnh hưởng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Cầu Vồng Tối Thượng",
+      "icon": "assets/champions/lux/skill-r.png",
+      "iconSize": 128,
+      "description": "Sau khi tích tụ năng lượng, Lux bắn một dải sáng gây sát thương lên tất cả mục tiêu trong vùng ảnh hưởng. Ngoài ra tuyệt chiêu này còn kích hoạt nội tại của Lux và đặt lại thời gian bùa hại Chớp Lửa Soi Rọi trên mục tiêu."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.625,
+      "y": 0.29
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/lux/",
+  "syncedAt": "2026-10-02"
+}

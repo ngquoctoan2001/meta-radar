@@ -1,0 +1,44 @@
+{
+  "slug": "radiant-virtue",
+  "name": "Radiant Virtue",
+  "nameVi": "Ngọn Đuốc Thánh Quang",
+  "cnId": "2377",
+  "cnName": "辉耀美德",
+  "icon": "assets/items/radiant-virtue.png",
+  "price": 2650,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Hồi máu"
+  ],
+  "color": "#FFD86B",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+300"
+    },
+    {
+      "label": "Giáp",
+      "value": "+30"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+30"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+10"
+    }
+  ],
+  "passives": [
+    "Ánh Lửa Soi Rọi:"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2377) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+300 máu", "+30 giáp", "+30 kháng phép", "+10 điểm hồi kỹ năng"],
+    "text": "Dùng chiêu cuối: +10% máu tối đa trong 6 giây, mỗi giây hồi cho mình và đồng đội trong 1.200 lượng máu bằng 2,5% máu tối đa (hồi 60 giây; tướng đánh xa hồi giảm 50%).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

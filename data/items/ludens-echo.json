@@ -1,0 +1,40 @@
+{
+  "slug": "ludens-echo",
+  "name": "Luden's Echo",
+  "nameVi": "Vọng Âm Luden",
+  "cnId": "2148",
+  "cnName": "卢登的回声",
+  "icon": "assets/items/ludens-echo.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Năng lượng"
+  ],
+  "color": "#8E7BFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+100"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+500"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+10"
+    }
+  ],
+  "passives": [
+    "Vọng Âm"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2148) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+100 SMPT", "+500 năng lượng", "+10 điểm hồi kỹ năng"],
+    "text": "Kỹ năng kế tiếp gây 75 + 8% SMPT lên mục tiêu chính và tối đa 4 kẻ địch gần đó (hồi 9 giây). Mỗi mục tiêu phụ thiếu: mục tiêu chính chịu thêm 20 + 1,2% SMPT.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "corki",
+  "name": "CORKI",
+  "title": "Phi Công Quả Cảm",
+  "roles": [
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#2F2018",
+    "secondary": "#F9F3DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/corki/portrait.jpg",
+  "splash": "assets/champions/corki/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "CORKI, PHI CÔNG QUẢ CẢM",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐẠN HEXTECH",
+      "icon": "assets/champions/corki/skill-p.png",
+      "iconSize": 128,
+      "description": "Một phần sát thương công kích cơ bản của Corki sẽ được chuyển thành sát thương phép. Theo chu kỳ, Corki có thể lấy Hàng Tiếp Tế tại căn cứ, Hàng Tiếp Tế sẽ tăng tốc độ di chuyển và cường hóa Thảm Lửa cho Corki."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "BOM PHỐT-PHO",
+      "icon": "assets/champions/corki/skill-q.png",
+      "iconSize": 128,
+      "description": "Corki bắn một quả bom sáng vào vị trí chỉ định, gây sát thương phép lên kẻ địch trong phạm vi. Vụ nổ làm lộ diện các mục tiêu trong vùng ảnh hưởng trong thoáng chốc."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "THẢM LỬA",
+      "icon": "assets/champions/corki/skill-w.png",
+      "iconSize": 128,
+      "description": "Corki bay một quãng ngắn, thả bom để tạo ra một vệt lửa gây sát thương lên kẻ địch đứng trên đó.\n\nRải Bom: Nếu Corki đang chở Hàng Tiếp Tế, bay một quãng dài hơn, hất kẻ địch sang hai bên đồng thời mục tiêu trong vùng ảnh hưởng sẽ bị làm chậm và nhận sát thương."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "SÚNG MÁY",
+      "icon": "assets/champions/corki/skill-e.png",
+      "iconSize": 128,
+      "description": "Corki dùng súng máy bắn liên tục theo hình nón ra phía trước, gây sát thương và giảm Giáp, Kháng Phép của kẻ địch."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "TÊN LỬA ĐỊNH HƯỚNG",
+      "icon": "assets/champions/corki/skill-r.png",
+      "iconSize": 128,
+      "description": "Corki bắn một quả hỏa tiễn vào vị trí chỉ định, hỏa tiễn sẽ nổ tung khi va chạm và gây sát thương lên những kẻ địch trong phạm vị ảnh hưởng. Corki sẽ tích trữ thêm hỏa tiễn theo thời gian, có thể tích trữ tối đa 7 quả. Mỗi quả thứ 3 bắn ra sẽ là quả Cực Đại, gây sát thương cao hơn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.685,
+      "y": 0.3
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/corki/",
+  "syncedAt": "2026-10-02"
+}

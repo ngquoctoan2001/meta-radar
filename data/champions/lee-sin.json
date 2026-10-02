@@ -1,0 +1,79 @@
+{
+  "slug": "lee-sin",
+  "name": "LEE SIN",
+  "title": "Thầy Tu Mù",
+  "roles": [
+    "ĐẤU SĨ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#331A1D",
+    "secondary": "#F9E9DC",
+    "label": "#040101"
+  },
+  "portrait": "assets/champions/lee-sin/portrait.jpg",
+  "splash": "assets/champions/lee-sin/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "LEE SIN, THẦY TU MÙ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Loạn Đả",
+      "icon": "assets/champions/lee-sin/skill-p.png",
+      "iconSize": 128,
+      "description": "Sau khi Lee Sin sử dụng một kỹ năng, 2 đòn đánh thường kế tiếp sẽ tăng Tốc Độ Đánh và hồi lại Nội Năng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Sóng Âm / Vô Ảnh Cước",
+      "icon": "assets/champions/lee-sin/skill-q.png",
+      "iconSize": 128,
+      "description": "Sóng Âm: Lee Sin chưởng ra một luồng sóng nghịch âm nhằm định vị kể địch, gây sát thương vật lý lên kẻ địch đầu tiên trúng phải. Nếu Sóng Âm trúng mục tiêu, Lee Sin có thể sử dụng Vô Ảnh Cước trong 3 giây kế tiếp. Vô Ảnh Cước: Lee Sin lướt tới kẻ địch trúng phải Sóng Âm, gây sát thương vật lý dựa trên Máu đã mất của mục tiêu."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Hộ Thể / Kiên Định",
+      "icon": "assets/champions/lee-sin/skill-w.png",
+      "iconSize": 128,
+      "description": "Lee Sin lao tới vị trí mục tiêu, tạo lá chắn bảo vệ bản thân khỏi sát thương nếu có một tướng địch hoặc quái ở gần điểm chỉ định. Sau khi sử dụng Hộ Thể, Lee Sin có thể niệm Kiên Định trong vài giây kế tiếp. Kiên Định: Đòn đánh kế tiếp của Lee Sin gây thêm sát thương phép và có hút máu thường/phép."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Địa Chấn / Dư Chấn",
+      "icon": "assets/champions/lee-sin/skill-e.png",
+      "iconSize": 128,
+      "description": "Địa Chấn: Lee Sin dẫm xuống đất tạo sóng âm gây sát thương phép và làm lộ diện kẻ địch trúng phải. Nếu Địa Chấn đánh trúng một kẻ địch, Lee Sin có thể thi triển dư chấn trong 3 giây kế tiếp. Dư Chấn: Lee Sin làm tê liệt kẻ địch chịu sát thương từ Địa Chấn, làm giảm Tốc Độ Di Chuyển của chúng trong 4 giây. Tốc độ Di chuyển sẽ hồi phục dần theo thời gian."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Nộ Long Cước",
+      "icon": "assets/champions/lee-sin/skill-r.png",
+      "iconSize": 128,
+      "description": "Lee Sin tung cước cực mạnh làm mục tiêu văng ra phía sau, gây sát thương vật lý lên mục tiêu và những kẻ địch va chạm phải. Kẻ địch bị mục tiêu va trúng sẽ bị hất tung lên không trung trong thoáng chốc."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.625,
+      "y": 0.22
+    },
+    "avatar": {
+      "x": 0.64,
+      "y": 0.215,
+      "zoom": 1.45
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/lee-sin/",
+  "syncedAt": "2026-10-02"
+}

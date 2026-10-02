@@ -1,0 +1,74 @@
+{
+  "slug": "twisted-fate",
+  "name": "TWISTED FATE",
+  "title": "Thần Bài",
+  "roles": [
+    "PHÁP SƯ",
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#090408",
+    "secondary": "#FFE5D6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/twisted-fate/portrait.jpg",
+  "splash": "assets/champions/twisted-fate/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "TWISTED FATE, THẦN BÀI",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Gian Lận",
+      "icon": "assets/champions/twisted-fate/skill-p.png",
+      "iconSize": 128,
+      "description": "Sau khi tiêu diệt 1 đơn vị, Twisted Fate ''lắc xí ngầu'' giúp nhận thêm vàng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Phi Bài",
+      "icon": "assets/champions/twisted-fate/skill-q.png",
+      "iconSize": 128,
+      "description": "Twisted Fate phóng ra 3 lá bài theo hình nón, gây sát thương cho mỗi đơn vị nó đi qua."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Chọn Bài",
+      "icon": "assets/champions/twisted-fate/skill-w.png",
+      "iconSize": 128,
+      "description": "Twisted Fate chọn 1 lá bài ma thuật trong bộ bài của mình để sử dụng trong đòn đánh kế tiếp giúp gây thêm hiệu ứng. Bài Đỏ gây sát thương lên khu vực xung quanh mục tiêu và làm chậm. Bài Xanh gây sát thương và hồi năng lượng, còn bài Vàng gây sát thương và làm choáng."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Tráo Bài",
+      "icon": "assets/champions/twisted-fate/skill-e.png",
+      "iconSize": 128,
+      "description": "Twisted Fate gây thêm sát thương sau mỗi 4 đòn đánh. Kích hoạt kỹ năng này sẽ tăng Tốc Độ Đánh và khi tấn công tướng địch, Gian Lận cũng được sử dụng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Định Mệnh",
+      "icon": "assets/champions/twisted-fate/skill-r.png",
+      "iconSize": 128,
+      "description": "Twisted Fate đoán trước được số phận của kẻ địch, phát hiện tất cả tướng địch, và có khả năng sử dụng Dịch Chuyển, khiến cho Twisted Fate có thể biến đến bất kì vị trí nào trong 1,5 giây."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.715,
+      "y": 0.26
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/twisted-fate/",
+  "syncedAt": "2026-10-02"
+}

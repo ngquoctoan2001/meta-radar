@@ -1,0 +1,74 @@
+{
+  "slug": "irelia",
+  "name": "IRELIA",
+  "title": "Vũ Kiếm Sư",
+  "roles": [
+    "ĐẤU SĨ",
+    "SÁT THỦ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#512949",
+    "secondary": "#DCF1F9",
+    "label": "#280A22"
+  },
+  "portrait": "assets/champions/irelia/portrait.jpg",
+  "splash": "assets/champions/irelia/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "IRELIA, VŨ KIẾM SƯ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Ý CHÍ IONIA",
+      "icon": "assets/champions/irelia/skill-p.png",
+      "iconSize": 128,
+      "description": "Khi Irelia dùng kỹ năng trúng kẻ địch, cô nhận thêm Tốc độ Đánh cộng dồn. Ở số cộng dồn tối đa, cô gây thêm sát thương trên mỗi đòn đánh."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "ĐÂM KIẾM",
+      "icon": "assets/champions/irelia/skill-q.png",
+      "iconSize": 128,
+      "description": "Irelia lướt tới tấn công mục tiêu và hồi máu cho bản thân. Nếu mục tiêu bị đánh dấu hoặc chết bởi Đâm Kiếm, nó hồi chiêu lại ngay lập tức."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "VŨ ĐIỆU THÁCH THỨC",
+      "icon": "assets/champions/irelia/skill-w.png",
+      "iconSize": 128,
+      "description": "Irelia vận sức gây sát thương cho kẻ địch dựa theo thời gian vận. Cô được giảm sát thương vật lý gánh chịu trong lúc vận."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "BƯỚC NHẢY HOÀN VŨ",
+      "icon": "assets/champions/irelia/skill-e.png",
+      "iconSize": 128,
+      "description": "Irelia điều khiển 2 lưỡi kiếm bay về phía nhau. Kẻ địch đứng ở giao điểm chịu sát thương, choáng và bị đánh dấu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "THANH KIẾM TIÊN PHONG",
+      "icon": "assets/champions/irelia/skill-r.png",
+      "iconSize": 128,
+      "description": "Irelia phóng ra vô số lưỡi kiếm lan tỏa khi trúng phải một tướng địch. Đối phương dính chiêu sẽ nhận sát thương và bị Đánh Dấu. Sau đó, những lưỡi kiếm sẽ tạo thành một bức tường, gây sát thương và làm chậm đối phương bước qua nó."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.5,
+      "y": 0.11
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/irelia/",
+  "syncedAt": "2026-10-02"
+}

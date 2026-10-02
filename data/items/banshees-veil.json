@@ -1,0 +1,35 @@
+{
+  "slug": "banshees-veil",
+  "name": "Banshee's Veil",
+  "nameVi": "Dây Chuyền Chữ Thập",
+  "cnId": "2186",
+  "cnName": "女妖面纱",
+  "icon": "assets/items/banshees-veil.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Kháng phép"
+  ],
+  "color": "#9DB7FF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+105"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+40"
+    }
+  ],
+  "passives": [
+    "Hóa Giải"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2186) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+105 SMPT", "+40 kháng phép"],
+    "text": "Khiên phép chặn kỹ năng kế tiếp của đối thủ (hồi 30 giây).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

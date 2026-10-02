@@ -1,0 +1,40 @@
+{
+  "slug": "malignance",
+  "name": "Malignance",
+  "nameVi": "Hỏa Khuẩn",
+  "cnId": "2180",
+  "cnName": "残疫",
+  "icon": "assets/items/malignance.png",
+  "price": 2700,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Năng lượng"
+  ],
+  "color": "#FF4D7A",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+90"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+500"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "passives": [
+    "Ai Oán",
+    "Màn Sương Căm Hận"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2180) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+90 SMPT", "+500 năng lượng", "+15 điểm hồi kỹ năng"],
+    "text": "+20 điểm hồi chiêu cuối. Chiêu cuối trúng tướng: đốt mặt đất dưới chân 3 giây, 60 + 5% SMPT mỗi giây và giảm 10 kháng phép.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

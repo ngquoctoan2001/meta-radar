@@ -1,0 +1,74 @@
+{
+  "slug": "ekko",
+  "name": "EKKO",
+  "title": "Cậu Bé Đảo Lộn Thời Gian",
+  "roles": [
+    "SÁT THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 3,
+  "colors": {
+    "primary": "#040205",
+    "secondary": "#FFFFD6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/ekko/portrait.jpg",
+  "splash": "assets/champions/ekko/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "EKKO, CẬU BÉ ĐẢO LỘN THỜI GIAN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐỘNG CƠ Z CỘNG HƯỞNG",
+      "icon": "assets/champions/ekko/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi đòn tấn công hoặc kỹ năng gây sát thương thứ 3 đánh trúng cùng một mục tiêu sẽ gây thêm sát thương phép, nếu mục tiêu là tướng, Ekko được tăng tốc độ di chuyển."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "DÂY CÓT THỜI GIAN",
+      "icon": "assets/champions/ekko/skill-q.png",
+      "iconSize": 128,
+      "description": "Ekko tung ra một quả lựu đạn, thứ sẽ phát nổ tạo ra một trường thời gian bóp méo khi trúng một tướng địch, làm chậm và gây sát thương lên mọi đơn vị bên trong vụ nổ. Sau đó, nó sẽ quay trở lại với Ekko, gây sát thương trên đường về."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "LƯỠNG GIỚI ĐỒNG QUY",
+      "icon": "assets/champions/ekko/skill-w.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Ekko gây thêm sát thương phép lên kẻ địch thấp máu. Ekko sử dụng Lưỡng Giới Đồng Quy để phá vỡ dòng thời gian, tạo một vùng dị thường bất ổn sẽ mở rộng sau vài giây, làm chậm những kẻ địch bên trong. Nếu Ekko tiến vào vùng dị thường, cậu sẽ nhận một lớp khiên và làm choáng kẻ địch bị giữ lại bên trong."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "BIẾN CHUYỂN PHA",
+      "icon": "assets/champions/ekko/skill-e.png",
+      "iconSize": 128,
+      "description": "Ekko lướt đi né tránh sát thương và kích hoạt Động Cơ Zero. Đòn tấn công tiếp theo của cậu sẽ gây thêm sát thương và bóp méo thời gian, dịch chuyển tức thời cậu đến mục tiêu."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "ĐỘT PHÁ THỜI GIAN",
+      "icon": "assets/champions/ekko/skill-r.png",
+      "iconSize": 128,
+      "description": "Ekko tự đảo lộn dòng thời gian của bản thân, khiến cậu không thể bị chọn làm mục tiêu và quay về thời điểm thích hợp trong quá khứ. Cậu ta biến trở lại địa điểm vài giây trước, và hồi máu tương đương một phần sát thương nhận vào trong thời gian đó. Kẻ địch đứng gần địa điểm này sẽ phải chịu sát thương rất lớn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.72,
+      "y": 0.23
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ekko/",
+  "syncedAt": "2026-10-02"
+}

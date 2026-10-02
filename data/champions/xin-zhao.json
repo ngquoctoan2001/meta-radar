@@ -1,0 +1,74 @@
+{
+  "slug": "xin-zhao",
+  "name": "XIN ZHAO",
+  "title": "Tể Tướng Demacia",
+  "roles": [
+    "ĐẤU SĨ",
+    "ĐỠ ĐÒN"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#4F3C27",
+    "secondary": "#F9F2DC",
+    "label": "#261809"
+  },
+  "portrait": "assets/champions/xin-zhao/portrait.jpg",
+  "splash": "assets/champions/xin-zhao/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "XIN ZHAO, TỂ TƯỚNG DEMACIA",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Quyết Đoán",
+      "icon": "assets/champions/xin-zhao/skill-p.png",
+      "iconSize": 128,
+      "description": "Mỗi đòn đánh thứ 3 gây thêm sát thương và hồi lại máu cho Xin Zhao."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Liên Hoàn Tam Kích",
+      "icon": "assets/champions/xin-zhao/skill-q.png",
+      "iconSize": 128,
+      "description": "3 đòn đánh thường kế tiếp của Xin Zhao gây thêm sát thương và đòn đánh thứ 3 sẽ hất tung kẻ địch."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Phong Lôi Thương",
+      "icon": "assets/champions/xin-zhao/skill-w.png",
+      "iconSize": 128,
+      "description": "Xin Zhao dùng thương chém ra trước mặt, sau đó đâm tới, làm chậm kẻ địch bị trúng đòn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Can Trường",
+      "icon": "assets/champions/xin-zhao/skill-e.png",
+      "iconSize": 128,
+      "description": "Xin Zhao xông vào một kẻ địch, gây sát thương lên tất cả kẻ địch gần đó và thoáng làm chậm chúng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Bán Nguyệt Thương",
+      "icon": "assets/champions/xin-zhao/skill-r.png",
+      "iconSize": 128,
+      "description": "Xin Zhao gây sát thương lên các kẻ địch gần đó dựa theo máu hiện tại của chúng và đẩy lùi những mục tiêu không bị thách đấu. Xin Zhao được miễn nhiễm sát thương gây ra bởi tướng đứng ngoài vòng tròn được tạo thành."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.505,
+      "y": 0.23
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/xin-zhao/",
+  "syncedAt": "2026-10-02"
+}

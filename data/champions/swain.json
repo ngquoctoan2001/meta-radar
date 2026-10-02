@@ -63,7 +63,11 @@
     }
   ],
   "layout": {
-    "focusX": 0.62
+    "focusX": 0.62,
+    "face": {
+      "x": 0.635,
+      "y": 0.21
+    }
   },
   "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/swain/",
   "syncedAt": "2026-09-30"

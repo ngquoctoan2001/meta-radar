@@ -1,0 +1,74 @@
+{
+  "slug": "teemo",
+  "name": "TEEMO",
+  "title": "Trinh Sát Nhanh Nhẹn",
+  "roles": [
+    "XẠ THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#1E180F",
+    "secondary": "#F9F0DC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/teemo/portrait.jpg",
+  "splash": "assets/champions/teemo/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "TEEMO, TRINH SÁT NHANH NHẸN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BẮN ĐỘC",
+      "icon": "assets/champions/teemo/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Teemo gây sát thương phép theo thời gian."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHI TIÊU MÙ",
+      "icon": "assets/champions/teemo/skill-q.png",
+      "iconSize": 128,
+      "description": "Teemo bắn phi tiêu độc làm mù mục tiêu, khiến đòn đánh thường của nạn nhân không gây sát thương trong thoáng chốc."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "CHẠY LẸ",
+      "icon": "assets/champions/teemo/skill-w.png",
+      "iconSize": 128,
+      "description": "Teemo tăng Tốc Độ Di Chuyển của bản thân cho đến khi bị tấn công bởi tướng hoặc trụ địch. Khi kích hoạt Chạy Lẹ, Teemo lao về phía trước, chạy nhanh trong vài giây. Trong thời gian này, hiệu ứng tăng tốc của Chạy Lẹ sẽ tăng gấp đôi và không thể bị xoá bỏ khi nhận sát thương."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "CHIẾN TRANH DU KÍCH",
+      "icon": "assets/champions/teemo/skill-e.png",
+      "iconSize": 128,
+      "description": "Sau một lúc, Teemo sẽ được nguỵ trang và trở nên tàng hình nếu không ở gần tướng hoặc trụ địch. Khi ra khỏi trạng thái nguỵ trang, Teemo được tăng Tốc Độ Đánh."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BẪY ĐỘC",
+      "icon": "assets/champions/teemo/skill-r.png",
+      "iconSize": 128,
+      "description": "Teemo ném một bẫy nấm độc từ trong túi của mình. Nếu kẻ dịch dẫm phải, nấm sẽ phun ra một làn khói độc, làm chậm và gây sát thương theo thời gian. Nếu Teemo ném nấm vào một cây nấm khác, nấm sẽ nảy ra xa hơn."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.65,
+      "y": 0.35
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/teemo/",
+  "syncedAt": "2026-10-02"
+}

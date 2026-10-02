@@ -1,0 +1,31 @@
+{
+  "slug": "rabadons-deathcap",
+  "name": "Rabadon's Deathcap",
+  "nameVi": "Mũ Phù Thủy Rabadon",
+  "cnId": "2145",
+  "cnName": "灭世者之帽",
+  "icon": "assets/items/rabadons-deathcap.png",
+  "price": 3400,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Sức mạnh phép"
+  ],
+  "color": "#B14DFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+130"
+    }
+  ],
+  "passives": [
+    "Tinh Hoa Phép Thuật"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2145) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+130 SMPT"],
+    "text": "Tăng 30% tổng sức mạnh phép thuật.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

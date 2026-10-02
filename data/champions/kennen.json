@@ -1,0 +1,74 @@
+{
+  "slug": "kennen",
+  "name": "KENNEN",
+  "title": "Trái Tim Sấm Sét",
+  "roles": [
+    "PHÁP SƯ",
+    "XẠ THỦ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#222843",
+    "secondary": "#DCE0F9",
+    "label": "#060917"
+  },
+  "portrait": "assets/champions/kennen/portrait.jpg",
+  "splash": "assets/champions/kennen/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "KENNEN, TRÁI TIM SẤM SÉT",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "DẤU ẤN SẤM SÉT",
+      "icon": "assets/champions/kennen/skill-p.png",
+      "iconSize": 128,
+      "description": "Kennen làm choáng kẻ địch bị trúng kĩ năng của mình 3 lần."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "PHI TIÊU SÉT",
+      "icon": "assets/champions/kennen/skill-q.png",
+      "iconSize": 128,
+      "description": "Phóng ra 1 phi tiêu, gây sát thương phép lên kẻ địch đầu tiên trúng phải."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "GIẬT SÉT",
+      "icon": "assets/champions/kennen/skill-w.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Kennen gây thêm sát thương và khắc một Dấu Ấn Sấm Sét lên mục tiêu mỗi vài lần tấn công, đồng thời Kennen có thể kích hoạt kỹ năng này để gây sát thương và khắc thêm một Dấu Ấn Sấm Sét nữa lên những nạn nhân đã bị khắc dấu ấn này."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "TỐC ĐỘ SẤM SÉT",
+      "icon": "assets/champions/kennen/skill-e.png",
+      "iconSize": 128,
+      "description": "Kennen biến thành dạng sét, trở nên không thể bị tấn công. Kennen được tăng tốc độ di chuyển khi bắt đầu hiệu ứng và tăng tốc độ đánh khi kết thúc hiệu ứng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BÃO SẤM SÉT",
+      "icon": "assets/champions/kennen/skill-r.png",
+      "iconSize": 128,
+      "description": "Kennen triệu hồi một cơn bão, tấn công và gây sát thương phép lên tất cả kẻ địch ở gần."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.72,
+      "y": 0.31
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/kennen/",
+  "syncedAt": "2026-10-02"
+}

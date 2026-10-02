@@ -13,9 +13,10 @@ import path from 'node:path';
 import { ROOT } from './lib/patches.mjs';
 import { ensureServer } from './lib/ensure-server.mjs';
 import { getBrowser, closeBrowser } from './lib/renderer.mjs';
-import { CANVAS } from '../src/js/lib/output.js';
+import { CANVAS, canvasOf } from '../src/js/lib/output.js';
 import { analyzeLine } from '../src/js/lib/values.js';
 import { collectionKind, collectionFile } from '../src/js/lib/collections.js';
+import { OVERVIEW_SIZE } from '../src/js/lib/roles.js';
 
 const args = process.argv.slice(2);
 const patchId = args.find((a) => !a.startsWith('--'));
@@ -156,7 +157,11 @@ async function validateBuild(b, folder) {
   if (!b.champions?.length) errors.push('chưa có tướng nào trong "champions"');
   if (!b.slides?.some((s) => s.type === 'build-overview')) notes.push('chưa có ảnh tổng quan ("type": "build-overview") ở đầu "slides"');
   else if (!b.headline) notes.push('ảnh tổng quan chưa có "headline" (3 cụm ngắn nối bằng " · ")');
-  if ((b.champions?.length ?? 0) > 6) notes.push(`bộ có ${b.champions.length} tướng — ảnh tổng quan chứa vừa nhất 6 cột`);
+  // 6 tướng / ảnh tổng quan (OVERVIEW_SIZE): bộ nhiều tướng hơn cần thêm ảnh "overview-2"… (champ-build.mjs tự thêm)
+  const nOverview = b.slides?.filter((s) => s.type === 'build-overview').length ?? 0;
+  const needOverview = Math.ceil((b.champions?.length ?? 0) / OVERVIEW_SIZE);
+  if (nOverview && nOverview < needOverview) errors.push(`bộ có ${b.champions.length} tướng nhưng chỉ ${nOverview} ảnh tổng quan — cần ${needOverview} (mỗi ảnh ${OVERVIEW_SIZE} tướng): thêm { "id": "overview-${nOverview + 1}", "type": "build-overview" } vào "slides"`);
+  if (nOverview > Math.max(needOverview, 1)) errors.push(`có ${nOverview} ảnh tổng quan nhưng ${b.champions?.length ?? 0} tướng chỉ cần ${Math.max(needOverview, 1)} — ảnh thừa sẽ trống`);
 
   const noSummary = new Set();
   const synergyTrios = new Map();
@@ -172,6 +177,11 @@ async function validateBuild(b, folder) {
     if (!champ) errors.push(`${who}: chưa có data/champions/${who}.json → fetch-champion.mjs`);
     else if (!champ.layout?.face) notes.push(`${who}: chưa đo khuôn mặt → splash-grid.mjs ${who} --face=x,y`);
     if (!b.slides?.some((s) => s.champion === who)) errors.push(`${who}: chưa có ảnh trong "slides"`);
+    for (const h of e.hide ?? []) if (!['tier', 'patch'].includes(h)) errors.push(`${who}: "hide" chỉ nhận "tier" (bậc + tỉ lệ thắng) và "patch" (BUFF/NERF) — đang có "${h}"`);
+    if (e.tier) {
+      if (e.tier.tier !== undefined && !['T0', 'T1'].includes(e.tier.tier)) errors.push(`${who}: "tier.tier" = "${e.tier.tier}" (chỉ T0, T1)`);
+      if (e.tier.win !== undefined && !(typeof e.tier.win === 'number' && e.tier.win >= 0 && e.tier.win <= 100)) errors.push(`${who}: "tier.win" phải là số 0–100 (vd 55.13)`);
+    }
     if (!e.builds?.length || e.builds.length > 3) errors.push(`${who}: cần 1–3 build (đang có ${e.builds?.length ?? 0})`);
     const bootsUsed = new Set();
     for (const [i, x] of (e.builds ?? []).entries()) {
@@ -212,8 +222,8 @@ async function validateBuild(b, folder) {
   }
   if (noSummary.size) notes.push(`chưa có giải thích ("summary") cho: ${[...noSummary].join(', ')} — không bắt buộc, để dành`);
   for (const s of b.slides ?? []) {
-    if (!['build-overview', 'build', 'build-items'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build-overview, build, build-items)`);
-    if (s.type !== 'build-overview' && !b.champions?.some((c) => c.champion === s.champion)) errors.push(`slides: "${s.id}" trỏ tới tướng "${s.champion}" không có trong champions`);
+    if (!['build-overview', 'build', 'build-items', 'build-cover'].includes(s.type)) errors.push(`slides: loại "${s.type}" không hợp lệ (build-overview, build, build-items, build-cover)`);
+    if (!['build-overview', 'build-cover'].includes(s.type) && !b.champions?.some((c) => c.champion === s.champion)) errors.push(`slides: "${s.id}" trỏ tới tướng "${s.champion}" không có trong champions`);
   }
   return { errors, notes };
 }
@@ -291,12 +301,17 @@ try {
     const W = 470, H = Math.round((W * CANVAS.height) / CANVAS.width), GAP = 12, COLS = 4;
     const rows = Math.ceil(patch.slides.length / COLS);
     const page = await browser.newPage({ viewport: { width: COLS * W + (COLS + 1) * GAP, height: rows * H + (rows + 1) * GAP } });
+    // ảnh bìa (khổ dọc) thu theo chiều cao ô và đặt giữa ô
     const frames = patch.slides
-      .map((s, i) => `<iframe src="${ORIGIN}/slide.html?${new URLSearchParams({ patch: patchId, slide: s.id })}"
-        style="left:${GAP + (i % COLS) * (W + GAP)}px;top:${GAP + Math.floor(i / COLS) * (H + GAP)}px"></iframe>`)
+      .map((s, i) => {
+        const c = canvasOf(s);
+        const k = Math.min(W / c.width, H / c.height);
+        return `<iframe src="${ORIGIN}/slide.html?${new URLSearchParams({ patch: patchId, slide: s.id })}"
+        style="left:${GAP + (i % COLS) * (W + GAP) + (W - c.width * k) / 2}px;top:${GAP + Math.floor(i / COLS) * (H + GAP)}px;width:${c.width}px;height:${c.height}px;transform:scale(${k})"></iframe>`;
+      })
       .join('');
     await page.setContent(`<body style="margin:0;background:#0a0918">
-      <style>iframe{position:absolute;width:${CANVAS.width}px;height:${CANVAS.height}px;border:0;transform:scale(${W / CANVAS.width});transform-origin:0 0}</style>
+      <style>iframe{position:absolute;border:0;transform-origin:0 0}</style>
       ${frames}</body>`);
     for (const f of page.frames().slice(1)) await f.waitForFunction(() => window.__READY__ !== undefined, null, { timeout: 60000 });
     const out = path.join(ROOT, 'review', `${patchId}-tong-hop.png`);

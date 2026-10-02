@@ -1,0 +1,39 @@
+{
+  "slug": "cryptbloom",
+  "name": "Cryptbloom",
+  "nameVi": "Hoa Tử Linh",
+  "cnId": "2187",
+  "cnName": "蜕生",
+  "icon": "assets/items/cryptbloom.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Xuyên phép"
+  ],
+  "color": "#C56BFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+75"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+30%"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+20"
+    }
+  ],
+  "passives": [
+    "Trở Lại Từ Cõi Chết"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2187) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+75 SMPT", "+30% xuyên phép", "+20 điểm hồi kỹ năng"],
+    "text": "Tướng địch chết trong 3 giây sau khi dính sát thương của bạn: tạo vùng hồi 100 + 20% SMPT máu cho đồng đội (hồi 60 giây).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "fizz",
+  "name": "FIZZ",
+  "title": "Chú Cá Tinh Nghịch",
+  "roles": [
+    "SÁT THỦ",
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#211A34",
+    "secondary": "#F9F1DC",
+    "label": "#020105"
+  },
+  "portrait": "assets/champions/fizz/portrait.jpg",
+  "splash": "assets/champions/fizz/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "FIZZ, CHÚ CÁ TINH NGHỊCH",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐINH BA HẢI THẠCH",
+      "icon": "assets/champions/fizz/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh thường của Fizz gây thêm sát thương theo thời gian."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Đâm Lao",
+      "icon": "assets/champions/fizz/skill-q.png",
+      "iconSize": 128,
+      "description": "Fizz lướt qua mục tiêu, gây sát thương phép và hiệu ứng trên đòn đánh."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "RẼ SÓNG",
+      "icon": "assets/champions/fizz/skill-w.png",
+      "iconSize": 128,
+      "description": "Cường hóa đòn đánh thường kế tiếp của Fizz để gây thêm sát thương, hồi lại chiêu Rẽ Sóng khi hạ gục một đơn vị. Các đòn đánh thêm sẽ gây sát thương lớn hơn."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Tung Tăng / Nhảy Múa",
+      "icon": "assets/champions/fizz/skill-e.png",
+      "iconSize": 128,
+      "description": "Fizz nhảy lên rồi duyên dáng đáp xuống trên cây đinh ba, trở nên không thể bị chỉ định. Từ vị trí này, Fizz có thể dậm xuống mặt đất hoặc nhảy một lần nữa trước khi đập mạnh xuống."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Triệu Hồi Thủy Quái",
+      "icon": "assets/champions/fizz/skill-r.png",
+      "iconSize": 128,
+      "description": "Fizz quăng cá vào hướng chỉ định, bám dính lấy bất kỳ tướng địch nào chạm phải và làm chậm mục tiêu. Sau chốc lát, thủy quái trồi lên, hất tung mục tiêu và đẩy kẻ địch xung quanh sang bên cạnh. Mọi kẻ địch trúng phải sẽ nhận sát thương phép và bị làm chậm."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.82,
+      "y": 0.22
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/fizz/",
+  "syncedAt": "2026-10-02"
+}

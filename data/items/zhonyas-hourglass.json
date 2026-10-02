@@ -1,0 +1,35 @@
+{
+  "slug": "zhonyas-hourglass",
+  "name": "Zhonya's Hourglass",
+  "nameVi": "Đồng Hồ Cát Zhonya",
+  "cnId": "2386",
+  "cnName": "中娅沙漏",
+  "icon": "assets/items/zhonyas-hourglass.png",
+  "price": 3300,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Giáp"
+  ],
+  "color": "#FFC940",
+  "stats": [
+    {
+      "label": "Giáp",
+      "value": "+40"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+110"
+    }
+  ],
+  "passives": [
+    "Ngưng Đọng Thời Gian"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2386) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+40 giáp", "+110 SMPT"],
+    "text": "Kích hoạt: miễn mọi sát thương và không thể bị chọn làm mục tiêu trong 2,5 giây, nhưng không thể hành động (hồi 90 giây).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

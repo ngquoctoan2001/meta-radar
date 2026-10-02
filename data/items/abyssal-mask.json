@@ -1,0 +1,40 @@
+{
+  "slug": "abyssal-mask",
+  "name": "Abyssal Mask",
+  "nameVi": "Mặt Nạ Vực Thẳm",
+  "cnId": "2704",
+  "cnName": "深渊面具",
+  "icon": "assets/items/abyssal-mask.png",
+  "price": 2400,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Kháng phép"
+  ],
+  "color": "#4DE0C0",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+350"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+45"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+10"
+    }
+  ],
+  "passives": [
+    "Hủy Hoại"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2704) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+350 máu", "+45 kháng phép", "+10 điểm hồi kỹ năng"],
+    "text": "Tướng địch trong phạm vi 650 quanh bạn chịu thêm 12% sát thương phép (không cộng dồn).",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

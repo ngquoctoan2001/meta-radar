@@ -1,0 +1,73 @@
+{
+  "slug": "ryze",
+  "name": "RYZE",
+  "title": "PHÁP SƯ CỔ NGỮ",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#1C1E37",
+    "secondary": "#DCE8F9",
+    "label": "#020309"
+  },
+  "portrait": "assets/champions/ryze/portrait.jpg",
+  "splash": "assets/champions/ryze/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "RYZE, PHÁP SƯ CỔ NGỮ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "BẬC THẦY CỔ THUẬT",
+      "icon": "assets/champions/ryze/skill-p.png",
+      "iconSize": 800,
+      "description": "Kỹ năng của Ryze gây thêm sát thương dựa trên năng lượng cộng thêm, và năng lượng tối đa được tăng dựa trên một phần sức mạnh phép thuật."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "QUÁ TẢI",
+      "icon": "assets/champions/ryze/skill-q.png",
+      "iconSize": 521,
+      "description": "Các kỹ năng cơ bản khác của Ryze tự động đặt lại hồi chiêu Quá Tải và tích 1 cổ ngữ. Khi Ryze dùng Quá Tải với 2 cổ ngữ, ông được tăng Tốc Độ Di Chuyển trong thoáng chốc. Khi sử dụng, Ryze ném ra một luồng năng lượng theo đường thẳng, gây sát thương cho kẻ địch đầu tiên trúng phải. Nếu mục tiêu có Dòng Chảy, Quá Tải gây thêm sát thương và nảy sang các kẻ địch có Dòng Chảy gần đó."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "NGỤC CỔ NGỮ",
+      "icon": "assets/champions/ryze/skill-w.png",
+      "iconSize": 512,
+      "description": "Ryze bẫy mục tiêu trong ngục cổ ngữ, gây sát thương và làm chậm kẻ đó. Nếu mục tiêu có Dòng Chảy, chúng sẽ bị trói thay vì bị làm chậm."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "DÒNG CHẢY MA PHÁP",
+      "icon": "assets/champions/ryze/skill-e.png",
+      "iconSize": 800,
+      "description": "Ryze bắn ra một quả cầu ma thuật, gây sát thương lên một kẻ địch và đặt bùa hại lên tất cả kẻ địch gần đó. Kỹ năng của Ryze có thêm hiệu ứng lên kẻ địch dính bùa hại."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "VÒNG XOÁY KHÔNG GIAN",
+      "icon": "assets/champions/ryze/skill-r.png",
+      "iconSize": 800,
+      "description": "Quá Tải tự động gây nhiều sát thương hơn nữa lên những mục tiêu mang Dòng Chảy. Khi thi triển, Ryze tạo ra một cổng dịch chuyển ở gần đó Sau vài giây, những đồng minh gần bên sẽ được đưa đến vị trí chỉ định."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.805,
+      "y": 0.27
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ryze/",
+  "syncedAt": "2026-10-02"
+}

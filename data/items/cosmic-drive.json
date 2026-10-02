@@ -1,0 +1,37 @@
+{
+  "slug": "cosmic-drive",
+  "name": "Cosmic Drive",
+  "nameVi": "Động Cơ Vũ Trụ",
+  "cnId": "2167",
+  "cnName": "星界驱驰",
+  "icon": "assets/items/cosmic-drive.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Tốc chạy"
+  ],
+  "color": "#C77DFF",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+300"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+70"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+25"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+4%"
+    }
+  ],
+  "passives": [
+    "Vũ Điệu Ma Pháp"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2167) · tên VN theo Riot vi_VN"
+}

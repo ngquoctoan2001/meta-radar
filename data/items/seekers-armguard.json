@@ -1,0 +1,29 @@
+{
+  "slug": "seekers-armguard",
+  "name": "Seeker's Armguard",
+  "nameVi": "Giáp Tay Seeker",
+  "cnId": "2130",
+  "cnName": "探索者的护臂",
+  "icon": "assets/items/seekers-armguard.png",
+  "price": 1400,
+  "tier": "Trang bị trung cấp",
+  "tags": [
+    "Pháp sư",
+    "Giáp"
+  ],
+  "color": "#F0B040",
+  "stats": [
+    {
+      "label": "Giáp",
+      "value": "+20"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+35"
+    }
+  ],
+  "passives": [
+    "Ngưng Đọng Thời Gian"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2130) · tên VN theo Riot vi_VN"
+}

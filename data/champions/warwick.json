@@ -1,0 +1,73 @@
+{
+  "slug": "warwick",
+  "name": "WARWICK",
+  "title": "Quái Thú Xổng Chuồng",
+  "roles": [
+    "ĐẤU SĨ"
+  ],
+  "difficulty": 1,
+  "colors": {
+    "primary": "#080B05",
+    "secondary": "#E1FFD6",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/warwick/portrait.jpg",
+  "splash": "assets/champions/warwick/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "WARWICK, QUÁI THÚ XỔNG CHUỒNG XỨ ZAUN",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "ĐÓI KHÁT",
+      "icon": "assets/champions/warwick/skill-p.png",
+      "iconSize": 128,
+      "description": "Đòn đánh của Warwick gây thêm sát thương phép. Nếu còn dưới 50% máu, Warwick hồi máu bằng lượng sát thương tăng thêm."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "CẮN XÉ",
+      "icon": "assets/champions/warwick/skill-q.png",
+      "iconSize": 128,
+      "description": "Warwick xồ tới cắn mục tiêu, gây sát thương dựa trên máu tối đa của chúng và hồi máu theo sát thương gây ra."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "MÙI MÁU",
+      "icon": "assets/champions/warwick/skill-w.png",
+      "iconSize": 128,
+      "description": "Warwick ngửi được kẻ địch dưới 50% máu, nhận thêm Tốc Độ Di Chuyển và Tốc Độ Đánh lên chúng. Khi chúng còn dưới 20% máu, hắn hóa điên và hiệu ứng được nhân ba."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "GẦM THÉT",
+      "icon": "assets/champions/warwick/skill-e.png",
+      "iconSize": 128,
+      "description": "Warwick được giảm sát thương gánh chịu trong 2,5 giây. Khi kết thúc, hoặc tái kích hoạt, hắn gầm thét, khiến kẻ địch gần đó bỏ chạy trong 1 giây."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "KHÓA CHẾT",
+      "icon": "assets/champions/warwick/skill-r.png",
+      "iconSize": 128,
+      "description": "Warwick nhảy xổ về một hướng (khoảng cách tăng theo Tốc độ Di chuyển cộng thêm), áp chế tướng địch đầu tiên chạm phải trong 1,5 giây."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.645,
+      "y": 0.57
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/warwick/",
+  "syncedAt": "2026-10-02"
+}

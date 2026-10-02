@@ -1,0 +1,40 @@
+{
+  "slug": "blackfire-torch",
+  "name": "Blackfire Torch",
+  "nameVi": "Đuốc Lửa Đen",
+  "cnId": "2804",
+  "cnName": "黯炎火炬",
+  "icon": "assets/items/blackfire-torch.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Năng lượng"
+  ],
+  "color": "#B36BFF",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+80"
+    },
+    {
+      "label": "Năng lượng",
+      "value": "+500"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+20"
+    }
+  ],
+  "passives": [
+    "Ngọn Lửa Xui Rủi",
+    "Lửa Đen"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2804) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+80 SMPT", "+500 năng lượng", "+20 điểm hồi kỹ năng"],
+    "text": "Kỹ năng thiêu đốt kẻ địch 20 + 2% SMPT sát thương phép mỗi giây trong 3 giây. Mỗi tướng, quái đang bị đốt cho +4% SMPT.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

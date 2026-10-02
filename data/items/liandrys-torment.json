@@ -1,0 +1,36 @@
+{
+  "slug": "liandrys-torment",
+  "name": "Liandry's Torment",
+  "nameVi": "Mặt Nạ Đọa Đày Liandry",
+  "cnId": "2141",
+  "cnName": "兰德里的苦痛面具",
+  "icon": "assets/items/liandrys-torment.png",
+  "price": 3000,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Máu"
+  ],
+  "color": "#FF7A4D",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+300"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+70"
+    }
+  ],
+  "passives": [
+    "Đọa Đày",
+    "Thống Khổ"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2141) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+300 máu", "+70 SMPT"],
+    "text": "Kỹ năng thiêu đốt 2% máu tối đa của kẻ địch mỗi giây trong 3 giây. Giao tranh với tướng: sát thương +2% mỗi giây, tối đa 6%.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

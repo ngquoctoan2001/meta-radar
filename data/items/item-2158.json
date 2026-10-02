@@ -1,0 +1,35 @@
+{
+  "slug": "item-2158",
+  "name": "Infinity Orb",
+  "nameVi": "Ngọc Vô Cực",
+  "cnId": "2158",
+  "cnName": "无限法球",
+  "icon": "assets/items/item-2158.png",
+  "price": 3100,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Xuyên phép"
+  ],
+  "color": "#FFA552",
+  "stats": [
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+110"
+    },
+    {
+      "label": "Xuyên phép",
+      "value": "+15"
+    }
+  ],
+  "passives": [],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2158) · tên VN theo Riot vi_VN",
+  "nameTemp": true,
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+110 SMPT", "+15 xuyên phép"],
+    "text": "Kỹ năng và đòn đánh cường hoá chí mạng lên kẻ địch dưới 40% máu, gây thêm 20% sát thương.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

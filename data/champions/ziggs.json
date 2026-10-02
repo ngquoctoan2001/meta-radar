@@ -1,0 +1,73 @@
+{
+  "slug": "ziggs",
+  "name": "ZIGGS",
+  "title": "Chuyên Gia Chất Nổ",
+  "roles": [
+    "PHÁP SƯ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#221511",
+    "secondary": "#F9EBDC",
+    "label": "#000000"
+  },
+  "portrait": "assets/champions/ziggs/portrait.jpg",
+  "splash": "assets/champions/ziggs/splash.jpg",
+  "splashDims": {
+    "width": 1280,
+    "height": 720
+  },
+  "splashSource": "wildrift.leagueoflegends.com",
+  "splashName": "ZIGGS, CHUYÊN GIA CHẤT NỔ",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "Dễ Nổi Điên",
+      "icon": "assets/champions/ziggs/skill-p.png",
+      "iconSize": 128,
+      "description": "Đồng thời tất cả các kỹ năng của Ziggs cũng gây sát thương lên công trình. Kỹ năng tiếp theo của hắn gây thêm sát thương phép theo chu kỳ. Hồi chiêu này giảm mỗi khi Ziggs dùng một kỹ năng."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "Bom Nảy",
+      "icon": "assets/champions/ziggs/skill-q.png",
+      "iconSize": 128,
+      "description": "Ziggs quẳng ra một trái bom nảy gây sát thương phép."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "Gói Chất Nổ",
+      "icon": "assets/champions/ziggs/skill-w.png",
+      "iconSize": 128,
+      "description": "Ziggs quẳng ra một khối chất nổ sẽ tự nổ sau 4 giây, hoặc khi tái kích hoạt kỹ năng. Vụ nổ gây sát thương phép lên kẻ địch, hất văng chúng đi. Ziggs cũng bị hất văng, nhưng không chịu sát thương. Ziggs có thể dùng Gói Chất Nổ để phá hủy trụ địch."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "Bãi Mìn",
+      "icon": "assets/champions/ziggs/skill-e.png",
+      "iconSize": 128,
+      "description": "Ziggs rải ra những quả mìn sẽ phát nổ khi tiếp xúc với kẻ địch, gây sát thương phép và làm chậm nạn nhân. Nếu mục tiêu giẫm nhiều quả mìn, những quả từ thứ hai trở đi gây ít sát thương hơn."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "Siêu Bom Địa Ngục",
+      "icon": "assets/champions/ziggs/skill-r.png",
+      "iconSize": 128,
+      "description": "Ziggs triển khai vũ khí tối thượng của mình, Siêu Bom Địa Ngục, rồi ném đi một khoảng cách cực xa. Những kẻ địch trong phạm vi trung tậm vụ nổ chịu sát thương nhiều hơn những kẻ ở ngoài rìa ảnh hưởng. Khi thi triển nhanh, quả bom sẽ nhắm vào kẻ địch có lượng Máu thấp nhất."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.69,
+      "y": 0.46
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/ziggs/",
+  "syncedAt": "2026-10-02"
+}

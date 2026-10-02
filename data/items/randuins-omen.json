@@ -1,0 +1,36 @@
+{
+  "slug": "randuins-omen",
+  "name": "Randuin's Omen",
+  "nameVi": "Khiên Băng Randuin",
+  "cnId": "2345",
+  "cnName": "兰顿之兆",
+  "icon": "assets/items/randuins-omen.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Giáp"
+  ],
+  "color": "#E8A040",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+400"
+    },
+    {
+      "label": "Giáp",
+      "value": "+75"
+    }
+  ],
+  "passives": [
+    "Kháng Chí Mạng",
+    "Khiêm Nhường"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2345) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+400 máu", "+75 giáp"],
+    "text": "Giảm 30% sát thương chí mạng vật lý phải chịu. Mỗi lần chịu đòn chí mạng vật lý: +5% tốc chạy và 5% kháng làm chậm, cộng dồn 4 lần.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

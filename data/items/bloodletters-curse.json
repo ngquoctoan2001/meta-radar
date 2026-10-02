@@ -1,0 +1,39 @@
+{
+  "slug": "bloodletters-curse",
+  "name": "Bloodletter's Curse",
+  "nameVi": "Lời Nguyền Huyết Tự",
+  "cnId": "2963",
+  "cnName": "放血者的诅咒",
+  "icon": "assets/items/bloodletters-curse.png",
+  "price": 2900,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Máu"
+  ],
+  "color": "#E0484F",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+350"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+65"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "passives": [
+    "Mục Rữa Đáng Sợ:"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2963) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+350 máu", "+65 SMPT", "+15 điểm hồi kỹ năng"],
+    "text": "Kỹ năng hoặc nội tại gây sát thương phép lên tướng: giảm 7,5% kháng phép của mục tiêu trong 6 giây, cộng dồn tối đa 30%.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

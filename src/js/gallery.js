@@ -1,5 +1,5 @@
 // Trang quản lý: danh mục bộ ảnh (bản cập nhật / tier list) → xem trước → tải PNG / ZIP (3840×2160).
-import { CANVAS, fileName } from './lib/output.js';
+import { fileName, canvasOf } from './lib/output.js';
 import { collectionDir } from './lib/collections.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -23,6 +23,7 @@ const TYPES = {
     { key: 'all', label: 'Tất cả' },
     { key: 'build-overview', label: 'Tổng quan' },
     { key: 'build', label: 'Tướng' },
+    { key: 'build-cover', label: 'Thumbnail' },
   ],
 };
 const TYPE_LABEL = { ...Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label])), build: 'Build', 'build-items': 'Trang bị' };
@@ -194,8 +195,15 @@ function renderTabs() {
 }
 
 // ---------- lưới ảnh ----------
+// Thu ảnh cho vừa ô xem trước 16:9; ảnh bìa (khổ dọc) thu theo chiều cao và đặt giữa ô.
 const scaleObserver = new ResizeObserver((entries) => {
-  for (const e of entries) e.target.style.setProperty('--s', e.contentRect.width / CANVAS.width);
+  for (const e of entries) {
+    const frame = e.target.querySelector('iframe');
+    const w = parseFloat(frame.style.width), h = parseFloat(frame.style.height);
+    const s = Math.min(e.contentRect.width / w, e.contentRect.height / h);
+    e.target.style.setProperty('--s', s);
+    frame.style.left = `${(e.contentRect.width - w * s) / 2}px`;
+  }
 });
 
 function renderGrid() {
@@ -205,7 +213,7 @@ function renderGrid() {
   $('#grid').innerHTML = slides
     .map((s) => `<article class="card" data-id="${esc(s.id)}">
       <button class="card-preview" type="button" aria-label="Xem lớn ${esc(s.label)}">
-        <iframe src="${slideUrl(p.id, s.id)}" loading="lazy" tabindex="-1" title="${esc(s.label)}"></iframe>
+        <iframe src="${slideUrl(p.id, s.id)}" loading="lazy" tabindex="-1" title="${esc(s.label)}" style="width:${canvasOf(s).width}px;height:${canvasOf(s).height}px"></iframe>
         <span class="card-zoom">${ICON.expand}Xem lớn</span>
       </button>
       <div class="card-body">
@@ -239,9 +247,11 @@ function renderGrid() {
 // ---------- xem lớn ----------
 function fitLightbox() {
   const stage = $('#lbStage');
-  const { width, height } = CANVAS;
+  const { width, height } = canvasOf(visibleSlides()[state.lbIndex]);
   const s = Math.min(stage.clientWidth / width, stage.clientHeight / height);
   const frame = $('#lbFrame');
+  frame.style.width = `${width}px`;
+  frame.style.height = `${height}px`;
   frame.style.transform = `scale(${s})`;
   frame.style.left = `${(stage.clientWidth - width * s) / 2}px`;
   frame.style.top = `${(stage.clientHeight - height * s) / 2}px`;

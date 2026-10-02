@@ -1,0 +1,39 @@
+{
+  "slug": "morellonomicon",
+  "name": "Morellonomicon",
+  "nameVi": "Quỷ Thư Morello",
+  "cnId": "2149",
+  "cnName": "莫雷洛秘典",
+  "icon": "assets/items/morellonomicon.png",
+  "price": 2650,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Pháp sư",
+    "Giảm hồi máu"
+  ],
+  "color": "#7BD84A",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+300"
+    },
+    {
+      "label": "Sức mạnh phép thuật",
+      "value": "+75"
+    },
+    {
+      "label": "Điểm hồi kỹ năng",
+      "value": "+15"
+    }
+  ],
+  "passives": [
+    "Vết Thương Sâu"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2149) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "stats": ["+300 máu", "+75 SMPT", "+15 điểm hồi kỹ năng"],
+    "text": "Sát thương phép lên tướng địch gây 50% Vết Thương Sâu (giảm hồi máu) trong 3 giây.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

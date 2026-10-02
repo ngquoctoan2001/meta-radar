@@ -1,0 +1,40 @@
+{
+  "slug": "force-of-nature",
+  "name": "Force of Nature",
+  "nameVi": "Giáp Thiên Nhiên",
+  "cnId": "2358",
+  "cnName": "自然之力",
+  "icon": "assets/items/force-of-nature.png",
+  "price": 2800,
+  "tier": "Trang bị cao cấp",
+  "tags": [
+    "Đỡ đòn",
+    "Kháng phép"
+  ],
+  "color": "#4DC0C8",
+  "stats": [
+    {
+      "label": "Máu",
+      "value": "+400"
+    },
+    {
+      "label": "Kháng phép",
+      "value": "+60"
+    },
+    {
+      "label": "Tốc độ di chuyển",
+      "value": "+4%"
+    }
+  ],
+  "passives": [
+    "Vững Chãi"
+  ],
+  "source": "Dữ liệu Tốc Chiến máy chủ Trung Quốc (game.gtimg.cn, mã 2358) · tên VN theo Riot vi_VN",
+  "summary": {
+    "patch": "7.3a",
+    "flag": "adjust",
+    "stats": ["+400 máu", "+60 kháng phép", "+4% tốc chạy"],
+    "text": "Chịu sát thương phép từ tướng: +1 cộng dồn (tối đa 4, kéo dài 7 giây, gây sát thương lên tướng thì làm mới). Đầy cộng dồn: +6% tốc chạy và +70 kháng phép.",
+    "source": "Tooltip trong game (máy chủ Trung Quốc) · 02/10/2026"
+  }
+}

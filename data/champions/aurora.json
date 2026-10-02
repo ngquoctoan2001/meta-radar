@@ -1,0 +1,75 @@
+{
+  "slug": "aurora",
+  "name": "AURORA",
+  "title": "THE WITCH BETWEEN WORLDS",
+  "pageLocale": "en-us",
+  "roles": [
+    "MAGE",
+    "ASSASSIN"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#272F4D",
+    "secondary": "#DFDCF9",
+    "label": "#090F23"
+  },
+  "portrait": "assets/champions/aurora/portrait.jpg",
+  "splash": "assets/champions/aurora/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "AURORA, THE WITCH BETWEEN WORLDS",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "SPIRIT ABJURATION",
+      "icon": "assets/champions/aurora/skill-p.png",
+      "iconSize": 512,
+      "description": "Aurora's spells and attacks exorcise spirits from the enemies she damages. Exorcised spirits follow Aurora around and heal her."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "TWOFOLD HEX",
+      "icon": "assets/champions/aurora/skill-q.png",
+      "iconSize": 512,
+      "description": "Aurora sends out a missile that curses any enemies it hits. She can then recast the ability to draw active curses back toward herself, damaging foes who are hit along the way."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "ACROSS THE VEIL",
+      "icon": "assets/champions/aurora/skill-w.png",
+      "iconSize": 512,
+      "description": "Aurora leaps in a direction of her choosing, entering the spirit realm upon landing, becoming invisible, and gaining Move Speed for a short duration of time. Taking down an enemy champion resets this ability's cooldown."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "THE WEIRDING",
+      "icon": "assets/champions/aurora/skill-e.png",
+      "iconSize": 512,
+      "description": "Aurora converges the realms, sending out a blast of spirit magic that damages and slows enemies before Aurora hops backward to safety."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "BETWEEN WORLDS",
+      "icon": "assets/champions/aurora/skill-r.png",
+      "iconSize": 512,
+      "description": "Aurora leaps in a direction of her choosing, releasing a shockwave that damages and slows any enemies it hits. Afterward, she creates an area that slows enemies within it and allows Aurora to teleport from one side of the area to the other."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.545,
+      "y": 0.22
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/en-us/champions/aurora/",
+  "syncedAt": "2026-10-02"
+}

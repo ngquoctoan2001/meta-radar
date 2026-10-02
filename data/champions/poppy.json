@@ -1,0 +1,74 @@
+{
+  "slug": "poppy",
+  "name": "POPPY",
+  "title": "NGƯỜI GIỮ BÚA",
+  "roles": [
+    "ĐỠ ĐÒN",
+    "ĐẤU SĨ"
+  ],
+  "difficulty": 2,
+  "colors": {
+    "primary": "#24121E",
+    "secondary": "#FFE0D6",
+    "label": "#090909"
+  },
+  "portrait": "assets/champions/poppy/portrait.jpg",
+  "splash": "assets/champions/poppy/splash.jpg",
+  "splashDims": {
+    "width": 2436,
+    "height": 1124
+  },
+  "splashSource": "game.gtimg.cn",
+  "splashName": "POPPY, NGƯỜI GIỮ BÚA",
+  "skills": [
+    {
+      "key": "p",
+      "slot": "NỘI TẠI",
+      "name": "SỨ GIẢ THÉP",
+      "icon": "assets/champions/poppy/skill-p.png",
+      "iconSize": 256,
+      "description": "Poppy ném khiên vào mục tiêu. Cô có thể chạy lại nhặt nó để nhận được một lá chắn tạm thời."
+    },
+    {
+      "key": "q",
+      "slot": "Q",
+      "name": "BÚA CHẤN ĐỘNG",
+      "icon": "assets/champions/poppy/skill-q.png",
+      "iconSize": 256,
+      "description": "Poppy vung búa, gây sát thương và tạo ra một vùng làm chậm kẻ địch đồng thời phát nổ sau một thời gian."
+    },
+    {
+      "key": "w",
+      "slot": "W",
+      "name": "KHÔNG THỂ LAY CHUYỂN",
+      "icon": "assets/champions/poppy/skill-w.png",
+      "iconSize": 256,
+      "description": "Poppy nhận thêm Giáp và Kháng Phép nội tại. Chỉ số thưởng này sẽ tăng lên khi cô ấy còn thấp Máu. Poppy có thể kích hoạt Không Thể Lay Chuyển để nhận Tốc Độ Di Chuyển và ngăn kẻ địch lướt xung quanh. Nếu cú lướt bị chặn, kẻ địch sẽ bị làm chậm và sa lầy."
+    },
+    {
+      "key": "e",
+      "slot": "E",
+      "name": "XUNG PHONG",
+      "icon": "assets/champions/poppy/skill-e.png",
+      "iconSize": 256,
+      "description": "Poppy lao tới mục tiêu và đẩy chúng về phía sau. Nếu mục tiêu bị đẩy vào tường, chúng sẽ bị choáng."
+    },
+    {
+      "key": "r",
+      "slot": "R",
+      "name": "SỨ GIẢ PHÁN QUYẾT",
+      "icon": "assets/champions/poppy/skill-r.png",
+      "iconSize": 256,
+      "description": "Poppy dồn sức mạnh cho một phát búa đẩy bay kẻ địch đi xa."
+    }
+  ],
+  "layout": {
+    "focusX": 0.5,
+    "face": {
+      "x": 0.69,
+      "y": 0.29
+    }
+  },
+  "source": "https://wildrift.leagueoflegends.com/vi-vn/champions/poppy/",
+  "syncedAt": "2026-10-02"
+}
