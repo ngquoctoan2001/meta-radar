@@ -99,9 +99,10 @@ Người dùng không muốn ảnh giải thích trang bị, nhưng **giữ dữ
 
 ### 6. Kiểm tra, xuất ảnh, báo cáo
 ```bash
-node scripts/audit.mjs build-<yyyy-mm-dd>-<vai trò>               # cả bộ: dữ liệu + bố cục từng tướng
-node scripts/render.mjs build-<yyyy-mm-dd>-<vai trò> [tướng…]       # 3840×2160 → builds/<id>/out/ (chỉ tướng vừa thêm: ghi slug)
+node scripts/audit.mjs build-<yyyy-mm-dd>-<vai trò> [--sheet]     # cả bộ: dữ liệu + bố cục từng ảnh ở CẢ HAI khổ (16:9 và vuông "· 1:1")
+node scripts/render.mjs build-<yyyy-mm-dd>-<vai trò> [tướng…]       # 16:9 3840×2160 → out/ · vuông 2160×2160 → out/1x1/ (chỉ tướng vừa thêm: ghi slug; --square / --wide: chỉ một khổ)
 ```
+- **Mỗi ảnh build có 2 khổ**: 16:9 và **vuông 1:1** (người dùng đăng TikTok / Facebook bằng bản vuông). Thêm / sửa tướng xong phải soát và gửi **cả bản vuông** (`out/1x1/…-1x1.png`); `--sheet` tạo thêm `review/<id>-1x1-tong-hop.png`. Thêm tướng mới nhớ xuất lại ảnh tổng quan ở cả hai khổ.
 - Sửa hết `✘`: hay gặp thiếu `title` / `team` / `enemy`, matchups chưa đủ 3, chữ tràn.
 - **Mở ảnh trong `builds/<id>/out/` bằng Read** để soát:
   - khuôn mặt;
@@ -129,10 +130,18 @@ Người dùng xin "ảnh thumbnail" cho bài đăng của bộ → thêm vào *
 - Mẫu `build-cover` (`renderBuildCover`): nửa đầu bộ là khối ảnh tướng cắt xéo phía trên (2 hàng × 3), nửa sau phía dưới, giữa là dải tiêu đề: thương hiệu + ngày + bản, "BUILD <vai trò>" thật to, nhãn vàng "<N> TƯỚNG", "<số build> BUILD / CAO THỦ TRUNG QUỐC" (`tagline` để đổi), dòng chữ chạy (`headline` của ảnh bìa, tổng ≤ ~45 ký tự; không ghi thì lấy `headline` của bộ).
 - Xuất: `render.mjs <id> thumbnail`. Ảnh bìa không có chân ảnh và **không tính vào số trang** "NN / tổng" của các ảnh khác; để cuối `slides` thì tên file các ảnh khác không đổi số.
 
+## Khổ vuông 1:1 (đã chốt 02/10/2026)
+Mẫu `src/js/slides/build-square.js` + `src/css/slide-build-square.css` (khung 1080×1080), xem bằng `slide.html?…&format=square`. Người dùng chọn sau khi xem 7 mẫu — không phải bản 16:9 thu lại:
+- **Ảnh tướng:** dải ảnh tướng phía trên (nhãn + tên ở góc trái), 3 nhóm đối đầu nằm ngang, 3 build xếp hàng (6 trang bị + ngọc).
+  - Mặt tướng nằm hẳn bên trái splash (vd Morgana — bên phải là Kayle) thì dải ảnh tự **lật ngang** để mặt sang phải; mặt nằm giữa thì tên tự co cho khỏi che mặt. Soát dải ảnh của tướng mới: đúng tướng, thấy mặt.
+- **Ảnh tổng quan:** lưới 3×2 thẻ đứng, ảnh tướng lớn + **CỐT LÕI** + **MẠNH KHI GẶP**. **Không** hiện ngọc · giày (người dùng bỏ để ảnh tướng hiện nhiều hơn). Nhãn "CỐT LÕI": 2 chữ cùng một kiểu.
+- Bản 16:9 của ảnh tổng quan vẫn giữ hàng ngọc · giày như đã duyệt.
+
 ## Thiết kế đã chốt — đừng đổi
 - Nhãn **BUILD 1/2/3** (không ghi "Top N cao thủ").
 - Bên trái không có dòng "3 build của top cao thủ…", bảng ngọc hay ô CHỐT.
 - Hàng build chỉ có icon trang bị (không tên, không nhãn MỚI) + ngọc. Không hiện phép bổ trợ (vẫn lưu trong dữ liệu).
+- **Mọi ngọc đều có viền màu của build** (build 1 xanh, 2 vàng, 3 tím) — không chỉ viền ngọc khác build 1 như trước; người dùng: "tô thì tô hết".
 - **Giày luôn ở ô 6, và cùng một đôi ở cả 3 build.**
 - Đầu thẻ build chia 40% tên build / 60% HỢP + KHẮC CHẾ, thẳng cột giữa 3 thẻ.
 - Bên trái: 3 nhóm avatar × 3 tướng, chỉ có avatar.

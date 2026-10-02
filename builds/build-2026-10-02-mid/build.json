@@ -792,27 +792,27 @@
           ]
         },
         {
-          "rank": 3,
-          "title": "Cơ động xả chiêu",
-          "team": "Đội có tướng chắn phía trước",
-          "enemy": "Đối thủ đỡ đòn, lên kháng phép",
+          "rank": 6,
+          "title": "Đốt máu tướng trâu",
+          "team": "Đội cần sát thương đánh lâu dài",
+          "enemy": "Đối thủ nhiều tướng trâu máu",
           "spells": [
-            "flash",
-            "ghost"
+            "exhaust",
+            "flash"
           ],
           "runes": [
             "572126001",
             "572412001",
-            "572418001",
+            "572427001",
             "572213001",
-            "572226001"
+            "572225001"
           ],
           "items": [
             "rylais-crystal-scepter",
             "item-2158",
             "rabadons-deathcap",
-            "void-staff",
-            "zhonyas-hourglass",
+            "liandrys-torment",
+            "banshees-veil",
             "spellslingers-shoes"
           ]
         }

@@ -3,6 +3,7 @@
 //   node scripts/audit.mjs 7.3a                 → báo cáo lỗi từng ảnh (thoát mã 1 nếu có lỗi)
 //   node scripts/audit.mjs 7.3a --sheet         → thêm ảnh tổng hợp cả bộ: review/<id>-tong-hop.png
 //   node scripts/audit.mjs tier-2026-09-30      → tier list
+//   node scripts/audit.mjs build-2026-10-02-mid → bộ build: soát cả khổ 16:9 lẫn khổ vuông 1:1 của từng ảnh
 //
 // 1. Dữ liệu: patch.json (tướng/trang bị có dữ liệu chưa, key kỹ năng, dòng số liệu so sánh được không,
 //    trạng thái, câu chốt, danh sách slides) hoặc tierlist.json (đường, bậc, số liệu, khuôn mặt tướng).
@@ -13,7 +14,7 @@ import path from 'node:path';
 import { ROOT } from './lib/patches.mjs';
 import { ensureServer } from './lib/ensure-server.mjs';
 import { getBrowser, closeBrowser } from './lib/renderer.mjs';
-import { CANVAS, canvasOf } from '../src/js/lib/output.js';
+import { CANVAS, canvasOf, hasSquare, SQUARE_CANVAS } from '../src/js/lib/output.js';
 import { analyzeLine } from '../src/js/lib/values.js';
 import { collectionKind, collectionFile } from '../src/js/lib/collections.js';
 import { OVERVIEW_SIZE } from '../src/js/lib/roles.js';
@@ -264,6 +265,59 @@ function checkLayout() {
   return issues;
 }
 
+// Chạy trong trang slide khổ vuông (format=square): trả về danh sách lỗi bố cục.
+function checkSquare(size) {
+  const issues = [];
+  const r = (el) => el.getBoundingClientRect();
+  const name = (el) => `.${[...el.classList].slice(0, 2).join('.')}${el.textContent.trim() ? ` "${el.textContent.trim().replace(/\s+/g, ' ').slice(0, 24)}"` : ''}`;
+  const top = r(document.querySelector('.topbar')).bottom;
+  const foot = r(document.querySelector('.footbar')).top;
+  // 1. chữ / hàng icon một dòng bị tràn
+  for (const el of document.querySelectorAll('[data-fit], .sqo-headline, .footbar, .bd-chips, .ov-counts, .sq-mug-h, .sqo-core, .sqo-mu, .bd-items, .bd-runes')) {
+    if (el.scrollWidth > el.clientWidth + 1) issues.push(`tràn ngang: ${name(el)} (${el.scrollWidth} > ${el.clientWidth})`);
+  }
+  // 2. thẻ có nội dung tràn ra ngoài (khối chứa tên / tiêu đề cỡ lớn soát ở mục 4: chữ giãn dòng < 1 luôn "tràn" hộp dòng)
+  for (const el of document.querySelectorAll('.bd-card, .bd-body, .sq-mu, .sqo-card, .sqo-body')) {
+    if (el.scrollHeight > el.clientHeight + 1) issues.push(`tràn dọc: ${name(el)} (${el.scrollHeight} > ${el.clientHeight})`);
+    if (el.scrollWidth > el.clientWidth + 1) issues.push(`tràn ngang: ${name(el)} (${el.scrollWidth} > ${el.clientWidth})`);
+  }
+  // 3. icon / chữ lọt ra ngoài thẻ chứa nó
+  for (const box of document.querySelectorAll('.bd-body, .sqo-body, .sq-mu')) {
+    const b = r(box);
+    for (const el of box.querySelectorAll('img, .sq-av, .sqo-av, .bd-item, h3, p')) {
+      const e = r(el);
+      if (e.width && (e.left < b.left - 1 || e.right > b.right + 1 || e.top < b.top - 1 || e.bottom > b.bottom + 1)) issues.push(`${name(el) || el.tagName} lọt ra ngoài ${name(box)}`);
+    }
+  }
+  // 4. các khối chính: trong khung, không đè thanh trên / chân ảnh, không đè nhau
+  const secs = [...document.querySelectorAll('[data-sec]')];
+  for (const el of secs) {
+    const b = r(el);
+    if (b.left < 0 || b.right > size.width || b.top < 0 || b.bottom > size.height) issues.push(`${name(el)} lọt ra ngoài khung ảnh`);
+    if (b.top < top + 4) issues.push(`${name(el)} đè thanh trên (đỉnh ${Math.round(b.top)} < ${Math.round(top)})`);
+    if (b.bottom > foot - 6) issues.push(`${name(el)} đè chân ảnh (đáy ${Math.round(b.bottom)} > ${Math.round(foot)})`);
+  }
+  for (let i = 0; i < secs.length; i++) for (let j = i + 1; j < secs.length; j++) {
+    const a = r(secs[i]), b = r(secs[j]);
+    if (a.left < b.right - 1 && b.left < a.right - 1 && a.top < b.bottom - 1 && b.top < a.bottom - 1) issues.push(`${name(secs[i])} đè lên ${name(secs[j])}`);
+  }
+  // (nội dung canh đáy có thể tràn NGƯỢC LÊN khỏi khối mà scrollHeight không thấy → soát từng phần tử con)
+  for (const el of document.querySelectorAll('.sq-hero > *, .sqo-head > *')) {
+    const b = r(el);
+    if (b.top < top + 4) issues.push(`${name(el)} đè thanh trên (đỉnh ${Math.round(b.top)} < ${Math.round(top)})`);
+    if (b.right > size.width - 20) issues.push(`${name(el)} tràn mép phải`);
+  }
+  // 5. chữ / icon đè nhau trong cùng một hàng
+  for (const row of document.querySelectorAll('.bd-head, .bd-gear, .bd-runes, .bd-chips, .sqo-line, .sqo-title, .sq-mug-a')) {
+    const kids = [...row.children].filter((k) => r(k).width);
+    for (let i = 0; i < kids.length - 1; i++) if (r(kids[i]).right > r(kids[i + 1]).left + 1 && r(kids[i]).bottom > r(kids[i + 1]).top + 1 && r(kids[i]).top < r(kids[i + 1]).bottom - 1) issues.push(`đè nhau trong ${name(row)}: ${name(kids[i])} ↔ ${name(kids[i + 1])}`);
+  }
+  // 6. ảnh không tải được, chữ co quá nhỏ
+  for (const img of document.images) if (!img.naturalWidth) issues.push(`ảnh không tải được: ${img.getAttribute('src')}`);
+  for (const el of document.querySelectorAll('[data-fit]')) if (el.style.fontSize && parseFloat(el.style.fontSize) < 13) issues.push(`chữ co quá nhỏ (${el.style.fontSize}): ${name(el)}`);
+  return issues;
+}
+
 const { origin: ORIGIN, stop } = await ensureServer();
 let failed = 0;
 try {
@@ -280,20 +334,23 @@ try {
 
   const browser = await getBrowser();
 
-  for (const s of patch.slides) {
-    const page = await browser.newPage({ viewport: CANVAS });
+  // mỗi ảnh soát khổ 16:9; ảnh có bản vuông (ảnh build) soát thêm khổ 1:1
+  for (const s of patch.slides) for (const format of hasSquare(s) ? ['wide', 'square'] : ['wide']) {
+    const square = format === 'square';
+    const label = `${s.id}${square ? ' · 1:1' : ''}`;
+    const page = await browser.newPage({ viewport: canvasOf(s, format) });
     const logs = [];
     page.on('console', (m) => (m.type() === 'warning' || m.type() === 'error') && logs.push(m.text()));
     page.on('response', (res) => res.status() >= 400 && logs.push(`không tải được ${new URL(res.url()).pathname} (${res.status()})`));
-    await page.goto(`${ORIGIN}/slide.html?${new URLSearchParams({ patch: patchId, slide: s.id })}`);
+    await page.goto(`${ORIGIN}/slide.html?${new URLSearchParams({ patch: patchId, slide: s.id, format })}`);
     await page.waitForFunction(() => window.__READY__ !== undefined, null, { timeout: 30000 });
     const [ready, error] = await page.evaluate(() => [window.__READY__, window.__ERROR__]);
-    const issues = ready === 'error' ? [`không vẽ được: ${error}`] : [...(await page.evaluate(checkLayout)), ...logs];
+    const issues = ready === 'error' ? [`không vẽ được: ${error}`] : [...(square ? await page.evaluate(checkSquare, SQUARE_CANVAS) : await page.evaluate(checkLayout)), ...logs];
     await page.close();
     if (issues.length) {
       failed++;
-      console.log(`✘ ${s.id}\n${issues.map((i) => `    - ${i}`).join('\n')}`);
-    } else console.log(`✔ ${s.id}`);
+      console.log(`✘ ${label}\n${issues.map((i) => `    - ${i}`).join('\n')}`);
+    } else console.log(`✔ ${label}`);
   }
 
   if (args.includes('--sheet')) {
@@ -319,6 +376,22 @@ try {
     await page.screenshot({ path: out });
     await page.close();
     console.log(`\nẢnh tổng hợp: review/${patchId}-tong-hop.png`);
+
+    // Ảnh tổng hợp khổ vuông (nếu bộ ảnh có bản 1:1): lưới 4 cột
+    const squares = patch.slides.filter(hasSquare);
+    if (squares.length) {
+      const S = 470;
+      const sRows = Math.ceil(squares.length / COLS);
+      const sq = await browser.newPage({ viewport: { width: COLS * S + (COLS + 1) * GAP, height: sRows * S + (sRows + 1) * GAP } });
+      await sq.setContent(`<body style="margin:0;background:#0a0918">
+        <style>iframe{position:absolute;width:${SQUARE_CANVAS.width}px;height:${SQUARE_CANVAS.height}px;border:0;transform:scale(${S / SQUARE_CANVAS.width});transform-origin:0 0}</style>
+        ${squares.map((s, i) => `<iframe src="${ORIGIN}/slide.html?${new URLSearchParams({ patch: patchId, slide: s.id, format: 'square' })}"
+          style="left:${GAP + (i % COLS) * (S + GAP)}px;top:${GAP + Math.floor(i / COLS) * (S + GAP)}px"></iframe>`).join('')}</body>`);
+      for (const f of sq.frames().slice(1)) await f.waitForFunction(() => window.__READY__ !== undefined, null, { timeout: 60000 });
+      await sq.screenshot({ path: path.join(ROOT, 'review', `${patchId}-1x1-tong-hop.png`) });
+      await sq.close();
+      console.log(`Ảnh tổng hợp khổ vuông: review/${patchId}-1x1-tong-hop.png`);
+    }
   }
 } finally {
   await closeBrowser();

@@ -11,7 +11,16 @@ export const OUTPUT = { width: CANVAS.width * SCALE, height: CANVAS.height * SCA
 // khung 1080×1440, chụp ở tỉ lệ SCALE = 2 → xuất 2160×2880.
 export const isCover = (slide) => String(slide?.type ?? '').endsWith('-cover');
 export const COVER_CANVAS = { width: 1080, height: 1440 };
-export const canvasOf = (slide) => (isCover(slide) ? COVER_CANVAS : CANVAS);
+// Khổ vuông 1:1 (bố cục riêng, xem src/js/slides/build-square.js): khung 1080×1080, xuất 2160×2160.
+// Hiện có cho ảnh build + tổng quan build; loại ảnh khác chỉ có khổ 16:9.
+export const SQUARE_CANVAS = { width: 1080, height: 1080 };
+export const SQUARE_TYPES = ['build', 'build-overview'];
+export const hasSquare = (slide) => SQUARE_TYPES.includes(slide?.type);
+// format: 'wide' (16:9, mặc định) | 'square' (1:1 — chỉ áp dụng cho loại ảnh có bản vuông)
+export const formatOf = (slide, format) => (format === 'square' && hasSquare(slide) ? 'square' : 'wide');
+export const canvasOf = (slide, format) => (isCover(slide) ? COVER_CANVAS : formatOf(slide, format) === 'square' ? SQUARE_CANVAS : CANVAS);
+// Ảnh vuông lưu ở thư mục con out/1x1/, tên file thêm đuôi "-1x1".
+export const SQUARE_DIR = '1x1';
 
 // vd 7.3a-02-samira.png · tier-2026-09-30-02-baron.png
-export const fileName = (id, index, slideId) => `${id}-${String(index + 1).padStart(2, '0')}-${slideId}.png`;
+export const fileName = (id, index, slideId, format) => `${id}-${String(index + 1).padStart(2, '0')}-${slideId}${format === 'square' ? '-1x1' : ''}.png`;

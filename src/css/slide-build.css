@@ -119,10 +119,10 @@
   font: 800 17px/1 var(--f-hud); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 .bd-sep { flex: none; width: 2px; height: 88px; background: linear-gradient(transparent, var(--stroke-2), transparent); }
-.bd-runes { display: flex; align-items: center; gap: 6px; }
-.bd-keystone { width: 78px; height: 78px; border-radius: 50%; background: #0b0920; box-shadow: 0 0 0 2px rgb(var(--c-rgb) / 0.7), 0 0 20px rgb(var(--c-rgb) / 0.35); margin-right: 4px; }
-.bd-rune { width: 50px; height: 50px; border-radius: 50%; background: #0b0920; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.14); }
-.bd-rune.is-diff { box-shadow: 0 0 0 3px var(--c), 0 0 16px rgb(var(--c-rgb) / 0.7); }
+/* mọi ngọc đều viền màu của build (xanh / vàng / tím) — người dùng chốt "tô thì tô hết", không chỉ ngọc khác build 1 */
+.bd-runes { display: flex; align-items: center; gap: 11px; }
+.bd-keystone { width: 78px; height: 78px; border-radius: 50%; background: #0b0920; box-shadow: 0 0 0 3px var(--c), 0 0 20px rgb(var(--c-rgb) / 0.45); margin-right: 3px; }
+.bd-rune { width: 50px; height: 50px; border-radius: 50%; background: #0b0920; box-shadow: 0 0 0 3px var(--c), 0 0 14px rgb(var(--c-rgb) / 0.4); }
 
 /* ---------- ảnh 2: giải thích trang bị ---------- */
 .slide--build-items .ov-title h1 { font-size: 120px; }

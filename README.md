@@ -3,6 +3,7 @@
 Dự án tạo bộ ảnh **16:9** tóm tắt mỗi bản cập nhật (patch) và **tier list** của Liên Minh Huyền Thoại: Tốc Chiến để đăng lên **TikTok** và **Facebook**.
 
 Mọi ảnh xuất ra đều **3840×2160** (khung vẽ 1920×1080 chụp ở độ nét gấp đôi — chữ, số, icon vẫn sắc sau khi Facebook nén ảnh).
+Bộ **Build** có thêm khổ **vuông 1:1 (2160×2160)** với bố cục dựng riêng cho khung vuông (hợp bài đăng TikTok / Facebook hơn), và ảnh **thumbnail dọc 3:4 (2160×2880)**.
 
 Ảnh được dựng bằng **HTML + CSS + JS thuần**, rồi chụp thành PNG bằng trình duyệt Edge có sẵn trên máy.
 
@@ -79,6 +80,7 @@ Tab **Tier List** trên trang quản lý: tướng mạnh nhất từng đườn
 ## Build cao thủ
 
 Mục **Build** trên trang quản lý: 1 ảnh / tướng gồm 3 build của cao thủ (bảng xếp hạng Tốc Chiến Trung Quốc) — mỗi build 6 trang bị theo thứ tự + ngọc (1 ngọc chính + 4), kèm tình huống dùng (hợp đội hình nào, khắc chế đối thủ nào) — và avatar 3 tướng **mạnh khi gặp**, 3 tướng **yếu khi gặp**, 3 **hỗ trợ hợp**.
+- **Khổ vuông 1:1:** trên trang quản lý bấm nút **16:9 / 1:1** ở đầu bộ build để xem và tải bản vuông (nút "Tải tất cả" và "Mở thư mục ảnh" theo khổ đang chọn). Mẫu vuông ở `src/js/slides/build-square.js`.
 - Giải thích trang bị (chỉ số + nội tại theo tooltip trong game) lưu ở trường `summary` của `data/items/<món>.json` để dùng lại; mẫu ảnh `build-items` có sẵn nhưng không đưa vào bộ ảnh.
 - Làm mới: gửi Claude 1–3 ảnh build của cao thủ (popup "<tướng> 主模式" trong bảng xếp hạng) — skill **tao-build**. Mỗi **ngày + vai trò** là 1 bộ (vd `builds/build-2026-10-01-adc/` → mục "01/10 · Build ADC" chứa 6 xạ thủ), ảnh chụp gốc trong `source/<tướng>/`. Ngọc + phép bổ trợ: `node scripts/fetch-runes.mjs` → `data/runes.json`, `assets/runes/`, `assets/spells/`.
 
@@ -104,7 +106,7 @@ Mục **Build** trên trang quản lý: 1 ảnh / tướng gồm 3 build của c
 | `node scripts/cn-hero.mjs <tên tiếng Trung…>` | Tra tên tướng trong ảnh bảng xếp hạng CN ra slug, báo đã có dữ liệu / khuôn mặt chưa |
 | `node scripts/fetch-item.mjs "<tên EN/VN>"` | Tải icon, giá, chỉ số Tốc Chiến, tên VN của trang bị · `--list` để tra tay |
 | `node scripts/audit.mjs <bản> --sheet` | Kiểm tra dữ liệu + từng ảnh, tạo `review/<bản>-tong-hop.png` (tier list: `tier-<ngày>`) |
-| `node scripts/render.mjs <bản>` | Xuất ảnh 3840×2160 (tier list: `tier-<ngày>`) |
+| `node scripts/render.mjs <bản> [ảnh…] [--wide \| --square]` | Xuất ảnh 3840×2160 (tier list: `tier-<ngày>`). Bộ build xuất cả khổ 16:9 (`out/`) lẫn khổ vuông 2160×2160 (`out/1x1/`, tên file thêm `-1x1`); `--square` / `--wide` để chỉ xuất một khổ |
 | `node scripts/render-brand.mjs [avatar\|cover]` | Xuất avatar 1080×1080 và ảnh bìa Facebook 1640×924 (+ `@2x`) từ `brand/*.html` → `brand/`, kèm logo 512px `assets/brand/meta-radar-logo.png` gắn ở thanh trên mọi ảnh; xem thử khi lên TikTok/Facebook ở `review/avatar-preview.png`, `review/cover-preview.png` |
 
 ## Cấu trúc thư mục

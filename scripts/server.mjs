@@ -3,7 +3,7 @@
 //   node scripts/server.mjs          → http://localhost:5173
 //   node scripts/server.mjs --open   → tự mở trình duyệt
 //
-// API (ảnh luôn 3840×2160):
+// API (ảnh 3840×2160; thêm &format=square cho bản vuông 2160×2160 của ảnh build, lưu ở out/1x1/):
 //   GET /api/patches                         danh sách bộ ảnh (bản cập nhật + tier list) + danh sách ảnh
 //   GET /api/render?patch=7.3a&slide=samira  ảnh PNG (thêm &download=1 để tải về)
 //   GET /api/render-all?patch=7.3a           toàn bộ ảnh của bộ ảnh trong 1 file .zip
@@ -21,7 +21,7 @@ import { readJSON, listCollections } from './lib/patches.mjs';
 import { collectionFile } from '../src/js/lib/collections.js';
 import { outDir, removeStale } from './lib/outdir.mjs';
 import { API_VERSION } from './lib/ensure-server.mjs';
-import { fileName } from '../src/js/lib/output.js';
+import { fileName, formatOf, hasSquare } from '../src/js/lib/output.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT ?? 5173);
@@ -34,13 +34,15 @@ const MIME = {
   '.woff2': 'font/woff2', '.ico': 'image/x-icon',
 };
 
-async function renderAndSave(patchId, slideId) {
+// format 'square' → bản vuông 1:1 (chỉ loại ảnh có bản vuông; loại khác vẫn xuất 16:9), lưu ở out/1x1/
+async function renderAndSave(patchId, slideId, formatArg) {
   const patch = await readJSON(collectionFile(patchId));
   const index = patch.slides.findIndex((s) => s.id === slideId);
   if (index < 0) throw Object.assign(new Error(`Không có ảnh "${slideId}"`), { status: 404 });
-  const { png, warnings } = await renderSlide(ORIGIN, patchId, slideId);
-  const name = fileName(patchId, index, slideId);
-  const dir = outDir(patchId);
+  const format = formatOf(patch.slides[index], formatArg);
+  const { png, warnings } = await renderSlide(ORIGIN, patchId, slideId, format);
+  const name = fileName(patchId, index, slideId, format);
+  const dir = outDir(patchId, format);
   await mkdir(dir, { recursive: true });
   await writeFile(path.join(dir, name), png);
   if (warnings.length) console.warn(`  ⚠ ${name}:\n    ${warnings.join('\n    ')}`);
@@ -66,7 +68,7 @@ async function handleApi(url, res) {
       return sendJSON(res, 200, await listCollections());
     case '/api/render': {
       const t = Date.now();
-      const { name, png, warnings } = await renderAndSave(patchId, q.get('slide') ?? '');
+      const { name, png, warnings } = await renderAndSave(patchId, q.get('slide') ?? '', q.get('format'));
       console.log(`✔ ${name} (${Date.now() - t}ms)`);
       const headers = { 'Content-Type': 'image/png', 'X-Warnings': encodeURIComponent(warnings.join(' | ')) };
       if (q.get('download')) headers['Content-Disposition'] = attachment(name);
@@ -74,19 +76,21 @@ async function handleApi(url, res) {
     }
     case '/api/render-all': {
       const patch = await readJSON(collectionFile(patchId));
+      // format=square: chỉ các ảnh có bản vuông
+      const square = q.get('format') === 'square';
       const files = [];
-      for (const s of patch.slides) {
-        const { name, png } = await renderAndSave(patchId, s.id);
+      for (const s of patch.slides.filter((x) => !square || hasSquare(x))) {
+        const { name, png } = await renderAndSave(patchId, s.id, square ? 'square' : 'wide');
         console.log(`✔ ${name}`);
         files.push({ name, data: png });
       }
-      await removeStale(patchId, files.map((f) => f.name));
-      const zipName = `toc-chien-${patchId}.zip`;
+      await removeStale(patchId, files.map((f) => f.name), square ? 'square' : 'wide');
+      const zipName = `toc-chien-${patchId}${square ? '-1x1' : ''}.zip`;
       return send(res, 200, createZip(files), { 'Content-Type': 'application/zip', 'Content-Disposition': attachment(zipName) });
     }
     case '/api/open-folder': {
       // mở thư mục ảnh đã xuất bằng File Explorer (chỉ dùng trên máy local)
-      const dir = outDir(patchId);
+      const dir = outDir(patchId, q.get('format'));
       await mkdir(dir, { recursive: true });
       exec(`explorer "${dir}"`);
       return sendJSON(res, 200, { ok: true, api: API_VERSION });

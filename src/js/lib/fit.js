@@ -65,10 +65,25 @@ function fitHero(hero) {
   if (hits()) console.warn('[fit] Câu chốt quá dài, đè lên chân ảnh — nên rút gọn.');
 }
 
+// [data-fit-group="tên"]: các dòng cùng nhóm dùng chung cỡ chữ nhỏ nhất sau khi co — tránh dòng to dòng nhỏ cạnh nhau.
+function fitGroups(root) {
+  const groups = new Map();
+  for (const el of root.querySelectorAll('[data-fit-group]')) {
+    const key = el.dataset.fitGroup;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(el);
+  }
+  for (const els of groups.values()) {
+    const min = Math.min(...els.map(px));
+    for (const el of els) el.style.fontSize = `${min}px`;
+  }
+}
+
 export function fitAll(root = document) {
   root.querySelectorAll('.chg').forEach(fitCard);
   root.querySelectorAll('[data-fit-stack]').forEach(fitStack);
   root.querySelectorAll('[data-fit]').forEach((el) => fitLine(el));
+  fitGroups(root);
   root.querySelectorAll('[data-fit-block]').forEach((el) => fitBlock(el));
   root.querySelectorAll('.it-hero, .ch-hero').forEach(fitHero);
 }

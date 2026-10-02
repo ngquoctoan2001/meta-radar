@@ -208,3 +208,15 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------- chọn khổ ảnh: 16:9 / 1:1 (chỉ bộ ảnh có bản vuông) ---------- */
+.seg { display: inline-flex; padding: 4px; gap: 4px; border-radius: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--stroke-2); }
+.seg-btn {
+  height: 34px; min-width: 58px; padding: 0 14px; border: 0; border-radius: 9px; cursor: pointer;
+  background: transparent; color: var(--text-3); font: 700 14px/1 var(--f-hud); letter-spacing: 0.08em;
+}
+.seg-btn:hover { color: var(--text); background: rgba(255, 255, 255, 0.06); }
+.seg-btn.is-active { background: var(--accent); color: #07061a; }
+/* khổ vuông: ô xem trước vuông, lưới nhiều cột hơn */
+.grid.is-square { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.grid.is-square .card-preview { aspect-ratio: 1 / 1; }

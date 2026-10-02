@@ -31,7 +31,7 @@ export async function closeBrowser() {
 
 // Trả về Buffer PNG. `origin` là địa chỉ server đang phục vụ slide.html.
 // Ảnh 3840×2160: khung 1920×1080 chụp ở tỉ lệ SCALE = 2 (trình duyệt vẽ lại mọi thứ ở độ phân giải gấp đôi).
-export async function renderSlide(origin, patchId, slideId) {
+export async function renderSlide(origin, patchId, slideId, format) {
   const browser = await getBrowser();
   const page = await browser.newPage({ viewport: CANVAS, deviceScaleFactor: SCALE });
   const warnings = [];
@@ -39,12 +39,12 @@ export async function renderSlide(origin, patchId, slideId) {
     if (m.type() === 'warning' || m.type() === 'error') warnings.push(m.text());
   });
   try {
-    const q = new URLSearchParams({ patch: patchId, slide: slideId });
+    const q = new URLSearchParams({ patch: patchId, slide: slideId, ...(format === 'square' ? { format } : {}) });
     await page.goto(`${origin}/slide.html?${q}`, { waitUntil: 'load' });
     await page.waitForFunction(() => window.__READY__ !== undefined, null, { timeout: 30000 });
     const state = await page.evaluate(() => [window.__READY__, window.__ERROR__]);
     if (state[0] === 'error') throw new Error(state[1]);
-    // ảnh bìa là khổ dọc (1080×1920): slide.js báo khung vẽ của ảnh qua window.__CANVAS__
+    // ảnh bìa (dọc 3:4) và bản vuông có khung vẽ riêng: slide.js báo khung vẽ của ảnh qua window.__CANVAS__
     const size = (await page.evaluate(() => window.__CANVAS__)) ?? CANVAS;
     if (size.width !== CANVAS.width || size.height !== CANVAS.height) await page.setViewportSize(size);
     const png = await page.screenshot({ type: 'png', clip: { x: 0, y: 0, width: size.width, height: size.height } });

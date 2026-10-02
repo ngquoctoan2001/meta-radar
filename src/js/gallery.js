@@ -1,5 +1,5 @@
 // Trang quản lý: danh mục bộ ảnh (bản cập nhật / tier list) → xem trước → tải PNG / ZIP (3840×2160).
-import { fileName, canvasOf } from './lib/output.js';
+import { fileName, canvasOf, hasSquare, formatOf, SQUARE_DIR } from './lib/output.js';
 import { collectionDir } from './lib/collections.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -44,12 +44,18 @@ const ICON = {
   folder: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
 };
 
-const state = { patches: [], live: false, current: null, filter: 'all', lbIndex: -1 };
+// format: khổ đang xem / tải — 'wide' (16:9) hoặc 'square' (1:1, chỉ bộ ảnh có bản vuông mới hiện nút chọn)
+const state = { patches: [], live: false, current: null, filter: 'all', format: 'wide', lbIndex: -1 };
 try {
   state.filter = localStorage.getItem('gallery.filter') ?? 'all';
+  state.format = localStorage.getItem('gallery.format') === 'square' ? 'square' : 'wide';
 } catch { /* trình duyệt chặn storage */ }
 
-const slideUrl = (patchId, slideId) => `/slide.html?${new URLSearchParams({ patch: patchId, slide: slideId })}`;
+const fmt = (slide) => formatOf(slide, state.format);
+const fmtQuery = (slide) => (fmt(slide) === 'square' ? { format: 'square' } : {});
+// bộ ảnh đang xem có bản vuông và người dùng đang chọn khổ 1:1
+const squareMode = () => state.format === 'square' && !!state.current?.slides.some(hasSquare);
+const slideUrl = (patchId, slide) => `/slide.html?${new URLSearchParams({ patch: patchId, slide: slide.id, ...fmtQuery(slide) })}`;
 const apiQuery = (extra) => new URLSearchParams({ patch: state.current.id, ...extra });
 const visibleSlides = () => state.current.slides.filter((s) => state.filter === 'all' || s.type === state.filter);
 
@@ -80,7 +86,7 @@ async function downloadFrom(url, fallbackName, button) {
     const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: name });
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở ${esc(collectionDir(state.current.id))}/out/</small>`);
+    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở ${esc(collectionDir(state.current.id))}/out/${name.includes('-1x1.') ? `${SQUARE_DIR}/` : ''}</small>`);
     if (warnings) toast(`Cảnh báo khi vẽ ảnh: ${esc(warnings)}`, 'warn', 7000);
   } catch (err) {
     toast(`Không xuất được ảnh: ${esc(err.message)}`, 'err', 7000);
@@ -94,7 +100,7 @@ async function downloadFrom(url, fallbackName, button) {
 }
 
 const downloadSlide = (slide, button) =>
-  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1 })}`, fileName(state.current.id, slide.index, slide.id), button);
+  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1, ...fmtQuery(slide) })}`, fileName(state.current.id, slide.index, slide.id, fmt(slide)), button);
 
 // ---------- sidebar ----------
 const ofKind = (kind) => state.patches.filter((p) => (p.kind ?? 'patch') === kind);
@@ -163,14 +169,26 @@ function renderHead() {
       <div class="chips">${headChips(p)}</div>
     </div>
     <div class="head-actions">
+      ${p.slides.some(hasSquare) ? `<div class="seg" role="group" aria-label="Khổ ảnh">
+        ${[['wide', '16:9'], ['square', '1:1']].map(([f, label]) => `<button class="seg-btn ${state.format === f ? 'is-active' : ''}" type="button" data-format="${f}" aria-pressed="${state.format === f}">${label}</button>`).join('')}
+      </div>` : ''}
       ${state.live ? `<button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả (.zip)</button>
       <button class="btn btn-ghost" id="btnFolder" type="button">${ICON.folder}Mở thư mục ảnh</button>` : ''}
       ${p.sourceFile ? `<a class="btn btn-ghost" href="/${esc(p.sourceFile)}" target="_blank" rel="noopener">${ICON.doc}Bản dịch (.md)</a>` : ''}
     </div>`;
+  $('#head').querySelectorAll('.seg-btn').forEach((b) => {
+    b.onclick = () => {
+      state.format = b.dataset.format;
+      try { localStorage.setItem('gallery.format', state.format); } catch { /* bỏ qua */ }
+      renderHead();
+      renderGrid();
+    };
+  });
   if (!state.live) return;
-  $('#btnZip').onclick = (e) => downloadFrom(`/api/render-all?${apiQuery()}`, `toc-chien-${p.id}.zip`, e.currentTarget);
+  const sq = squareMode() ? { format: 'square' } : {};
+  $('#btnZip').onclick = (e) => downloadFrom(`/api/render-all?${apiQuery(sq)}`, `toc-chien-${p.id}${sq.format ? '-1x1' : ''}.zip`, e.currentTarget);
   $('#btnFolder').onclick = async () => {
-    const res = await fetch(`/api/open-folder?${apiQuery()}`).catch(() => null);
+    const res = await fetch(`/api/open-folder?${apiQuery(sq)}`).catch(() => null);
     if (!res?.ok) toast('Không mở được thư mục.', 'err');
   };
 }
@@ -196,24 +214,24 @@ function renderTabs() {
 
 // ---------- lưới ảnh ----------
 // Thu ảnh cho vừa ô xem trước 16:9; ảnh bìa (khổ dọc) thu theo chiều cao và đặt giữa ô.
-const scaleObserver = new ResizeObserver((entries) => {
-  for (const e of entries) {
-    const frame = e.target.querySelector('iframe');
-    const w = parseFloat(frame.style.width), h = parseFloat(frame.style.height);
-    const s = Math.min(e.contentRect.width / w, e.contentRect.height / h);
-    e.target.style.setProperty('--s', s);
-    frame.style.left = `${(e.contentRect.width - w * s) / 2}px`;
-  }
-});
+function fitPreview(preview) {
+  const frame = preview.querySelector('iframe');
+  const w = parseFloat(frame.style.width), h = parseFloat(frame.style.height);
+  const s = Math.min(preview.clientWidth / w, preview.clientHeight / h);
+  preview.style.setProperty('--s', s);
+  frame.style.left = `${(preview.clientWidth - w * s) / 2}px`;
+}
+const scaleObserver = new ResizeObserver((entries) => entries.forEach((e) => fitPreview(e.target)));
 
 function renderGrid() {
   const p = state.current;
   const slides = visibleSlides();
   scaleObserver.disconnect();
+  $('#grid').classList.toggle('is-square', squareMode());
   $('#grid').innerHTML = slides
     .map((s) => `<article class="card" data-id="${esc(s.id)}">
       <button class="card-preview" type="button" aria-label="Xem lớn ${esc(s.label)}">
-        <iframe src="${slideUrl(p.id, s.id)}" loading="lazy" tabindex="-1" title="${esc(s.label)}" style="width:${canvasOf(s).width}px;height:${canvasOf(s).height}px"></iframe>
+        <iframe src="${slideUrl(p.id, s)}" loading="lazy" tabindex="-1" title="${esc(s.label)}" style="width:${canvasOf(s, state.format).width}px;height:${canvasOf(s, state.format).height}px"></iframe>
         <span class="card-zoom">${ICON.expand}Xem lớn</span>
       </button>
       <div class="card-body">
@@ -228,7 +246,7 @@ function renderGrid() {
           </div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-icon" href="${slideUrl(p.id, s.id)}" target="_blank" rel="noopener" aria-label="Mở ${esc(s.label)} ở tab mới" title="Mở tab mới">${ICON.external}</a>
+          <a class="btn btn-icon" href="${slideUrl(p.id, s)}" target="_blank" rel="noopener" aria-label="Mở ${esc(s.label)} ở tab mới" title="Mở tab mới">${ICON.external}</a>
           ${state.live ? `<button class="btn btn-primary btn-sm" type="button" data-download>${ICON.download}Tải PNG</button>` : ''}
         </div>
       </div>
@@ -237,6 +255,7 @@ function renderGrid() {
 
   $('#grid').querySelectorAll('.card').forEach((card) => {
     const slide = p.slides.find((s) => s.id === card.dataset.id);
+    fitPreview(card.querySelector('.card-preview'));
     scaleObserver.observe(card.querySelector('.card-preview'));
     card.querySelector('.card-preview').onclick = () => openLightbox(visibleSlides().indexOf(slide));
     const download = card.querySelector('[data-download]');
@@ -247,7 +266,7 @@ function renderGrid() {
 // ---------- xem lớn ----------
 function fitLightbox() {
   const stage = $('#lbStage');
-  const { width, height } = canvasOf(visibleSlides()[state.lbIndex]);
+  const { width, height } = canvasOf(visibleSlides()[state.lbIndex], state.format);
   const s = Math.min(stage.clientWidth / width, stage.clientHeight / height);
   const frame = $('#lbFrame');
   frame.style.width = `${width}px`;
@@ -262,7 +281,7 @@ function openLightbox(i) {
   if (i < 0 || i >= slides.length) return;
   state.lbIndex = i;
   const s = slides[i];
-  $('#lbFrame').src = slideUrl(state.current.id, s.id);
+  $('#lbFrame').src = slideUrl(state.current.id, s);
   $('#lbTitle').innerHTML = `<span>${String(s.index + 1).padStart(2, '0')} / ${String(state.current.slides.length).padStart(2, '0')}</span><b>${esc(s.label)}</b>`;
   $('#lbPrev').disabled = i === 0;
   $('#lbNext').disabled = i === slides.length - 1;
