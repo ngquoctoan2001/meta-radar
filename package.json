@@ -2,7 +2,7 @@
   "name": "meta-wildrift",
   "version": "0.1.0",
   "private": true,
-  "description": "Tạo bộ ảnh Tốc Chiến 16:9 (bản cập nhật cân bằng + tier list) bằng HTML/CSS/JS thuần, xuất 1920×1080 hoặc 3840×2160",
+  "description": "Tạo bộ ảnh Tốc Chiến (bản cập nhật + tier list 16:9 3840×2160, build cao thủ vuông 2160×2160) bằng HTML/CSS/JS thuần",
   "type": "module",
   "scripts": {
     "start": "node scripts/server.mjs --open",

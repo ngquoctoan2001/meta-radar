@@ -1,33 +1,37 @@
-// Ảnh BUILD: bên trái tướng + đối đầu (mạnh / yếu / hỗ trợ hợp, mỗi nhóm 3 avatar), bên phải 3 build
-// (6 trang bị theo thứ tự + ngọc chính + 4 ngọc). Mỗi tướng trong bộ build = 1 ảnh.
+// Ảnh BUILD — khổ VUÔNG 1:1, khung 1080×1080 (SQUARE_CANVAS trong lib/output.js), xuất 2160×2160.
+// Người dùng chốt 02/10/2026 sau khi xem 7 mẫu, và bỏ hẳn bản 16:9 (ảnh build chỉ đăng TikTok / Facebook):
+//   Ảnh tướng     — dải ảnh tướng phía trên · 3 nhóm đối đầu nằm ngang (mạnh / yếu / hợp, mỗi nhóm 3 avatar) ·
+//                   3 build xếp hàng (6 trang bị theo thứ tự + ngọc chính + 4 ngọc). Mỗi tướng trong bộ build = 1 ảnh.
+//   Ảnh tổng quan — lưới 3×2 thẻ đứng: ảnh tướng lớn, CỐT LÕI và MẠNH KHI GẶP (không hiện ngọc · giày — người dùng bỏ
+//                   để ảnh tướng hiện nhiều hơn).
+//   Ảnh bìa       — thumbnail TikTok, khổ dọc 3:4.
 // Dữ liệu: builds/<id>/build.json (1 ngày + 1 vai trò, "champions": [...]) · ngọc: data/runes.json · trang bị: data/items/<slug>.json
-// renderBuildItems (giải thích trang bị, đọc "summary" trong data/items) để dành — hiện không đưa vào bộ ảnh.
+// ("summary" trong data/items là tooltip trang bị người dùng gửi — để dành, chưa có mẫu ảnh.)
 import { esc, topBar, footBar, background, ICON, STATUS, statusKey } from '../lib/ui.js';
 import { LANES } from './tier.js';
 import { ROLES, titleCase, OVERVIEW_SIZE } from '../lib/roles.js';
 
-export const BUILD_CLASS = ['is-b1', 'is-b2', 'is-b3'];
-export const num = (n) => Number(n).toLocaleString('vi-VN', { maximumFractionDigits: 2 });
-export const runeName = (r) => r?.vi ?? r?.en ?? r?.cn ?? '?';
-export const itemName = (it) => it?.nameVi || it?.name || '?';
-export const tag = (ctx) => ({ small: 'BẢN', value: ctx.build.patch ?? ctx.build.date });
-const sourceNote = (b, name) => `Nguồn: Build của cao thủ ${name} · ${b.source} · ${b.date}`;
-export const laneOf = (ctx, e) => e.lane ?? ROLES[ctx.build.role]?.lane;
+const BUILD_CLASS = ['is-b1', 'is-b2', 'is-b3'];
+const num = (n) => Number(n).toLocaleString('vi-VN', { maximumFractionDigits: 2 });
+const runeName = (r) => r?.vi ?? r?.en ?? r?.cn ?? '?';
+const itemName = (it) => it?.nameVi || it?.name || '?';
+const tag = (ctx) => ({ small: 'BẢN', value: ctx.build.patch ?? ctx.build.date });
+const source = (set) => `Nguồn: ${set.source} · ${set.date}`;
+const laneOf = (ctx, e) => e.lane ?? ROLES[ctx.build.role]?.lane;
 
 // Tướng của ảnh này trong bộ build
-export function entryOf(ctx, slide) {
+function entryOf(ctx, slide) {
   const e = ctx.build.champions?.find((c) => c.champion === slide.champion);
   if (!e) throw new Error(`Bộ build không có tướng "${slide.champion}"`);
-  const champ = ctx.champions[e.champion];
-  return { e, champ, name: slide.title ?? titleCase(champ.name) };
+  return { e, champ: ctx.champions[e.champion] };
 }
 
 // Giày luôn đứng cuối hàng (vị trí 6), dù ảnh chụp ghi ở vị trí nào — người dùng chốt quy ước này.
-export const isBoots = (it) => !!it && (it.tags?.includes('Giày') || /greaves|boots|treads|steelcaps|shoes/i.test(it.name ?? '') || /靴|胫甲|鞋/.test(it.cnName ?? ''));
-export const orderItems = (slugs, items) => [...slugs.filter((s) => !isBoots(items[s])), ...slugs.filter((s) => isBoots(items[s]))];
+const isBoots = (it) => !!it && (it.tags?.includes('Giày') || /greaves|boots|treads|steelcaps|shoes/i.test(it.name ?? '') || /靴|胫甲|鞋/.test(it.cnName ?? ''));
+const orderItems = (slugs, items) => [...slugs.filter((s) => !isBoots(items[s])), ...slugs.filter((s) => isBoots(items[s]))];
 
 // Splash cắt quanh khuôn mặt cho khung w×h (giống thẻ tier list), mặt đặt tại (ax, ay) của khung.
-export function art(champ, w, h, { zoom = 1, ax = 0.5, ay = 0.3, face = champ.layout?.face ?? { x: champ.layout?.focusX ?? 0.5, y: 0.25 } } = {}) {
+function art(champ, w, h, { zoom = 1, ax = 0.5, ay = 0.3, face = champ.layout?.face ?? { x: champ.layout?.focusX ?? 0.5, y: 0.25 } } = {}) {
   const { width: sw = 1280, height: sh = 720 } = champ.splashDims ?? {};
   let H = h * zoom;
   let W = (H * sw) / sh;
@@ -43,7 +47,7 @@ export function art(champ, w, h, { zoom = 1, ax = 0.5, ay = 0.3, face = champ.la
 // Cắt sát khuôn mặt mà khó nhận ra tướng (vd Nunu & Willump: phải thấy cả cậu bé lẫn người tuyết) → khung riêng
 // layout.avatar { x, y, zoom }: tâm khung + độ phóng so với mặc định (< 1 = lấy rộng hơn). Ghi bằng splash-grid.mjs --avatar=x,y,zoom.
 const AVATAR_ZOOM = 2.6;
-export function avatar(champ, w, h, cls) {
+function avatar(champ, w, h, cls) {
   if (!champ.layout?.face) return `<img class="${cls}" src="/${esc(champ.portrait)}" alt="${esc(champ.name)}">`;
   const a = champ.layout.avatar;
   const crop = a ? { zoom: AVATAR_ZOOM * (a.zoom ?? 1), ay: 0.5, face: a } : { zoom: AVATAR_ZOOM, ay: 0.42 };
@@ -54,43 +58,58 @@ export function avatar(champ, w, h, cls) {
 // Người dùng báo số mới hơn tier list → ghi "tier": { "win": 55.13 } (và/hoặc "tier": "T0") trong mục của tướng, đè lên số cũ.
 // Người dùng không muốn một nhãn nào đó cho tướng → "hide": ["tier", "patch"] trong mục của tướng.
 const hidden = (e, chip) => e.hide?.includes(chip);
-export function tierInfo(ctx, e) {
+function tierInfo(ctx, e) {
   if (hidden(e, 'tier')) return null;
   const lane = ctx.tierlist?.lanes.find((l) => l.lane === laneOf(ctx, e));
   const info = { ...lane?.champions.find((c) => c.slug === e.champion), ...e.tier };
   return info.tier && info.win != null ? info : null;
 }
+// Tướng có thay đổi ở bản cập nhật gắn kèm → nhãn "▲ BUFF 7.3a" / "▼ NERF 7.3a" (như thẻ tier list).
+const patchStatus = (ctx, e) => (hidden(e, 'patch') ? null : ctx.patch?.champions?.find((c) => c.slug === e.champion)?.status ?? null);
 
-// ---------------- ảnh 1: 3 build ----------------
-export const MATCHUP_ROWS = [
+// ---------------- ảnh tướng ----------------
+// Nhãn trên tên tướng: đường · bậc + % thắng · BUFF / NERF <bản>
+function chips(ctx, e) {
+  const lane = LANES[laneOf(ctx, e)];
+  const tier = tierInfo(ctx, e);
+  const st = patchStatus(ctx, e);
+  const k = st ? statusKey(st) : null;
+  return `<div class="bd-chips">
+    ${lane ? `<span class="bd-chip"><i>${lane.icon}</i>${esc(lane.name)}</span>` : ''}
+    ${tier ? `<span class="bd-chip is-${tier.tier.toLowerCase()}"><b>${esc(tier.tier)}</b>${num(tier.win)}%</span>` : ''}
+    ${k ? `<span class="bd-chip bd-chip--patch is-${k}"><i>${STATUS[k].icon}</i>${STATUS[k].label} <em>${esc(ctx.patch.id)}</em></span>` : ''}
+  </div>`;
+}
+
+// Đối đầu: mạnh / yếu khi gặp, hợp với… — mỗi nhóm tiêu đề + 3 avatar, không ghi tên.
+const MATCHUP_ROWS = [
   { key: 'strong', cls: 'is-buff', icon: ICON.up, label: 'MẠNH', sub: 'KHI GẶP' },
   { key: 'weak', cls: 'is-nerf', icon: ICON.down, label: 'YẾU', sub: 'KHI GẶP' },
   { key: 'synergy', cls: 'is-ally', icon: ICON.shield, label: 'HỢP', sub: null },
 ];
 // "Hợp với …": vai trò hay đi cùng nhất theo đường (ghi đè bằng matchups.synergyLabel)
-export const SYNERGY_SUB = { dragon: 'VỚI HỖ TRỢ', support: 'VỚI XẠ THỦ', jungle: 'VỚI ĐƯỜNG GIỮA', mid: 'VỚI ĐI RỪNG', baron: 'VỚI ĐI RỪNG' };
-
-function matchups(ctx, e) {
-  const m = e.matchups;
-  if (!m) return '';
-  const rows = MATCHUP_ROWS.filter((r) => m[r.key]?.length).map((r) => `<div class="mu-row ${r.cls}">
-      <div class="mu-label"><i>${r.icon}</i><span><b>${r.label}</b><small>${esc(r.sub ?? m.synergyLabel ?? SYNERGY_SUB[laneOf(ctx, e)] ?? 'VỚI ĐỒNG ĐỘI')}</small></span></div>
-      <div class="mu-avatars">${m[r.key].map((slug) => avatar(ctx.champions[slug], 104, 104, 'mu-avatar')).join('')}</div>
-    </div>`).join('');
-  return `<div class="mu">${rows}</div>`;
+const SYNERGY_SUB = { dragon: 'VỚI HỖ TRỢ', support: 'VỚI XẠ THỦ', jungle: 'VỚI ĐƯỜNG GIỮA', mid: 'VỚI ĐI RỪNG', baron: 'VỚI ĐI RỪNG' };
+const AVATAR = 88;
+function muGroup(ctx, e, r) {
+  const m = e.matchups ?? {};
+  if (!m[r.key]?.length) return '';
+  const sub = r.sub ?? m.synergyLabel ?? SYNERGY_SUB[laneOf(ctx, e)] ?? 'VỚI ĐỒNG ĐỘI';
+  return `<div class="sq-mug ${r.cls}">
+    <div class="sq-mug-h"><i>${r.icon}</i><b>${r.label}</b><small>${esc(sub)}</small></div>
+    <div class="sq-mug-a">${m[r.key].map((slug) => avatar(ctx.champions[slug], AVATAR, AVATAR, 'sq-av')).join('')}</div>
+  </div>`;
 }
 
 function buildCard(ctx, b, i) {
   const keystone = ctx.runes[b.runes[0]];
-  const minors = b.runes.slice(1);
   return `<article class="bd-card ${BUILD_CLASS[i]}">
     <div class="bd-rank"><small>BUILD</small><b>${i + 1}</b></div>
     <div class="bd-body">
       <header class="bd-head">
-        <h3 class="bd-title" data-fit>${esc(b.title)}</h3>
+        <h3 class="bd-title" data-fit data-fit-group="title">${esc(b.title)}</h3>
         <div class="bd-fit">
-          <p><i>${ICON.up}</i><em>HỢP</em><span data-fit>${esc(b.team)}</span></p>
-          <p><i>${ICON.bolt}</i><em>KHẮC CHẾ</em><span data-fit>${esc(b.enemy)}</span></p>
+          <p><i>${ICON.up}</i><em>HỢP</em><span data-fit data-fit-group="fit">${esc(b.team)}</span></p>
+          <p><i>${ICON.bolt}</i><em>KHẮC CHẾ</em><span data-fit data-fit-group="fit">${esc(b.enemy)}</span></p>
         </div>
       </header>
       <div class="bd-gear">
@@ -101,93 +120,60 @@ function buildCard(ctx, b, i) {
         <div class="bd-sep"></div>
         <div class="bd-runes">
           <img class="bd-keystone" src="/${esc(keystone.icon)}" alt="${esc(runeName(keystone))}">
-          ${minors.map((id) => `<img class="bd-rune" src="/${esc(ctx.runes[id].icon)}" alt="${esc(runeName(ctx.runes[id]))}">`).join('')}
+          ${b.runes.slice(1).map((id) => `<img class="bd-rune" src="/${esc(ctx.runes[id].icon)}" alt="${esc(runeName(ctx.runes[id]))}">`).join('')}
         </div>
       </div>
     </div>
   </article>`;
 }
 
-// Tướng có thay đổi ở bản cập nhật gắn kèm → nhãn "▲ BUFF 7.3a" / "▼ NERF 7.3a" (như thẻ tier list).
-export const patchStatus = (ctx, e) => (hidden(e, 'patch') ? null : ctx.patch?.champions?.find((c) => c.slug === e.champion)?.status ?? null);
-function patchChip(ctx, e) {
-  const st = patchStatus(ctx, e);
-  if (!st) return '';
-  const k = statusKey(st);
-  return `<span class="bd-chip bd-chip--patch is-${k}"><i>${STATUS[k].icon}</i>${STATUS[k].label} <em>${esc(ctx.patch.id)}</em></span>`;
+// Dải ảnh tướng phía trên: mặt tướng đặt lệch phải (71% bề ngang) để nhãn + tên nằm bên trái.
+// - Splash 16:9 phủ vừa khít bề ngang nên mặt không dịch sang phải được: mặt nằm hẳn bên trái splash (vd Morgana 0,26 —
+//   bên phải là Kayle) thì LẬT NGANG ảnh để mặt sang phải, không bị tên che.
+// - Mặt nằm gần giữa (vd Galio, Senna) thì giới hạn bề ngang TÊN cho vừa khoảng trống bên trái mặt (tên dài tự co chữ);
+//   hàng nhãn không bị giới hạn theo (3 nhãn mà xuống dòng sẽ đẩy lên chạm thanh trên).
+// Trả về { html, nameW }.
+const SQ = 1080;
+const BANNER = { h: 330, zoom: 1.62, ax: 0.71, ay: 0.5 };
+function banner(champ) {
+  const { width: sw = 1280, height: sh = 720 } = champ.splashDims ?? {};
+  const face = champ.layout?.face ?? { x: champ.layout?.focusX ?? 0.5, y: 0.25 };
+  const flip = face.x < 0.4;
+  const W = Math.max(SQ, (BANNER.h * BANNER.zoom * sw) / sh);
+  const fx = (flip ? 1 - face.x : face.x) * W;
+  const faceX = fx + Math.min(0, Math.max(SQ - W, SQ * BANNER.ax - fx)); // vị trí mặt trên ảnh (px, sau khi lật nếu có)
+  const style = art(champ, SQ, BANNER.h, { zoom: BANNER.zoom, ax: flip ? 1 - BANNER.ax : BANNER.ax, ay: BANNER.ay });
+  return {
+    html: `<div class="sq-banner" style="height:${BANNER.h}px"><div class="sq-banner-art ${flip ? 'is-flip' : ''}" style="${style}"></div></div>`,
+    nameW: Math.round(Math.min(640, Math.max(400, faceX - 110))),
+  };
 }
 
+// Khung dọc: thanh trên 26–90 · dải ảnh 0–330 (nhãn + tên 100–322) · đối đầu 340–486 · 3 build 500–1020 · chân ảnh 1038.
 export function renderBuild(ctx, slide) {
-  const { e, champ: champion, name } = entryOf(ctx, slide);
-  const lane = LANES[laneOf(ctx, e)];
-  const tier = tierInfo(ctx, e);
-
-  return `<div class="slide slide--build">
-    ${background(`<div class="bd-splash" style="${art(champion, 1000, 1080, { zoom: 1.05, ax: 0.36, ay: 0.26 })}"></div><div class="bd-shade"></div><div class="watermark bd-watermark">BUILD</div>`)}
+  const { e, champ } = entryOf(ctx, slide);
+  const top = banner(champ);
+  return `<div class="slide slide--build slide--sq sq-build">
+    ${background(top.html)}
     ${topBar(ctx, 'BUILD CAO THỦ', tag(ctx))}
-    <section class="bd-hero">
-      <div class="bd-chips">
-        ${lane ? `<span class="bd-chip"><i>${lane.icon}</i>${esc(lane.name)}</span>` : ''}
-        ${tier ? `<span class="bd-chip is-${tier.tier.toLowerCase()}"><b>${esc(tier.tier)}</b>${num(tier.win)}%</span>` : ''}
-        ${patchChip(ctx, e)}
-      </div>
-      <h1 class="bd-name" data-fit>${esc(champion.name)}</h1>
-      ${matchups(ctx, e)}
+    <section class="sq-hero" data-sec>
+      ${chips(ctx, e)}
+      <h1 class="sq-name" data-fit style="max-width:${top.nameW}px">${esc(champ.name)}</h1>
     </section>
-    <section class="bd-cards">${e.builds.map((b, i) => buildCard(ctx, b, i)).join('')}</section>
-    ${footBar(ctx, sourceNote(ctx.build, name))}
-  </div>`;
-}
-
-// ---------------- (để dành) giải thích trang bị ----------------
-// Đọc "summary" { flag, stats, text } trong data/items/<slug>.json của các món có trong build.
-export function renderBuildItems(ctx, slide) {
-  const { e, champ: champion, name } = entryOf(ctx, slide);
-  const build = e;
-  const slugs = [...new Set(build.builds.flatMap((b) => b.items))].filter((s) => ctx.items[s]?.summary).slice(0, 9);
-  const usedBy = (slug) => build.builds.map((b, i) => (b.items.includes(slug) ? i : -1)).filter((i) => i >= 0);
-  const nNew = slugs.filter((s) => ctx.items[s].summary.flag === 'new').length;
-  const cards = slugs.map((s) => {
-    const it = ctx.items[s];
-    const n = it.summary;
-    return `<article class="bi-card ${n.flag === 'new' ? 'is-new' : ''}">
-      <div class="bi-top">
-        <div class="bi-icon"><img src="/${esc(it.icon)}" alt=""></div>
-        <div class="bi-titles">
-          <h3 data-fit>${esc(itemName(it))}${n.flag === 'new' ? '<span class="bi-new">MỚI</span>' : ''}</h3>
-          <div class="bi-used">${usedBy(s).map((i) => `<span class="${BUILD_CLASS[i]}">BUILD ${i + 1}</span>`).join('')}</div>
-          <div class="bi-stats">${n.stats.map((x) => `<span>${esc(x)}</span>`).join('')}</div>
-        </div>
-      </div>
-      <p class="bi-text" data-fit-block data-fit-lines="3">${esc(n.text)}</p>
-    </article>`;
-  }).join('');
-
-  return `<div class="slide slide--build slide--build-items">
-    ${background('<div class="watermark bd-watermark">ITEM</div>')}
-    ${topBar(ctx, 'TRANG BỊ', tag(ctx))}
-    <section class="ov-hero">
-      <div class="ov-title"><h1>${esc(champion.name)}</h1></div>
-      <div class="ov-headline">
-        <p><span>Trang bị trong ${build.builds.length} build</span><i></i><span>Chỉ số bản mới nhất</span></p>
-        <div class="ov-counts">
-          <span class="ov-count is-neutral"><b>${slugs.length}</b> TRANG BỊ</span>
-          ${nNew ? `<span class="ov-count bi-count-new"><b>${nNew}</b> MÓN MỚI</span>` : ''}
-        </div>
-      </div>
-    </section>
-    <section class="bi-grid">${cards}</section>
-    ${footBar(ctx, sourceNote(ctx.build, name))}
+    <section class="sq-mu" data-sec>${MATCHUP_ROWS.map((r) => muGroup(ctx, e, r)).join('')}</section>
+    <section class="sq-builds" data-sec>${e.builds.map((b, i) => buildCard(ctx, b, i)).join('')}</section>
+    ${footBar(ctx, source(ctx.build))}
   </div>`;
 }
 
 // ---------------- ảnh tổng quan của bộ build ----------------
-// 1 cột / tướng: ảnh tướng + bậc, nhãn BUFF/NERF, 3 món cốt lõi (xuất hiện nhiều nhất trong 3 build, không tính giày),
-// ngọc chính, giày, 3 tướng mạnh khi đối đầu. Khung: nội dung 254–1002 (748px), bề ngang 1792px chia đều.
-const BO = { area: 1792, gap: 20, artH: 410 };
+// Thẻ 323×383: ảnh tướng 220 (nhãn bậc / BUFF-NERF ở trên, tên ở dưới) · CỐT LÕI · MẠNH KHI GẶP.
+const OV = { cardW: 323, artH: 220, avW: 66, avH: 56 };
+// Nhãn 2 dòng. same = cả 2 dòng cùng một kiểu chữ (CỐT LÕI là một cụm — người dùng yêu cầu không để 2 chữ 2 kiểu).
+const label = (a, b, same) => `<small class="sqo-label ${same ? 'is-same' : ''}"><b>${a}</b><span>${b}</span></small>`;
 
-// Món cốt lõi: đếm số build có món đó, nhiều trước; hoà thì món lên sớm hơn trước.
-export function coreItems(ctx, e, n = 3) {
+// Món cốt lõi: đếm số build có món đó (không tính giày), nhiều trước; hoà thì món lên sớm hơn trước.
+function coreItems(ctx, e, n = 3) {
   const score = new Map();
   for (const b of e.builds) {
     orderItems(b.items, ctx.items).forEach((s, i) => {
@@ -202,36 +188,28 @@ export function coreItems(ctx, e, n = 3) {
     .map(([slug, v]) => ({ slug, count: v.count }));
 }
 
-function overviewCard(ctx, e, w) {
+function overviewCard(ctx, e) {
   const champ = ctx.champions[e.champion];
   const tier = tierInfo(ctx, e);
   const st = patchStatus(ctx, e);
   const k = st ? statusKey(st) : null;
-  const keystones = [...new Set(e.builds.map((b) => b.runes[0]))];
-  const boots = e.builds.map((b) => b.items.find((s) => isBoots(ctx.items[s]))).find(Boolean);
   const name = ctx.build.slides.find((s) => s.champion === e.champion)?.title ?? titleCase(champ.name);
-  const cell = Math.floor((w - 36 - 20) / 3); // 3 ô trong thẻ: trừ lề 18×2 và 2 khe 10px
-  return `<article class="bo-card" style="width:${w}px">
-    <div class="bo-art" style="${art(champ, w, BO.artH, { zoom: 1.55, ay: 0.32 })}"></div>
-    <div class="bo-tags">
-      ${tier ? `<span class="bo-tag is-${tier.tier.toLowerCase()}"><b>${esc(tier.tier)}</b>${num(tier.win)}%</span>` : '<span></span>'}
-      ${k ? `<span class="bo-tag is-${k}">${STATUS[k].icon}${STATUS[k].label}</span>` : ''}
-    </div>
-    <h3 class="bo-name" data-fit>${esc(name)}</h3>
-    <div class="bo-body">
-      <small>CỐT LÕI</small>
-      <div class="bo-core">${coreItems(ctx, e).map((c) => `<img src="/${esc(ctx.items[c.slug].icon)}" alt="${esc(itemName(ctx.items[c.slug]))}">`).join('')}</div>
-      <small>NGỌC · GIÀY</small>
-      <div class="bo-extra ${keystones.length > 2 ? 'is-tight' : ''}">
-        ${keystones.map((id) => `<img class="bo-key" src="/${esc(ctx.runes[id].icon)}" alt="${esc(runeName(ctx.runes[id]))}">`).join('')}
-        ${boots ? `<img class="bo-boots" src="/${esc(ctx.items[boots].icon)}" alt="${esc(itemName(ctx.items[boots]))}">` : ''}
+  return `<article class="sqo-card">
+    <div class="sqo-art" style="${art(champ, OV.cardW, OV.artH, { zoom: 2.35, ay: 0.4 })}">
+      <div class="bo-tags">
+        ${tier ? `<span class="bo-tag is-${tier.tier.toLowerCase()}"><b>${esc(tier.tier)}</b>${num(tier.win)}%</span>` : '<span></span>'}
+        ${k ? `<span class="bo-tag is-${k}">${STATUS[k].icon}${STATUS[k].label}</span>` : ''}
       </div>
-      ${e.matchups?.strong?.length ? `<small>MẠNH KHI ĐỐI ĐẦU VỚI</small>
-      <div class="bo-mu">${e.matchups.strong.map((s) => avatar(ctx.champions[s], cell, Math.round(cell / 1.15), 'bo-av')).join('')}</div>` : ''}
+      <h3 class="sqo-name" data-fit>${esc(name)}</h3>
+    </div>
+    <div class="sqo-body">
+      <div class="sqo-line">${label('CỐT', 'LÕI', true)}<div class="sqo-core">${coreItems(ctx, e).map((c) => `<img src="/${esc(ctx.items[c.slug].icon)}" alt="${esc(itemName(ctx.items[c.slug]))}">`).join('')}</div></div>
+      ${e.matchups?.strong?.length ? `<div class="sqo-line is-buff">${label('MẠNH', 'KHI GẶP')}<div class="sqo-mu">${e.matchups.strong.map((s) => avatar(ctx.champions[s], OV.avW, OV.avH, 'sqo-av')).join('')}</div></div>` : ''}
     </div>
   </article>`;
 }
 
+// Khung dọc: thanh trên 26–90 · tiêu đề 104–224 · lưới thẻ 240–1022 · chân ảnh 1038.
 export function renderBuildOverview(ctx, slide) {
   const set = ctx.build;
   // Bộ nhiều hơn 6 tướng có nhiều ảnh tổng quan: ảnh thứ k lấy 6 tướng thứ k (theo thứ tự "champions").
@@ -239,21 +217,14 @@ export function renderBuildOverview(ctx, slide) {
   const page = Math.max(pages.findIndex((s) => s.id === slide?.id), 0);
   const all = set.champions;
   const entries = pages.length > 1 ? all.slice(page * OVERVIEW_SIZE, (page + 1) * OVERVIEW_SIZE) : all;
-  const n = Math.max(entries.length, 1);
-  // Thẻ không rộng hơn cột của bộ 6 tướng (mẫu đã duyệt): rộng hơn thì icon to theo, tràn khỏi thẻ.
-  // Bộ chưa đủ 6 tướng → thẻ giữ nguyên cỡ, xếp giữa ảnh.
-  const maxW = Math.floor((BO.area - BO.gap * 5) / 6);
-  const w = Math.min(maxW, Math.floor((BO.area - BO.gap * (n - 1)) / n));
   const role = ROLES[set.role];
   const lane = LANES[role?.lane];
   const nBuilds = all.reduce((a, e) => a + e.builds.length, 0);
-  return `<div class="slide slide--build slide--build-ov">
-    ${background('<div class="watermark bd-watermark">BUILD</div>')}
+  return `<div class="slide slide--build slide--sq sq-ov">
+    ${background()}
     ${topBar(ctx, 'BUILD CAO THỦ', tag(ctx))}
-    <section class="ov-hero">
-      <div class="ov-title lane-title">${lane ? `<i>${lane.icon}</i>` : ''}<h1>BUILD ${esc(role?.name ?? '')}</h1></div>
-      <div class="ov-headline">
-        ${set.headline ? `<p>${set.headline.split('·').map((s) => `<span>${esc(s.trim())}</span>`).join('<i></i>')}</p>` : ''}
+    <section class="sqo-head" data-sec>
+      <div class="sqo-title">${lane ? `<i>${lane.icon}</i>` : ''}<h1>BUILD ${esc(role?.name ?? '')}</h1>
         <div class="ov-counts">
           <span class="ov-count is-neutral"><b>${all.length}</b> TƯỚNG</span>
           <span class="ov-count is-neutral"><b>${nBuilds}</b> BUILD</span>
@@ -261,9 +232,10 @@ export function renderBuildOverview(ctx, slide) {
           ${pages.length > 1 ? `<span class="ov-count bo-page">PHẦN <b>${page + 1}</b>/${pages.length}</span>` : ''}
         </div>
       </div>
+      ${set.headline ? `<p class="sqo-headline">${set.headline.split('·').map((s) => `<span>${esc(s.trim())}</span>`).join('<i></i>')}</p>` : ''}
     </section>
-    <section class="bo-cols">${entries.map((e) => overviewCard(ctx, e, w)).join('')}</section>
-    ${footBar(ctx, `Nguồn: Build của cao thủ · ${set.source} · ${set.date}`)}
+    <section class="sqo-list" data-sec>${entries.map((e) => overviewCard(ctx, e)).join('')}</section>
+    ${footBar(ctx, source(set))}
   </div>`;
 }
 

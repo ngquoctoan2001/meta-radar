@@ -1,6 +1,7 @@
-// Trang quản lý: danh mục bộ ảnh (bản cập nhật / tier list) → xem trước → tải PNG / ZIP (3840×2160).
-import { fileName, canvasOf, hasSquare, formatOf, SQUARE_DIR } from './lib/output.js';
-import { collectionDir } from './lib/collections.js';
+// Trang quản lý: danh mục bộ ảnh (bản cập nhật / tier list / build) → xem trước từng ảnh, xem lớn.
+// Ảnh PNG do scripts/render.mjs xuất vào thư mục out/ của bộ ảnh (nút "Mở thư mục ảnh") — trang này không có nút tải:
+// người dùng yêu cầu bỏ "Tải PNG", "Tải tất cả (.zip)" và "Mở tab mới" (02/10/2026).
+import { canvasOf, isSquare } from './lib/output.js';
 
 const $ = (sel) => document.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -26,7 +27,7 @@ const TYPES = {
     { key: 'build-cover', label: 'Thumbnail' },
   ],
 };
-const TYPE_LABEL = { ...Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label])), build: 'Build', 'build-items': 'Trang bị' };
+const TYPE_LABEL = { ...Object.fromEntries(Object.values(TYPES).flat().map((t) => [t.key, t.label])), build: 'Build' };
 // Danh mục bên trái: mỗi loại bộ ảnh là một mục cha, các bộ ảnh là mục con.
 const KIND = {
   patch: { title: 'BẢN CẬP NHẬT', empty: 'Chưa có bản cập nhật nào.' },
@@ -36,27 +37,17 @@ const KIND = {
 const STATUS_LABEL = { buff: 'BUFF', nerf: 'NERF', adjust: 'ĐIỀU CHỈNH', mixed: 'ĐIỀU CHỈNH', rework: 'LÀM LẠI', new: 'MỚI' };
 
 const ICON = {
-  download: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>',
-  zip: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2M10 3v2m0 2v2m0 2v2m-2 2h4v3H8z"/></svg>',
   expand: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>',
-  external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
   doc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/></svg>',
   folder: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
 };
 
-// format: khổ đang xem / tải — 'wide' (16:9) hoặc 'square' (1:1, chỉ bộ ảnh có bản vuông mới hiện nút chọn)
-const state = { patches: [], live: false, current: null, filter: 'all', format: 'wide', lbIndex: -1 };
+const state = { patches: [], live: false, current: null, filter: 'all', lbIndex: -1 };
 try {
   state.filter = localStorage.getItem('gallery.filter') ?? 'all';
-  state.format = localStorage.getItem('gallery.format') === 'square' ? 'square' : 'wide';
 } catch { /* trình duyệt chặn storage */ }
 
-const fmt = (slide) => formatOf(slide, state.format);
-const fmtQuery = (slide) => (fmt(slide) === 'square' ? { format: 'square' } : {});
-// bộ ảnh đang xem có bản vuông và người dùng đang chọn khổ 1:1
-const squareMode = () => state.format === 'square' && !!state.current?.slides.some(hasSquare);
-const slideUrl = (patchId, slide) => `/slide.html?${new URLSearchParams({ patch: patchId, slide: slide.id, ...fmtQuery(slide) })}`;
-const apiQuery = (extra) => new URLSearchParams({ patch: state.current.id, ...extra });
+const slideUrl = (patchId, slide) => `/slide.html?${new URLSearchParams({ patch: patchId, slide: slide.id })}`;
 const visibleSlides = () => state.current.slides.filter((s) => state.filter === 'all' || s.type === state.filter);
 
 // ---------- thông báo ----------
@@ -68,39 +59,6 @@ function toast(msg, type = 'ok', ms = 3800) {
   setTimeout(() => el.classList.add('is-out'), ms);
   setTimeout(() => el.remove(), ms + 400);
 }
-
-// ---------- tải file từ API ----------
-async function downloadFrom(url, fallbackName, button) {
-  const label = button?.innerHTML;
-  if (button) {
-    button.disabled = true;
-    button.classList.add('is-loading');
-    button.innerHTML = '<span class="spinner"></span>Đang xuất…';
-  }
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error ?? `Lỗi ${res.status}`);
-    const name = decodeURIComponent(res.headers.get('Content-Disposition')?.match(/filename\*=UTF-8''([^;]+)/)?.[1] ?? fallbackName);
-    const warnings = decodeURIComponent(res.headers.get('X-Warnings') ?? '');
-    const blob = await res.blob();
-    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: name });
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-    toast(`Đã tải <b>${esc(name)}</b><small>Bản sao lưu ở ${esc(collectionDir(state.current.id))}/out/${name.includes('-1x1.') ? `${SQUARE_DIR}/` : ''}</small>`);
-    if (warnings) toast(`Cảnh báo khi vẽ ảnh: ${esc(warnings)}`, 'warn', 7000);
-  } catch (err) {
-    toast(`Không xuất được ảnh: ${esc(err.message)}`, 'err', 7000);
-  } finally {
-    if (button) {
-      button.disabled = false;
-      button.classList.remove('is-loading');
-      button.innerHTML = label;
-    }
-  }
-}
-
-const downloadSlide = (slide, button) =>
-  downloadFrom(`/api/render?${apiQuery({ slide: slide.id, download: 1, ...fmtQuery(slide) })}`, fileName(state.current.id, slide.index, slide.id, fmt(slide)), button);
 
 // ---------- sidebar ----------
 const ofKind = (kind) => state.patches.filter((p) => (p.kind ?? 'patch') === kind);
@@ -169,26 +127,12 @@ function renderHead() {
       <div class="chips">${headChips(p)}</div>
     </div>
     <div class="head-actions">
-      ${p.slides.some(hasSquare) ? `<div class="seg" role="group" aria-label="Khổ ảnh">
-        ${[['wide', '16:9'], ['square', '1:1']].map(([f, label]) => `<button class="seg-btn ${state.format === f ? 'is-active' : ''}" type="button" data-format="${f}" aria-pressed="${state.format === f}">${label}</button>`).join('')}
-      </div>` : ''}
-      ${state.live ? `<button class="btn btn-primary" id="btnZip" type="button">${ICON.zip}Tải tất cả (.zip)</button>
-      <button class="btn btn-ghost" id="btnFolder" type="button">${ICON.folder}Mở thư mục ảnh</button>` : ''}
+      ${state.live ? `<button class="btn btn-ghost" id="btnFolder" type="button">${ICON.folder}Mở thư mục ảnh</button>` : ''}
       ${p.sourceFile ? `<a class="btn btn-ghost" href="/${esc(p.sourceFile)}" target="_blank" rel="noopener">${ICON.doc}Bản dịch (.md)</a>` : ''}
     </div>`;
-  $('#head').querySelectorAll('.seg-btn').forEach((b) => {
-    b.onclick = () => {
-      state.format = b.dataset.format;
-      try { localStorage.setItem('gallery.format', state.format); } catch { /* bỏ qua */ }
-      renderHead();
-      renderGrid();
-    };
-  });
   if (!state.live) return;
-  const sq = squareMode() ? { format: 'square' } : {};
-  $('#btnZip').onclick = (e) => downloadFrom(`/api/render-all?${apiQuery(sq)}`, `toc-chien-${p.id}${sq.format ? '-1x1' : ''}.zip`, e.currentTarget);
   $('#btnFolder').onclick = async () => {
-    const res = await fetch(`/api/open-folder?${apiQuery(sq)}`).catch(() => null);
+    const res = await fetch(`/api/open-folder?${new URLSearchParams({ patch: p.id })}`).catch(() => null);
     if (!res?.ok) toast('Không mở được thư mục.', 'err');
   };
 }
@@ -213,7 +157,7 @@ function renderTabs() {
 }
 
 // ---------- lưới ảnh ----------
-// Thu ảnh cho vừa ô xem trước 16:9; ảnh bìa (khổ dọc) thu theo chiều cao và đặt giữa ô.
+// Thu ảnh cho vừa ô xem trước (16:9, bộ build: ô vuông); ảnh khác khổ với ô (vd ảnh bìa dọc) thu theo chiều cao và đặt giữa ô.
 function fitPreview(preview) {
   const frame = preview.querySelector('iframe');
   const w = parseFloat(frame.style.width), h = parseFloat(frame.style.height);
@@ -227,11 +171,11 @@ function renderGrid() {
   const p = state.current;
   const slides = visibleSlides();
   scaleObserver.disconnect();
-  $('#grid').classList.toggle('is-square', squareMode());
+  $('#grid').classList.toggle('is-square', p.slides.some(isSquare));
   $('#grid').innerHTML = slides
     .map((s) => `<article class="card" data-id="${esc(s.id)}">
       <button class="card-preview" type="button" aria-label="Xem lớn ${esc(s.label)}">
-        <iframe src="${slideUrl(p.id, s)}" loading="lazy" tabindex="-1" title="${esc(s.label)}" style="width:${canvasOf(s, state.format).width}px;height:${canvasOf(s, state.format).height}px"></iframe>
+        <iframe src="${slideUrl(p.id, s)}" loading="lazy" tabindex="-1" title="${esc(s.label)}" style="width:${canvasOf(s).width}px;height:${canvasOf(s).height}px"></iframe>
         <span class="card-zoom">${ICON.expand}Xem lớn</span>
       </button>
       <div class="card-body">
@@ -245,10 +189,6 @@ function renderGrid() {
             </span>
           </div>
         </div>
-        <div class="card-actions">
-          <a class="btn btn-icon" href="${slideUrl(p.id, s)}" target="_blank" rel="noopener" aria-label="Mở ${esc(s.label)} ở tab mới" title="Mở tab mới">${ICON.external}</a>
-          ${state.live ? `<button class="btn btn-primary btn-sm" type="button" data-download>${ICON.download}Tải PNG</button>` : ''}
-        </div>
       </div>
     </article>`)
     .join('') || '<p class="empty">Không có ảnh nào trong mục này.</p>';
@@ -258,15 +198,13 @@ function renderGrid() {
     fitPreview(card.querySelector('.card-preview'));
     scaleObserver.observe(card.querySelector('.card-preview'));
     card.querySelector('.card-preview').onclick = () => openLightbox(visibleSlides().indexOf(slide));
-    const download = card.querySelector('[data-download]');
-    if (download) download.onclick = (e) => downloadSlide(slide, e.currentTarget);
   });
 }
 
 // ---------- xem lớn ----------
 function fitLightbox() {
   const stage = $('#lbStage');
-  const { width, height } = canvasOf(visibleSlides()[state.lbIndex], state.format);
+  const { width, height } = canvasOf(visibleSlides()[state.lbIndex]);
   const s = Math.min(stage.clientWidth / width, stage.clientHeight / height);
   const frame = $('#lbFrame');
   frame.style.width = `${width}px`;
@@ -301,7 +239,6 @@ function closeLightbox() {
 $('#lbClose').onclick = closeLightbox;
 $('#lbPrev').onclick = () => openLightbox(state.lbIndex - 1);
 $('#lbNext').onclick = () => openLightbox(state.lbIndex + 1);
-$('#lbDownload').onclick = (e) => downloadSlide(visibleSlides()[state.lbIndex], e.currentTarget);
 $('#lightbox').addEventListener('click', (e) => { if (e.target.id === 'lightbox') closeLightbox(); });
 window.addEventListener('resize', () => { if (!$('#lightbox').hidden) fitLightbox(); });
 document.addEventListener('keydown', (e) => {
@@ -318,7 +255,7 @@ async function fetchJSON(url) {
   return res?.ok && res.headers.get('Content-Type')?.includes('json') ? res.json() : null;
 }
 
-// Chạy local: lấy từ server, xuất được ảnh. Bản web tĩnh (npm run build): đọc patches/index.json, chỉ xem.
+// Chạy local: lấy từ server (có nút mở thư mục ảnh). Bản web tĩnh (npm run build): đọc patches/index.json, chỉ xem.
 async function load() {
   const live = await fetchJSON('/api/patches');
   const patches = live ?? (await fetchJSON('/patches/index.json'));
@@ -326,7 +263,6 @@ async function load() {
   if (!patches) return;
   state.patches = patches;
   state.live = !!live;
-  $('#lbDownload').hidden = !state.live;
   selectFromHash();
 }
 

@@ -1,14 +1,14 @@
-// Server local: phục vụ trang quản lý + xuất ảnh PNG / ZIP.
+// Server local: phục vụ trang quản lý (xem trước) + xuất ảnh PNG vào thư mục out/ của bộ ảnh.
 //
 //   node scripts/server.mjs          → http://localhost:5173
 //   node scripts/server.mjs --open   → tự mở trình duyệt
 //
-// API (ảnh 3840×2160; thêm &format=square cho bản vuông 2160×2160 của ảnh build, lưu ở out/1x1/):
-//   GET /api/patches                         danh sách bộ ảnh (bản cập nhật + tier list) + danh sách ảnh
-//   GET /api/render?patch=7.3a&slide=samira  ảnh PNG (thêm &download=1 để tải về)
-//   GET /api/render-all?patch=7.3a           toàn bộ ảnh của bộ ảnh trong 1 file .zip
-// patch = id bộ ảnh: 7.3a (patches/7.3a/) hoặc tier-2026-09-30 (tierlists/tier-2026-09-30/).
-// Ảnh xuất ra cũng được lưu vào thư mục out/ của bộ ảnh.
+// API:
+//   GET /api/patches                         danh sách bộ ảnh (bản cập nhật + tier list + build) + danh sách ảnh
+//   GET /api/render?patch=7.3a&slide=samira  vẽ 1 ảnh PNG và lưu vào out/ (scripts/render.mjs gọi API này)
+//   GET /api/open-folder?patch=7.3a          mở thư mục out/ của bộ ảnh bằng File Explorer
+// patch = id bộ ảnh: 7.3a (patches/7.3a/), tier-2026-09-30 (tierlists/…) hoặc build-2026-10-02-mid (builds/…).
+// Cỡ ảnh theo loại ảnh — xem src/js/lib/output.js (16:9 3840×2160 · build vuông 2160×2160 · thumbnail dọc 2160×2880).
 
 import http from 'node:http';
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
@@ -16,12 +16,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { exec } from 'node:child_process';
 import { renderSlide, closeBrowser } from './lib/renderer.mjs';
-import { createZip } from './lib/zip.mjs';
 import { readJSON, listCollections } from './lib/patches.mjs';
 import { collectionFile } from '../src/js/lib/collections.js';
-import { outDir, removeStale } from './lib/outdir.mjs';
+import { outDir } from './lib/outdir.mjs';
 import { API_VERSION } from './lib/ensure-server.mjs';
-import { fileName, formatOf, hasSquare } from '../src/js/lib/output.js';
+import { fileName } from '../src/js/lib/output.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT ?? 5173);
@@ -34,15 +33,13 @@ const MIME = {
   '.woff2': 'font/woff2', '.ico': 'image/x-icon',
 };
 
-// format 'square' → bản vuông 1:1 (chỉ loại ảnh có bản vuông; loại khác vẫn xuất 16:9), lưu ở out/1x1/
-async function renderAndSave(patchId, slideId, formatArg) {
+async function renderAndSave(patchId, slideId) {
   const patch = await readJSON(collectionFile(patchId));
   const index = patch.slides.findIndex((s) => s.id === slideId);
   if (index < 0) throw Object.assign(new Error(`Không có ảnh "${slideId}"`), { status: 404 });
-  const format = formatOf(patch.slides[index], formatArg);
-  const { png, warnings } = await renderSlide(ORIGIN, patchId, slideId, format);
-  const name = fileName(patchId, index, slideId, format);
-  const dir = outDir(patchId, format);
+  const { png, warnings } = await renderSlide(ORIGIN, patchId, slideId);
+  const name = fileName(patchId, index, slideId);
+  const dir = outDir(patchId);
   await mkdir(dir, { recursive: true });
   await writeFile(path.join(dir, name), png);
   if (warnings.length) console.warn(`  ⚠ ${name}:\n    ${warnings.join('\n    ')}`);
@@ -54,7 +51,6 @@ function send(res, status, body, headers = {}) {
   res.end(body);
 }
 const sendJSON = (res, status, data) => send(res, status, JSON.stringify(data), { 'Content-Type': MIME['.json'] });
-const attachment = (name) => `attachment; filename="${name}"; filename*=UTF-8''${encodeURIComponent(name)}`;
 
 async function handleApi(url, res) {
   const q = url.searchParams;
@@ -68,29 +64,13 @@ async function handleApi(url, res) {
       return sendJSON(res, 200, await listCollections());
     case '/api/render': {
       const t = Date.now();
-      const { name, png, warnings } = await renderAndSave(patchId, q.get('slide') ?? '', q.get('format'));
+      const { name, png, warnings } = await renderAndSave(patchId, q.get('slide') ?? '');
       console.log(`✔ ${name} (${Date.now() - t}ms)`);
-      const headers = { 'Content-Type': 'image/png', 'X-Warnings': encodeURIComponent(warnings.join(' | ')) };
-      if (q.get('download')) headers['Content-Disposition'] = attachment(name);
-      return send(res, 200, png, headers);
-    }
-    case '/api/render-all': {
-      const patch = await readJSON(collectionFile(patchId));
-      // format=square: chỉ các ảnh có bản vuông
-      const square = q.get('format') === 'square';
-      const files = [];
-      for (const s of patch.slides.filter((x) => !square || hasSquare(x))) {
-        const { name, png } = await renderAndSave(patchId, s.id, square ? 'square' : 'wide');
-        console.log(`✔ ${name}`);
-        files.push({ name, data: png });
-      }
-      await removeStale(patchId, files.map((f) => f.name), square ? 'square' : 'wide');
-      const zipName = `toc-chien-${patchId}${square ? '-1x1' : ''}.zip`;
-      return send(res, 200, createZip(files), { 'Content-Type': 'application/zip', 'Content-Disposition': attachment(zipName) });
+      return send(res, 200, png, { 'Content-Type': 'image/png', 'X-Warnings': encodeURIComponent(warnings.join(' | ')) });
     }
     case '/api/open-folder': {
       // mở thư mục ảnh đã xuất bằng File Explorer (chỉ dùng trên máy local)
-      const dir = outDir(patchId, q.get('format'));
+      const dir = outDir(patchId);
       await mkdir(dir, { recursive: true });
       exec(`explorer "${dir}"`);
       return sendJSON(res, 200, { ok: true, api: API_VERSION });

@@ -1,18 +1,21 @@
 ---
 name: tao-build
-description: Tạo ảnh BUILD CAO THỦ 16:9 (3840×2160) cho một tướng Tốc Chiến trong dự án meta-wildrift (kênh META RADAR) từ ảnh chụp build của cao thủ trên bảng xếp hạng Tốc Chiến Trung Quốc mà người dùng gửi (popup "<tên tướng> 主模式" có 技能 / 符文 / 装备, nút 应用, tên cao thủ + 排位). Tự nhận diện trang bị, ngọc, phép bổ trợ bằng cách so icon; xếp build theo hạng cao thủ; gom vào BỘ BUILD theo ngày + vai trò (builds/build-<ngày>-<adc|top|jungle|mid|sp>/build.json, mỗi tướng 1 ảnh); tự tải tướng/trang bị còn thiếu; đồng bộ giày ở ô 6; đặt tên 3 build theo tình huống (hợp đội hình nào, khắc chế đối thủ nào); chọn 3 tướng mạnh khi gặp, 3 tướng yếu khi gặp, 3 tướng hợp; lưu tooltip trang bị; kiểm tra và xuất PNG. Dùng skill này khi người dùng gửi ảnh build / ảnh lên đồ / ảnh ngọc của tướng (kể cả nhiều tướng một lúc), ảnh tooltip trang bị, hoặc nói "làm build", "build tướng X", "lên đồ X", "build cao thủ", "build tướng hot".
+description: Tạo ảnh BUILD CAO THỦ khổ vuông 1:1 (2160×2160) cho một tướng Tốc Chiến trong dự án meta-wildrift (kênh META RADAR) từ ảnh chụp build của cao thủ trên bảng xếp hạng Tốc Chiến Trung Quốc mà người dùng gửi (popup "<tên tướng> 主模式" có 技能 / 符文 / 装备, nút 应用, tên cao thủ + 排位). Tự nhận diện trang bị, ngọc, phép bổ trợ bằng cách so icon; xếp build theo hạng cao thủ; gom vào BỘ BUILD theo ngày + vai trò (builds/build-<ngày>-<adc|top|jungle|mid|sp>/build.json, mỗi tướng 1 ảnh); tự tải tướng/trang bị còn thiếu; đồng bộ giày ở ô 6; đặt tên 3 build theo tình huống (hợp đội hình nào, khắc chế đối thủ nào); chọn 3 tướng mạnh khi gặp, 3 tướng yếu khi gặp, 3 tướng hợp; lưu tooltip trang bị; kiểm tra và xuất PNG. Dùng skill này khi người dùng gửi ảnh build / ảnh lên đồ / ảnh ngọc của tướng (kể cả nhiều tướng một lúc), ảnh tooltip trang bị, hoặc nói "làm build", "build tướng X", "lên đồ X", "build cao thủ", "build tướng hot".
 ---
 
 # Tạo ảnh Build cao thủ
 
-Mẫu ảnh đã được người dùng duyệt (`src/js/slides/build.js`, `src/css/slide-build.css`). Ví dụ hoàn chỉnh: `builds/build-2026-10-01-adc/` (6 xạ thủ: Ashe, Samira, Tristana, Senna, Yunara, Kalista).
+Mẫu ảnh đã được người dùng duyệt (`src/js/slides/build.js`, `src/css/slide-build.css`). Ví dụ hoàn chỉnh: `builds/build-2026-10-01-adc/` (6 xạ thủ: Ashe, Samira, Tristana, Senna, Yunara, Kalista), `builds/build-2026-10-02-mid/` (12 tướng, 2 ảnh tổng quan + thumbnail).
+
+**Ảnh build chỉ có khổ VUÔNG 1:1** — khung 1080×1080, xuất 2160×2160 (người dùng chốt 02/10/2026: hợp bài đăng TikTok / Facebook; bản 16:9 đã xoá khỏi code, đừng làm lại). Ngoại lệ duy nhất: ảnh thumbnail dọc 3:4.
 
 **Bộ build = 1 ngày + 1 vai trò** (ADC, TOP, RỪNG, MID, SP): mỗi bộ là 1 mục con trên trang quản lý (vd "01/10 · Build ADC"), gồm **1 ảnh tổng quan** (tự tạo, đứng đầu) rồi mỗi tướng 1 ảnh.
-- **Ảnh tổng quan** (`build-overview`, đã duyệt): "BUILD ADC" + `headline`; mỗi tướng 1 cột gồm ảnh tướng, bậc + %, BUFF/NERF, 3 món cốt lõi (tự tính: món có trong nhiều build nhất, không tính giày), ngọc chính, giày, 3 avatar "mạnh khi đối đầu với" (lấy từ `matchups.strong`). Vừa nhất ≤ 6 tướng. Khi bộ đủ tướng, viết `headline` ở gốc `build.json`: 3 cụm ngắn nối bằng ` · `, vd "6 xạ thủ đáng chơi · 3 build mỗi tướng · Theo cao thủ Trung Quốc". Người dùng muốn vậy để menu không dài ("hôm nay ADC, mai TOP"). Ảnh gốc của từng tướng nằm ở `source/<tướng>/`.
+- **Ảnh tổng quan** (`build-overview`, đã duyệt): "BUILD ADC" + `headline`; lưới 3×2 thẻ, mỗi tướng 1 thẻ gồm ảnh tướng lớn, bậc + %, BUFF/NERF, tên, **CỐT LÕI** (3 món, tự tính: món có trong nhiều build nhất, không tính giày) và **MẠNH KHI GẶP** (3 avatar lấy từ `matchups.strong`). **Không** hiện ngọc · giày (người dùng bỏ để ảnh tướng hiện nhiều hơn). 6 tướng / ảnh. Khi bộ đủ tướng, viết `headline` ở gốc `build.json`: 3 cụm ngắn nối bằng ` · `, vd "6 xạ thủ đáng chơi · 3 build mỗi tướng · Theo cao thủ Trung Quốc". Người dùng muốn vậy để menu không dài ("hôm nay ADC, mai TOP"). Ảnh gốc của từng tướng nằm ở `source/<tướng>/`.
 
-Mỗi tướng có **1 ảnh**:
-- **Bên trái:** ảnh tướng, đường, bậc trong tier list, và 3 nhóm avatar MẠNH khi gặp · YẾU khi gặp · HỢP với… (mỗi nhóm 3 tướng).
-- **Bên phải:** BUILD 1/2/3. Mỗi build gồm tên build, phần HỢP / KHẮC CHẾ, 6 icon trang bị theo thứ tự (giày luôn ở ô 6), ngọc chính và 4 ngọc phụ.
+Mỗi tướng có **1 ảnh** (từ trên xuống):
+- **Dải ảnh tướng:** ảnh tướng (mặt lệch phải), góc trái là nhãn đường · bậc + % thắng · BUFF/NERF và tên tướng.
+- **Đối đầu:** 3 nhóm avatar nằm ngang MẠNH khi gặp · YẾU khi gặp · HỢP với… (mỗi nhóm 3 tướng).
+- **BUILD 1/2/3** xếp hàng. Mỗi build gồm tên build, phần HỢP / KHẮC CHẾ, 6 icon trang bị theo thứ tự (giày luôn ở ô 6), ngọc chính và 4 ngọc phụ.
 
 Việc của bạn:
 1. Đọc đúng build bằng script.
@@ -66,7 +69,7 @@ node scripts/champ-build.mjs new <tên tướng tiếng Trung> <yyyy-mm-dd> top<
 - **Ảnh nằm trong thư mục** (người dùng nói "xem N ảnh mới nhất trong Downloads"): chép N ảnh mới nhất ra thư mục tạm, ghép ảnh thu nhỏ kèm phần tên tướng + 排位 phóng to (12 ảnh / tấm) để phân loại nhanh ảnh build / tooltip theo tướng, rồi chạy `new` từng tướng.
 - **Bộ nhiều hơn 6 tướng**: script tự thêm ảnh tổng quan `overview-2`… (mỗi ảnh 6 tướng theo thứ tự `champions`, có nhãn "PHẦN 1/2"). Đổi thứ tự tướng: `node scripts/champ-build.mjs order <id> <slug> <slug> …`.
 - **Trang vi-vn lỗi 404** dù tướng có trong danh sách (vd Aurora): `fetch-champion.mjs` tự lấy trang tiếng Anh (ghi `pageLocale`); ảnh build chỉ cần tên + splash nên vẫn làm được, báo người dùng. Trang vi-vn ghi sai tên (Vladimir = "ĐỎ") → thêm vào `NAME_FIX` trong `fetch-champion.mjs`.
-- **Tướng chưa đo khuôn mặt** (script nhắc): ảnh nền bên trái cắt theo khuôn mặt, nên đo:
+- **Tướng chưa đo khuôn mặt** (script nhắc): dải ảnh tướng, thẻ tổng quan và avatar đều cắt theo khuôn mặt, nên đo:
   ```bash
   node scripts/splash-grid.mjs <slug>                  # mở review/splash-<slug>.png, đọc tâm khuôn mặt
   node scripts/splash-grid.mjs <slug> --face=<x>,<y>
@@ -99,18 +102,19 @@ Người dùng không muốn ảnh giải thích trang bị, nhưng **giữ dữ
 
 ### 6. Kiểm tra, xuất ảnh, báo cáo
 ```bash
-node scripts/audit.mjs build-<yyyy-mm-dd>-<vai trò> [--sheet]     # cả bộ: dữ liệu + bố cục từng ảnh ở CẢ HAI khổ (16:9 và vuông "· 1:1")
-node scripts/render.mjs build-<yyyy-mm-dd>-<vai trò> [tướng…]       # 16:9 3840×2160 → out/ · vuông 2160×2160 → out/1x1/ (chỉ tướng vừa thêm: ghi slug; --square / --wide: chỉ một khổ)
+node scripts/audit.mjs build-<yyyy-mm-dd>-<vai trò> [--sheet]     # cả bộ: dữ liệu + bố cục từng ảnh (--sheet: thêm review/<id>-tong-hop.png)
+node scripts/render.mjs build-<yyyy-mm-dd>-<vai trò> [ảnh…]         # 2160×2160 → builds/<id>/out/ (chỉ tướng vừa thêm: ghi slug)
 ```
-- **Mỗi ảnh build có 2 khổ**: 16:9 và **vuông 1:1** (người dùng đăng TikTok / Facebook bằng bản vuông). Thêm / sửa tướng xong phải soát và gửi **cả bản vuông** (`out/1x1/…-1x1.png`); `--sheet` tạo thêm `review/<id>-1x1-tong-hop.png`. Thêm tướng mới nhớ xuất lại ảnh tổng quan ở cả hai khổ.
+- Thêm tướng mới (hoặc đổi build làm đổi món cốt lõi / đổi 3 tướng "mạnh khi gặp") thì xuất lại cả ảnh tổng quan chứa tướng đó (`overview`, `overview-2`…).
+- **Trang quản lý chỉ để xem** (không còn nút tải PNG / ZIP / mở tab mới — người dùng bỏ 02/10/2026): ảnh người dùng đem đăng là file trong `builds/<id>/out/`, nên sửa gì xong cũng phải chạy `render.mjs`.
 - Sửa hết `✘`: hay gặp thiếu `title` / `team` / `enemy`, matchups chưa đủ 3, chữ tràn.
 - **Mở ảnh trong `builds/<id>/out/` bằng Read** để soát:
-  - khuôn mặt;
+  - dải ảnh trên cùng: đúng tướng, thấy mặt, tên không che mặt;
   - chữ thanh trên đọc được;
   - giày ở ô 6;
   - đúng thứ tự build.
 
-  Ảnh tổng hợp `--sheet` không cần cho build (chỉ 1 ảnh).
+  Ảnh tổng hợp `--sheet` chỉ cần khi làm / soát cả bộ.
 - Script in "⚠ Server ở cổng 5173 đang chạy code cũ" thì vẫn chạy bình thường; chỉ cần nhắc người dùng tắt `start.bat` rồi mở lại.
 - **Báo cáo ngắn**, gồm:
   - 3 build (hạng · tên · món đầu);
@@ -119,33 +123,33 @@ node scripts/render.mjs build-<yyyy-mm-dd>-<vai trò> [tướng…]       # 16:9
   - trang bị / tướng mới tải, tên tạm dịch cần xác nhận;
   - món đã lưu `summary`.
 
-  Gửi ảnh xuất. Trên trang quản lý: mục **Build** → Làm mới. Không commit/push trừ khi được yêu cầu.
+  Gửi ảnh xuất. Trên trang quản lý: mục **Build** → Làm mới (xem trước) · **Mở thư mục ảnh** (file PNG). Không commit/push trừ khi được yêu cầu.
 
 ## Ảnh thumbnail (ảnh bìa clip TikTok) của bộ
 Người dùng xin "ảnh thumbnail" cho bài đăng của bộ → thêm vào **cuối** `slides` trong `build.json`:
 ```json
 { "id": "thumbnail", "type": "build-cover", "title": "Thumbnail", "headline": "3 build mỗi tướng · Lên đồ + ngọc · Khắc chế" }
 ```
-- **Khổ dọc 3:4, xuất 2160×2880** (khung 1080×1440, `COVER_CANVAS` trong `src/js/lib/output.js`) — đúng tỉ lệ ô ảnh trên lưới trang cá nhân TikTok. Người dùng đã chốt: lần đầu làm 16:9 thì ô trên lưới bị cắt mất hai bên ("nhầm kích thước rồi"). Đây là ngoại lệ duy nhất của quy tắc "chỉ 16:9".
+- **Khổ dọc 3:4, xuất 2160×2880** (khung 1080×1440, `COVER_CANVAS` trong `src/js/lib/output.js`) — đúng tỉ lệ ô ảnh trên lưới trang cá nhân TikTok. Người dùng đã chốt: lần đầu làm 16:9 thì ô trên lưới bị cắt mất hai bên ("nhầm kích thước rồi"). Đây là ảnh duy nhất trong bộ build không vuông.
 - Mẫu `build-cover` (`renderBuildCover`): nửa đầu bộ là khối ảnh tướng cắt xéo phía trên (2 hàng × 3), nửa sau phía dưới, giữa là dải tiêu đề: thương hiệu + ngày + bản, "BUILD <vai trò>" thật to, nhãn vàng "<N> TƯỚNG", "<số build> BUILD / CAO THỦ TRUNG QUỐC" (`tagline` để đổi), dòng chữ chạy (`headline` của ảnh bìa, tổng ≤ ~45 ký tự; không ghi thì lấy `headline` của bộ).
 - Xuất: `render.mjs <id> thumbnail`. Ảnh bìa không có chân ảnh và **không tính vào số trang** "NN / tổng" của các ảnh khác; để cuối `slides` thì tên file các ảnh khác không đổi số.
 
-## Khổ vuông 1:1 (đã chốt 02/10/2026)
-Mẫu `src/js/slides/build-square.js` + `src/css/slide-build-square.css` (khung 1080×1080), xem bằng `slide.html?…&format=square`. Người dùng chọn sau khi xem 7 mẫu — không phải bản 16:9 thu lại:
+## Bố cục khổ vuông (đã chốt 02/10/2026)
+Mẫu `renderBuild` / `renderBuildOverview` trong `src/js/slides/build.js` + `src/css/slide-build.css` (khung 1080×1080), xem bằng `slide.html?patch=<id>&slide=<ảnh>`. Người dùng chọn sau khi xem 7 mẫu ("không đơn thuần là responsive… đặt cái tâm vào"):
 - **Ảnh tướng:** dải ảnh tướng phía trên (nhãn + tên ở góc trái), 3 nhóm đối đầu nằm ngang, 3 build xếp hàng (6 trang bị + ngọc).
   - Mặt tướng nằm hẳn bên trái splash (vd Morgana — bên phải là Kayle) thì dải ảnh tự **lật ngang** để mặt sang phải; mặt nằm giữa thì tên tự co cho khỏi che mặt. Soát dải ảnh của tướng mới: đúng tướng, thấy mặt.
-- **Ảnh tổng quan:** lưới 3×2 thẻ đứng, ảnh tướng lớn + **CỐT LÕI** + **MẠNH KHI GẶP**. **Không** hiện ngọc · giày (người dùng bỏ để ảnh tướng hiện nhiều hơn). Nhãn "CỐT LÕI": 2 chữ cùng một kiểu.
-- Bản 16:9 của ảnh tổng quan vẫn giữ hàng ngọc · giày như đã duyệt.
+- **Ảnh tổng quan:** lưới 3×2 thẻ đứng, ảnh tướng lớn + **CỐT LÕI** + **MẠNH KHI GẶP**. **Không** hiện ngọc · giày. Nhãn "CỐT LÕI": 2 chữ cùng một kiểu.
+- `audit.mjs` soát riêng cho khung vuông (`checkSquare`): tràn ngang / dọc, icon lọt khỏi thẻ, khối đè thanh trên / chân ảnh / đè nhau, chữ co dưới 13px.
 
 ## Thiết kế đã chốt — đừng đổi
 - Nhãn **BUILD 1/2/3** (không ghi "Top N cao thủ").
-- Bên trái không có dòng "3 build của top cao thủ…", bảng ngọc hay ô CHỐT.
+- Không có dòng "3 build của top cao thủ…", bảng chú thích ngọc hay ô CHỐT.
 - Hàng build chỉ có icon trang bị (không tên, không nhãn MỚI) + ngọc. Không hiện phép bổ trợ (vẫn lưu trong dữ liệu).
 - **Mọi ngọc đều có viền màu của build** (build 1 xanh, 2 vàng, 3 tím) — không chỉ viền ngọc khác build 1 như trước; người dùng: "tô thì tô hết".
 - **Giày luôn ở ô 6, và cùng một đôi ở cả 3 build.**
 - Đầu thẻ build chia 40% tên build / 60% HỢP + KHẮC CHẾ, thẳng cột giữa 3 thẻ.
-- Bên trái: 3 nhóm avatar × 3 tướng, chỉ có avatar.
+- Đối đầu: 3 nhóm avatar × 3 tướng, chỉ có avatar (không tên).
 - Nhãn trên tên tướng: đường · bậc + % thắng (chỉ khi tướng có trong tier list; không ghi chữ "thắng") · "▲ BUFF / ▼ NERF <bản>" (tự lấy từ bản cập nhật nếu tướng có thay đổi). Tướng chưa vào tier list (vd vừa buff, tỉ lệ thắng còn thấp) thì chỉ có nhãn đường + BUFF/NERF.
-- Ảnh giải thích trang bị (`build-items`) có sẵn trong code nhưng không đưa vào bộ ảnh.
+- Không làm ảnh giải thích trang bị (người dùng không muốn); chỉ lưu `summary` trong `data/items` để dành.
 
 Muốn đổi thiết kế → hỏi người dùng, so pixel như skill **kiem-tra-anh-patch**.

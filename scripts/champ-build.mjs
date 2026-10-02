@@ -426,7 +426,7 @@ async function cmdNew(args) {
   console.log(`  đường    = ${lane} · vai trò ${ROLES[role].name}${opt('lane') || roleArg ? '' : inLanes.length > 1 ? ` (tướng có ở ${inLanes.map((x) => x.lane).join(', ')} — chọn đường tỉ lệ chọn cao nhất; sai thì chạy lại với --role=…)` : ''}`);
   console.log(`  tierlist = ${out.tierlist ?? '—'}${inLanes.some((x) => x.lane === lane) ? '' : ' (tướng không có ở T0–T1 đường này → không hiện bậc)'}`);
   console.log(`  patch    = ${out.patch ?? '—'}`);
-  if (!champ.layout?.face) console.log(`  ⚠ ${slug} chưa đo khuôn mặt → splash-grid.mjs ${slug} rồi --face=x,y (ảnh nền bên trái cắt theo khuôn mặt)`);
+  if (!champ.layout?.face) console.log(`  ⚠ ${slug} chưa đo khuôn mặt → splash-grid.mjs ${slug} rồi --face=x,y (dải ảnh tướng, thẻ tổng quan, avatar đều cắt theo khuôn mặt)`);
   console.log(`\nẢnh soát: review/build-read-${slug}.png · Tiếp theo: viết title/team/enemy + matchups của ${slug} trong builds/${id}/build.json (+ "headline" của ảnh tổng quan khi đủ tướng)`);
 }
 
